@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./Component/LandingPage/LandingPage";
 import "./App.css";
 import Login from "./Authentication/LoginPage/Login";
@@ -12,7 +12,7 @@ import SignOut from "./Authentication/SignOut/SignOut";
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/signout" element={<SignOut />} />
         <Route path="/verifypage/:token" element={<VerifyPage />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 };
 
