@@ -10,15 +10,19 @@
   height: 95%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 70px;
 }
 .Adminsidebarlogo{
   width: 100%;
   height: 20%;
+  /* padding-bottom: 50%; */
+  /* background-color: blue; */
 }
 .AdminLogo_SideBar{
   width: 200px;
-  height: 150px;
+  height: 180px;
+  /* margin-bottom: 40%; */
+  /* background-color: red; */
 }
 .AdminsidebarNav{
   width: 100%;
@@ -51,13 +55,21 @@ color: white;
 }
 .AdminSignOutDiv{
   width: 100%;
-  height: 20%;
+  height: 10%;
   cursor: pointer;
   display: flex;
   align-items: center;
   color: white;
-  margin-top: 20%;
-  margin-left: 5%;
+  margin-top: 50%;
+  padding-left: 5%;
+  /* margin-left: 5%; */
+  gap: 10px;
+}
+.AdminSignOutDiv:hover{
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0455B4;
 }
 
 /* @media screen and (max-width: 426px) {

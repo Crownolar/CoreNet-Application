@@ -4,6 +4,7 @@ import { BiTask } from "react-icons/bi";
 import { GoTasklist } from "react-icons/go";
 import { MdAddTask } from "react-icons/md";
 import { BsListTask } from "react-icons/bs";
+import { PiSignOut } from "react-icons/pi";
 // import coreNet from "./CORENETrem.png";
 import { useNavigate } from "react-router-dom";
 import "./AdminSidebar.css";
@@ -44,6 +45,7 @@ const AdminSidebar = () => {
             </div>
           </div>
           <div onClick={() => Nav("../signout")} className="AdminSignOutDiv">
+            <PiSignOut />
             <p>Sign Out</p>
           </div>
         </div>
