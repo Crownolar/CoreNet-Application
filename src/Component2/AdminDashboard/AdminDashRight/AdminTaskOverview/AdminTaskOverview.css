@@ -1,0 +1,87 @@
+.Admintaskoverview{
+    width: 100%;
+    height: 90vh;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.Admintaskassigner{
+    width: 100%;
+    height: 20%;
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.Admintaskassignerwrap{
+    width: 85%;
+    height: 90%;
+    /* background-color: rgb(0, 242, 255); */
+    display: flex;
+    justify-content: space-between;
+    
+}
+.Admintaskassigntext{
+    width: 59%;
+    height: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.Admintaskassigntext p{
+    color: green;
+    font-size: 18px;
+    justify-content: center;
+}
+.AdmintaskoverviewStatus{
+    width: 39%;
+    height: 100%;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    gap: 10px;
+}
+.Admintaskoverviewcolor1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+.Admintaskoverviewcolor2{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+.Admintaskoverviewcolor3{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}

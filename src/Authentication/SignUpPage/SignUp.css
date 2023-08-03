@@ -1,0 +1,132 @@
+.LoginPage{
+    width: 100%;
+    height: 100vh;
+    background-color: white ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignWrap{
+    width: 50%;
+    height: 95%;
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid green; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: relative;
+}
+
+.imag{
+    width: 100%;
+    height: 50%;
+    /* background-color: cadetblue; */
+}
+
+.imag img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* position: absolute; */
+}
+
+.SignIn{
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20%;
+    z-index: 500;
+    /* padding-top: 20%; */
+}
+
+.SignInWrap{
+    width: 50%;
+    height: 70%;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    right: 2%;
+}
+
+.signText{
+    width: 100%;
+    height: 20%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;    
+}
+
+.input{
+    width: 100%;
+    height: 80%;
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.EText{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.EText input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding-left: 30px;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.Show{
+    font-size: 30px;
+    color: #0455B4;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.EText1{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.EText1 button{
+    width: 100%;
+    height: 50px;
+    background-color: #0455B4;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}

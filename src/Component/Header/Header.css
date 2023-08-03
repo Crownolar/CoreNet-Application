@@ -1,0 +1,98 @@
+header{
+    width: 100%;
+    height: 15vh;
+    /* background-color: #151617; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerwrap{
+    width: 90%;
+    height: 100%;
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+/* #0455B4 */
+.Logo{
+    width: 15%;
+    height: 100%;
+    /* background-color: paleturquoise; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.Logo button {
+    width: 80%;
+    height: 80%;
+    border: none;background-color: #0455B4;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.centerNav{
+    width: 40%;
+    height: 80%;
+    /* background-color: gray; */
+}
+
+.centerNav ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.centerNav ul li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.usericons{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.user{
+    font-size: 20px;
+}
+
+.CTA{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.CTA button {
+    width: 80%;
+    height: 60%;
+    border: none;background-color: #0455B4;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.sidebarDiv{
+    display: none;
+}
+
+.ham{
+    display: none;
+}
+
+/* .useR{
+    display: none;
+}
+
+.close{
+    display: none;
+} */

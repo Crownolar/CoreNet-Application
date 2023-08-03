@@ -1,0 +1,26 @@
+.Admin_Mainbody{
+  width: 100%;
+  height: 100vh;
+}
+.Admin_MainBodyWrap{
+  width: 100%;
+  display: flex;
+}
+.Admin_Leftsidebar{
+  width: 20%;
+  height: 100vh;
+  background-color: #0455B4;
+}
+.Admin_Rightsidebar{
+  width:80%;
+  height: 100vh;
+  /* background-color: green; */
+}
+@media screen and (max-width: 426px){
+  .Admin_Leftsidebar{
+    display: none;
+  }
+  .Admin_Rightsidebar{
+    width: 100%;
+  }
+}

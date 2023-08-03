@@ -1,0 +1,39 @@
+.AdminDashCreateWriter{
+    width: 100%;
+    height: 90vh;
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.AdminDashCreateWriterwrap{
+    width: 50%;
+    height: 90%;
+    background-color: aliceblue; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AdminDashCreateWriterActionCenter{
+    width: inherit;
+    height: 40%;
+    border: 2px solid #0455B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.AdminCreateWriterAdd{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AdminCreateWriterAddIcon{
+    font-size: 70px;
+    color: #0455B4;
+    cursor: pointer;
+}

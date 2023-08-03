@@ -1,0 +1,47 @@
+.veifypage{
+    width: 100%;
+    height: 100vh;
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.verifypagewrap{
+    width: 50%;
+    height: 50%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.verificationpageaction{
+    width: 100%;
+    height: 50%;
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.verificationcontinue{
+    width: 100%;
+    height: 30%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.verificationcontinue button{
+    width: 80px;
+    height: 40px;
+    background-color: #0455B4;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+}

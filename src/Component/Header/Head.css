@@ -1,0 +1,231 @@
+@media screen and (max-width: 768px) {
+    header{
+        width: 100%;
+        height: 15vh;
+        /* background-color: #151617; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .headerwrap{
+        width: 90%;
+        height: 100%;
+        /* background-color: aliceblue; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    /* #0455B4 */
+    .Logo{
+        width: 20%;
+        height: 100%;
+        /* background-color: paleturquoise; */
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+    
+    .Logo button {
+        width: 90%;
+        height: 60%;
+        border: none;background-color: #0455B4;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    .centerNav{
+        width: 50%;
+        height: 80%;
+        /* background-color: gray; */
+    }
+    
+    .centerNav ul{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .centerNav ul li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+    
+    .usericons{
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+    
+    .user{
+        font-size: 20px;
+    }
+    
+    .CTA{
+        width: 15%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    .CTA button {
+        width: 90%;
+        height: 40%;
+        border: none;background-color: #0455B4;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    .sidebarDiv{
+        display: none;
+    }
+    
+    .ham{
+        display: none;
+    }
+    
+    /* .useR{
+        display: none;
+    }
+    
+    .close{
+        display: none;
+    } */
+    
+}
+
+@media screen and (max-width: 426px) {
+    header{
+        width: 100%;
+        height: 15vh;
+        /* background-color: #151617; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .headerwrap{
+        width: 90%;
+        height: 100%;
+        /* background-color: aliceblue; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ham{
+        display: block;
+        font-size: 30px;
+    }
+
+    .CTA{
+        width: 40%;
+        height: 100%;
+        /* background-color: black;  */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .Logo, .centerNav{
+        display: none;
+    }
+
+    .sidebarDiv{
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: whitesmoke;
+    z-index: 1900; /* Set a high z-index to ensure it overlays other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    }
+
+    .close{
+    width: 50px;
+    height: 50px;
+    /* background-color: red; */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    }
+
+    .contents{
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+    }
+
+    .useR{
+        width: 100%;
+        height: 25%;
+        color: #0455B4;
+        /* background-color: gray; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .useR p{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .closeicon{
+        width: 50px;
+        height: 50px;
+        color: #0455B4;
+    }
+
+    .aUser{
+        width: 100px;
+        height: 100px;
+    }
+
+    .centerNav1{
+        width: 100%;
+        height: 50%;
+        /* background-color: rgb(233, 241, 116); */
+        display: block;
+    }
+    
+    .centerNav1 ul{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .centerNav1 ul div {
+        width: 50%;
+        height: 20%;
+        background-color: #0455B4;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: white;
+    }
+}
+
+ 

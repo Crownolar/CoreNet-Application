@@ -1,0 +1,68 @@
+.Adminsidebar{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.AdminSide_Wrap{
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.Adminsidebarlogo{
+  width: 100%;
+  height: 20%;
+}
+.AdminLogo_SideBar{
+  width: 200px;
+  height: 150px;
+}
+.AdminsidebarNav{
+  width: 100%;
+  height: 80%;
+}
+.AdminsidebarNav_Wrap{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.Admintask{
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+color: white;
+/* background-color: red; */
+
+}
+.Admintask:hover{
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0455B4;
+}
+.AdminSignOutDiv{
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-top: 20%;
+  margin-left: 5%;
+}
+
+/* @media screen and (max-width: 426px) {
+  .Adminsidebar{
+    background-color: white;
+    color: #0455B4;
+  }
+} */
