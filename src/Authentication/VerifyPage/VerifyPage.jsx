@@ -10,9 +10,9 @@ const VerifyPage = (props) => {
     <div className="veifypage">
       <div className="verifypagewrap">
         <div className="verificationpageaction">
-          {verificationStatus === "user verified" ? (
+          
             <h3>Verification successful</h3>
-          ) : (
+         
             <>
               <p>A link was sent to you at the email address provided</p>
               <p>
@@ -20,7 +20,7 @@ const VerifyPage = (props) => {
                 process
               </p>
             </>
-          )}
+          
 
           <p>Click ok to continue</p>
         </div>
