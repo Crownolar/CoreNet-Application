@@ -41,7 +41,7 @@ const AdminDashRight = () => {
                <GoTasklist />
                <p>Task Assignment</p>
              </div>
-             <div className="Admintask" onClick={() => navigate("./adminpage/admincreatewriter")}>
+             <div className="Admintask" onClick={() => navigate("/adminpage/admincreatewriter")}>
                <MdAddTask />
                <p> Create writer</p>
              </div>
