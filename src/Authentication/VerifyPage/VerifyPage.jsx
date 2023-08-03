@@ -4,33 +4,7 @@ import axios from "axios";
 import {useLocation} from "react-router-dom"
 
 const VerifyPage = (props) => {
-  const [verificationStatus, setVerificationStatus] = useState("");
-
-
-  useEffect(() => {
-  const location = useLocation();
-    const searchParams = new URLSearchParams(props.location.search);
-    const token = searchParams.get("token");
-    if (token) {
-        verifyUser(token);
-    } else {
-        setVerificationStatus("Invalid token");
-    }
-}, [props.location.search]);
-
-const verifyUser = (token) => {
-    axios
-    .put(`https://corenet-api.onrender.com/api/verify-email/${token}`)
-        .then((res) => {
-            console.log(res);
-            setVerificationStatus("user verified");
-        })
-        .catch((err) => {
-            console.log("Error response:", err);
-            setVerificationStatus("error verifying user, try again");
-        });
-
-  };
+  
   
   return (
     <div className="veifypage">
