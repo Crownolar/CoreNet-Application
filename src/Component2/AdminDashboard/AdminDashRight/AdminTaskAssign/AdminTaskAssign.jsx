@@ -42,6 +42,7 @@ const AdminTaskAssign = () => {
               </button>
             </div>
           </div>
+          <div className="AdminTaskAssignoverallview">
           <div className="AdminTaskAssignedView">
             {items.map((val, index) => (
               <div key={index} className="AdminTaskAssignedViewWrap">
@@ -54,6 +55,7 @@ const AdminTaskAssign = () => {
                 </div>
               </div>
             ))}
+          </div>
           </div>
           <div className="AdminTaskAssignSelect">
             <label htmlFor="writers">select writer:</label>

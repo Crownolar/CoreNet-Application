@@ -34,7 +34,7 @@ const SignOut = () => {
                 <h3>Are you sure you want to logout?</h3>
             </div>
             <div className='signupOption'>
-                <button className='signOptionCancel'>Cancel</button>
+                <button className='signOptionCancel' onClick={() => Nav("../signup")}>Cancel</button>
                 <button className='signOptionCancel1' onClick={SignOut}>Signout</button>
             </div>
         </div>

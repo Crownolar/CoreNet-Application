@@ -65,6 +65,42 @@ const SignUp = () => {
   };
 
   return (
+
+    // <div className="signup-form-container">
+    //     <h2>Sign Up</h2>
+    //     <form onSubmit={handleSubmit}>
+    //       <label>Full Name:</label>
+    //       <input
+    //         type="text"
+    //         value={FullName}
+    //         onChange={(e) => setFullName(e.target.value)}
+    //       />
+    //       <label>Username:</label>
+    //       <input
+    //         type="text"
+    //         value={UserName}
+    //         onChange={(e) => setUserName(e.target.value)}
+    //       />
+    //       <label>Email:</label>
+    //       <input
+    //         type="email"
+    //         value={Email}
+    //         onChange={(e) => setEmail(e.target.value)}
+    //       />
+    //       <label>Password:</label>
+    //       <input
+    //         type="password"
+    //         value={Password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //       />
+    //       <button type="submit" onClick={SignUp}>Sign Up</button>
+    //     </form>
+    //   </div>
+
+
+
+
+
     <div className="LoginPage">
       <div className="SignWrap">
         <div className="imag">
