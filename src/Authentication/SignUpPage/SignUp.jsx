@@ -1,31 +1,41 @@
 import React, { useContext, useState } from "react";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import bgImg from "../SignUpPage/SignImg.png";
 import "../SignUpPage/SignUpMedia.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
+import { updateFormData } from "../../Redux/ActionState/ActionState";
+import { userData } from "../../Redux/ActionState/ActionState"
 
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch()
   const Nav = useNavigate();
+  const formData = useSelector((state) => state.signup.formData);
   const {login_alert} = useContext(ThemeContext)
 
-  const [formData, setFormData] = useState({
-    FirstName: "",
-    Surname: "",
-    UserName: "",
-    Email: "",
-    Password: "",
-    CompanyName: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   FirstName: "",
+  //   Surname: "",
+  //   UserName: "",
+  //   Email: "",
+  //   Password: "",
+  //   CompanyName: "",
+  // });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    dispatch(updateFormData({[name]: value }))
+    // dispatch((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  // };
 
   
 
@@ -39,6 +49,7 @@ const SignUp = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        dispatch(userData(res.data.data))
         Nav("/login");
         login_alert()
         
@@ -49,6 +60,8 @@ const SignUp = () => {
           console.error('Response Data:', error.response.data);
         }
       });
+    // console.log(SignUp);
+
   };
 
   return (

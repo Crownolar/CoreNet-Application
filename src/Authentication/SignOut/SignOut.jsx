@@ -1,18 +1,26 @@
 import React from 'react'
 import "./SignOut.css"
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { SignoutAdmin } from '../../Redux/ActionState/ActionState'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const SignOut = () => {
-const id= useParams
+  const Nav = useNavigate()
+  const formDatasignin = useSelector((state) => state.signup.formDatasignin);
+
+  const dispatch = useDispatch()
     const SignOut = () => {
+      const EditorId = formDatasignin.editorId;
+      const url = `https://corenet-api.onrender.com/api/signout/:${EditorId}`
+      console.log(url)
         axios
-          .post(`https://corenet-api.onrender.com/api/signout/${id}`)
-          .then((response) => {
-            if (response.status === 200) {
-              Nav("/");
-            } else {
-              console.error("Failed to sign out");
-            }
+          .post(url)
+          .then((res) => {
+            console.log("Api res",res.data);
+            dispatch(SignoutAdmin())
+            Nav("/")
           })
           .catch((error) => {
             console.error("Error occurred during sign out", error);

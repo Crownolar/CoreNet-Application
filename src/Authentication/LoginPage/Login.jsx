@@ -6,21 +6,36 @@ import { useNavigate } from "react-router-dom";
 import "./Log.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
+import { useDispatch, useSelector } from "react-redux";
+import { userData } from "../../Redux/ActionState/ActionState";
+import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
 
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch()
   const Nav = useNavigate();
-const{verifyAlert} = useContext(ThemeContext)
-  const [formData, setFormData] = useState({
-    UserName: "",
-    Password: "",
-  });
+  const formDatasignin = useSelector((state) => state.signup.formDatasignin);
+  const {login_alert} = useContext(ThemeContext)
+  const{verifyAlert} = useContext(ThemeContext)
+  // const formData = useState({
+  //   UserName: "",
+  //   Password: "",
+  // });
+  // const [formData, setFormData] = useState({
+  //   UserName: "",
+  //   Password: "",
+  // });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    dispatch(updateFormDataSignin({[name]: value}))
+    //   }
   };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  // };
 
   const SignIn = (e) => {
     e.preventDefault();
@@ -28,10 +43,18 @@ const{verifyAlert} = useContext(ThemeContext)
     console.log(url);
 
     axios
-      .post(url, formData)
+      .post(url, formDatasignin)
       .then((res) => {
         console.log(res);
-        Nav("/adminpage");
+        dispatch(userData(res.data.data));
+        const userInfo = res.data.data
+        // if(userInfo.isVerified === true) {
+        //   Nav("/adminpage");
+        // }else{
+        //   login_alert()
+        // }
+          Nav("/adminpage");
+
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -64,7 +87,7 @@ const{verifyAlert} = useContext(ThemeContext)
                   type="email"
                   placeholder="Enter your UserName"
                   name="UserName"
-                  value={formData.UserName}
+                  value={formDatasignin.UserName}
                   onChange={handleChange}
                 />
               </div>
@@ -73,7 +96,7 @@ const{verifyAlert} = useContext(ThemeContext)
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your Password"
                   name="Password"
-                  value={formData.Password}
+                  value={formDatasignin.Password}
                   onChange={handleChange}
                 />
                 {showPassword ? (
