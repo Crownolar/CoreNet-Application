@@ -9,6 +9,7 @@ import { ThemeContext } from "../ContextApi/Contextapi";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../Redux/ActionState/ActionState";
 import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
+import { EditorID } from "../../Redux/ActionState/ActionState";
 
 
 const Login = () => {
@@ -44,10 +45,16 @@ const Login = () => {
 
     axios
       .post(url, formDatasignin)
-      .then((res) => {
+      .then(function(res){
         console.log(res);
-        dispatch(userData(res.data.data));
-        const userInfo = res.data.data
+        res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
+        dispatch(EditorID(res.data.data.editorId))
+        console.log(res.data.data.editorId);
+
+        const userInfo = res.data.data.editorId
+        // if(userInfo){
+
+        // }
         // if(userInfo.isVerified === true) {
         //   Nav("/adminpage");
         // }else{

@@ -12,9 +12,12 @@ import { PiSignOut } from "react-icons/pi";
 import AdminDashCreateWriter from "./AdminDashCreateWriter/AdminDashCreateWriter";
 import AdminAllWriter from "./AdminAllWriter/AdminAllWriter";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
+import { useSelector } from "react-redux";
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const navigate = useNavigate();
+  const User = useSelector((state) => state.signup.user)
+
 
   const MobileDropDown = (  
 
@@ -66,6 +69,8 @@ const AdminDashRight = () => {
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
           <p>Admin Name</p>
+          {!User ? (<h3>Welcome to Corenet</h3>) : null}
+          {User ? ( <h4>Welcome To CoreNet Collaborate Seamlessly</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
             {

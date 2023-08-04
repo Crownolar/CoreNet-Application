@@ -38,13 +38,14 @@
   gap: 30px;
 }
 .Admintask{
-  width: 90%;
+  width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   gap: 10px;
 color: white;
 /* background-color: red; */
+padding-left: 10px;
 
 }
 .Admintask:hover{

@@ -1,0 +1,62 @@
+.AdminAllWriter{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AdminAllWriterWrap{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.AdminAllWriterH1{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AdminAllWriterList{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    line-height: 30px;
+    border: 2px solid #0455B4;
+}
+.AdminAllWriterStatus{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AdminAllWriterIcon{
+    font-size: 50px;
+    color: #0455B4;
+}
+.AdminAllWriterInfo{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    text-align: left;
+}
+
+@media screen and (max-width: 426px) {
+    .AdminAllWriter{
+        width: 100%;
+        height: 90vh;
+        background-color: aliceblue;
+    }
+    .AdminAllWriterWrap{
+        gap: 30px;
+    }
+}
