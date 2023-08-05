@@ -209,7 +209,7 @@
     .AdminTaskAssignedViewWrap{
          width: 100%;
     height: 80%;
-    background-color: black;
+    /* background-color: black; */
     display: flex;
     align-items: center;
         /* background-color: black; */
