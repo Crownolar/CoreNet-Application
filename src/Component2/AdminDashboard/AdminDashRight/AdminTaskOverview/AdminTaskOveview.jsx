@@ -1,6 +1,8 @@
 import React from "react";
 import "../AdminTaskOverview/AdminTaskOverview.css";
 import "../AdminTaskOverview/AdminTaskOverviewMedia.css"
+import { Progress, Space } from 'antd';
+
 
 const AdminTaskOveview = () => {
   return (

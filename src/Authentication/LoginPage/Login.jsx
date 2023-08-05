@@ -9,6 +9,7 @@ import { ThemeContext } from "../ContextApi/Contextapi";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../Redux/ActionState/ActionState";
 import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
+import Loader from "../../Loader/Loader";
 // import { EditorID } from "../../Redux/ActionState/ActionState";
 
 
@@ -19,27 +20,16 @@ const Login = () => {
   const formDatasignin = useSelector((state) => state.signup.formDatasignin);
   const {login_alert} = useContext(ThemeContext)
   const{verifyAlert} = useContext(ThemeContext)
-  // const formData = useState({
-  //   UserName: "",
-  //   Password: "",
-  // });
-  // const [formData, setFormData] = useState({
-  //   UserName: "",
-  //   Password: "",
-  // });
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormDataSignin({[name]: value}))
-    //   }
   };
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  // };
 
   const SignIn = (e) => {
     e.preventDefault();
+    setLoading(true)
     const url = "https://corenet-api.onrender.com/api/login";
     console.log(url);
 
@@ -47,19 +37,8 @@ const Login = () => {
       .post(url, formDatasignin)
       .then(function(res){
         console.log(res);
+        setLoading(false)
         res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
-        // dispatch(EditorID(res.data.data.editorId))
-        // console.log(res.data.data.editorId);
-
-        // const userInfo = res.data.data.editorId
-        // if(userInfo){
-
-        // }
-        // if(userInfo.isVerified === true) {
-        //   Nav("/adminpage");
-        // }else{
-        //   login_alert()
-        // }
           Nav("/adminpage");
 
       })
@@ -123,7 +102,7 @@ const Login = () => {
                 <span>Not an Editor</span>
               </div>
               <div className="EText1">
-                <button onClick={SignIn}>Sign In</button>
+                <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
               </div>
               <div className="EText1">
                 <p>

@@ -10,12 +10,19 @@ const initialState = {
     Password: "",
     CompanyName: "",
   },
+  formDataWriter: {
+    FullName: "",
+    UserName: "",
+    Email: "",
+    Password: "",
+  },
   formDatasignin: {
     UserName: "",
     Password: "",
   },
   error: null,
   user: {},
+  writer: {},
   // editorid: {},
 //   signout:"",
 };
@@ -29,6 +36,12 @@ const signupSlice = createSlice({
         ...state.formData,
         ...payload,
       };
+    },
+    updateformDataWriter: (state, { payload }) => {
+      state.formDataWriter = {
+        ...state.formDataWriter,
+        ...payload,
+      }
     },
     updateFormDataSignin: (state, { payload }) => {
       state.formDatasignin = {
@@ -45,6 +58,9 @@ const signupSlice = createSlice({
     userData: (state, { payload }) => {
         state.user = payload
     },
+    updateWriter: (state, { payload }) => {
+      state.writer = payload
+    },
     SignoutAdmin: (state) => {
         state.user = [];
     },
@@ -58,5 +74,5 @@ const signupSlice = createSlice({
   },
 });
 
-export const { updateFormData, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin } = signupSlice.actions;
+export const { updateFormData, updateformDataWriter, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin, updateWriter } = signupSlice.actions;
 export default signupSlice.reducer;

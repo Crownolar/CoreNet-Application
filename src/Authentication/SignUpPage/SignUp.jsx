@@ -9,6 +9,7 @@ import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
 import { updateFormData } from "../../Redux/ActionState/ActionState";
 import { userData } from "../../Redux/ActionState/ActionState"
+import Loader from "../../Loader/Loader";
 
 
 const SignUp = () => {
@@ -16,32 +17,22 @@ const SignUp = () => {
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formData = useSelector((state) => state.signup.formData);
-  const {login_alert} = useContext(ThemeContext)
-
-  // const [formData, setFormData] = useState({
-  //   FirstName: "",
-  //   Surname: "",
-  //   UserName: "",
-  //   Email: "",
-  //   Password: "",
-  //   CompanyName: "",
-  // });
+  const {login_alert} = useContext(ThemeContext);
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormData({[name]: value }))
-    // dispatch((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  // };
+
+  
 
   
 
 
   const SignUp = (e) => {
     e.preventDefault();
+    setLoading(true)
     const url = "https://corenet-api.onrender.com/api/signup";
   console.log(url);
 
@@ -49,6 +40,7 @@ const SignUp = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        setLoading(false)
         dispatch(userData(res.data.data))
         Nav("/login");
         login_alert()
@@ -65,46 +57,10 @@ const SignUp = () => {
   };
 
   return (
-
-    // <div className="signup-form-container">
-    //     <h2>Sign Up</h2>
-    //     <form onSubmit={handleSubmit}>
-    //       <label>Full Name:</label>
-    //       <input
-    //         type="text"
-    //         value={FullName}
-    //         onChange={(e) => setFullName(e.target.value)}
-    //       />
-    //       <label>Username:</label>
-    //       <input
-    //         type="text"
-    //         value={UserName}
-    //         onChange={(e) => setUserName(e.target.value)}
-    //       />
-    //       <label>Email:</label>
-    //       <input
-    //         type="email"
-    //         value={Email}
-    //         onChange={(e) => setEmail(e.target.value)}
-    //       />
-    //       <label>Password:</label>
-    //       <input
-    //         type="password"
-    //         value={Password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //       />
-    //       <button type="submit" onClick={SignUp}>Sign Up</button>
-    //     </form>
-    //   </div>
-
-
-
-
-
     <div className="LoginPage">
       <div className="SignWrap">
         <div className="imag">
-          <img src='/SignImg' alt="" />
+          <img src='/SignImg.png' alt="" />
         </div>
         <div className="SignIn">
           <div className="SignInWrap">
@@ -174,7 +130,7 @@ const SignUp = () => {
                   onChange={handleChange}/>
               </div>
               <div className="EText1">
-                <button onClick={SignUp}>Sign Up</button>
+                <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
                 {/* <button onClick={() => Nav("../login")}>Sign Up</button> */}
               </div>
               <div className="EText1">

@@ -20,8 +20,7 @@ const AdminDashRight = () => {
   // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
   const User = useSelector((state) => state.signup.user);
-  
-
+  const UserName = User?.data?.data?.editorId
 
   const MobileDropDown = (  
 
@@ -65,14 +64,12 @@ const AdminDashRight = () => {
        </div>
      </div>
    ));
-  
-
 
   return (
     <div className="AdminDashRightMain">
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
-          <p>Admin Name</p>
+          {UserName}
           {/* {!User ? (<h3>Welcome to Corenet</h3>) : null}? */}
           {User ? ( <h4>Welcome To CoreNet</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
