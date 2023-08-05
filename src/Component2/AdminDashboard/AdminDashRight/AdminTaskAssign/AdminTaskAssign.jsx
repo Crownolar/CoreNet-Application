@@ -11,9 +11,10 @@ const AdminTaskAssign = () => {
     }
   };
 
-  const OnChange = (event) => {
-    setAdd(event.target.value);
+  const OnChange = (e) => {
+    setAdd(e.target.value);
   };
+  console.log(add);
 
   const Del = (index) => {
     const updatedItems = items.filter((_, i) => i !== index);
@@ -61,7 +62,7 @@ const AdminTaskAssign = () => {
             <label htmlFor="writers">select writer:</label>
             <select name="witer" id="writer">
               <optgroup label="Recent">
-                <option value="volvo">Oriade</option>
+                <option value="volvo">SULITON</option>
                 <option value="saab">Tijani Ezekiel</option>
               </optgroup>
               <optgroup label="Writer">

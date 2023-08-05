@@ -3,20 +3,24 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminTaskOveview from "./AdminTaskOverview/AdminTaskOveview";
 import AdminTaskAssign from "./AdminTaskAssign/AdminTaskAssign";
 import "./AdminDashRight.css";
-import { FaRegCircle } from "react-icons/fa6";
+// import { FaRegCircle } from "react-icons/fa6";
 import { BiTask } from "react-icons/bi";
 import { GoTasklist } from "react-icons/go";
 import { MdAddTask } from "react-icons/md";
 import { BsListTask } from "react-icons/bs";
 import { PiSignOut } from "react-icons/pi";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineClose } from "react-icons/ai";
 import AdminDashCreateWriter from "./AdminDashCreateWriter/AdminDashCreateWriter";
 import AdminAllWriter from "./AdminAllWriter/AdminAllWriter";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
 import { useSelector } from "react-redux";
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
+  // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
-  const User = useSelector((state) => state.signup.user)
+  const User = useSelector((state) => state.signup.user);
+  
 
 
   const MobileDropDown = (  
@@ -24,10 +28,10 @@ const AdminDashRight = () => {
     openSiderBar && (
      <div className="Adminsidebar_MobileView">
        <div className=".AdminSide_Wrap">
+         <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
          <div className="Adminsidebarlogo">
-           <img src="/CORENETrem.png" alt="" className="AdminLogo_SideBar" />
+           <img src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"} alt="" className="AdminLogo_SideBar" />
          </div>
-         <FaRegCircle className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
          <div className="AdminsidebarNav">
            <div className="AdminsidebarNav_Wrap">
              <div
@@ -69,21 +73,21 @@ const AdminDashRight = () => {
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
           <p>Admin Name</p>
-          {!User ? (<h3>Welcome to Corenet</h3>) : null}
-          {User ? ( <h4>Welcome To CoreNet Collaborate Seamlessly</h4>  ) : null}
+          {/* {!User ? (<h3>Welcome to Corenet</h3>) : null}? */}
+          {User ? ( <h4>Welcome To CoreNet</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
             {
             openSiderBar ? 
-              <FaRegCircle onClick={() => setOpenSideBar(!openSiderBar)} />
+              <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
              : 
-              <FaRegCircle onClick={() => setOpenSideBar(!openSiderBar)} />
+              <RxHamburgerMenu style={{fontSize: "25px"}} onClick={() => setOpenSideBar(!openSiderBar)} />
             }
              {openSiderBar && MobileDropDown}
           </div> 
         </div>
       </div>
-      <div className="AdminDashRightContent">
+      <div className="AdminDashRightContent" >
         <Routes>
           <Route path="/admintaskoverview" element={<AdminTaskOveview />} />
           <Route path="/admintaskassign" element={<AdminTaskAssign />} />
@@ -91,6 +95,7 @@ const AdminDashRight = () => {
           <Route path="/adminallwriter" element={<AdminAllWriter />} />
           {/* <Route path='/admincreatewriternextcontent' element={<AdminDashCreateWriterNextContent />} /> */}
         </Routes>
+        {/* <button onClick={(()=> console.log("clicked"))}>clicke me</button> */}
       </div>
     </div>
   );

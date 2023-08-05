@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Adminpage = () => {
   const User = useSelector((state) => state.signup.user)
+  const [blur, setBlur] = useState(false)
   // const dispatch = useDispatch()
 
 

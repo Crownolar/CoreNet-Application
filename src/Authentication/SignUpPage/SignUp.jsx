@@ -3,7 +3,7 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import bgImg from "../SignUpPage/SignImg.png";
+// import bgImg from "../SignUpPage/SignImg.png";
 import "../SignUpPage/SignUpMedia.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
@@ -104,12 +104,11 @@ const SignUp = () => {
     <div className="LoginPage">
       <div className="SignWrap">
         <div className="imag">
-          <img src={bgImg} alt="" />
+          <img src='/SignImg' alt="" />
         </div>
         <div className="SignIn">
           <div className="SignInWrap">
             <div className="signText">
-              <h1>Sign Up</h1>
               <p>Get Started with coreNet</p>
             </div>
             <div className="input">

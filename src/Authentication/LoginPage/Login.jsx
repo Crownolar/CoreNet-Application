@@ -9,7 +9,7 @@ import { ThemeContext } from "../ContextApi/Contextapi";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../Redux/ActionState/ActionState";
 import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
-import { EditorID } from "../../Redux/ActionState/ActionState";
+// import { EditorID } from "../../Redux/ActionState/ActionState";
 
 
 const Login = () => {
@@ -48,10 +48,10 @@ const Login = () => {
       .then(function(res){
         console.log(res);
         res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
-        dispatch(EditorID(res.data.data.editorId))
-        console.log(res.data.data.editorId);
+        // dispatch(EditorID(res.data.data.editorId))
+        // console.log(res.data.data.editorId);
 
-        const userInfo = res.data.data.editorId
+        // const userInfo = res.data.data.editorId
         // if(userInfo){
 
         // }

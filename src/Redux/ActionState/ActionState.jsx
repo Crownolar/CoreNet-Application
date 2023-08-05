@@ -16,7 +16,7 @@ const initialState = {
   },
   error: null,
   user: {},
-  editorid: {},
+  // editorid: {},
 //   signout:"",
 };
 
@@ -48,9 +48,9 @@ const signupSlice = createSlice({
     SignoutAdmin: (state) => {
         state.user = [];
     },
-    EditorID: (state) => {
-      state.user = null
-    },
+    // EditorID: (state) => {
+    //   state.user = null
+    // },
     clearUser: (state)=>{
       const clearAll= {}
       state.user= clearAll
@@ -58,5 +58,5 @@ const signupSlice = createSlice({
   },
 });
 
-export const { updateFormData, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin, EditorID } = signupSlice.actions;
+export const { updateFormData, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin } = signupSlice.actions;
 export default signupSlice.reducer;
