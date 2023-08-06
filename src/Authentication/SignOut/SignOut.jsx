@@ -14,6 +14,11 @@ const SignOut = () => {
   const dispatch = useDispatch()
     const SignOut = () => {
       setLoading(true)
+      if (!user || !user.editorId) {
+        console.error("User or user's editorId is missing!");
+        setLoading(false);
+        return;
+      }
       const url = `https://corenet-api.onrender.com/api/signout/${user?.editorId}`
       console.log(url)
         axios
