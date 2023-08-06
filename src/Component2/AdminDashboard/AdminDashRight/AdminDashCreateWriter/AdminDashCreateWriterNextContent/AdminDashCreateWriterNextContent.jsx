@@ -54,29 +54,30 @@ const AdminDashCreateWriterNextContent = () => {
       <div className="signup-form-container">
         <h2>Create New Writer</h2>
         <form>
-          <label>Full Name:</label>
+          {/* <label>Full Name:</label> */}
           <input
+          placeholder='Full Name'
             type="text"
             name="FirstName"
             value={formDataWriter.FirstName}
             onChange={handleChange}
           />
-          <label>Username:</label>
           <input
+          placeholder='Username'
             type="text"
             name="UserName"
             value={formDataWriter.UserName}
             onChange={handleChange}
           />
-          <label>Email:</label>
           <input
+          placeholder='Email'
             type="email"
             name="Email"
             value={formDataWriter.Email}
             onChange={handleChange}
           />
-          <label>Password:</label>
           <input
+          placeholder='Password'
             type="password"
             name="Password"
             value={formDataWriter.Password}

@@ -62,9 +62,9 @@ const UserLogin = () => {
                 <div className="EText">
                   <input
                     type="email"
-                    placeholder="Enter your UserName"
-                    name="UserName"
-                    value={formData.UserName}
+                    placeholder="Enter your Email"
+                    name="Email"
+                    value={formData.Email}
                     onChange={handleChange}
                   />
                 </div>

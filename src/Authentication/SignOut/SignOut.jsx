@@ -4,21 +4,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import {  clearUser } from '../../Redux/ActionState/ActionState'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Loader from "../../Loader/Loader"
+import { useState } from "react"
 
 const SignOut = () => {
+  const [loading, setLoading] = useState(false)
   const Nav = useNavigate()
   const user = useSelector((state) => state.signup.user)
   const dispatch = useDispatch()
     const SignOut = () => {
+      setLoading(true)
       const url = `https://corenet-api.onrender.com/api/signout/${user?.editorId}`
       console.log(url)
         axios
           .post(url)
           .then((res) => {
             console.log("Api res",res.data);
+            setLoading(false)
             dispatch(clearUser())
             Nav("/")
-            console.log(editorId)
+            // console.log(editorId)
           })
           .catch((error) => {
             console.error("Error occurred during sign out", error);
@@ -33,7 +38,7 @@ const SignOut = () => {
             </div>
             <div className='signupOption'>
                 <button className='signOptionCancel' onClick={() => Nav("../login")}>Cancel</button>
-                <button className='signOptionCancel1' onClick={SignOut}>Signout</button>
+                <button className='signOptionCancel1' onClick={SignOut}>{loading ? <Loader /> : "Signout"}</button>
             </div>
         </div>
     </div>

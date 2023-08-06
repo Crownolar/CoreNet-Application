@@ -17,7 +17,7 @@ const initialState = {
     Password: "",
   },
   formDatasignin: {
-    UserName: "",
+    Email: "",
     Password: "",
   },
   error: null,

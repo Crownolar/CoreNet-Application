@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminTaskOveview from "./AdminTaskOverview/AdminTaskOveview";
 import AdminTaskAssign from "./AdminTaskAssign/AdminTaskAssign";
@@ -15,17 +15,32 @@ import AdminDashCreateWriter from "./AdminDashCreateWriter/AdminDashCreateWriter
 import AdminAllWriter from "./AdminAllWriter/AdminAllWriter";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
 import { useSelector } from "react-redux";
+import 'animate.css'
+
+
+
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
   // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
   const User = useSelector((state) => state.signup.user);
-  const UserName = User?.data?.data?.editorId
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
 
   const MobileDropDown = (  
 
     openSiderBar && (
-     <div className="Adminsidebar_MobileView">
+     <div className="Adminsidebar_MobileView" style={{animation: openSiderBar ? null : "fadeInRight", animationDuration: openSiderBar ? null : "3s"}}>
        <div className=".AdminSide_Wrap">
          <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
          <div className="Adminsidebarlogo">
@@ -69,8 +84,7 @@ const AdminDashRight = () => {
     <div className="AdminDashRightMain">
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
-          {UserName}
-          {/* {!User ? (<h3>Welcome to Corenet</h3>) : null}? */}
+          <h3>{User.UserName}</h3>
           {User ? ( <h4>Welcome To CoreNet</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
@@ -78,13 +92,20 @@ const AdminDashRight = () => {
             openSiderBar ? 
               <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
              : 
-              <RxHamburgerMenu style={{fontSize: "25px"}} onClick={() => setOpenSideBar(!openSiderBar)} />
+              <RxHamburgerMenu style={{fontSize: "25px"}} onClick={() => setOpenSideBar(!openSiderBar)}/>
             }
              {openSiderBar && MobileDropDown}
           </div> 
         </div>
       </div>
       <div className="AdminDashRightContent" >
+      {showWelcome && User && (
+          <div className="welcome-message">
+            <h3>Welcome to CoreNet Dashboard!</h3>
+            <p>Explore, manage, and conquer your network like never before.</p>
+          </div>
+        )}
+
         <Routes>
           <Route path="/admintaskoverview" element={<AdminTaskOveview />} />
           <Route path="/admintaskassign" element={<AdminTaskAssign />} />

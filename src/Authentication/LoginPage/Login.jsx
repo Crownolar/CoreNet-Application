@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../Redux/ActionState/ActionState";
 import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
 import Loader from "../../Loader/Loader";
+import 'animate.css'
 // import { EditorID } from "../../Redux/ActionState/ActionState";
 
 
@@ -71,9 +72,9 @@ const Login = () => {
               <div className="EText">
                 <input
                   type="email"
-                  placeholder="Enter your UserName"
-                  name="UserName"
-                  value={formDatasignin.UserName}
+                  placeholder="Enter your Email"
+                  name="Email"
+                  value={formDatasignin.Email}
                   onChange={handleChange}
                 />
               </div>

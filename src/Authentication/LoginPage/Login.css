@@ -160,4 +160,6 @@
     margin-top: 15px;
     padding: 10px;
     z-index: 100;
+    animation: zoomIn;
+    animation-duration: 3s;
   }

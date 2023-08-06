@@ -23,9 +23,50 @@
 .AdminUserIcon{
     display: none;
 }
-.AdminDashRightContent{
-    /* z-index: -10; */
-}
+.welcome-message {
+    /* padding: 16px; */
+    width: 80%;
+    height: 90%;
+    background-color: #0455B4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 15%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: backInDown;
+    animation-duration: 3s;
+  }
+  
+  .welcome-message h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .welcome-message p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #949494;
+  }
+  /* .welcome-animation {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    margin-left: 35%;
+    margin-top: 25%;
+  }
+  
+  .show-welcome-animation {
+    opacity: 1;
+    transform: translateY(0);
+    color: #0455B4;
+    font-size: 40px;
+  } */
+  
 @media screen and (max-width: 426px){
     .AdminUserIcon{
         display: flex;
@@ -42,6 +83,8 @@
     left: 20%;
     /* background-color: #0455B4; */
     background-color: white;
+    animation: fadeInRight;
+    animation-duration: 3s;
     /* color: #0455B4; */
     
 }
@@ -51,6 +94,8 @@
     top: 5%;
     font-size: 30px;
     color: #0455B4;
+    animation: fadeOutRight;
+    animation-duration: 3s;
     /* background-color: #0455B4; */
 }
 .AdminSide_Wrap{
@@ -86,4 +131,34 @@
 .AdminSignOutDiv{
     color: #0455B4;
 }
+.welcome-message {
+    /* padding: 16px; */
+    width: 90%;
+    height: 90%;
+    background-color: #0455B4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: backInDown;
+    animation-duration: 3s;
+    text-align: center;
+  }
+  
+  .welcome-message h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .welcome-message p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #949494;
+  }
 }

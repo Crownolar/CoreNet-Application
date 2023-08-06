@@ -1,13 +1,73 @@
 .main{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/* Iphone and ipad mockups for easy editing */
-/* position: absolute;
-width: 1064px;
-height: 859px;
-left: 2px;
-top: -86px;
 
-background: url(.jpg); */
+.welcome-message1 {
+    /* padding: 16px; */
+    width: 50%;
+    height: 50%;
+    background-color: #0455B4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* margin-top: 15%;
+    margin-left: 10%; */
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    animation: backInDown;
+    animation-duration: 3s;
+  }
+  
+  .welcome-message1 h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .welcome-message1 p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+
+@media screen and (max-width: 426px) {
+    .welcome-message1 {
+        /* padding: 16px; */
+        width: 80%;
+        height: 50%;
+        background-color: #0455B4;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* margin-top: 15%;
+        margin-left: 10%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: backInDown;
+        animation-duration: 3s;
+        text-align: center;
+      }
+      
+      .welcome-message1 h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+      
+      .welcome-message1 p {
+        margin-top: 8px;
+        font-size: 16px;
+        color: #ffffff;
+      }
+}

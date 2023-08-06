@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminSidebar from "./AdminDashLeft/AdminSidebar";
 import AdminDashRight from "./AdminDashRight/AdminDashRight";
 import "./Adminpage.css";
 import { useDispatch, useSelector } from "react-redux";
+import { userData } from "../../Redux/ActionState/ActionState";
 
 const Adminpage = () => {
   const User = useSelector((state) => state.signup.user)
-  const [blur, setBlur] = useState(false)
+  const [showWelcome, setShowWelcome] = useState(true);
+  const userInfo = userData
   // const dispatch = useDispatch()
 
 
@@ -15,6 +17,7 @@ const Adminpage = () => {
   return (
     <div className="Admin_Mainbody">
       <div className="Admin_MainBodyWrap">
+        {/* {userInfo ? } */}
         <div className="Admin_Leftsidebar">
           <AdminSidebar />
         </div>
