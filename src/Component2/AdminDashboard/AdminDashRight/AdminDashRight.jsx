@@ -26,6 +26,15 @@ const AdminDashRight = () => {
   const navigate = useNavigate();
   const User = useSelector((state) => state.signup.user);
 
+  const handlecloseMobile = () => {
+    setOpenSideBar(false)
+}
+
+  const Navigate = (path) => {
+    navigate(path);
+    handlecloseMobile();
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
@@ -49,7 +58,7 @@ const AdminDashRight = () => {
          <div className="AdminsidebarNav">
            <div className="AdminsidebarNav_Wrap">
              <div
-               onClick={() => navigate("/adminpage/admintaskoverview")}
+               onClick={() => Navigate("/adminpage/admintaskoverview")}
                className="Admintask"
              >
                <BiTask />
@@ -57,21 +66,21 @@ const AdminDashRight = () => {
              </div>
              <div
                className="Admintask"
-               onClick={() => navigate("/adminpage/admintaskassign")}
+               onClick={() => Navigate("/adminpage/admintaskassign")}
              >
                <GoTasklist />
                <p>Task Assignment</p>
              </div>
-             <div className="Admintask" onClick={() => navigate("/adminpage/admincreatewriter")}>
+             <div className="Admintask" onClick={() => Navigate("/adminpage/admincreatewriter")}>
                <MdAddTask />
                <p> Create writer</p>
              </div>
-             <div className="Admintask" onClick={()=> navigate("/adminpage/adminallwriter")}>
+             <div className="Admintask" onClick={()=> Navigate("/adminpage/adminallwriter")}>
                <BsListTask />
                <p>All writers</p>
              </div>
            </div>
-           <div className="AdminSignOutDiv" onClick={() => navigate("../signout")}>
+           <div className="AdminSignOutDiv" onClick={() => Navigate("../signout")}>
            <PiSignOut />
              <p>Sign Out</p>
            </div>

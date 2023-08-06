@@ -11,7 +11,16 @@ import "./AdminSidebar.css";
 
 const AdminSidebar = () => {
   const Nav = useNavigate();
+//   const handlecloseMobile = () => {
+//     setMobile(false)
+// }
+
+//   const Navigate = (path) => {
+//     Nav(path);
+//     handlecloseMobile
+//   }
  
+  
 
   return (
     <div className="Adminsidebar">
