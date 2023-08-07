@@ -21,8 +21,9 @@ const initialState = {
     Password: "",
   },
   error: null,
-  user: {},
-  writer: {},
+  user: {
+  },
+  writer: [],
   // editorid: {},
 //   signout:"",
 };
@@ -70,9 +71,13 @@ const signupSlice = createSlice({
     clearUser: (state)=>{
       const clearAll= {}
       state.user= clearAll
-    }
+    },
+    AllWriters: (state, { payload }) => {
+      state.writer = payload;
+      console.log("allwriters", payload);
+    },
   },
 });
 
-export const { updateFormData, updateformDataWriter, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin, updateWriter } = signupSlice.actions;
+export const { updateFormData, updateformDataWriter, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin, updateWriter, AllWriters } = signupSlice.actions;
 export default signupSlice.reducer;

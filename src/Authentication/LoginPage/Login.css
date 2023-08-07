@@ -67,6 +67,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;    
+    color: #0455B4;
 }
 
 .input{
@@ -130,11 +131,11 @@
 .ETextCheckbox{
     width: 100%;
     height: 10%;
-    /* background-color: gray; */
+    background-color: gray;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     /* padding-top: 7px; */
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .ETextCheckbox span{

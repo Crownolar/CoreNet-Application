@@ -39,6 +39,7 @@ const Login = () => {
       .then(function(res){
         console.log(res);
         setLoading(false)
+        console.log(res.data.data);
         res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
           Nav("/adminpage");
 

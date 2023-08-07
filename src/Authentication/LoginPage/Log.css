@@ -27,6 +27,9 @@
         /* background-color: pink; */
         color: #0455B4;
     }
+    .ETextCheckbox{
+        background-color: blue;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1284px){

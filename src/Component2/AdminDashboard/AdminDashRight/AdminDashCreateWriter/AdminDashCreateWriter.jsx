@@ -3,9 +3,13 @@ import "./AdminDashCreateWriter.css";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
+import { useSelector } from "react-redux";
 
 const AdminDashCreateWriter = () => {
   const [next, setNext] = useState(false);
+  const user = useSelector((state) => state.signup.user);
+  console.log(user.editorId);
+
 
   const Nav = useNavigate();
 
@@ -25,15 +29,11 @@ const AdminDashCreateWriter = () => {
             </div>
           </div>
         </>
-      ) : null}
-
-      <div className="AdminDashCreateWriterNextContent">
-        {next ? (
-          <>
-            <AdminDashCreateWriterNextContent />
-          </>
-        ) : null}
-      </div>
+      ) : (
+        <div className="AdminDashCreateWriterNextContent">
+          <AdminDashCreateWriterNextContent editorID={user.editorId} />
+        </div>
+      )}
     </div>
   );
 };

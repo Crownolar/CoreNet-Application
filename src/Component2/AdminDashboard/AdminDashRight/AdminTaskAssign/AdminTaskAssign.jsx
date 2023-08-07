@@ -1,6 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AdminTaskAssign.css";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+
+
 const AdminTaskAssign = () => {
+  const [writer, setWriter] = useState([])
+  // const writer = useSelector((state) => state.signup.writer);
+  const user = useSelector((state) => state.signup.user);
+  const EditorID = user.editorId
+  console.log(EditorID);
+  // const dispatch = useDispatch()
+const  [task, setTask] = useState({
+  entertask: "",
+
+})
+
+  const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
+
+  const getAllWriters = () => {
+    axios.get(url)
+    .then((res) =>{
+      setWriter(res?.data.data);
+    
+    })
+    // {console.log(res.data)}
+    
+  };
+  // console.log(getAllWriters);
+
+  
+  useEffect(() => {
+    getAllWriters();
+  }, []);
+
+  useEffect(() => {
+    console.log(writer);
+  }, [writer]);
+
+
+  
   const [items, setItem] = useState([]);
   const [add, setAdd] = useState("");
 
@@ -37,13 +76,13 @@ const AdminTaskAssign = () => {
                 onChange={OnChange}
               />
             </div>
-            <div className="AdminTaskAssignButton">
+            {/* <div className="AdminTaskAssignButton">
               <button tabIndex={"0"} onClick={addTodo}>
                 Enter
               </button>
-            </div>
+            </div> */}
           </div>
-          <div className="AdminTaskAssignoverallview">
+          {/* <div className="AdminTaskAssignoverallview">
           <div className="AdminTaskAssignedView">
             {items.map((val, index) => (
               <div key={index} className="AdminTaskAssignedViewWrap">
@@ -57,18 +96,21 @@ const AdminTaskAssign = () => {
               </div>
             ))}
           </div>
-          </div>
-          <div className="AdminTaskAssignSelect">
+          </div> */}
+          
+            <div className="AdminTaskAssignSelect">
             <label htmlFor="writers">select writer:</label>
+            
             <select name="witer" id="writer">
-              <optgroup label="Recent">
+              {/* <optgroup label="Recent">
                 <option value="volvo">SULITON</option>
                 <option value="saab">Tijani Ezekiel</option>
-              </optgroup>
-              <optgroup label="Writer">
-                <option value="mercedes">Raymond</option>
-                <option value="audi">Samuel</option>
-              </optgroup>
+              </optgroup> */}
+              {writer?.map((e) => (
+                // <option value="audi">Samuel</option>
+                <option value={e._id}>{e.FullName}</option>
+                ))}
+                
             </select>
           </div>
           <div className="AdminTaskAssignCreateTaskButton">
