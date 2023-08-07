@@ -55,8 +55,8 @@ const UserLogin = () => {
           <div className="SignIn">
             <div className="SignInWrap">
               <div className="signText">
-                <h1>Sign In</h1>
-                <p>Get Started with coreNet</p>
+                {/* <h1>Sign In</h1> */}
+                <h2>Get Started with coreNet</h2>
               </div>
               <div className="input">
                 <div className="EText">
@@ -68,7 +68,7 @@ const UserLogin = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="EText">
+                <div className="SignInInputPassword">
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your Pasword"
@@ -88,9 +88,10 @@ const UserLogin = () => {
                     />
                   )}
                 </div>
-                <div className="EText">
-                  <input type="text" placeholder="Enter your company's name" />
-                </div>
+                <div className="ETextCheckbox">
+                <input type="checkbox" onClick={()=> Nav("/login")}/>
+                <span>Not an Editor</span>
+              </div>
                 <div className="EText1">
                   <button onClick={SignIn}>Sign In</button>
                 </div>

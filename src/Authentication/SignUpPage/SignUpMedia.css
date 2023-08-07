@@ -1,10 +1,10 @@
 @media screen and (max-width: 426px) {
-    .LoginPage{
+    .SignUpPage{
         width: 100%;
         height: 100vh;
         /* background-color: blue; */
     }
-    .SignWrap{
+    .SignUpWrap{
         width: 100%;
         height: 100%;
         /* background-color: red; */
@@ -13,28 +13,186 @@
         justify-content: center;
         padding-top: 15%;
     }
-    .imag{
+    .SignUpimage{
         display: none;
     }
-    .SignIn{
+    .SignUp{
         width: 90%;
         height: 100%;
-        background-color: aqua;
+        /* background-color: aqua; */
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
     }
-    .SignInWrap{
+    .SignUpWrap{
         width: 100%;
         height: 100%;
-        background-color: rgb(253, 252, 252);
+        /* background-color: rgb(153, 224, 245); */
         position: absolute;
         top: 0;
         left: 0;
         padding: 10px;
+        gap: 50px;
+        box-shadow: none;
+    }
+    .signUpText h3{
+       /* background-color: pink;  */
+       margin-top: 20px;
+       color: #0455B4;
+    }
+    .SignUpInput{
+        width: 100%;
+        height: 100vh;
+        /* background-color: blue; */
+    }
+    .SignUpInputWrap{
+        width: 100%;
+        height: 13%;
+        position: relative;
+        /* background-color: yellow; */
+    }
+    .SignUpInputWrap input{
+        width: 100%;
+        height: 70%;
+        outline: none;
+        /* background-color: aqua; */
     }
     .Show{
         font-size: 20px;
+        /* margin-top: 2px;
+        margin-bottom: 10%; */
+        position: absolute;
+        top: 0;
+    }
+    .SignUpInputWrap1 button{
+        width: 100%;
+        height: 60%;
+        border-radius: 10px;
+        background-color: #0455B4;
+    }
+    .SignUpInputWrap2{
+        width: 100%;
+        /* height: 10%; */
+        /* background-color: yellow; */
+        /* margin-bottom: 20%; */
+        padding-bottom: 25px;
+    }
+    .SignUpInputWrap2 p{
+        margin-left: 0%;
+    }
+    .SignUpInputWrap2 span{
+        color: #0455B4;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .SignUpPage{
+        width: 100%;
+        height: 100vh;
+        /* background-color: aliceblue; */
+    }
+    .SignUpWrap{
+        width: 100%;
+        height: 100%;
+        /* background-color: gray; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .SignUpimage{
+        display: none;
+    }
+    .SignUp{
+        width: 90%;
+        height: 90%;
+        /* background-color: antiquewhite; */
+    }
+    .SignUpWrap2{
+        width: 98%;
+        height: 90%;
+    }
+    .SignUpInput{
+        width: 100%;
+        height: 100%;
+    }
+    .SignUpInputWrap{
+        /* width: 100%;
+        height: 60%;
+        background-color: yellow; */
+        position: relative;
+    }
+    .SignUpInputWrap input{
+        width: 100%;
+        height: 70%;
+    }
+    .SignUpInputWrap .Show{
+        font-size: 27px;
+    color: #0455B4;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    }
+    .SignUpInputWrap1{
+        width: 100%;
+        height: 20%;
+        /* gap: 20px; */
+    }
+    .SignUpInputWrap2{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .SignUpInputWrap2 span{
+        color: #0455B4;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1284px){
+    .SignUpPage{
+        width: 100%;
+        height: 100vh;
+        /* background-color: aliceblue; */
+    }
+    .SignUpWrap{
+        width: 100%;
+        height: 100%;
+        /* background-color: gray; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .SignUpimage{
+        display: none;
+    }
+    .SignUp{
+        width: 90%;
+        height: 90%;
+        /* background-color: antiquewhite; */
+    }
+    .SignUpWrap2{
+        width: 98%;
+        height: 90%;
+    }
+    .SignUpInput{
+        width: 100%;
+        height: 100%;
+    }
+    /* .SignUpInputWrap{
+        width: 100%;
+        height: 60%;
+        background-color: yellow;
+    } */
+    .SignUpInputWrap input{
+        width: 100%;
+        height: 70%;
+    }
+    .SignUpInputWrap1{
+        gap: 20px;
     }
 }

@@ -109,18 +109,27 @@
     width: 80%;
     height: 20%;
     /* background-color: green; */
-    margin-left: 40%;
+    /* margin-left: 40%; */
 }
 .Adminsidebarlogo img{
     width: 100%;
     height: 100%;
 }
 .AdminsidebarNav{
+    width: 100%;
+    height: 80%;
     /* background-color: blue; */
-    margin-left: 30%;
+    /* margin-left: 30%; */
     
 }
+.AdminsidebarNav_Wrap{
+    width: 100%;
+    height: 100%;
+    /* background-color: silver;rtf */
+}
 .Admintask{
+    width: 100%;
+    height: 25%;
     /* background-color: black; */
     color: #0455B4;
 }
@@ -129,7 +138,138 @@
     color: white;
 }
 .AdminSignOutDiv{
+    width: 100%;
+    height: 10%;
     color: #0455B4;
+}
+.welcome-message {
+    /* padding: 16px; */
+    width: 90%;
+    height: 90%;
+    background-color: #0455B4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: backInDown;
+    animation-duration: 3s;
+    text-align: center;
+  }
+  
+  .welcome-message h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .welcome-message p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #949494;
+  }
+}
+
+@media screen and (max-width: 768px){
+    .AdminUserIcon{
+        display: flex;
+    }
+    .AdminNotificationIcon{
+        display: none;
+    }
+.Adminsidebar_MobileView{
+    width: 80%;
+    display: flex;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 20%;
+    /* background-color: #a7caf2; */
+    background-color: white;
+    animation: fadeInRight;
+    animation-duration: 3s;
+    /* color: #0455B4; */
+    
+}
+.AdminSideBarCloseIcon{
+    /* position: absolute;
+    right: 5%;
+    top: 5%; */
+    font-size: 40px;
+    color: #0455B4;
+    animation: fadeOutRight;
+    animation-duration: 3s;
+    /* background-color: #70aaed; */
+}
+.AdminSideWrap{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(246, 175, 175); */
+}
+.Adminsidebarlogo{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.Adminsidebarlogo .iconclose{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Adminsidebarlogo .logoimage{
+    width: 80%;
+    height: 100%;
+    /* background-color: pink; */
+}
+.Adminsidebarlogo .logoimage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.AdminsidebarNav{
+    /* background-color: blue; */
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+}
+.AdminsidebarNav_Wrap{
+    width: 100%;
+    height: 80%;
+    /* background-color: #a7caf2; */
+    margin-top: 30%;
+}
+.Admintask{
+    width: 100%;
+    /* height: 80%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0455B4;
+    /* background-color: green; */
+}
+.Admintask:hover{
+    background-color: #0455B4;
+    color: white;
+}
+.AdminSignOutDiv{
+    width: 100%;
+    height: 20%;
+    /* background-color: gray; */
+    display: flex;
+    justify-content: center;
+    color: #0455B4;
+}
+.AdminSignOutDiv:hover{
+    background-color: #0455B4;
+    color: white;
 }
 .welcome-message {
     /* padding: 16px; */

@@ -24,3 +24,12 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 768px){
+  .Admin_Leftsidebar{
+    display: none;
+  }
+  .Admin_Rightsidebar{
+    width: 100%;
+  }
+}

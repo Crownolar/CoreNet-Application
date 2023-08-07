@@ -10,10 +10,13 @@ import { ThemeContext } from "../ContextApi/Contextapi";
 import { updateFormData } from "../../Redux/ActionState/ActionState";
 import { userData } from "../../Redux/ActionState/ActionState"
 import Loader from "../../Loader/Loader";
+import 'animate.css'
+
 
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [signInAnimation, setSignInAnimation] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formData = useSelector((state) => state.signup.formData);
@@ -53,22 +56,23 @@ const SignUp = () => {
         }
       });
     // console.log(SignUp);
+ };
 
-  };
+
 
   return (
-    <div className="LoginPage">
-      <div className="SignWrap">
-        <div className="imag">
+    <div className="SignUpPage">
+      <div className="SignUpWrap">
+        <div className="SignUpimage">
           <img src='/SignImg.png' alt="" />
         </div>
-        <div className="SignIn">
-          <div className="SignInWrap">
-            <div className="signText">
-              <p>Get Started with coreNet</p>
+        <div className="SignUp">
+          <div className="SignUpWrap2">
+            <div className="signUpText">
+              <h3>Get Started with coreNet</h3>
             </div>
-            <div className="input">
-              <div className="EText">
+            <div className="SignUpInput">
+              <div className="SignUpInputWrap">
                 <input
                   type="text"
                   placeholder="Enter your Firstname"
@@ -77,7 +81,7 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="EText">
+              <div className="SignUpInputWrap">
                 <input
                   type="text"
                   placeholder="Enter your Surname"
@@ -86,7 +90,7 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="EText">
+              <div className="SignUpInputWrap">
                 <input
                   type="text"
                   placeholder="Enter your Username"
@@ -95,7 +99,7 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="EText">
+              <div className="SignUpInputWrap">
                 <input
                   type="email"
                   placeholder="Enter your Email"
@@ -104,7 +108,7 @@ const SignUp = () => {
                   onChange={handleChange}  
                 />
               </div>
-              <div className="EText">
+              <div className="SignUpInputWrap">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your Pasword"
@@ -124,20 +128,19 @@ const SignUp = () => {
                   />                 
                 )}
               </div>
-              <div className="EText">
+              <div className="SignUpInputWrap">
                 <input type="text" placeholder="Enter your company's name" name="CompanyName"
                   value={formData.CompanyName}
                   onChange={handleChange}/>
               </div>
-              <div className="EText1">
+              <div className="SignUpInputWrap1">
                 <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
                 {/* <button onClick={() => Nav("../login")}>Sign Up</button> */}
               </div>
-              <div className="EText1">
+              <div className="SignUpInputWrap2">
                 <p>
                   Already have an account?{" "}
                   <span
-                    style={{ cursor: "pointer", color: "#0455B4" }}
                     onClick={() => Nav("../login")}
                   >
                     Sign in

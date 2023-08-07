@@ -50,10 +50,14 @@ const AdminDashRight = () => {
 
     openSiderBar && (
      <div className="Adminsidebar_MobileView" style={{animation: openSiderBar ? null : "fadeInRight", animationDuration: openSiderBar ? null : "3s"}}>
-       <div className=".AdminSide_Wrap">
-         <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
+       <div className="AdminSideWrap">
          <div className="Adminsidebarlogo">
+         <div className="iconclose">
+         <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
+         </div>
+           <div className="logoimage">
            <img src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"} alt="" className="AdminLogo_SideBar" />
+           </div>
          </div>
          <div className="AdminsidebarNav">
            <div className="AdminsidebarNav_Wrap">
@@ -94,7 +98,7 @@ const AdminDashRight = () => {
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
           <h3>{User.UserName}</h3>
-          {User ? ( <h4>Welcome To CoreNet</h4>  ) : null}
+          {User && User.UserName ? ( <h4>Welcome To CoreNet</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
             {

@@ -65,8 +65,7 @@ const Login = () => {
         <div className="SignIn">
           <div className="SignInWrap">
             <div className="signText">
-              <h1>Sign In</h1>
-              <p>Get Started with coreNet</p>
+              <h3>Get Started with coreNet</h3>
             </div>
             <div className="input">
               <div className="EText">
@@ -78,7 +77,7 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="EText">
+              <div className="SignInInputPassword">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your Password"
@@ -100,7 +99,7 @@ const Login = () => {
               </div>
               <div className="ETextCheckbox">
                 <input type="checkbox" onClick={()=> Nav("/userlogin")}/>
-                <span>Not an Editor</span>
+                <span>Not a Writer</span>
               </div>
               <div className="EText1">
                 <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
