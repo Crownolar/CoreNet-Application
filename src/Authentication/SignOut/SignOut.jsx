@@ -10,7 +10,7 @@ import { useState } from "react"
 const SignOut = () => {
   const [loading, setLoading] = useState(false)
   const Nav = useNavigate()
-  const user = useSelector((state) => state.signup.user)
+  const user = useSelector((state) => state.persistedReducer.user)
   const dispatch = useDispatch()
     const SignOut = () => {
       setLoading(true)

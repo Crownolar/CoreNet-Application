@@ -11,14 +11,13 @@ import { userData } from "../../Redux/ActionState/ActionState";
 import { updateFormDataSignin } from "../../Redux/ActionState/ActionState";
 import Loader from "../../Loader/Loader";
 import 'animate.css'
-// import { EditorID } from "../../Redux/ActionState/ActionState";
 
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.signup.formDatasignin);
+  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
   const {login_alert} = useContext(ThemeContext)
   const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
@@ -99,8 +98,8 @@ const Login = () => {
                 )}
               </div>
               <div className="ETextCheckbox">
-                <input type="checkbox" onClick={()=> Nav("/userlogin")}/>
-                <span>Not a Writer</span>
+                <input className="checks" type="checkbox" onClick={()=> Nav("/userlogin")}/>
+                <span>Access for Writer</span>
               </div>
               <div className="EText1">
                 <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>

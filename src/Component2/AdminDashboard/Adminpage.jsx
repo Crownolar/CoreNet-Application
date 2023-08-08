@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../Redux/ActionState/ActionState";
 
 const Adminpage = () => {
-  const User = useSelector((state) => state.signup.user)
+  const User = useSelector((state) => state.persistedReducer.user)
   const [showWelcome, setShowWelcome] = useState(true);
   const userInfo = userData
   // const dispatch = useDispatch()

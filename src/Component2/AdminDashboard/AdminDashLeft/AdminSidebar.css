@@ -93,4 +93,7 @@ padding-left: 10px;
   .Adminsidebarlogo{
     background-color: none;
   }
+  .AdminSignOutDiv{
+    background-color: blanchedalmond;
+  }
 }

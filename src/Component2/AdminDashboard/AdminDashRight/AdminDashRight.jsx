@@ -24,7 +24,7 @@ const AdminDashRight = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
-  const User = useSelector((state) => state.signup.user);
+  const User = useSelector((state) => state.persistedReducer.user);
 
   const handlecloseMobile = () => {
     setOpenSideBar(false)

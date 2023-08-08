@@ -8,7 +8,7 @@ import 'animate.css'
 const LandingPage = () => {
 
   const [showWelcome, setShowWelcome] = useState(true);
-  const User = useSelector((state) => state.signup.user);
+  const User = useSelector((state) => state.persistedReducer.user);
 
 
 

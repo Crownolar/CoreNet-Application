@@ -7,10 +7,10 @@ import { updateformDataWriter } from "../../../../../Redux/ActionState/ActionSta
 import { updateWriter } from "../../../../../Redux/ActionState/ActionState";
 
 const AdminDashCreateWriterNextContent = ({editorID}) => {
-  const formDataWriter = useSelector((state) => state.signup.formDataWriter);
+  const formDataWriter = useSelector((state) => state.persistedReducer.formDataWriter);
   const dispatch = useDispatch();
   const Nav = useNavigate();
-  const user = useSelector((state) => state.signup.user);
+  const user = useSelector((state) => state.persistedReducer.user);
   // const EditorId = user.editorId
 
 

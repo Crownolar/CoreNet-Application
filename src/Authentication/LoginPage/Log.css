@@ -28,7 +28,7 @@
         color: #0455B4;
     }
     .ETextCheckbox{
-        background-color: blue;
+        /* background-color: blue; */
     }
 }
 
@@ -60,6 +60,22 @@
         height: 10%;
         /* background-color: pink; */
         color: #0455B4;
+    }
+    .SignInInputPassword{
+        width: 100%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        /* background-color: #c9d953; */
+        position: relative;
+    }
+    .SignInInputPassword .Show{
+        font-size: 30px;
+        position: absolute;
+        right: 20px;
+        top: 0px;
     }
 }
 

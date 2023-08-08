@@ -7,7 +7,8 @@ import axios from "axios";
 const AdminTaskAssign = () => {
   const [writer, setWriter] = useState([])
   // const writer = useSelector((state) => state.signup.writer);
-  const user = useSelector((state) => state.signup.user);
+  const user = useSelector((state) => state.persistedReducer.user);
+  console.log(user);
   const EditorID = user.editorId
   console.log(EditorID);
   // const dispatch = useDispatch()
@@ -23,8 +24,8 @@ const  [task, setTask] = useState({
     .then((res) =>{
       setWriter(res?.data.data);
     
+      {console.log(res.data)}
     })
-    // {console.log(res.data)}
     
   };
   // console.log(getAllWriters);

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const AdminDashCreateWriter = () => {
   const [next, setNext] = useState(false);
-  const user = useSelector((state) => state.signup.user);
+  const user = useSelector((state) => state.persistedReducer.user);
   console.log(user.editorId);
 
 

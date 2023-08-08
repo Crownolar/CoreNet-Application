@@ -4,14 +4,22 @@ import App from "./App.jsx";
 import "./index.css";
 import { ThemeProvider } from "./Authentication/ContextApi/Contextapi.jsx";
 import { Provider } from "react-redux";
-import store from "./Redux/Store/Store.jsx";
+import { store } from "../src/Redux/Store/Store.jsx"
+import { PersistGate } from "redux-persist/integration/react";
+import persistStore from "redux-persist/es/persistStore";
+// import store from "./Redux/Store/Store.jsx";
+
+let persistor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider>
         <App />
       </ThemeProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
+// let persistor = persistStore(store);

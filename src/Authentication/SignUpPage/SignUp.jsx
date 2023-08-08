@@ -19,7 +19,7 @@ const SignUp = () => {
   const [signInAnimation, setSignInAnimation] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
-  const formData = useSelector((state) => state.signup.formData);
+  const formData = useSelector((state) => state.persistedReducer.formData);
   const {login_alert} = useContext(ThemeContext);
   const [loading, setLoading] = useState(false)
 
@@ -108,7 +108,7 @@ const SignUp = () => {
                   onChange={handleChange}  
                 />
               </div>
-              <div className="SignUpInputWrap">
+              <div className="SignUpInputWrap2">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your Pasword"
@@ -137,7 +137,7 @@ const SignUp = () => {
                 <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
                 {/* <button onClick={() => Nav("../login")}>Sign Up</button> */}
               </div>
-              <div className="SignUpInputWrap2">
+              <div className="SignUpInputWrap3">
                 <p>
                   Already have an account?{" "}
                   <span

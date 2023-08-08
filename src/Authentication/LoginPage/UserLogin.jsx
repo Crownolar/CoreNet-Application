@@ -90,7 +90,7 @@ const UserLogin = () => {
                 </div>
                 <div className="ETextCheckbox">
                 <input type="checkbox" onClick={()=> Nav("/login")}/>
-                <span>Not an Editor</span>
+                <span>Access for Editor</span>
               </div>
                 <div className="EText1">
                   <button onClick={SignIn}>Sign In</button>

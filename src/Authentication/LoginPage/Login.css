@@ -131,11 +131,16 @@
 .ETextCheckbox{
     width: 100%;
     height: 10%;
-    background-color: gray;
+    /* background-color: gray; */
     display: flex;
-    /* align-items: center; */
-    /* padding-top: 7px; */
-    /* gap: 10px; */
+    align-items: center;
+     padding-top: 10px;
+    gap: 10px;
+}
+.checks {
+    width: 4%;
+    height: 90%;
+    background-color: red;
 }
 
 .ETextCheckbox span{
