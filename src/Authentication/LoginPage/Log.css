@@ -30,6 +30,23 @@
     .ETextCheckbox{
         /* background-color: blue; */
     }
+    .SignInInputPassword{
+        width: 100%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        /* background-color: #c9d953; */
+        position: relative;
+    }
+    .SignInInputPassword .Show{
+        font-size: 30px;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        /* background-color: red; */
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1284px){
@@ -75,7 +92,8 @@
         font-size: 30px;
         position: absolute;
         right: 20px;
-        top: 0px;
+        top: 14px;
+        /* background-color: red; */
     }
 }
 

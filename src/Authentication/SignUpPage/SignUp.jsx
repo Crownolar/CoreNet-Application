@@ -108,7 +108,7 @@ const SignUp = () => {
                   onChange={handleChange}  
                 />
               </div>
-              <div className="SignUpInputWrap2">
+              <div className="SignUpInputWrap">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your Pasword"
