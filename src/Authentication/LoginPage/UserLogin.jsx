@@ -7,9 +7,12 @@ import { useNavigate } from "react-router-dom";
 import "./Log.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
+import { useSelector } from "react-redux";
 
 const UserLogin = () => {
     const [showPassword, setShowPassword] = useState(false);
+  const user = useSelector((state) => state.persistedReducer.user);
+  console.log(user)
     const Nav = useNavigate();
   const{verifyAlert} = useContext(ThemeContext)
     const [formData, setFormData] = useState({
@@ -31,7 +34,10 @@ const UserLogin = () => {
         .post(url, formData)
         .then((res) => {
           console.log(res);
-          Nav("/adminpage");
+          if(user){
+            console.log("Admin can't login here");
+          }else{Nav("/adminpage");}
+          
         })
         .catch((error) => {
           console.error("Error:", error);

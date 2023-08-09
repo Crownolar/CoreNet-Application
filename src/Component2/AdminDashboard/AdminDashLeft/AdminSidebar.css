@@ -45,7 +45,6 @@
   align-items: center;
   gap: 10px;
 color: white;
-/* background-color: red; */
 padding-left: 10px;
 
 }
@@ -72,6 +71,14 @@ padding-left: 10px;
   border-radius: 8px;
   cursor: pointer;
   color: #0455B4;
+}
+.AdminsidebarNav_Wrap .Admintask.active {
+  background-color: white; /* Change this to the desired active background color */
+  color: #0455B4;; /* Change this to the desired active text color */
+}
+.AdminsidebarNav_Wrap .Admintask.active:hover {
+  background-color: white;
+  color: #0455B4; /* Change this to the desired hover background color for active tab */
 }
 
 @media screen and (max-width: 426px) {

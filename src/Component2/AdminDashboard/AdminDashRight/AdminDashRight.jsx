@@ -22,6 +22,7 @@ import 'animate.css'
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [activeTab, setActiveTab] = useState("");
   // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
   const User = useSelector((state) => state.persistedReducer.user);
@@ -49,7 +50,7 @@ const AdminDashRight = () => {
   const MobileDropDown = (  
 
     openSiderBar && (
-     <div className="Adminsidebar_MobileView" style={{animation: openSiderBar ? null : "fadeInRight", animationDuration: openSiderBar ? null : "0.1s"}}>
+     <div className="Adminsidebar_MobileView" style={{animation: openSiderBar ? null : "fadeInRight", animationDuration: openSiderBar ? null : "0.01s"}}>
        <div className="AdminSideWrap">
          <div className="Adminsidebarlogo">
          <div className="iconclose">
@@ -62,24 +63,26 @@ const AdminDashRight = () => {
          <div className="AdminsidebarNav">
            <div className="AdminsidebarNav_Wrap">
              <div
-               onClick={() => Navigate("/adminpage/admintaskoverview")}
-               className="Admintask"
+               onClick={() => {setActiveTab("admintaskoverview"); Navigate("/adminpage/admintaskoverview"); console.log("activeTab")}}
+               className={`Admintask ${activeTab === "admintaskoverview" ? "active" : ""}`}
              >
                <BiTask />
                <p> Task Overview</p>
              </div>
              <div
-               className="Admintask"
-               onClick={() => Navigate("/adminpage/admintaskassign")}
+               onClick={() => {setActiveTab("admintaskassign"); Navigate("/adminpage/admintaskassign"); console.log("activeTab")}}
+               className={`Admintask ${activeTab === "admintaskassign" ? "active" : ""}`}
              >
                <GoTasklist />
                <p>Task Assignment</p>
              </div>
-             <div className="Admintask" onClick={() => Navigate("/adminpage/admincreatewriter")}>
+             <div  onClick={() => {setActiveTab("admincreatewriter"); Navigate("/adminpage/admincreatewriter"); console.log("activeTab")}}
+              className={`Admintask ${activeTab === "admincreatewriter" ? "active" : ""}`}>
                <MdAddTask />
                <p> Create writer</p>
              </div>
-             <div className="Admintask" onClick={()=> Navigate("/adminpage/adminallwriter")}>
+             <div onClick={() => {setActiveTab("adminallwriter"); Navigate("/adminpage/adminallwriter"); console.log("activeTab")}}
+              className={`Admintask ${activeTab === "adminallwriter" ? "active" : ""}`}>
                <BsListTask />
                <p>All writers</p>
              </div>

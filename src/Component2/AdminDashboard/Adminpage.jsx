@@ -3,12 +3,16 @@ import AdminSidebar from "./AdminDashLeft/AdminSidebar";
 import AdminDashRight from "./AdminDashRight/AdminDashRight";
 import "./Adminpage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { userData } from "../../Redux/ActionState/ActionState";
+import { useNavigate } from "react-router-dom";
+// import { userData } from "../../Redux/ActionState/ActionState";
 
 const Adminpage = () => {
   const User = useSelector((state) => state.persistedReducer.user)
+  console.log(User.isVerified);
+  console.log(User);
   const [showWelcome, setShowWelcome] = useState(true);
-  const userInfo = userData
+  const navigate = useNavigate()
+  // const userInfo = userData
   // const dispatch = useDispatch()
 
 
@@ -16,6 +20,9 @@ const Adminpage = () => {
 
   return (
     <div className="Admin_Mainbody">
+      {
+        User.isVerified === false ? navigate("./login") : null
+      }
       <div className="Admin_MainBodyWrap">
         {/* {userInfo ? } */}
         <div className="Admin_Leftsidebar">
