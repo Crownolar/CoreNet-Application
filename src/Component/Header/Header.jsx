@@ -23,8 +23,8 @@ const Header = () => {
                 <div className="centerNav">
                     <ul>
                         <li onClick={() => Nav('/Adminpage')}>Home</li>
-                        <li>Contact us</li>
-                        <li>About</li>
+                        <li onClick={() => Nav('/contactus')}>Contact us</li>
+                        <li onClick={() => Nav('/about')}>About</li>
                         <li onClick={() => Nav('./Login')} className='usericons'> <FaRegCircleUser  className='user'/> User</li>
                     </ul>
                 </div>

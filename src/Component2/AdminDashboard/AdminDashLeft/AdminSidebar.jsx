@@ -28,7 +28,7 @@ const AdminSidebar = () => {
   return (
     <div className="Adminsidebar">
       <div className="AdminSide_Wrap">
-        <div className="Adminsidebarlogo">
+        <div className="Adminsidebarlogo" onClick={() => Nav('/')}>
           <img src="/CORENETrem.png" alt="" className="AdminLogo_SideBar" />
         </div>
         <div className="AdminsidebarNav">

@@ -57,7 +57,7 @@ const AdminDashRight = () => {
          <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
          </div>
            <div className="logoimage">
-           <img src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"} alt="" className="AdminLogo_SideBar" />
+           <img src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"} alt="" className="AdminLogo_SideBar" onClick={() => Navigate('/')} />
            </div>
          </div>
          <div className="AdminsidebarNav">

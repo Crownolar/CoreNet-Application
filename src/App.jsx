@@ -9,6 +9,8 @@ import SignUp from "./Authentication/SignUpPage/SignUp";
 import VerifyPage from "./Authentication/VerifyPage/VerifyPage";
 import UserLogin from "./Authentication/LoginPage/UserLogin";
 import SignOut from "./Authentication/SignOut/SignOut";
+import ContactUs from "./Component2/Pages/ConatctUs/ContactUs";
+import About from "./Component2/Pages/About/About"
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
         </Route>
         <Route path="/adminpage/*" element={<Adminpage />} />
         <Route path="/login" element={<Login />} />
