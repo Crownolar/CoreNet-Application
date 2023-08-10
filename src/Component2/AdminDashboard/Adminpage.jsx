@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AdminSidebar from "./AdminDashLeft/AdminSidebar";
 import AdminDashRight from "./AdminDashRight/AdminDashRight";
 import "./Adminpage.css";
@@ -12,20 +12,13 @@ const Adminpage = () => {
   console.log(User);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate()
-  // const userInfo = userData
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   navigate()
-  // },[navigate])
+
 
 
 
 
   return (
     <div className="Admin_Mainbody">
-      {
-        User ? navigate("./login") : null
-      }
       <div className="Admin_MainBodyWrap">
         {/* {userInfo ? } */}
         <div className="Admin_Leftsidebar">

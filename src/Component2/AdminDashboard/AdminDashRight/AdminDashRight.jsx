@@ -16,6 +16,7 @@ import AdminAllWriter from "./AdminAllWriter/AdminAllWriter";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
 import { useSelector } from "react-redux";
 import 'animate.css'
+import Profile from "../../Pages/Profile/Profile";
 
 
 
@@ -63,26 +64,27 @@ const AdminDashRight = () => {
          <div className="AdminsidebarNav">
            <div className="AdminsidebarNav_Wrap">
              <div
-               onClick={() => {setActiveTab("admintaskoverview"); Navigate("/adminpage/admintaskoverview"); console.log("activeTab")}}
-               className={`Admintask ${activeTab === "admintaskoverview" ? "active" : ""}`}
+               onClick={() => Navigate("/adminpage/admintaskoverview")}
+               className="Admintask"
              >
                <BiTask />
                <p> Task Overview</p>
              </div>
              <div
-               onClick={() => {setActiveTab("admintaskassign"); Navigate("/adminpage/admintaskassign"); console.log("activeTab")}}
-               className={`Admintask ${activeTab === "admintaskassign" ? "active" : ""}`}
+               onClick={() => Navigate("/adminpage/admintaskassign")}
+               className="Admintask"
              >
                <GoTasklist />
                <p>Task Assignment</p>
              </div>
-             <div  onClick={() => {setActiveTab("admincreatewriter"); Navigate("/adminpage/admincreatewriter"); console.log("activeTab")}}
-              className={`Admintask ${activeTab === "admincreatewriter" ? "active" : ""}`}>
+             <div  onClick={() => Navigate("/adminpage/admincreatewriter")}
+              className="Admintask"
+              >
                <MdAddTask />
                <p> Create writer</p>
              </div>
-             <div onClick={() => {setActiveTab("adminallwriter"); Navigate("/adminpage/adminallwriter"); console.log("activeTab")}}
-              className={`Admintask ${activeTab === "adminallwriter" ? "active" : ""}`}>
+             <div onClick={() => Navigate("/adminpage/adminallwriter")}
+              className="Admintask">
                <BsListTask />
                <p>All writers</p>
              </div>
@@ -100,7 +102,7 @@ const AdminDashRight = () => {
     <div className="AdminDashRightMain">
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
-          <h3>{User.UserName}</h3>
+          <h3 onClick={() => Navigate("/adminpage/profile")} style={{cursor: "pointer"}}>{User.UserName}</h3>
           {User && User.UserName ? ( <h4>Welcome To CoreNet</h4>  ) : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
@@ -127,6 +129,7 @@ const AdminDashRight = () => {
           <Route path="/admintaskassign" element={<AdminTaskAssign />} />
           <Route path="/admincreatewriter/*" element={<AdminDashCreateWriter />} />
           <Route path="/adminallwriter" element={<AdminAllWriter />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Route path='/admincreatewriternextcontent' element={<AdminDashCreateWriterNextContent />} /> */}
         </Routes>
         {/* <button onClick={(()=> console.log("clicked"))}>clicke me</button> */}

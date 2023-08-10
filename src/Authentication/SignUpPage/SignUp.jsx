@@ -16,7 +16,7 @@ import 'animate.css'
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [signInAnimation, setSignInAnimation] = useState(false);
+  const [showVerifyAlert, setShowVerifyAlert] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formData = useSelector((state) => state.persistedReducer.formData);
@@ -46,6 +46,7 @@ const SignUp = () => {
     e.preventDefault();
     setLoading(true)
 
+    
     const errors = {};
 
     if (!formData.FirstName) {
@@ -65,7 +66,6 @@ const SignUp = () => {
     }else if (!isValidEmail(formData.Email)) { // Implement your email validation function
       errors.Email = "Invalid email address";
     }
-
     if (!formData.Password) {
       errors.Password = "Password is required";
     }
@@ -89,7 +89,11 @@ const SignUp = () => {
       .then((res) => {
         console.log(res);
         setLoading(false)
-        dispatch(userData(res.data.data))
+        dispatch(userData(res.data?.data))
+        setShowVerifyAlert(true);
+        setTimeout(() => {
+          setShowVerifyAlert(false); 
+        }, 10000);
         Nav("/login");
         login_alert()
         
@@ -106,7 +110,10 @@ const SignUp = () => {
 
 
   return (
-    <div className="SignUpPage">
+    <div className={`SignUpPage ${showVerifyAlert ? "blur" : ""}`}>
+      {showVerifyAlert && <div className='AdminwelcomeMssg'>
+                    <p>Please check your Email a verification link has been sent to you</p>
+                    </div>}
       <div className="SignUpWrap">
         <div className="SignUpimage">
           <img src='/SignImg.png' alt="" />
@@ -188,9 +195,9 @@ const SignUp = () => {
                 <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
               </div>
               <div className="SignUpInputWrap3">
-                <p>
-                  Already have an account? <h5 onClick={() => Nav("../login")}> Sign in</h5>
-                </p>
+                <h5>
+                  Already have an account? <p onClick={() => Nav("../login")}> Sign in</p>
+                </h5>
               </div>
             </div>
           </div>

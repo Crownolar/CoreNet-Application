@@ -7,12 +7,23 @@ import 'animate.css'
 // import "./LandingPageTab.css"
 // import "./LandingPageWeb.css"
 import { TiArrowRepeatOutline } from "react-icons/ti"
+import axios from 'axios';
 
 
 const LandingPage = () => {
 
   const [showWelcome, setShowWelcome] = useState(true);
   const User = useSelector((state) => state.persistedReducer.user);
+  const Duser = User;
+  const url = `https://corenet-api.onrender.com/api/resend-verification-email`
+
+  const Resend = () => {
+    axios
+    .post (url)
+    .then(function(res) {
+      console.log(res)
+    })
+  }
 
 
 
@@ -37,6 +48,7 @@ const LandingPage = () => {
             <p>Explore, manage, and conquer your network like never before.</p>
           </div>
         )}
+        <p>Didn't receive an Email <span onClick={Resend} style={{color: "blue", cursor: "pointer"}}>Resend verification Email</span> </p>
         {/* <div className='topPictureHolder'>
                 <Header />
                 <div className='layerColor'>

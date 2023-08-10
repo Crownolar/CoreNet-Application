@@ -3,7 +3,7 @@ import {FaRegCircleUser} from "react-icons/fa6"
 import {GiHamburgerMenu} from "react-icons/gi"
 import {IoCloseCircleOutline} from "react-icons/io5"
 import './Head.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux'
 
@@ -28,6 +28,10 @@ const Header = () => {
       setSidebarOpen(false);
     }
   };
+
+  useEffect(() => {
+    Nav()
+  },[Nav])
   
 
 
@@ -71,7 +75,7 @@ const Header = () => {
 
               <div className="centerNav1">
                     <ul>
-                        <div onClick={() => handleNavItemClick("Home")}>Home</div>
+                        <div onClick={() => handleNavItemClick("/adminpage")}>Home</div>
                         <div onClick={() => Nav('/contactus')}>Contact Us</div>
                         <div onClick={() => Nav('/about')}>About</div>
                         <div>Price</div>

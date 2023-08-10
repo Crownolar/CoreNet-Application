@@ -17,9 +17,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin); 
-  const {login_alert} = useContext(ThemeContext)
-  const{verifyAlert} = useContext(ThemeContext)
+  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
+  // const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
@@ -27,6 +26,16 @@ const Login = () => {
     dispatch(updateFormDataSignin({[name]: value}))
   };
 
+  const Resend = () => {
+    const url = `https://corenet-api.onrender.com/api/resend-verification-email`
+    axios
+    .post (url)
+    .then(function(res) {
+      console.log(res)
+    })
+  }
+
+  
   const SignIn = (e) => {
     e.preventDefault();
     setLoading(true)
@@ -53,10 +62,9 @@ const Login = () => {
 
   return (
     <div className="AdminLoginPage">
-       {verifyAlert && <div className='AdminwelcomeMssg'>
+       {/* {verifyAlert && <div className='AdminwelcomeMssg'>
                     <p>Please check your Email a verification link has been sent to you</p>
-                    <p>Didn't receive an Email <span>Resend verification Email</span> </p>
-                    </div>}
+                    </div>} */}
       <div className="SignWrap">
         <div className="imag">
           <img src={bgImg} alt="" />
@@ -65,6 +73,8 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
+              <p>Didn't receive an Email <span onClick={Resend} style={{color: "blue", cursor: "pointer"}}>Resend verification Email</span> </p>
+
             </div>
             <div className="input">
               <div className="EText">

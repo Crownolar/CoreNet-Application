@@ -11,6 +11,7 @@ import UserLogin from "./Authentication/LoginPage/UserLogin";
 import SignOut from "./Authentication/SignOut/SignOut";
 import ContactUs from "./Component2/Pages/ConatctUs/ContactUs";
 import About from "./Component2/Pages/About/About"
+import Profile from "./Component2/Pages/Profile/Profile";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         </Route>
         <Route path="/adminpage/*" element={<Adminpage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />

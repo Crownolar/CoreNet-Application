@@ -5,12 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateformDataWriter } from "../../../../../Redux/ActionState/ActionState";
 import { updateWriter } from "../../../../../Redux/ActionState/ActionState";
+import Loader from "../../../../../Loader/Loader";
 
 const AdminDashCreateWriterNextContent = ({editorID}) => {
   const formDataWriter = useSelector((state) => state.persistedReducer.formDataWriter);
   const dispatch = useDispatch();
   const Nav = useNavigate();
+  const [loading, setLoading] = useState(false);
   const user = useSelector((state) => state.persistedReducer.user);
+  const [validationErrors, setValidationErrors] = useState({});
+
   // const EditorId = user.editorId
 
 
@@ -19,8 +23,44 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
     dispatch(updateformDataWriter({ [name]: value }));
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const SignUp = (e) => {
     e.preventDefault();
+    setLoading(true)
+
+
+    const errors = {};
+
+    if (!formDataWriter.FullName) {
+      errors.FirstName = "First Name is required";
+    }
+
+    if (!formDataWriter.UserName) {
+      errors.UserName = "Username is required";
+    }
+
+    if (!formDataWriter.Email) {
+      errors.Email = "Email is required";
+    }else if (!isValidEmail(formDataWriter.Email)) { // Implement your email validation function
+      errors.Email = "Invalid email address";
+    }
+    if (!formDataWriter.Password) {
+      errors.Password = "Password is required";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setLoading(false);
+      setValidationErrors(errors);
+      return;
+    }
+
+
+
+
     const url = `https://corenet-api.onrender.com/api/createwriter/${editorID}`;
     console.log(url);
     if (!user.editorId) {
@@ -49,7 +89,7 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
     <div className="signup-form-container">
       <h2>Create New Writer</h2>
       <form>
-        {/* <label>Full Name:</label> */}
+      {validationErrors.FullName && <p className="error-message">{validationErrors.FullName}</p>}
         <input
           placeholder="Full Name"
           type="text"
@@ -57,6 +97,7 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
           value={formDataWriter.FullName}
           onChange={handleChange}
         />
+        {validationErrors.UserName && <p className="error-message">{validationErrors.UserName}</p>}
         <input
           placeholder="Username"
           type="text"
@@ -64,6 +105,7 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
           value={formDataWriter.UserName}
           onChange={handleChange}
         />
+        {validationErrors.Email && <p className="error-message">{validationErrors.Email}</p>}
         <input
           placeholder="Email"
           type="email"
@@ -71,6 +113,7 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
           value={formDataWriter.Email}
           onChange={handleChange}
         />
+        {validationErrors.Password && <p className="error-message">{validationErrors.Password}</p>}
         <input
           placeholder="Password"
           type="password"
@@ -79,7 +122,7 @@ const AdminDashCreateWriterNextContent = ({editorID}) => {
           onChange={handleChange}
         />
         <button type="submit" onClick={SignUp}>
-          Sign Up
+          {loading ? <Loader/> : "Sign Up"}
         </button>
       </form>
     </div>
