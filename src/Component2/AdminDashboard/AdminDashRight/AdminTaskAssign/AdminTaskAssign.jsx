@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AdminTaskAssign.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 
 const AdminTaskAssign = () => {
@@ -11,13 +12,24 @@ const AdminTaskAssign = () => {
   console.log(user);
   const EditorID = user.editorId
   console.log(EditorID);
-  // const dispatch = useDispatch()
+  // const {id} = useParams
 const  [task, setTask] = useState({
   entertask: "",
 
 })
 
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
+  // const Url = `https://corenet.onrender.com/accepts/${id}`
+  // console.log(Url)
+
+  // const AssignTask = () => {
+  //   axios
+  //   .post(Url)
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  // }
+
 
   const getAllWriters = () => {
     axios.get(url)
@@ -26,6 +38,12 @@ const  [task, setTask] = useState({
     
       {console.log(res.data)}
     })
+    .catch((error) => {
+      console.error('Error:', error);
+      if (error.response) {
+        console.error('Response Data:', error.response.data);
+      }
+    });
     
   };
   // console.log(getAllWriters);
@@ -103,10 +121,6 @@ const  [task, setTask] = useState({
             <label htmlFor="writers">select writer:</label>
             
             <select name="witer" id="writer">
-              {/* <optgroup label="Recent">
-                <option value="volvo">SULITON</option>
-                <option value="saab">Tijani Ezekiel</option>
-              </optgroup> */}
               {writer?.map((e) => (
                 // <option value="audi">Samuel</option>
                 <option value={e._id}>{e.FullName}</option>

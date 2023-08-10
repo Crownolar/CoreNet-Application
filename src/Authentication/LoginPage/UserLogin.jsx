@@ -35,8 +35,10 @@ const UserLogin = () => {
         .then((res) => {
           console.log(res);
           if(user){
-            console.log("Admin can't login here");
-          }else{Nav("/adminpage");}
+            Nav("/adminpage");}
+            else{
+              console.log("Admin can't login here");
+            }
           
         })
         .catch((error) => {

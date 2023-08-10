@@ -1,0 +1,315 @@
+/* @media screen and (max-width: 768px) {
+    
+    .topPictureHolder {
+        display: block;
+        width: 100%;
+        height: 49vh;
+        background-image: url(./src/assets/headerpicture.jpg);
+        background-size: contain;
+        justify-content: center;
+        background-repeat: no-repeat;
+    }
+    
+    .layerColor {
+        width: 100%;
+        height: 84%;
+        background-color: #0456b4ac;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'poppins, sans-serif';
+        color: white;
+        flex-direction: column;
+        font-size: smaller;
+        align-items: center;
+        position: relative;
+    }
+    .aboutText {
+        font-size: 22px;
+        text-align: center;
+        position: absolute;
+        height: 20%;
+        width: 75%;
+        font-size: large;
+        bottom: 100x;
+    }
+    
+    .aboutUs {
+        font-size: x-large;
+        position: absolute;
+    }
+    
+    .ourMainFocus {
+        width: 100%;
+        height: 40vh;
+        background-color: #f0efef55;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    .mainFocusAlign {
+            width: 87%;
+            height: 100%;
+            background-color:  #f0efef55;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+    
+    .line {
+    width: 70px;
+    height: 3px;
+    }
+    
+    .insideAlign {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+    
+    .contactUsHolder2 {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        flex-direction: row-reverse;
+    
+    }
+    
+    .leftContent {
+    width: 47%;
+    height: 100%;
+    padding: 10px;
+    
+    }
+    
+    .rightContent {
+    width: 50%;
+    height: 93%;
+    }
+    
+    .rightContent img {
+    width: 100%;
+    height: 100%;
+    }
+    
+    .contactUsHolder {
+    color: #0455B4;
+    text-align: center;
+    }
+    
+    .paragraphText {
+    height: 60%;
+    font-family: 'poppins, sans-serif';
+    font-size: 25.5px;
+    font-weight: 200;
+    margin: 15px;
+    text-align: justify;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    }
+
+    .multipleTaskSubHead {
+        font-size: large;
+    }
+
+    .MultipleTaskHead {
+        font-size: xx-large;
+    }
+    
+    .multipleTaskText {
+        font-size: medium;
+    }
+    
+    .uniqueFactors {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f0efef55;
+    }
+    
+    .uniqueFactorsAlign {
+    width: 100%;
+    height: 90%;
+    background-color: #f0efef55;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    }
+    
+    .uniqueCompany {
+    color: #0455B4;
+    }
+    
+    .uniquebox {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f0efef55 ;
+    }
+    
+    .circle {
+    width: 25%;
+    height: 10px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .uniqueContentText {
+        font-size: large;
+    }
+    
+    .circleIcon {
+    width: 80%;
+    height: 80%;
+    color:#0455B4;
+    }
+    
+    .uniqueContent {
+    width: 22%;
+    height: 60%;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    }
+    
+    .uniqueContentSeprate {
+    width: 22%;
+    height: 60%;
+    background-color: white;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    
+    .mainFocus {
+    width: 100%;
+    height: 90vh;
+    }
+    
+    .spacing {
+        width: 100%;
+        height: 5vh;
+        background-color: #f0efef55;
+    }
+    
+    .topBox {
+        width: 100%;
+        height: 55%;
+        background-color: #0455B4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: x-large;
+        color: white;
+    } 
+
+    .topBoxText {
+        font-size: xx-large;
+    }
+    
+    
+    .downBox {
+        width: 100%;
+        height: 45%;
+        border: 0.1px solid rgba(19, 19, 19, 0.703);
+        background-color: #f0efef55;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer {
+        width: 100%;
+        height: 5%;
+        border: 0.1px solid rgba(19, 19, 19, 0.703);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'poppins, sans-serif';
+        background-color: #f0efef55;
+    }
+    
+    .downBttn {
+        width: 19%;
+        height: 15%;
+        background-color: white;
+        border-radius: 5px;
+        border: none;
+        margin-top: 30px;
+        font-size: x-large;
+        font-family: 'poppins, sans-serif';
+    }
+    
+    .downBoxAlign {
+        width: 90%;
+        height: 85%;
+        background-color: rgba(154, 154, 154, 0.082);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footerImage {
+        width: 23%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .imageAlign {
+        width: 100%;
+        height: 70%;
+    }
+    
+    .imageAlign img {
+        width: 90%;
+        height: 100%;
+    }
+    
+    .footerAlign {
+        width: 23%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: x-large;
+    }
+    
+    .footerText {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        list-style-type: none;
+        font-family: 'poppins, sans-serif';
+        font-size: large;
+    }
+} */

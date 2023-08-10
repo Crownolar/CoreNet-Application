@@ -17,7 +17,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
+  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin); 
   const {login_alert} = useContext(ThemeContext)
   const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
@@ -54,10 +54,9 @@ const Login = () => {
   return (
     <div className="AdminLoginPage">
        {verifyAlert && <div className='AdminwelcomeMssg'>
-                <div>
                     <p>Please check your Email a verification link has been sent to you</p>
-                </div>
-            </div>}
+                    <p>Didn't receive an Email <span>Resend verification Email</span> </p>
+                    </div>}
       <div className="SignWrap">
         <div className="imag">
           <img src={bgImg} alt="" />

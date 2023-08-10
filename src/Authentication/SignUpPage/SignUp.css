@@ -96,6 +96,7 @@
     top: 62%;
     /* bottom: 6%; */
     right: 7%;
+    font-size: 20px;
 }
 .SignUpInputWrap1{
     width: 100%;
@@ -112,17 +113,35 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.SignUpInputWrap3 span{
+/* .SignUpInputWrap3 span{
     color: #0455B4;
     cursor: pointer;
     /* animation: backInUp;
     animation-duration: 3s; */
-}
+/* }  */
 
 .sign-in-link.animate__heartBeat {
   animation: heartBeat 10s;
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .SignUpInputWrap3{
+    /* background-color: red; */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  .SignUpInputWrap3 span{
+    background-color: green;
+  }
+/* 
 @keyframes heartBeat {
   0% {
     transform: scale(1);
@@ -139,7 +158,7 @@
   70% {
     transform: scale(1);
   }
-}
+} */
 
 /* .SignUpWrap{
     width: 50%;

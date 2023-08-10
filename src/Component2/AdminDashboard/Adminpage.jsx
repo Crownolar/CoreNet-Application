@@ -8,12 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 const Adminpage = () => {
   const User = useSelector((state) => state.persistedReducer.user)
-  console.log(User.isVerified);
+  // console.log(User.isVerified);
   console.log(User);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate()
   // const userInfo = userData
   // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   navigate()
+  // },[navigate])
 
 
 
@@ -21,7 +24,7 @@ const Adminpage = () => {
   return (
     <div className="Admin_Mainbody">
       {
-        User.isVerified === false ? navigate("./login") : null
+        User ? navigate("./login") : null
       }
       <div className="Admin_MainBodyWrap">
         {/* {userInfo ? } */}

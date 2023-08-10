@@ -20,12 +20,21 @@ const SignUp = () => {
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formData = useSelector((state) => state.persistedReducer.formData);
+  const user = useSelector((state) => state.persistedReducer.user);
+  // const Message = userData.res?.data?.data
+  // console.log(Message);
   const {login_alert} = useContext(ThemeContext);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [validationErrors, setValidationErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormData({[name]: value }))
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   
@@ -36,6 +45,42 @@ const SignUp = () => {
   const SignUp = (e) => {
     e.preventDefault();
     setLoading(true)
+
+    const errors = {};
+
+    if (!formData.FirstName) {
+      errors.FirstName = "First Name is required";
+    }
+
+    if (!formData.Surname) {
+      errors.Surname = "Surname is required";
+    }
+
+    if (!formData.UserName) {
+      errors.UserName = "Username is required";
+    }
+
+    if (!formData.Email) {
+      errors.Email = "Email is required";
+    }else if (!isValidEmail(formData.Email)) { // Implement your email validation function
+      errors.Email = "Invalid email address";
+    }
+
+    if (!formData.Password) {
+      errors.Password = "Password is required";
+    }
+
+    if (!formData.CompanyName) {
+      errors.CompanyName = "Company name is required";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setLoading(false);
+      setValidationErrors(errors);
+      return;
+    }
+
+
     const url = "https://corenet-api.onrender.com/api/signup";
   console.log(url);
 
@@ -79,7 +124,8 @@ const SignUp = () => {
                   name="FirstName"
                   value={formData.FirstName}
                   onChange={handleChange}
-                />
+                  />
+                  {validationErrors.FirstName && <p className="error-message">{validationErrors.FirstName}</p>}
               </div>
               <div className="SignUpInputWrap">
                 <input
@@ -89,6 +135,7 @@ const SignUp = () => {
                   value={formData.Surname}
                   onChange={handleChange}
                 />
+                {validationErrors.Surname && <p className="error-message">{validationErrors.Surname}</p>}
               </div>
               <div className="SignUpInputWrap">
                 <input
@@ -98,6 +145,7 @@ const SignUp = () => {
                   value={formData.UserName}
                   onChange={handleChange}
                 />
+                {validationErrors.UserName && <p className="error-message">{validationErrors.UserName}</p>}
               </div>
               <div className="SignUpInputWrap">
                 <input
@@ -107,15 +155,17 @@ const SignUp = () => {
                   value={formData.Email}
                   onChange={handleChange}  
                 />
+                {validationErrors.Email && <p className="error-message">{validationErrors.Email}</p>}
               </div>
               <div className="SignUpInputWrap">
                 <input
                   type={showPassword ? "text" : "password"}
-                  placeholder="Enter your Pasword"
+                  placeholder="Enter your Password"
                   name="Password"
                   value={formData.Password}
                   onChange={handleChange}
                 />
+                {validationErrors.Password && <p className="error-message">{validationErrors.Password}</p>}
                 {showPassword ? (
                   <FiEyeOff
                     onClick={() => setShowPassword(false)}
@@ -132,19 +182,14 @@ const SignUp = () => {
                 <input type="text" placeholder="Enter your company's name" name="CompanyName"
                   value={formData.CompanyName}
                   onChange={handleChange}/>
+                  {validationErrors.CompanyName && <p className="error-message">{validationErrors.CompanyName}</p>}
               </div>
               <div className="SignUpInputWrap1">
                 <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
-                {/* <button onClick={() => Nav("../login")}>Sign Up</button> */}
               </div>
               <div className="SignUpInputWrap3">
                 <p>
-                  Already have an account?{" "}
-                  <span
-                    onClick={() => Nav("../login")}
-                  >
-                    Sign in
-                  </span>
+                  Already have an account? <h5 onClick={() => Nav("../login")}> Sign in</h5>
                 </p>
               </div>
             </div>

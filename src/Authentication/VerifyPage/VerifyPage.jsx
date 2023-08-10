@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./VerifyPage.css";
+import { useNavigate } from "react-router-dom";
 
 const VerifyPage = () => {
+  const Nav = useNavigate()
   return (
     <div className="veifypage">
       <div className="verifypagewrap">
@@ -19,7 +21,7 @@ const VerifyPage = () => {
           <p>Click ok to continue</p>
         </div>
         <div className="verificationcontinue">
-          <button>Ok</button>
+          <button onClick={() => Nav("/")}>Ok</button>
         </div>
       </div>
     </div>
