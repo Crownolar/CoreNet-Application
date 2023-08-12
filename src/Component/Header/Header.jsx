@@ -19,6 +19,12 @@ const Header = () => {
   //   setSidebarOpen(false);
   // };
 
+  const Navigate = (path) => {
+    Nav(path);
+    // handlecloseMobile();
+    setSidebarOpen(false);
+  }
+
   const handleNavItemClick = (path) => {
     if (user) {
       Nav(path)
@@ -53,8 +59,13 @@ const Header = () => {
                     </ul>
                 </div>
 
-                <div className="CTA">
+                <div className="CTA1" onClick={() => Nav("./")}>
                     <button onClick={() => Nav('./Login')}>Get Started</button>
+                    {/* <img src="./realbluelogo.png" alt=""  /> */}
+                </div>
+                <div className="CTA" onClick={() => Nav("./")}>
+                    {/* <button onClick={() => Nav('./Login')}>Get Started</button> */}
+                    <img src="./realbluelogo.png" alt=""  />
                 </div>
 
                 <div className="ham">
@@ -76,8 +87,8 @@ const Header = () => {
               <div className="centerNav1">
                     <ul>
                         <div onClick={() => handleNavItemClick("/adminpage")}>Home</div>
-                        <div onClick={() => Nav('/contactus')}>Contact Us</div>
-                        <div onClick={() => Nav('/about')}>About</div>
+                        <div onClick={() => Navigate('/contactus')}>Contact Us</div>
+                        <div onClick={() => Navigate('/about')}>About</div>
                         <div>Price</div>
                     </ul>
                 </div>

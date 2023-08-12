@@ -182,6 +182,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        /* background-color: aliceblue; */
     }
 
     .headerwrap{
@@ -190,11 +191,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        box-shadow: none;
     }
 
     .ham{
         display: block;
         font-size: 30px;
+    }
+
+    .CTA1{
+        display: none;
     }
 
     .CTA{
@@ -204,6 +210,11 @@
         align-items: center;
         justify-content: flex-start;
     }
+    .CTA img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .Logo, .centerNav{
         display: none;
@@ -211,9 +222,9 @@
 
     .sidebarDiv{
     top: 0;
-    left: 0;
+    /* left: 0; */
     right: 0;
-    width: 100%;
+    width: 75%;
     height: 100vh;
     background-color: whitesmoke;
     display: flex;
@@ -221,6 +232,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+    z-index: 20;
     }
 
     .close{
@@ -263,8 +275,8 @@
     }
 
     .aUser{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
     .centerNav1{

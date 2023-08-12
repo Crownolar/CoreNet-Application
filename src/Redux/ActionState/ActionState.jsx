@@ -21,11 +21,10 @@ const initialState = {
     Password: "",
   },
   error: null,
-  user: {
-  },
+  user: {},
   writer: [],
-  // editorid: {},
-//   signout:"",
+  writerlist: [],
+  writerid: [{}],
 };
 
 const signupSlice = createSlice({
@@ -42,7 +41,7 @@ const signupSlice = createSlice({
       state.formDataWriter = {
         ...state.formDataWriter,
         ...payload,
-      }
+      };
     },
     updateFormDataSignin: (state, { payload }) => {
       state.formDatasignin = {
@@ -54,30 +53,49 @@ const signupSlice = createSlice({
       state.error = null;
     },
     signUpFailure: (state, { payload }) => {
-      state.error = payload; 
+      state.error = payload;
     },
     userData: (state, { payload }) => {
-        state.user = payload
+      state.user = payload;
     },
     updateWriter: (state, { payload }) => {
-      state.writer = payload
+      state.writer = payload;
     },
     SignoutAdmin: (state) => {
-        state.user = [];
+      state.user = [];
     },
     // EditorID: (state) => {
     //   state.user = null
     // },
-    clearUser: (state)=>{
-      const clearAll= {}
-      state.user= clearAll
+    clearUser: (state) => {
+      const clearAll = {};
+      state.user = clearAll;
     },
     AllWriters: (state, { payload }) => {
       state.writer = payload;
       console.log("allwriters", payload);
     },
+    updateWriterList: (state, { payload }) => {
+      state.writerlist = payload;
+    },
+    updateWriterId: (state, { payload }) => {
+      state.writerid = payload;
+    },
   },
 });
 
-export const { updateFormData, updateformDataWriter, signUpSuccess, signUpFailure,clearUser, userData, updateFormDataSignin, SignoutAdmin, updateWriter, AllWriters } = signupSlice.actions;
+export const {
+  updateFormData,
+  updateformDataWriter,
+  signUpSuccess,
+  signUpFailure,
+  clearUser,
+  userData,
+  updateFormDataSignin,
+  SignoutAdmin,
+  updateWriter,
+  AllWriters,
+  updateWriterList,
+  updateWriterId,
+} = signupSlice.actions;
 export default signupSlice.reducer;

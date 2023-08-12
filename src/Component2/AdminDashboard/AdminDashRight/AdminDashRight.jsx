@@ -17,6 +17,7 @@ import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashC
 import { useSelector } from "react-redux";
 import 'animate.css'
 import Profile from "../../Pages/Profile/Profile";
+import AdminAllWriterDesc from "./AdminAllWriter/AdminAllWriterDesc/AdminAllWriterDesc";
 
 
 
@@ -130,6 +131,7 @@ const AdminDashRight = () => {
           <Route path="/admincreatewriter/*" element={<AdminDashCreateWriter />} />
           <Route path="/adminallwriter" element={<AdminAllWriter />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/adminallwriterdesc" element={<AdminAllWriterDesc />} />
           {/* <Route path='/admincreatewriternextcontent' element={<AdminDashCreateWriterNextContent />} /> */}
         </Routes>
         {/* <button onClick={(()=> console.log("clicked"))}>clicke me</button> */}

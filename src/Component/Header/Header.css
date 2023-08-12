@@ -12,7 +12,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
 .Logo{
     width: 15%;
@@ -59,15 +59,18 @@ header{
     font-size: 20px;
 }
 
-.CTA{
+.CTA1{
     width: 15%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
+.CTA{
+    display: none;
+}
 
-.CTA button {
+.CTA1 button {
     width: 80%;
     height: 60%;
     border: none;background-color: #0455B4;

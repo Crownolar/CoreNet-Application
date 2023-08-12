@@ -7,7 +7,9 @@ import { useParams } from "react-router-dom";
 
 const AdminTaskAssign = () => {
   const [writer, setWriter] = useState([])
-  // const writer = useSelector((state) => state.signup.writer);
+  
+  const writers = useSelector((state) => state.persistedReducer.writer);
+  console.log(writers);
   const user = useSelector((state) => state.persistedReducer.user);
   console.log(user);
   const EditorID = user.editorId
@@ -19,8 +21,9 @@ const  [task, setTask] = useState({
 })
 
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
-  // const Url = `https://corenet.onrender.com/accepts/${id}`
-  // console.log(Url)
+  const URL = `https://corenet-api.onrender.com/api/editors/${EditorID}/writers/${writers}/tasks`
+  console.log(URL);
+  // console.log(Url)editors/:id/writers/:writerId/tasks
 
   // const AssignTask = () => {
   //   axios
