@@ -58,7 +58,7 @@ const AdminTaskAssignPage = () => {
           value={dueTime}
           onChange={(e) => setDueTime(e.target.value)}
         />
-        <button onClick={addTask}>Add Task</button>
+        <button onClick={addTask}>Assign</button>
       </div>
       <div className="task-list">
         {tasks.map((task, index) => (
