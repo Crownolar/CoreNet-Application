@@ -50,43 +50,39 @@
         width: 100%;
         height: 13%;
         /* background-color: yellow; */
-        position: relative;
     }
     .SignUpInputWrap input{
         width: 100%;
         height: 70%;
         outline: none;
         /* background-color: aqua; */
+        position: relative;
     }
     .SignUpInputWrap .Show{
-        font-size: 20px;
+        font-size: 18px;
         position: absolute;
-        /* top: 40%; */
         right: 10%;
-        bottom: 30%;
-        /* left: 0; */
-        /* top: 100%; */
-        background-color: green;
+        top: 0;
+        /* background-color: green; */
     }
-    .SignUpInputWrap1 button{
+    /* .SignUpInputWrap1 {
         width: 100%;
-        height: 60%;
-        border-radius: 10px;
+        height: 70%;
+        background-color: blueviolet;
+    } */
+    .SignUpInputWrap button{
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        padding: 10px;
         background-color: #0455B4;
     }
     .SignUpInputWrap3{
         width: 100%;
         height: 20%;
-        background-color: yellow;
+        /* background-color: yellow; */
         display: flex;
-        /* align-items: center; */
-        font-size: 20px;
-        /* justify-content: center; */
-    }
-    .SignUpInputWrap3 p{
-        /* width: 100%; */
-        /* margin-left: 0%; */
-        /* background-color: blueviolet; */
+        /* font-size: 20px; */
     }
     .SignUpInputWrap3 span{
         color: #0455B4;
@@ -141,19 +137,19 @@
         height: 70%;
     }
     .SignUpInputWrap .Show{
-        font-size: 27px;
+        font-size: 24px;
     color: #0455B4;
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 15px;
+    top: 2px;
     }
     .SignUpInputWrap1{
         width: 100%;
         height: 20%;
         /* gap: 20px; */
     }
-    .SignUpInputWrap2{
+    .SignUpInputWrap3{
         width: 100%;
         height: 10%;
         display: flex;
@@ -161,7 +157,7 @@
         justify-content: center;
         margin-top: 10px;
     }
-    .SignUpInputWrap2 span{
+    .SignUpInputWrap3 span{
         color: #0455B4;
     }
     .error-message {

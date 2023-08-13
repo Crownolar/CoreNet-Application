@@ -113,12 +113,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-/* .SignUpInputWrap3 span{
-    color: #0455B4;
-    cursor: pointer;
-    /* animation: backInUp;
-    animation-duration: 3s; */
-/* }  */
 
 .sign-in-link.animate__heartBeat {
   animation: heartBeat 10s;
@@ -139,7 +133,9 @@
     justify-content: center;
   }
   .SignUpInputWrap3 span{
-    background-color: green;
+    width: 100%;
+    color: #0455B4;
+    cursor: pointer;
   }
 /* 
 @keyframes heartBeat {

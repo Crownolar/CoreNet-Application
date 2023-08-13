@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Adminpage = () => {
   const User = useSelector((state) => state.persistedReducer.user)
   // console.log(User.isVerified);
-  console.log(User);
+  // console.log(User);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate()
 

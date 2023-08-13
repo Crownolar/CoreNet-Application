@@ -73,8 +73,7 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
-              <p>Didn't receive an Email <span onClick={Resend} style={{color: "blue", cursor: "pointer"}}>Resend verification Email</span> </p>
-
+              <p>Didn't receive an Email? <span>Resend verification Email</span> </p>
             </div>
             <div className="input">
               <div className="EText">

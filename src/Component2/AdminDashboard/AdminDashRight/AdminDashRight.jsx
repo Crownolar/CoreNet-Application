@@ -15,11 +15,10 @@ import AdminDashCreateWriter from "./AdminDashCreateWriter/AdminDashCreateWriter
 import AdminAllWriter from "./AdminAllWriter/AdminAllWriter";
 import AdminDashCreateWriterNextContent from "./AdminDashCreateWriter/AdminDashCreateWriterNextContent/AdminDashCreateWriterNextContent";
 import { useSelector } from "react-redux";
-import 'animate.css'
+import "animate.css";
 import Profile from "../../Pages/Profile/Profile";
 import AdminAllWriterDesc from "./AdminAllWriter/AdminAllWriterDesc/AdminAllWriterDesc";
-
-
+import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTaskAssignPage";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -30,13 +29,13 @@ const AdminDashRight = () => {
   const User = useSelector((state) => state.persistedReducer.user);
 
   const handlecloseMobile = () => {
-    setOpenSideBar(false)
-}
+    setOpenSideBar(false);
+  };
 
   const Navigate = (path) => {
     navigate(path);
     handlecloseMobile();
-  }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -48,77 +47,101 @@ const AdminDashRight = () => {
     };
   }, []);
 
-
-  const MobileDropDown = (  
-
-    openSiderBar && (
-     <div className="Adminsidebar_MobileView" style={{animation: openSiderBar ? null : "fadeInRight", animationDuration: openSiderBar ? null : "0.01s"}}>
-       <div className="AdminSideWrap">
-         <div className="Adminsidebarlogo">
-         <div className="iconclose">
-         <AiOutlineClose className="AdminSideBarCloseIcon"  onClick={() => setOpenSideBar(!openSiderBar)}/>
-         </div>
-           <div className="logoimage">
-           <img src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"} alt="" className="AdminLogo_SideBar" onClick={() => Navigate('/')} />
-           </div>
-         </div>
-         <div className="AdminsidebarNav">
-           <div className="AdminsidebarNav_Wrap">
-             <div
-               onClick={() => Navigate("/adminpage/admintaskoverview")}
-               className="Admintask"
-             >
-               <BiTask />
-               <p> Task Overview</p>
-             </div>
-             <div
-               onClick={() => Navigate("/adminpage/admintaskassign")}
-               className="Admintask"
-             >
-               <GoTasklist />
-               <p>Task Assignment</p>
-             </div>
-             <div  onClick={() => Navigate("/adminpage/admincreatewriter")}
+  const MobileDropDown = openSiderBar && (
+    <div
+      className="Adminsidebar_MobileView"
+      style={{
+        animation: openSiderBar ? null : "fadeInRight",
+        animationDuration: openSiderBar ? null : "0.01s",
+      }}
+    >
+      <div className="AdminSideWrap">
+        <div className="Adminsidebarlogo">
+          <div className="iconclose">
+            <AiOutlineClose
+              className="AdminSideBarCloseIcon"
+              onClick={() => setOpenSideBar(!openSiderBar)}
+            />
+          </div>
+          <div className="logoimage">
+            <img
+              src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"}
+              alt=""
+              className="AdminLogo_SideBar"
+              onClick={() => Navigate("/")}
+            />
+          </div>
+        </div>
+        <div className="AdminsidebarNav">
+          <div className="AdminsidebarNav_Wrap">
+            <div
+              onClick={() => Navigate("/adminpage/admintaskoverview")}
               className="Admintask"
-              >
-               <MdAddTask />
-               <p> Create writer</p>
-             </div>
-             <div onClick={() => Navigate("/adminpage/adminallwriter")}
-              className="Admintask">
-               <BsListTask />
-               <p>All writers</p>
-             </div>
-           </div>
-           <div className="AdminSignOutDiv" onClick={() => Navigate("../signout")}>
-           <PiSignOut />
-             <p>Sign Out</p>
-           </div>
-         </div>
-       </div>
-     </div>
-   ));
+            >
+              <BiTask />
+              <p> Task Overview</p>
+            </div>
+            <div
+              onClick={() => Navigate("/adminpage/admintaskassign")}
+              className="Admintask"
+            >
+              <GoTasklist />
+              <p>Task Assignment</p>
+            </div>
+            <div
+              onClick={() => Navigate("/adminpage/admincreatewriter")}
+              className="Admintask"
+            >
+              <MdAddTask />
+              <p> Create writer</p>
+            </div>
+            <div
+              onClick={() => Navigate("/adminpage/adminallwriter")}
+              className="Admintask"
+            >
+              <BsListTask />
+              <p>All writers</p>
+            </div>
+          </div>
+          <div
+            className="AdminSignOutDiv"
+            onClick={() => Navigate("../signout")}
+          >
+            <PiSignOut />
+            <p>Sign Out</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="AdminDashRightMain">
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
-          <h3 onClick={() => Navigate("/adminpage/profile")} style={{cursor: "pointer"}}>{User.UserName}</h3>
-          {User && User.UserName ? ( <h4>Welcome To CoreNet</h4>  ) : null}
+          <h3
+            onClick={() => Navigate("/adminpage/profile")}
+            style={{ cursor: "pointer" }}
+          >
+            {User.UserName}
+          </h3>
+          {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null}
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
-            {
-            openSiderBar ? 
+            {openSiderBar ? (
               <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
-             : 
-              <RxHamburgerMenu style={{fontSize: "25px"}} onClick={() => setOpenSideBar(!openSiderBar)}/>
-            }
-             {openSiderBar && MobileDropDown}
-          </div> 
+            ) : (
+              <RxHamburgerMenu
+                style={{ fontSize: "25px" }}
+                onClick={() => setOpenSideBar(!openSiderBar)}
+              />
+            )}
+            {openSiderBar && MobileDropDown}
+          </div>
         </div>
       </div>
-      <div className="AdminDashRightContent" >
-      {showWelcome && User && (
+      <div className="AdminDashRightContent">
+        {showWelcome && User && (
           <div className="welcome-message">
             <h3>Welcome to CoreNet Dashboard!</h3>
             <p>Explore, manage, and conquer your network like never before.</p>
@@ -127,14 +150,19 @@ const AdminDashRight = () => {
 
         <Routes>
           <Route path="/admintaskoverview" element={<AdminTaskOveview />} />
-          <Route path="/admintaskassign" element={<AdminTaskAssign />} />
-          <Route path="/admincreatewriter/*" element={<AdminDashCreateWriter />} />
-          <Route path="/adminallwriter" element={<AdminAllWriter />} />
+          <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
+          <Route
+            path="/admincreatewriter/*"
+            element={<AdminDashCreateWriter />}
+          />
+          <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/adminallwriterdesc" element={<AdminAllWriterDesc />} />
-          {/* <Route path='/admincreatewriternextcontent' element={<AdminDashCreateWriterNextContent />} /> */}
+          <Route
+            path="/adminallwriterdesc/:id"
+            element={<AdminAllWriterDesc />}
+          />
+            <Route path="/admintaskassignpage/:id" element={<AdminTaskAssignPage />} />
         </Routes>
-        {/* <button onClick={(()=> console.log("clicked"))}>clicke me</button> */}
       </div>
     </div>
   );

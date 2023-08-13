@@ -18,7 +18,7 @@ const AdminTaskOveview = () => {
             <div className="Admintaskoverviewcolor2">P</div>
             <div className="Admintaskoverviewcolor3">C</div>
           </div>
-        </div>
+        </div>  
       </div>
       <div className="Admintaskassigner">
         <div className="Admintaskassignerwrap">

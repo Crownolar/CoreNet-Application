@@ -2,56 +2,43 @@ import React, { useEffect, useState } from "react";
 import "./AdminTaskAssign.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-
+import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
+import AdminTaskAssignPage from "./AdminTaskAssignPage/AdminTaskAssignPage";
 
 const AdminTaskAssign = () => {
-  const [writer, setWriter] = useState([])
-  
-  const writers = useSelector((state) => state.persistedReducer.writer);
-  console.log(writers);
+  const [writer, setWriter] = useState([]);
   const user = useSelector((state) => state.persistedReducer.user);
-  console.log(user);
-  const EditorID = user.editorId
+  const navigate = useNavigate()
+  const EditorID = user.editorId;
   console.log(EditorID);
-  // const {id} = useParams
-const  [task, setTask] = useState({
-  entertask: "",
-
-})
-
+  const [task, setTask] = useState({
+    entertask: "",
+  });
+  const { id } = useParams();
+  console.log(id);
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
-  const URL = `https://corenet-api.onrender.com/api/editors/${EditorID}/writers/${writers}/tasks`
-  console.log(URL);
-  // console.log(Url)editors/:id/writers/:writerId/tasks
-
-  // const AssignTask = () => {
-  //   axios
-  //   .post(Url)
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  // }
-
 
   const getAllWriters = () => {
-    axios.get(url)
-    .then((res) =>{
-      setWriter(res?.data.data);
-    
-      {console.log(res.data)}
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      if (error.response) {
-        console.error('Response Data:', error.response.data);
-      }
-    });
-    
-  };
-  // console.log(getAllWriters);
+    axios
+      .get(url)
+      .then((res) => {
+        setWriter(res?.data.data);
 
-  
+        {
+          console.log(res.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        if (error.response) {
+          console.error("Response Data:", error.response.data);
+        }
+      });
+  };
+
+ 
+
+
   useEffect(() => {
     getAllWriters();
   }, []);
@@ -61,80 +48,31 @@ const  [task, setTask] = useState({
   }, [writer]);
 
 
-  
-  const [items, setItem] = useState([]);
-  const [add, setAdd] = useState("");
-
-  const addTodo = () => {
-    if (add.trim() !== "") {
-      setItem([...items, add]);
-      setAdd("");
-    }
-  };
-
-  const OnChange = (e) => {
-    setAdd(e.target.value);
-  };
-  console.log(add);
-
-  const Del = (index) => {
-    const updatedItems = items.filter((_, i) => i !== index);
-    setItem(updatedItems);
-  };
-
   return (
     <div className="AdminTaskAssign">
       <div className="AdminTaskAssignWrap">
-        <div className="AdminTaskassigned">
-          <p>Assign Task</p>
-        </div>
+        
         <div className="AdminTaskAssignInput">
-          <div className="AdminTaskAssignInputsTag">
-            <div className="AdminInput">
-              <input
-                type="text"
-                placeholder="Enter task"
-                value={add}
-                onChange={OnChange}
-              />
-            </div>
-            {/* <div className="AdminTaskAssignButton">
-              <button tabIndex={"0"} onClick={addTodo}>
-                Enter
-              </button>
-            </div> */}
-          </div>
-          {/* <div className="AdminTaskAssignoverallview">
-          <div className="AdminTaskAssignedView">
-            {items.map((val, index) => (
-              <div key={index} className="AdminTaskAssignedViewWrap">
-                <div className="AdminView">
-                  <p>{val}</p>
-                </div>
-                <div className="AdminTaskOption">
-                  <p>Edit</p>
-                  <button onClick={() => Del(index)}>Delete</button>
-                </div>
-              </div>
+          
+
+          <div className="AdminTaskAssignSelect">
+              {/* <div className="AdminTaskAssignSelectWrap"> */}
+            {writer.map((e) => (
+                <Link to={`/adminpage/admintaskassignpage/${e._id}`} className="user-card">
+                  <div className="avatar">{(e.Email.charAt(0)).toUpperCase()}</div>
+                  <div className="user-info">
+                    <h3>{e.UserName}</h3>
+                    <p>{e.Email}</p>
+                  </div>
+                  <div className="AdminTaskAssignCreateTaskButton">
+                    <button>Assign Task</button>
+                  </div>
+                </Link>
             ))}
           </div>
-          </div> */}
-          
-            <div className="AdminTaskAssignSelect">
-            <label htmlFor="writers">select writer:</label>
-            
-            <select name="witer" id="writer">
-              {writer?.map((e) => (
-                // <option value="audi">Samuel</option>
-                <option value={e._id}>{e.FullName}</option>
-                ))}
-                
-            </select>
-          </div>
-          <div className="AdminTaskAssignCreateTaskButton">
-            <button>Assign Task</button>
-          </div>
         </div>
+        <Routes>
+        </Routes>
       </div>
     </div>
   );

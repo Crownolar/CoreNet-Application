@@ -146,16 +146,16 @@
      padding-top: 10px;
     gap: 10px;
 }
-.checks {
-    width: 4%;
-    height: 90%;
-    background-color: red;
+
+.ETextCheckbox input{
+    width: 5%;
+    height: 50%;
 }
 
 .ETextCheckbox span{
     /* border: 1px solid #0455B4; */
     /* font-size: 20px; */
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .EText1{

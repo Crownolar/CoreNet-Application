@@ -195,9 +195,9 @@ const SignUp = () => {
                 <button onClick={SignUp}>{loading ? <Loader/> : "Sign Up"}</button>
               </div>
               <div className="SignUpInputWrap3">
-                <h5>
-                  Already have an account? <p onClick={() => Nav("../login")}> Sign in</p>
-                </h5>
+                <p>
+                  Already have an account? <span onClick={() => Nav("../login")}> Sign in</span>
+                </p>
               </div>
             </div>
           </div>
