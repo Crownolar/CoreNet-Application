@@ -23,8 +23,6 @@ import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTask
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
-  const [activeTab, setActiveTab] = useState("");
-  // const [logo, setLogo] = useState(false);
   const navigate = useNavigate();
   const User = useSelector((state) => state.persistedReducer.user);
 

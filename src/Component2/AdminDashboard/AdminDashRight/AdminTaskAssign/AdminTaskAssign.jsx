@@ -71,8 +71,6 @@ const AdminTaskAssign = () => {
             ))}
           </div>
         </div>
-        <Routes>
-        </Routes>
       </div>
     </div>
   );

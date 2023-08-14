@@ -1,31 +1,34 @@
 import React, { useState } from "react";
-import "./AdminTaskAssignPAge.css";
+import "./AdminTaskAssignPage.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const AdminTaskAssignPage = () => {
   const [tasks, setTasks] = useState([]);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [dueTime, setDueTime] = useState('');
+  const [Title, setTitle] = useState('');
+  const [Description, setDescription] = useState('');
+  const [hour, setHour] = useState("00");
+  const [minute, setMinute] = useState("00");
   const user = useSelector((state) => state.persistedReducer.user);
   const EditorID = user.editorId;
-  const { id } = useParams()
+  const { id } = useParams();
 
   const addTask = () => {
-    if (title && description && dueTime) {
+    if (Title && Description && hour && minute) {
+      const taskTimeout = Number(hour) * 60 + Number(minute);
       const newTask = {
-        title,
-        description,
-        dueTime,
+        Title,
+        Description,
+        taskTimeout,
       };
       setTasks([...tasks, newTask]);
       setTitle('');
       setDescription('');
-      setDueTime('');
+      setHour("00");
+      setMinute("00");
 
-        const URL = `https://corenet-api.onrender.com/api/editors/${EditorID}/writers/${id}`;
+      const URL = `https://corenet-api.onrender.com/api/${EditorID}/create-task/${id}`;
       axios.post(URL, newTask)
         .then((res) => {
           console.log('Task assigned successfully:', res.data);
@@ -36,7 +39,6 @@ const AdminTaskAssignPage = () => {
     }
   };
 
-
   return (
     <div className="task-assignment">
       <h2>Task Assignment</h2>
@@ -44,65 +46,46 @@ const AdminTaskAssignPage = () => {
         <input
           type="text"
           placeholder="Title"
-          value={title}
+          value={Title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
           placeholder="Description"
-          value={description}
+          value={Description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <input
-          type="text"
-          placeholder="Due Time"
-          value={dueTime}
-          onChange={(e) => setDueTime(e.target.value)}
-        />
+        <div className="time-input">
+          <select value={hour} onChange={(e) => setHour(e.target.value)}>
+            {Array.from({ length: 24 }, (_, index) => (
+              <option key={index} value={String(index).padStart(2, "0")}>
+                {String(index).padStart(2, "0")}
+              </option>
+            ))}
+          </select>
+          :
+          <select value={minute} onChange={(e) => setMinute(e.target.value)}>
+            {Array.from({ length: 60 }, (_, index) => (
+              <option key={index} value={String(index).padStart(2, "0")}>
+                {String(index).padStart(2, "0")}
+              </option>
+            ))}
+          </select>
+        </div>
         <button onClick={addTask}>Assign</button>
       </div>
       <div className="task-list">
         {tasks.map((task, index) => (
           <div className="task-card" key={index}>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-            <p>Due: {task.dueTime}</p>
+            <h3>{task.Title}</h3>
+            <p>{task.Description}</p>
+            <p>Timeout: {task.taskTimeout}</p>
           </div>
         ))}
       </div>
     </div>
-
-    // <div className="AdminTaskAssignPage">
-    //   <div className="AdminTaskAssignPageWrap">
-    //     <div className="AdminTaskassigned">
-    //       <p>Assign Task</p>
-    //     </div>
-    //     <div className="AdminTaskAssignInputsTag">
-    //       <div className="AdminInput">
-    //         <input
-    //           type="text"
-    //           placeholder="Enter task"
-    //           value={add}
-    //           onChange={OnChange}
-    //         />
-    //       </div>
-    //     </div>
-    //     <div className="AdminTaskassineeID">
-    //       <div
-    //         className="user-card"
-    //       >
-    //         <div className="avatar"></div>
-    //         <div className="user-info">
-    //           <h3></h3>
-    //           <p></p>
-    //         </div>
-    //       </div>
-    //         <div className="AdminTaskAssignCreateTaskButton">
-    //           <button onClick={handleTaskAssignment}>Assign Task</button>
-    //         </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
 export default AdminTaskAssignPage;
+    
+

@@ -20,16 +20,21 @@
     /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         background-color: blue; */
         padding: 30px;
+        /* margin-top: 20px; */
     }
     .signText{
         width: 100%;
         height: 10%;
         /* background-color: pink; */
         color: #0455B4;
+        margin-bottom: 40px;
     }
-    /* .ETextCheckbox{
-        /* background-color: blue; */
-    /* }  */
+    .input{
+        width: 100%;
+    }
+    .input input{
+        width: 100%;
+    }
     .SignInInputPassword{
         width: 100%;
         height: 15%;
@@ -43,9 +48,12 @@
     .SignInInputPassword .Show{
         font-size: 30px;
         position: absolute;
-        right: 15px;
+        right: 10px;
         top: 2px;
         /* background-color: red; */
+    }
+    .SignInInputPassword input{
+        width: 100%;
     }
     .ETextCheckbox{
         width: 100%;
@@ -55,6 +63,13 @@
     .ETextCheckbox input{
         width: 5%;
         height: 50%;
+    }
+    .EText1{
+        width: 100%;
+        /* background-color: red; */
+    }
+    .EText1 button{
+        width: 100%;
     }
 }
 
@@ -97,6 +112,9 @@
         /* background-color: #c9d953; */
         position: relative;
     }
+    .SignInInputPassword input{
+        width: 100%;
+    }
     .SignInInputPassword .Show{
         font-size: 30px;
         position: absolute;
@@ -105,13 +123,19 @@
         /* background-color: red; */
     }
     .ETextCheckbox{
-        width: 100%;
+        width: 80%;
         height: 20%;
         /* background-color: yellow; */
     }
     .ETextCheckbox input{
         width: 5%;
         height: 50%;
+    }
+    .EText1{
+        width: 100%;
+    }
+    .EText1 button{
+        width: 100%;
     }
 }
 
@@ -199,6 +223,13 @@
     .ETextCheckbox input{
         width: 5%;
         height: 50%;
+    }
+    .EText1{
+        width: 100%;
+        /* background-color: black; */
+    }
+    .EText1 button{
+        width: 100%;
     }
     .AdminwelcomeMssg{
     width: 100%;
