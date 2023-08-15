@@ -121,7 +121,7 @@ const AdminDashRight = () => {
             onClick={() => Navigate("/adminpage/profile")}
             style={{ cursor: "pointer" }}
           >
-            {User.UserName}
+            {/* {User.UserName} */}
           </h3>
           {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null}
           <p className="AdminNotificationIcon">Notify</p>

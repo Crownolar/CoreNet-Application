@@ -10,4 +10,6 @@
     width: 80%;
     height: 10vh;
     background-color: pink;
+    display: flex;
+    justify-content: space-between;
 }

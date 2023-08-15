@@ -18,6 +18,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
+  const Email = formDatasignin.Email
   // const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
 
@@ -27,12 +28,21 @@ const Login = () => {
   };
 
   const Resend = () => {
-    const url = `https://corenet-api.onrender.com/api/resend-verification-email`
+    const url = `https://corenet-api.onrender.com/api/${Email}`
+    setLoading(true)
     axios
     .post (url)
     .then(function(res) {
       console.log(res)
+      setLoading(false)
     })
+    .catch((error) => {
+      console.error("Error:", error);
+      setLoading(false)
+      if (error.response) {
+        console.error("Response Data:", error.response.data);
+      }
+    });
   }
 
   
@@ -73,7 +83,7 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
-              <p>Didn't receive an Email? <span>Resend verification Email</span> </p>
+              <p>Didn't receive an Email? <span onClick={Resend}>Resend verification Email</span> </p>
             </div>
             <div className="input">
               <div className="EText">

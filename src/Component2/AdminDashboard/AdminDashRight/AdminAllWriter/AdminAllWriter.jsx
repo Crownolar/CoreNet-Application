@@ -53,12 +53,6 @@ const AdminAllWriter = () => {
                 <p>{e.Email}</p>
               </div>
               <div className="Delete">
-                <button
-                  style={{ backgroundColor: "red", color: "white" }}
-                  onClick={() => DeletwWriter(e._id)}
-                >
-                  Del
-                </button>
               </div>
             </div>
             
