@@ -46,7 +46,7 @@ const VerifyPage = () => {
 <p>Click ok to continue</p></> : "Verification Failed"}
         </div>
         <div className="verificationcontinue">
-          <button onClick={() => Nav("./login")}>{isVerified === 1 ? "Sign in" : "Resend Email"}</button>
+          <button onClick={() => Nav("../login")}>{isVerified === 1 ? "Sign in" : "Resend Email"}</button>
         </div>
       </div>
     </div>
