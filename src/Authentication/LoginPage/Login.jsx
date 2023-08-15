@@ -28,13 +28,11 @@ const Login = () => {
   };
 
   const Resend = () => {
-    const url = `https://corenet-api.onrender.com/api/${Email}`
-    setLoading(true)
+    const url = `https://corenet-api.onrender.com/api/resend-verification-email/${Email}`
     axios
-    .post (url)
+    .post(url)
     .then(function(res) {
       console.log(res)
-      setLoading(false)
     })
     .catch((error) => {
       console.error("Error:", error);
