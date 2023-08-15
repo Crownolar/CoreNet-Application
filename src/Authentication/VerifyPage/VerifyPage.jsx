@@ -12,7 +12,7 @@ const VerifyPage = () => {
     useEffect(() => {
       const verifyUser = () => {
           axios
-              .post(`https://corenet-api.onrender.com/api/verify-email/${token}`)
+              .get(`https://corenet-api.onrender.com/api/verify-email/${token}`)
               .then((res) => {
                   console.log(res);
                   setIsVerified(2)
@@ -34,6 +34,7 @@ const VerifyPage = () => {
     <div className="veifypage">
       <div className="verifypagewrap">
         <div className="verificationpageaction">
+          o
          {isVerified === 1 ?<>  <h3>Verification successful</h3>
 
 <>
