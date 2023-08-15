@@ -35,7 +35,7 @@ const VerifyPage = () => {
       <div className="verifypagewrap">
         <div className="verificationpageaction">
           o
-         {isVerified === 1 ?<>  <h3>Verification successful</h3>
+         {isVerified === 2 ?<>  <h3>Verification successful</h3>
 
 <>
   <p>Congratulations!</p>
