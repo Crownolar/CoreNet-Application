@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
     animation: backInDown;
-    animation-duration: 3s;
+    animation-duration: 2s;
   }
   
   .welcome-message h3 {
@@ -92,7 +92,7 @@
     position: absolute;
     right: 5%;
     top: 5%;
-    font-size: 30px;
+    font-size: 40px;
     color: #0455B4;
     animation: fadeOutRight;
     animation-duration: 3s;
@@ -117,21 +117,25 @@
 }
 .AdminsidebarNav{
     width: 100%;
-    height: 80%;
+    height: 100%;
     /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     /* margin-left: 30%; */
     
 }
 .AdminsidebarNav_Wrap{
     width: 100%;
-    height: 100%;
-    /* background-color: silver;rtf */
+    height: 80%;
+    /* background-color: silver; */
+    gap: 10px;
 }
 .Admintask{
     width: 100%;
-    height: 25%;
+    height: 15%;
     /* background-color: black; */
-    color: #0455B4;
+    color: white;
 }
 .Admintask:hover{
     background-color: #0455B4;
@@ -156,7 +160,7 @@
     align-items: center;
     justify-content: center;
     animation: backInDown;
-    animation-duration: 3s;
+    animation-duration: 2.5s;
     text-align: center;
   }
   
@@ -182,37 +186,98 @@
         display: none;
     }
 .Adminsidebar_MobileView{
-    width: 80%;
-    display: flex;
-    position: absolute;
-    height: 100%;
+    display: block; /* Display the mobile sidebar */
+    position: fixed;
     top: 0;
     left: 20%;
-    /* background-color: #a7caf2; */
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    animation: fadeInRight 2.5s;
+
+    /* width: 80%;
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 20%;
     background-color: white;
     animation: fadeInRight;
-    animation-duration: 3s;
-    /* color: #0455B4; */
-    
+    animation-duration: 2.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     */
 }
-.AdminSideBarCloseIcon{
-    /* position: absolute;
-    right: 5%;
-    top: 5%; */
+.AdminSideWrap {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Adminsidebarlogo {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .Adminsidebarlogo .iconclose{
+    font-size: 40px;
+    padding-bottom: 90px;
+    color: #0455B4;
+    animation: backOutRight 6s;
+  }
+  
+  .Adminlogo_SideBar {
+    cursor: pointer;
+  }
+  
+  .AdminsidebarNav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Admintask {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .Admintask p {
+    margin-left: 10px;
+  }
+  
+  .AdminSignOutDiv {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #0455B4;
+  }
+/* .AdminSideBarCloseIcon{
     font-size: 40px;
     color: #0455B4;
     animation: fadeOutRight;
     animation-duration: 3s;
-    /* background-color: #70aaed; */
 }
 .AdminSideWrap{
-    width: 100%;
-    height: 100%;
-    /* background-color: rgb(246, 175, 175); */
+    width: 99%;
+    height: 99%;
+    display: flex;
+    flex-direction: column;
 }
 .Adminsidebarlogo{
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     flex-direction: row-reverse;
 }
@@ -222,42 +287,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: aqua; */
-    padding-bottom: 30px;
 }
 .Adminsidebarlogo .logoimage{
     width: 80%;
     height: 100%;
-    /* background-color: pink; */
 }
 .Adminsidebarlogo .logoimage img{
-    width: 100%;
+    width: 30%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .AdminsidebarNav{
-    /* background-color: blue; */
+    background-color: blue;
     width: 100%;
-    height: 85%;
+    height: 90%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 10px;
 }
 .AdminsidebarNav_Wrap{
     width: 100%;
     height: 80%;
-    background-color: #a7caf2;
-    margin-top: 30%;
-    display: flex;
-    justify-content: center;
+    background-color: #062b54;
+    margin-top: 50%;
 }
 .Admintask{
     width: 80%;
-    /* height: 80%; */
+    height: 6vh;
     display: flex;
-    /* align-items: center; */
-    justify-content: center;
+    padding-left: 30%;
+    font-size: 18px;
     color: #0455B4;
-    /* background-color: green; */
+    background-color: green;
 }
 .Admintask:hover{
     background-color: #0455B4;
@@ -265,18 +327,19 @@
 }
 .AdminSignOutDiv{
     width: 100%;
-    height: 20%;
-    /* background-color: gray; */
+    height: 20vh;
+    background-color: gray;
     display: flex;
     justify-content: center;
     color: #0455B4;
+    padding: 20px;
+    margin-bottom: 80%;
 }
 .AdminSignOutDiv:hover{
     background-color: #0455B4;
     color: white;
 }
 .welcome-message {
-    /* padding: 16px; */
     width: 90%;
     height: 90%;
     background-color: #0455B4;
@@ -304,5 +367,5 @@
     margin-top: 8px;
     font-size: 16px;
     color: #949494;
-  }
+  } */
 }

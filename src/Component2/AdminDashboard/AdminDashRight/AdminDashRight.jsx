@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminTaskOveview from "./AdminTaskOverview/AdminTaskOveview";
-import AdminTaskAssign from "./AdminTaskAssign/AdminTaskAssign";
+import AdminTaskAssign from "./AdminTaskAssign/AdminTaskAssign.jsx";
 import "./AdminDashRight.css";
 // import { FaRegCircle } from "react-icons/fa6";
 import { BiTask } from "react-icons/bi";
@@ -63,7 +63,7 @@ const AdminDashRight = () => {
           </div>
           <div className="logoimage">
             <img
-              src={openSiderBar ? "/LogoCorerem.png" : "CORENETrem.png"}
+              src={openSiderBar ? "CORENETrem.png" : "/LogoCorerem.png"}
               alt=""
               className="AdminLogo_SideBar"
               onClick={() => Navigate("/")}
@@ -127,7 +127,8 @@ const AdminDashRight = () => {
           <p className="AdminNotificationIcon">Notify</p>
           <div className="AdminUserIcon">
             {openSiderBar ? (
-              <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
+              // <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
+              ""
             ) : (
               <RxHamburgerMenu
                 style={{ fontSize: "25px" }}

@@ -36,7 +36,6 @@ const Profile = () => {
           </div>
           <div className="ProfileName"></div>
           <h4>
-            {" "}
             {EditorInfo.Surname} {EditorInfo.FirstName}
           </h4>
         </div>
@@ -90,7 +89,7 @@ const Profile = () => {
                   style={{ backgroundColor: "red", color: "white" }}
                   onClick={() => deleteAdmin()}
                 >
-                  Del
+                  Delete Account
                 </button>
               </div>
             </div>

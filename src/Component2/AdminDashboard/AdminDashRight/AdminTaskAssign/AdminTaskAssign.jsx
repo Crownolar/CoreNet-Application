@@ -11,9 +11,6 @@ const AdminTaskAssign = () => {
   const navigate = useNavigate()
   const EditorID = user.editorId;
   console.log(EditorID);
-  const [task, setTask] = useState({
-    entertask: "",
-  });
   const { id } = useParams();
   console.log(id);
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;

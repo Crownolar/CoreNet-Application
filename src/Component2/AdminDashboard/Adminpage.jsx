@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminSidebar from "./AdminDashLeft/AdminSidebar";
 import AdminDashRight from "./AdminDashRight/AdminDashRight";
 import "./Adminpage.css";
@@ -8,12 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 const Adminpage = () => {
   const User = useSelector((state) => state.persistedReducer.user)
-  // console.log(User.isVerified);
-  // console.log(User);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate()
 
-
+useEffect(() => {
+  if (!User && User.isVerified === false) {
+    navigate("/login"); 
+  }
+},[])
+//
 
 
 
