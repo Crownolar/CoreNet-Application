@@ -1,0 +1,46 @@
+.HomeDashboard {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .DashboardHeader {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .DashboardHeader h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .DashboardHeader p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .DashboardContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .TaskAssignment, .WriterManagement {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    flex-basis: calc(50% - 10px);
+  }
+  
+  .TaskAssignment img,
+  .WriterManagement img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  

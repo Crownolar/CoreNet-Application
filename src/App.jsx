@@ -13,6 +13,7 @@ import ContactUs from "./Component2/Pages/ConatctUs/ContactUs";
 import About from "./Component2/Pages/About/About"
 import Profile from "./Component2/Pages/Profile/Profile";
 import AdminAllWriterDesc from "./Component2/AdminDashboard/AdminDashRight/AdminAllWriter/AdminAllWriterDesc/AdminAllWriterDesc";
+import AdminDashHome from "./Component2/AdminDashboard/AdminDashRight/AdminDashHome/AdminDashHome";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
         </Route>
+        <Route path="/admindashhome" element={<AdminDashHome />} />
         <Route path="/adminpage/*" element={<Adminpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />

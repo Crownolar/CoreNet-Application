@@ -32,12 +32,13 @@
 }
 .AdminsidebarNav_Wrap{
   width: 100%;
-  height: 60%;
+  height: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
+  /* background-color: pink; */
 }
 .Admintask{
   width: 100%;
@@ -51,7 +52,7 @@ padding-left: 10px;
 }
 .Admintask:hover{
   background-color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   color: #0455B4;
 }
@@ -62,7 +63,7 @@ padding-left: 10px;
   display: flex;
   align-items: center;
   color: white;
-  margin-top: 50%;
+  margin-top: 38%;
   padding-left: 5%;
   /* margin-left: 5%; */
   gap: 10px;

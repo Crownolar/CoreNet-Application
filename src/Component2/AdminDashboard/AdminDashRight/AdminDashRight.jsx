@@ -19,6 +19,8 @@ import "animate.css";
 import Profile from "../../Pages/Profile/Profile";
 import AdminAllWriterDesc from "./AdminAllWriter/AdminAllWriterDesc/AdminAllWriterDesc";
 import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTaskAssignPage";
+import { TbHomeCheck } from "react-icons/tb";
+import AdminDashHome from "./AdminDashHome/AdminDashHome";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -140,14 +142,17 @@ const AdminDashRight = () => {
         </div>
       </div>
       <div className="AdminDashRightContent">
-        {showWelcome && User && (
+        {/* {showWelcome && User && (
           <div className="welcome-message">
             <h3>Welcome to CoreNet Dashboard!</h3>
             <p>Explore, manage, and conquer your network like never before.</p>
           </div>
-        )}
+        )} */}
+
+        
 
         <Routes>
+          <Route path="/admindashhome" element={<AdminDashHome />} />
           <Route path="/admintaskoverview" element={<AdminTaskOveview />} />
           <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
           <Route
@@ -160,7 +165,10 @@ const AdminDashRight = () => {
             path="/adminallwriterdesc/:id"
             element={<AdminAllWriterDesc />}
           />
-            <Route path="/admintaskassignpage/:id" element={<AdminTaskAssignPage />} />
+          <Route
+            path="/admintaskassignpage/:id"
+            element={<AdminTaskAssignPage />}
+          />
         </Routes>
       </div>
     </div>

@@ -52,7 +52,7 @@ const Header = () => {
 
                 <div className="centerNav">
                     <ul>
-                        <li onClick={() => handleNavItemClick("/adminpage")}>Home</li>
+                        <li onClick={() => handleNavItemClick("/adminpage/admindashhome")}>Home</li>
                         <li onClick={() => Nav('/contactus')}>Contact us</li>
                         <li onClick={() => Nav('/about')}>About</li>
                         <li onClick={() => Nav('./Login')} className='usericons'> <FaRegCircleUser  className='user'/> User</li>
@@ -86,7 +86,7 @@ const Header = () => {
 
               <div className="centerNav1">
                     <ul>
-                        <div onClick={() => handleNavItemClick("/adminpage")}>Home</div>
+                        <div onClick={() => handleNavItemClick("/adminpage/admindashhome")}>Home</div>
                         <div onClick={() => Navigate('/contactus')}>Contact Us</div>
                         <div onClick={() => Navigate('/about')}>About</div>
                         <div>Price</div>

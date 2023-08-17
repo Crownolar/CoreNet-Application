@@ -23,7 +23,6 @@ useEffect(() => {
   return (
     <div className="Admin_Mainbody">
       <div className="Admin_MainBodyWrap">
-        {/* {userInfo ? } */}
         <div className="Admin_Leftsidebar">
           <AdminSidebar />
         </div>

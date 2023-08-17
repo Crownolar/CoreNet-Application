@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import AdminTaskAssignPage from "./AdminTaskAssignPage/AdminTaskAssignPage";
+import Loader from "../../../../Loader/Loader";
 
 const AdminTaskAssign = () => {
   const [writer, setWriter] = useState([]);
+  const [loading, setLoading] = useState(true); // Added loading state
   const user = useSelector((state) => state.persistedReducer.user);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const EditorID = user.editorId;
-  console.log(EditorID);
   const { id } = useParams();
-  console.log(id);
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
 
   const getAllWriters = () => {
@@ -20,10 +20,7 @@ const AdminTaskAssign = () => {
       .get(url)
       .then((res) => {
         setWriter(res?.data.data);
-
-        {
-          console.log(res.data);
-        }
+        setLoading(false); // API call completed, hide loading
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -33,9 +30,6 @@ const AdminTaskAssign = () => {
       });
   };
 
- 
-
-
   useEffect(() => {
     getAllWriters();
   }, []);
@@ -44,19 +38,23 @@ const AdminTaskAssign = () => {
     console.log(writer);
   }, [writer]);
 
-
   return (
     <div className="AdminTaskAssign">
       <div className="AdminTaskAssignWrap">
-        
         <div className="AdminTaskAssignInput">
-          
-
           <div className="AdminTaskAssignSelect">
-              {/* <div className="AdminTaskAssignSelectWrap"> */}
-            {writer.map((e) => (
-                <Link to={`/adminpage/admintaskassignpage/${e._id}`} className="user-card">
-                  <div className="avatar">{(e.Email.charAt(0)).toUpperCase()}</div>
+            {loading ? ( // Show loading state
+              <div className="loading-spinner"> <Loader /> Loading...</div>
+            ) : (
+              writer.map((e) => (
+                <Link
+                  to={`/adminpage/admintaskassignpage/${e._id}`}
+                  className="user-card"
+                  key={e._id}
+                >
+                  <div className="avatar">
+                    {e.Email.charAt(0).toUpperCase()}
+                  </div>
                   <div className="user-info">
                     <h3>{e.UserName}</h3>
                     <p>{e.Email}</p>
@@ -65,7 +63,8 @@ const AdminTaskAssign = () => {
                     <button>Assign Task</button>
                   </div>
                 </Link>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>

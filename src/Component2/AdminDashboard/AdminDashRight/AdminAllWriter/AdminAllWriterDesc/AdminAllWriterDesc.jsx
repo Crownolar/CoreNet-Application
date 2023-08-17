@@ -19,18 +19,19 @@ const AdminAllWriterDesc = () => {
     });
   };
 
-  
-
   useEffect(() => {
     getDescription();
   }, []);
 
   return (
     <div className="writerdsc">
-      <div className="writerdscwrap">
-        <h4>UserName: {writersDescriptions.UserName}</h4>
-        <p>Full Name:{writersDescriptions.FullName} </p>
-        <p>Email: {writersDescriptions.Email} </p>
+      <div className="user-card">
+        {/* <div className="avatar"></div> */}
+        <div className="user-info">
+          <h3>{writersDescriptions.UserName}</h3>
+          <p>{writersDescriptions.FullName}</p>
+          <p>{writersDescriptions.Email}</p>
+        </div>
       </div>
     </div>
   );
