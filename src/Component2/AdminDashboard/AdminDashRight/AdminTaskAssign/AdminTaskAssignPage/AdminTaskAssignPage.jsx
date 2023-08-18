@@ -107,6 +107,7 @@ const AdminTaskAssignPage = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
         <div className="time-input">
+          <label htmlFor="hour">Hour</label>
           <select value={hour} onChange={(e) => setHour(e.target.value)}>
             {Array.from({ length: 24 }, (_, index) => (
               <option key={index} value={String(index).padStart(2, "0")}>
@@ -115,6 +116,7 @@ const AdminTaskAssignPage = () => {
             ))}
           </select>
           :
+          <label htmlFor="minute">Minute</label>
           <select value={minute} onChange={(e) => setMinute(e.target.value)}>
             {Array.from({ length: 60 }, (_, index) => (
               <option key={index} value={String(index).padStart(2, "0")}>

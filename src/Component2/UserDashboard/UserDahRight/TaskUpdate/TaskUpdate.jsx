@@ -92,18 +92,6 @@ function Task() {
     startTimer(timerRemaining);
   };
 
-  // const themeContext = useContext(ThemeContext); 
-
-  // const handleStartClick = () => {
-  //   if (!isStarted) {
-  //     setDescription("Task has been started.");
-  //     setIsStarted(true);
-  //     themeContext.startTimer(remainingTime); 
-  //   } else {
-  //     setDescription("Task is in progress.");
-  //   }
-  // };
-
   const handleCompleteClick = () => {
     if (isStarted && !isCompleted) {
       setDescription("Task has been completed!");
@@ -116,13 +104,11 @@ function Task() {
     }
   };
 
-  // const remainingTime = themeContext.timerRemaining; writerId/accept-task/:taskId
-
   const TaskId = useSelector((state) => state.persistedReducer.taskId);
   const writer = useSelector((state) => state.persistedReducer.formDataWriter);
   console.log(writer);
   console.log(TaskId);
-  const [taskinfo, setTaskInfo] = useState([]);
+  const [taskinfo, setTaskInfo] = useState();
   // const { id } = useParams()
   const url = `https://corenet-api.onrender.com/api/get-one-task/${TaskId?._id}`;
   const URL = `https://corenet-api.onrender.com/api/${writer?.id}/accept-task/${TaskId?._id}`;
@@ -156,7 +142,7 @@ function Task() {
 
   return (
     <div className="task">
-      <h2>Task Title</h2>
+      <h2>{taskinfo.Title}</h2>
       <p
         className={`description ${
           isCompleted ? "completed" : isStarted ? "started" : ""
@@ -164,6 +150,7 @@ function Task() {
       >
         {description}
       </p>
+      <h4>Description: {taskinfo.Description}</h4>
       <button className="start-btn" onClick={acceptTask}>
         {/* {isStarted ? "Resume Task" : "Start Task"} */}
         Start Task
@@ -179,6 +166,7 @@ function Task() {
         Time remaining: {Math.floor(timerRemaining / 3600)}:
         {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
       </p>
+      <p>Time aloocated: {taskinfo.taskTimeout}ms</p>
     </div>
   );
 }
