@@ -1,0 +1,221 @@
+.newTask.clicked {
+    background-color: white; 
+    color: #0455B4;
+  }
+
+
+  .newTask.clicked .newTaskIconContent {
+    color: #0455B4;
+
+  }
+
+  .newTask.clicked .newTaskText {
+    color: #0455B4;
+  }
+
+  
+  .newTask.clicked .newTaskIcon {
+    background-color: white;
+    color: #0455B4;
+  }
+
+.main {
+    width: 100%;
+    height: 100vh;
+    /* background-color: black; */
+}
+
+.main2{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.leftBarHolder {
+    width: 100%;
+    height: 100vh;
+    background-color: #0455B4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+}
+
+/* .main2 {
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+} */
+
+.topSpace {
+    width: 100%;
+    height: 8%;
+    /* background-color: red; */
+}
+
+.contentHolder {
+    width: 100%;
+    height: 50%;
+    /* background-color: black;   */
+}
+
+.iconHolder {
+    width: 80%;
+    height: 30%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 90%;
+    height: 100%;
+    /* background-color: red; */
+}
+
+.icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user {
+    width: 80%;
+    height: 5%;
+    /* background-color: black; */
+    font-family: 'poppins, sans-serif';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    height: 60%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.content .newTask.active{
+    background-color: white;
+    color: #0455B4;
+}
+
+.content .newTask.active:hover{
+    background-color: white;
+    color: #0455B4;
+}
+
+.contentSpace {
+    width: 100%;
+    height: 5%;
+    /* background-color: white; */
+}
+
+.newTask {
+    width: 100%;
+    height: 18%;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    font-family: 'poppins, sans-serif';
+    cursor: pointer;
+    color: white;
+}
+
+.newTask:hover{
+    background-color: White;
+    border-radius: 5px;
+    cursor: pointer;
+    /* color: #10b404; */
+    color: #0455B4;
+  }
+
+.allTask {
+    width: 100%;
+    height: 15%;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'poppins, sans-serif';
+    font-size: large;
+}
+
+.TaskUpdate {
+    width: 100%;
+    height: 15%;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'poppins, sans-serif';
+    font-size: large;
+}
+
+.acceptTask {
+    width: 100%;
+    height: 15%;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'poppins, sans-serif';
+    font-size: large;
+}
+
+.taskDetails {
+    width: 100%;
+    height: 15%;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'poppins, sans-serif';
+    font-size: x-large;
+}
+
+.userIcon {
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.newTaskIcon {
+    width: 20%;
+    height: 100%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newTaskIconContent {
+    width: 80%;
+    height: 80%;
+    /* color: white; */
+}
+
+.newTaskText {
+    width: 75%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    /* color: white; */
+}
+
+.leftHolderAlign {
+    width: 80%;
+    height: 100%;
+}

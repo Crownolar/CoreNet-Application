@@ -1,26 +1,69 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-
-  const [verifyAlert, setverifyAlert] = useState(false)
+  const [verifyAlert, setverifyAlert] = useState(false);
 
   const login_alert = () => {
-    setverifyAlert(true)
+    setverifyAlert(true);
     setTimeout(() => {
-      setverifyAlert(false)
+      setverifyAlert(false);
     }, 10000);
-  }
+  };
 
-
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user));
-}, )
+    localStorage.setItem("user", JSON.stringify(user));
+  });
+
+  const [timerActive, setTimerActive] = useState(false);
+  const [timerRemaining, setTimerRemaining] = useState(0);
+
+  const updateTimer = () => {
+    if (timerActive && timerRemaining > 0) {
+      setTimerRemaining((prevRemaining) => prevRemaining - 1);
+    }
+  };
+
+  useEffect(() => {
+    let interval;
+
+    if (timerActive && timerRemaining > 0) {
+      interval = setInterval(updateTimer, 1000);
+    } else {
+      clearInterval(interval);
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timerActive, timerRemaining]);
+
+  const startTimer = (initialTime) => {
+    setTimerActive(true);
+    setTimerRemaining(initialTime);
+  };
+
+  const stopTimer = () => {
+    setTimerActive(false);
+    setTimerRemaining(0);
+  };
+
   return (
-    <ThemeContext.Provider value={{user, setUser, verifyAlert,  login_alert}} >
+    <ThemeContext.Provider
+      value={{
+        user,
+        setUser,
+        verifyAlert,
+        login_alert,
+        timerActive,
+        timerRemaining,
+        startTimer,
+        stopTimer,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};

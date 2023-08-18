@@ -1,38 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../AdminTaskOverview/AdminTaskOverview.css";
 import "../AdminTaskOverview/AdminTaskOverviewMedia.css"
 import { Progress, Space } from 'antd';
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 const AdminTaskOveview = () => {
 
-  // const Editor = useSelector((state) => state.persistedReducer.user);
-  // const EditorId = Editor.editorId;
-  // const [taskinfo, setTaskInfo] = useState();
-  // // const { id } = useParams()
-  // const url = `https://corenet-api.onrender.com/api/tasks/${EditorId}`;
+  const TaskId = useSelector((state) => state.persistedReducer.taskId);
+  console.log(TaskId);
+  const [taskinfo, setTaskInfo] = useState([]);
+  // const { id } = useParams()
+  const url = `https://corenet-api.onrender.com/api/tasks/${TaskId}`;
 
-  // const getOneEditor = () => {
-  //   const url = `https://corenet-api.onrender.com/api/get-one-editor/${EditorId}`;
-  //   axios.get(url).then((res) => {
-  //     console.log(res.data.data);
-  //     setEditorInfo(res.data.data);
-  //   });
-  // };
+  const getOneTask = () => {
+    axios
+    .get(url)
+    .then((res) => {
+      console.log(res);
+      setTaskInfo(res.data.data);
+    });
+  };
 
-  // const deleteAdmin = () => {
-  //   axios.delete(url).then((res) => {
-  //     console.log(res);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   getOneEditor();
-  // }, []);
+  useEffect(() => {
+    getOneTask();
+  }, []);
 
   return (
     <div className="Admintaskoverview">
+       <div className="task-list">
+        {taskinfo.map((task, index) => (
+          <div className="task-card" key={index}>
+            <h3>{task.Title}</h3>
+            <p>{task.Description}</p>
+            <p>Timeout: {task.taskTimeout}</p>
+            {/* {activeTaskIndex !== -1 && (
+              <div className="timer">
+                {remainingTime > 0 && (
+                  <div>
+                    Time remaining: {Math.floor(remainingTime / 3600)}:
+                    {Math.floor((remainingTime % 3600) / 60)}:
+                    {remainingTime % 60}
+                  </div>
+                )}
+              </div>
+            )} */}
+
+            {/* <div className="AdmintaskoverviewStatus">
+              <button onClick={() => setTimerActive(!timerActive)}>
+                Toggle Timer
+              </button>
+            </div> */}
+          </div>
+        ))}
+      </div>
       <div className="Admintaskassigner">
         <div className="Admintaskassignerwrap">
           <div className="Admintaskassigntext">

@@ -40,7 +40,7 @@ const Login = () => {
         setLoading(false)
         console.log(res.data.data);
         res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
-          Nav("/adminpage");
+          Nav("/adminpage/admindashhome");
 
       })
       .catch((error) => {

@@ -14,6 +14,9 @@ import About from "./Component2/Pages/About/About"
 import Profile from "./Component2/Pages/Profile/Profile";
 import AdminAllWriterDesc from "./Component2/AdminDashboard/AdminDashRight/AdminAllWriter/AdminAllWriterDesc/AdminAllWriterDesc";
 import AdminDashHome from "./Component2/AdminDashboard/AdminDashRight/AdminDashHome/AdminDashHome";
+import UserPage from "./Component2/UserDashboard/UserPage";
+import UserSignOut from "./Authentication/SignOut/UserSignOut"
+import UserProfile from "./Component2/Pages/Profile/UserProfile"
 
 const App = () => {
   return (
@@ -26,12 +29,15 @@ const App = () => {
         </Route>
         <Route path="/admindashhome" element={<AdminDashHome />} />
         <Route path="/adminpage/*" element={<Adminpage />} />
+        <Route path="/userpage/*" element={<UserPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/userprofile" element={<UserProfile />} /> */}
         {/* <Route path="/adminallwriterdesc" element={<AdminAllWriterDesc />} /> */}
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/usersignout" element={<UserSignOut />} />
         <Route path="/verifypage/:token" element={<VerifyPage />} />
       </Routes>
     </HashRouter>

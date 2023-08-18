@@ -7,13 +7,15 @@ import { useNavigate } from "react-router-dom";
 import "./Log.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateformDataWriter } from "../../Redux/ActionState/ActionState";
 
 const UserLogin = () => {
     const [showPassword, setShowPassword] = useState(false);
   const user = useSelector((state) => state.persistedReducer.user);
   console.log(user)
     const Nav = useNavigate();
+    const dispatch = useDispatch()
   const{verifyAlert} = useContext(ThemeContext)
     const [formData, setFormData] = useState({
       UserName: "",
@@ -34,8 +36,9 @@ const UserLogin = () => {
         .post(url, formData)
         .then((res) => {
           console.log(res);
+          dispatch(updateformDataWriter(res.data.data))
           if(user){
-            Nav("/adminpage");}
+            Nav("/userpage");}
             else{
               console.log("Admin can't login here");
             }

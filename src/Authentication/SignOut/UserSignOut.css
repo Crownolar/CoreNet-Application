@@ -1,0 +1,154 @@
+.signout{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signoutWrap1{
+    width: 40%;
+    height: 50%;
+    background-color: rgb(171, 214, 251);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.signupdecision{
+    width: 40%;
+    height: 20%;
+    /* background-color: gray; */
+    text-align: center;
+}
+.signupOption{
+    width: 100%;
+    height: 30%;
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+}
+.signupOption .signOptionCancel1{
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    /* background-color: #0455B4; */
+    /* background-color: red; */
+}
+.signupOption .signOptionCancel1:hover{
+    background-color: white;
+    color: #0455B4;
+    border: 2px solid #0455B4;
+}
+.signupOption .signOptionCancel{
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid #0455B4;
+    color: #0455B4;
+}
+.signupOption .signOptionCancel:hover{
+    background-color: #0455B4;
+    color: white;
+    /* border: 2px solid #0455B4; */
+}
+
+@media screen and (max-width: 768px) {
+    .signoutWrap1{
+        width: 90%;
+        height: 40%;
+        gap: 30px;
+        padding: 10px;
+        /* background-color:  yellow;  */
+    }
+    .signupdecision{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0455B4;
+    }
+    .signupOption{
+        /* background-color: pink; */
+        height: 60%;
+        width: 100%;
+    }
+    .signupOption .signOptionCancel1{
+    width: 200px;
+    height: 50px;
+    }
+    .signupOption .signOptionCancel{
+    width: 200px;
+    height: 50px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .signoutWrap1{
+        width: 90%;
+        height: 40%;
+        gap: 30px;
+        padding: 10px;
+        /* background-color:  yellow;  */
+    }
+    .signupdecision{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0455B4;
+    }
+    .signupOption{
+        /* background-color: pink; */
+        height: 60%;
+        width: 100%;
+    }
+    .signupOption .signOptionCancel1{
+    width: 300px;
+    height: 50px;
+    }
+    .signupOption .signOptionCancel{
+    width: 300px;
+    height: 50px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1284px){
+    .signoutWrap1{
+        width: 90%;
+        height: 40%;
+        gap: 30px;
+        padding: 10px;
+        /* background-color:  yellow;  */
+    }
+    .signupdecision{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0455B4;
+    }
+    .signupOption{
+        /* background-color: pink; */
+        height: 60%;
+        width: 100%;
+    }
+    .signupOption .signOptionCancel1{
+    width: 200px;
+    height: 50px;
+    }
+    .signupOption .signOptionCancel{
+    width: 200px;
+    height: 50px;
+    }
+}

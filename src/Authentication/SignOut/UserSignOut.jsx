@@ -1,0 +1,54 @@
+import "./UserSignOut.css"
+// import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import {  clearUser } from '../../Redux/ActionState/ActionState'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Loader from "../../Loader/Loader"
+import { useState } from "react"
+
+const SignOut = () => {
+  const [loading, setLoading] = useState(false)
+  const Nav = useNavigate()
+  const user = useSelector((state) => state.persistedReducer.writer)
+  console.log(user);
+  const dispatch = useDispatch()
+    const SignOut = () => {
+      setLoading(true)
+      // if (!user || !user.editorId) {
+      //   console.error("writer or writer's editorId is missing!");
+      //   setLoading(false);
+      //   return;
+      // }
+      const url = `https://corenet-api.onrender.com/api/sign-out/${user?._id}`
+      console.log(url)
+        axios
+          .post(url)
+          .then((res) => {
+            console.log("Api res",res.data);
+            setLoading(false)
+            dispatch(clearUser())
+            Nav("/")
+            // console.log(editorId)
+          })
+          .catch((error) => {
+            console.error("Error occurred during sign out", error);
+          });
+      }
+
+  return (
+    <div className="signout">
+        <div className="signoutWrap1">
+            <div className='signupdecision'>
+                <h3>Are you sure you want to logout?</h3>
+            </div>
+            <div className='signupOption'>
+                <button className='signOptionCancel' onClick={() => Nav("../login")}>Cancel</button>
+                <button className='signOptionCancel1' onClick={SignOut}>{loading ? <Loader /> : "Signout"}</button>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default SignOut

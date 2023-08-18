@@ -1,0 +1,25 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.UserDashBoardLeftRight {
+    width: 100%;
+    height: 100vh;
+    /* background-color: rgb(233, 13, 13); */
+    display: flex;
+    
+}
+
+.leftHolder {
+    width: 20%;
+    height: 100%;
+    background-color: #0455b4;
+}
+
+.RightHolder {
+    width: 80%;
+    height: 100%;
+    /* background-color: rgb(168, 231, 7); */
+}

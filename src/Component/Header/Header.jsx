@@ -13,11 +13,23 @@ const Header = () => {
     const [activeNavItem, setActiveNavItem] = useState("/");
     const Nav = useNavigate()
     const user = useSelector((state) => state.persistedReducer.user);
+    const writer = useSelector((state) => state.persistedReducer.writer);
     console.log(user);
   // const handleNavItemClick = (navItem) => {
   //   setActiveNavItem(navItem);
   //   setSidebarOpen(false);
   // };
+
+  const handleUserClick = () => {
+    if (user) {
+        Nav('/signout');
+    } else if (writer) {
+        Nav('/usersignout');
+    } else {
+        Nav('/login');
+    }
+    setSidebarOpen(false);
+};
 
   const Navigate = (path) => {
     Nav(path);
@@ -55,7 +67,7 @@ const Header = () => {
                         <li onClick={() => handleNavItemClick("/adminpage/admindashhome")}>Home</li>
                         <li onClick={() => Nav('/contactus')}>Contact us</li>
                         <li onClick={() => Nav('/about')}>About</li>
-                        <li onClick={() => Nav('./Login')} className='usericons'> <FaRegCircleUser  className='user'/> User</li>
+                        <li onClick={handleUserClick} className='usericons'> <FaRegCircleUser  className='user'/> User</li>
                     </ul>
                 </div>
 

@@ -25,6 +25,7 @@ const initialState = {
   writer: [],
   writerlist: [],
   writerid: [{}],
+  taskId: []
 };
 
 const signupSlice = createSlice({
@@ -71,6 +72,10 @@ const signupSlice = createSlice({
       const clearAll = {};
       state.user = clearAll;
     },
+    clearWriter: (state) => {
+      const clearAll = {};
+      state.writer = clearAll;
+    },
     AllWriters: (state, { payload }) => {
       state.writer = payload;
       console.log("allwriters", payload);
@@ -81,6 +86,9 @@ const signupSlice = createSlice({
     updateWriterId: (state, { payload }) => {
       state.writerid = payload;
     },
+    updateTaskId: (state, {payload}) => {
+      state.taskId = payload
+    },
   },
 });
 
@@ -90,6 +98,7 @@ export const {
   signUpSuccess,
   signUpFailure,
   clearUser,
+  clearWriter,
   userData,
   updateFormDataSignin,
   SignoutAdmin,
@@ -97,5 +106,6 @@ export const {
   AllWriters,
   updateWriterList,
   updateWriterId,
+  updateTaskId,
 } = signupSlice.actions;
 export default signupSlice.reducer;

@@ -1,0 +1,93 @@
+.userDashBoardHolder{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.UserDashRightHeader{
+    width:100% ;
+    height: 10%;
+    /* background-color: #b40456; */
+    background-color: #0455B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.UserDashRightHeader_Wrap{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.UserUserIcon{
+    display: none;
+}
+
+@media screen and (max-width: 426px){
+    .main{
+        /* display: none; */
+        /* position: absolute; */
+        /* right: 0; */
+        background-color: pink;
+        left: 0;
+    }
+    .main2{
+        display: none;
+    }
+    .leftBarHolder{
+        display: none;
+    }
+    .leftHolderAlign{
+        display: none;
+    }
+    .UserUserIcon{
+        display: flex;
+    }
+    .UserNotificationIcon{
+        display: none;
+    }
+    .main_MobileView{
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+    }
+    .main_MobileView2{
+        width: 100%;
+        height: 100vh;
+        /* background-color: blue; */
+    }
+    .leftBarHolder_MobileView{
+        display: block; /* Display the mobile sidebar */
+    position: fixed;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    animation: fadeInRight 2.5s;
+    }
+    .AdminSideBarCloseIcon{
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        font-size: 40px;
+        color: #0455B4;
+        animation: fadeOutRight;
+        animation-duration: 3s;
+        /* background-color: #0455B4; */
+    }
+    .topSpace_MobileView{
+        height: 12%;
+    }
+    .newTask:hover{
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #10b404;
+        /* color: #0455B4; */
+      }
+}

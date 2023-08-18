@@ -76,7 +76,7 @@ padding-left: 10px;
 }
 .AdminsidebarNav_Wrap .Admintask.active {
   background-color: white; /* Change this to the desired active background color */
-  color: #0455B4;; /* Change this to the desired active text color */
+  color: #0455B4; /* Change this to the desired active text color */
 }
 .AdminsidebarNav_Wrap .Admintask.active:hover {
   background-color: white;

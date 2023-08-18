@@ -3,7 +3,9 @@ import "./AdminTaskAssignPAge.css";
 // import "../AdminTaskAssignPage/AdminTaskAssignPage.css"
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateTaskId } from "../../../../../Redux/ActionState/ActionState";
+import { useTimer } from "../../../../../Authentication/ContextApi/TimeContext/TimeContext";
 
 const AdminTaskAssignPage = () => {
   const [status, setStatus] = useState();
@@ -15,10 +17,12 @@ const AdminTaskAssignPage = () => {
   const [hour, setHour] = useState("00");
   const [minute, setMinute] = useState("00");
   const [timerActive, setTimerActive] = useState(false);
-  const [timerRemaining, setTimerRemaining] = useState(0);
+  // const [timerRemaining, setTimerRemaining] = useState(0);
   const user = useSelector((state) => state.persistedReducer.user);
+  const dispatch = useDispatch()
   const EditorID = user.editorId;
   const { id } = useParams();
+  const { startTimer, timerRemaining } = useTimer();
   // const Active = status.isActive;
   // const Complete = status.isComplete;
   // const Pending = status.isPending;
@@ -43,9 +47,11 @@ const AdminTaskAssignPage = () => {
         .post(URL, newTask)
         .then((res) => {
           console.log("Task assigned successfully:", res.data.data);
+          dispatch(updateTaskId(res.data.data))
           setStatus(res.data.data);
           setActiveTaskIndex(tasks.length); // Set the index of the newly added task
-          setRemainingTime(taskTimeout * 60 * 60);
+          // setRemainingTime(taskTimeout * 60 * 60);
+          startTimer(taskTimeout * 60 * 60);
           // if (timerActive) {
           //   setTimerRemaining(taskTimeout);
           // }
@@ -56,46 +62,34 @@ const AdminTaskAssignPage = () => {
     }
   };
 
-  // const renderTimer = () => {
-  //   if (!timerActive) return null;
-  //   const minutes = Math.floor(timerRemaining / 60);
-  //   const seconds = timerRemaining % 60;
-
-  //   return (
-  //     <div>
-  //       {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-  //     </div>
-  //   );
+  // const updateTimer = () => {
+  //   if (timerActive && timerRemaining > 0) {
+  //     setTimerRemaining((prevRemaining) => prevRemaining - 1);
+  //   }
   // };
 
-  const updateTimer = () => {
-    if (timerActive && timerRemaining > 0) {
-      setTimerRemaining((prevRemaining) => prevRemaining - 1);
-    }
-  };
+  // useEffect(() => {
+  //   let interval;
 
-  useEffect(() => {
-    let interval;
+  //   if (activeTaskIndex !== -1 && remainingTime > 0) {
+  //     interval = setInterval(() => {
+  //       setRemainingTime((prevRemainingTime) => prevRemainingTime - 1);
+  //     }, 1000);
+  //   } else {
+  //     clearInterval(interval);
+  //   }
 
-    if (activeTaskIndex !== -1 && remainingTime > 0) {
-      interval = setInterval(() => {
-        setRemainingTime((prevRemainingTime) => prevRemainingTime - 1);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [activeTaskIndex, remainingTime]);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [activeTaskIndex, remainingTime]);
-
-  useEffect(() => {
-    const timerInterval = setInterval(updateTimer, 1000);
-    return () => {
-      clearInterval(timerInterval);
-    };
-  }, [timerActive, timerRemaining]);
+  // useEffect(() => {
+  //   const timerInterval = setInterval(updateTimer, 1000);
+  //   return () => {
+  //     clearInterval(timerInterval);
+  //   };
+  // }, [timerActive, timerRemaining]);
 
   return (
     <div className="task-assignment">
@@ -140,11 +134,11 @@ const AdminTaskAssignPage = () => {
             <p>Timeout: {task.taskTimeout}</p>
             {activeTaskIndex !== -1 && (
               <div className="timer">
-                {remainingTime > 0 && (
+                {timerRemaining > 0 && (
                   <div>
-                    Time remaining: {Math.floor(remainingTime / 3600)}:
-                    {Math.floor((remainingTime % 3600) / 60)}:
-                    {remainingTime % 60}
+                    Time remaining: {Math.floor(timerRemaining / 3600)}:
+                    {Math.floor((timerRemaining % 3600) / 60)}:
+                    {timerRemaining % 60}
                   </div>
                 )}
               </div>
