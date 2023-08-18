@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./UserDashLeft.css"
-import { PiUserCircleThin } from "react-icons/pi"
-import { GoHome } from "react-icons/go"
+import { FcAcceptDatabase} from "react-icons/fc"
+import { RxUpdate} from "react-icons/rx"
+import { CgDetailsMore } from "react-icons/cg"
+import { PiSignOut } from 'react-icons/pi';
 
 const UserDashLeft = () => {
 //     const [newTaskClicked, setNewTaskClicked] = useState(false);
@@ -42,7 +44,7 @@ const [activeTab, setActiveTab] = useState("");
                     Nav("/userpage/accepttask");
                     console.log("activeTab");
                   }}>
-                  <div className='newTaskIcon'> <GoHome className='newTaskIconContent' /></div>
+                  <div className='newTaskIcon'> <FcAcceptDatabase className='newTaskIconContent' /></div>
                   <div className='newTaskText'> Accept Task</div>
                 </div>
 
@@ -58,7 +60,7 @@ const [activeTab, setActiveTab] = useState("");
                     Nav("/userpage/taskupdate");
                     console.log("activeTab");
                   }}>
-                  <div className='newTaskIcon'> <GoHome className='newTaskIconContent' /></div>
+                  <div className='newTaskIcon'> <RxUpdate className='newTaskIconContent' /></div>
                   <div className='newTaskText'> Task  Update</div>
                 </div>
 
@@ -74,7 +76,7 @@ const [activeTab, setActiveTab] = useState("");
                     Nav("/userpage/usertaskdetail");
                     console.log("activeTab");
                   }}>
-                  <div className='newTaskIcon'> <GoHome className='newTaskIconContent' /></div>
+                  <div className='newTaskIcon'> <CgDetailsMore className='newTaskIconContent' /></div>
                   <div className='newTaskText'> Task Detail</div>
                 </div>
 
@@ -89,9 +91,12 @@ const [activeTab, setActiveTab] = useState("");
             <div className='topSpace'></div>
             <div className='topSpace'></div>
             <div className='topSpace'></div>
-            <div className='topSpace'></div>
+            {/* <div className='topSpace'></div> */}
             <div className='user' onClick={() => Nav("../usersignout")} 
-            > Sign Out</div>
+            > 
+            <PiSignOut />
+            Sign Out
+            </div>
           </div>
         </div>
       </div>
