@@ -25,7 +25,7 @@ const initialState = {
   writer: [],
   writerlist: [],
   writerid: [{}],
-  taskId: []
+  taskId: {}
 };
 
 const signupSlice = createSlice({

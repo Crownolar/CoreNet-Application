@@ -1,15 +1,62 @@
 .writerdsc{
     width: 100%;
     height: 45vh;
-    background-color: yellow;
+    background-color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.user-card{
+    width: 40%;
+    height: 80%;
+    /* background-color: black; */
+}
+.user-info{
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.user-card .btn{
+    width: 80px;
+    height: 40px;
+    background-color: red;
+}
 .writerdscwrap{
     width: 80%;
-    height: 10vh;
+    height: 20vh;
     background-color: pink;
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 426px) {
+    .writerdsc{
+        width: 100%;
+        height: 50vh;
+        background-color: yellow;
+    }
+    .user-card{
+        width: 80%;
+        height: 80%;
+        background-color: pink;
+    }
+}
+@media screen and (max-width: 768px) {
+    .writerdsc{
+        width: 100%;
+        height: 50vh;
+        background-color: yellow;
+    }
+    .user-card{
+        width: 80%;
+        height: 80%;
+        background-color: pink;
+    }
+    .user-card .btn{
+        width: 170px;
+        height: 40px;
+    }
 }

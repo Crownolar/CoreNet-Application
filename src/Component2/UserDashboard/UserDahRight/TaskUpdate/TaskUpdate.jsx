@@ -89,7 +89,7 @@ function Task() {
 
   const handleStartClick = () => {
     setIsStarted(true);
-    startTimer(remainingTime);
+    startTimer(timerRemaining);
   };
 
   // const themeContext = useContext(ThemeContext); 
@@ -116,7 +116,7 @@ function Task() {
     }
   };
 
-  // const remainingTime = themeContext.timerRemaining;
+  // const remainingTime = themeContext.timerRemaining; writerId/accept-task/:taskId
 
   const TaskId = useSelector((state) => state.persistedReducer.taskId);
   const writer = useSelector((state) => state.persistedReducer.formDataWriter);
@@ -124,8 +124,22 @@ function Task() {
   console.log(TaskId);
   const [taskinfo, setTaskInfo] = useState([]);
   // const { id } = useParams()
-  const url = `https://corenet-api.onrender.com/api/tasks/${TaskId}`;
+  const url = `https://corenet-api.onrender.com/api/get-one-task/${TaskId?._id}`;
+  const URL = `https://corenet-api.onrender.com/api/${writer?.id}/accept-task/${TaskId?._id}`;
   console.log(url);
+
+  const acceptTask = () => {
+    axios
+    .post(URL)
+    .then((res) => {
+      console.log(res);
+      // handleStartClick(timerRemaining);
+      startTimer(timerRemaining);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
   const getOneTask = () => {
     axios
@@ -150,8 +164,9 @@ function Task() {
       >
         {description}
       </p>
-      <button className="start-btn" onClick={handleStartClick}>
-        {isStarted ? "Resume Task" : "Start Task"}
+      <button className="start-btn" onClick={acceptTask}>
+        {/* {isStarted ? "Resume Task" : "Start Task"} */}
+        Start Task
       </button>
       <button
         className="complete-btn"

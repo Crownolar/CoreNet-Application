@@ -43,11 +43,11 @@ const AdminAllWriterDesc = () => {
       <div className="user-card">
         {/* <div className="avatar"></div> */}
         <div className="user-info">
-          <h3>{writersDescriptions.UserName}</h3>
+          <h1>{writersDescriptions.UserName}</h1>
           <p>{writersDescriptions.FullName}</p>
           <p>{writersDescriptions.Email}</p>
         </div>
-        <button onClick={deleteWriter} style={{border: "none", backgroundColor: "red", color: "White", padding: "20px"}}>Delete</button>
+        <button className="btn" onClick={deleteWriter}>Delete</button>
       </div>
     </div>
   );
