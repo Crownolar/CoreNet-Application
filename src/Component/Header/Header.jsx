@@ -37,15 +37,26 @@ const Header = () => {
     setSidebarOpen(false);
   }
 
-  const handleNavItemClick = (path) => {
-    if (user) {
-      Nav(path)
+  const handleNavItemClick = () => {
+    if (Object.keys(user).length !== 0) {
+        Nav('/adminpage/admindashhome');
     } else {
-      // setActiveNavItem(navItem);
-      Nav('/login');
-      setSidebarOpen(false);
+        Nav('/login');
     }
-  };
+    setSidebarOpen(false);
+};
+
+// const handleNavItemClick = () => {
+//   if (Object.keys(user).length !== 0) {
+//       Nav('/adminpage/admindashhome');
+//   } else if (Object.keys(writer).length !== 0) {
+//       // Replace this with the writer dashboard route
+//       Nav('/userpage/userdashhome');
+//   } else {
+//       Nav('/login');
+//   }
+//   setSidebarOpen(false);
+// };
 
   useEffect(() => {
     Nav()
@@ -64,7 +75,7 @@ const Header = () => {
 
                 <div className="centerNav">
                     <ul>
-                        <li onClick={() => handleNavItemClick("/adminpage/admindashhome")}>Home</li>
+                        <li onClick={handleNavItemClick}>Home</li>
                         <li onClick={() => Nav('/contactus')}>Contact us</li>
                         <li onClick={() => Nav('/about')}>About</li>
                         <li onClick={handleUserClick} className='usericons'> <FaRegCircleUser  className='user'/> User</li>
@@ -98,7 +109,7 @@ const Header = () => {
 
               <div className="centerNav1">
                     <ul>
-                        <div onClick={() => handleNavItemClick("/adminpage/admindashhome")}>Home</div>
+                        <div onClick={handleNavItemClick}>Home</div>
                         <div onClick={() => Navigate('/contactus')}>Contact Us</div>
                         <div onClick={() => Navigate('/about')}>About</div>
                         <div>Price</div>

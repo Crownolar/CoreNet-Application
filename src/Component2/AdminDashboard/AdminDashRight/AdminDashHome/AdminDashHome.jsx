@@ -5,7 +5,7 @@ const AdminDashHome = () => {
   return (
     <div className="HomeDashboard">
           <div className="DashboardHeader">
-            <h1>Welcome to Your Dashboard</h1>
+            <h1>"Here's Your Hub"</h1>
             <p>Explore, Manage, and Assign Tasks to Writers</p>
           </div>
           <div className="DashboardContent">

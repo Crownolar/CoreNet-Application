@@ -11,6 +11,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import UserProfile from "../../Pages/Profile/UserProfile"
+import UserDashHome from "./UserDashHome/UserDashHome"
 
 const UserDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -148,6 +149,7 @@ const UserDashRight = () => {
         <div className="UserDashRightContent">
           <Routes>
             <Route path="/usertaskdetail" element={<UserTaskDetail />} />
+            <Route path="/userdashhome" element={<UserDashHome />} />
             <Route path="/accepttask" element={<AcceptTask />} />
             <Route path="/taskupdate" element={<TaskUpdate />} />
             <Route path="/userprofile" element={<UserProfile />} />

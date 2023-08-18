@@ -38,7 +38,7 @@ const UserLogin = () => {
           console.log(res);
           dispatch(updateformDataWriter(res.data.data))
           if(user){
-            Nav("/userpage");}
+            Nav("/userpage/userdashhome");}
             else{
               console.log("Admin can't login here");
             }
