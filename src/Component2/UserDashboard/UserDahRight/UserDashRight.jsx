@@ -17,7 +17,7 @@ const UserDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate();
-  const User = useSelector((state) => state.persistedReducer.formDataWriter);
+  const User = useSelector((state) => state.stores.formDataWriter);
 
   const handlecloseMobile = () => {
     setOpenSideBar(false);

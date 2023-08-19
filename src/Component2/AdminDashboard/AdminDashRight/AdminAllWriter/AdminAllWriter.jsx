@@ -10,7 +10,7 @@ const AdminAllWriter = () => {
   const [writer, setWriter] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
   const nav = useNavigate();
-  const user = useSelector((state) => state.persistedReducer.user);
+  const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId;
 
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;

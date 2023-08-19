@@ -21,12 +21,13 @@ import AdminAllWriterDesc from "./AdminAllWriter/AdminAllWriterDesc/AdminAllWrit
 import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTaskAssignPage";
 import { TbHomeCheck } from "react-icons/tb";
 import AdminDashHome from "./AdminDashHome/AdminDashHome";
+import AdminChangePassword from "../../Pages/Profile/AdminChangePassword/AdminChangePassword";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate();
-  const User = useSelector((state) => state.persistedReducer.user);
+  const User = useSelector((state) => state.stores.user);
 
   const handlecloseMobile = () => {
     setOpenSideBar(false);
@@ -160,6 +161,7 @@ const AdminDashRight = () => {
             element={<AdminDashCreateWriter />}
           />
           <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
+          <Route path="/adminchangepassword" element={<AdminChangePassword />} />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/adminallwriterdesc/:id"

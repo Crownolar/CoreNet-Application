@@ -55,7 +55,7 @@ header{
     gap: 3px;
 }
 
-.user{
+.users{
     font-size: 20px;
 }
 
@@ -85,6 +85,15 @@ header{
 
 .ham{
     display: none;
+}
+
+.centerNav ul li.active {
+    color: blue;
+    font-weight: bold; 
+    transition: color 0.2s;
+}
+.centerNav ul li.active:hover {
+    color: #0455B4; 
 }
 
 /* * {

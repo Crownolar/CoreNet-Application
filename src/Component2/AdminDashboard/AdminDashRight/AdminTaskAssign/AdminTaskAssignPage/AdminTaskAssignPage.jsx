@@ -17,8 +17,9 @@ const AdminTaskAssignPage = () => {
   const [hour, setHour] = useState("00");
   const [minute, setMinute] = useState("00");
   const [timerActive, setTimerActive] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   // const [timerRemaining, setTimerRemaining] = useState(0);
-  const user = useSelector((state) => state.persistedReducer.user);
+  const user = useSelector((state) => state.stores.user);
   const dispatch = useDispatch()
   const EditorID = user.editorId;
   const { id } = useParams();
@@ -47,6 +48,10 @@ const AdminTaskAssignPage = () => {
         .post(URL, newTask)
         .then((res) => {
           console.log("Task assigned successfully:", res.data.data);
+          setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 5000);
           dispatch(updateTaskId(res.data.data))
           setStatus(res.data.data);
           setActiveTaskIndex(tasks.length); // Set the index of the newly added task
@@ -93,6 +98,11 @@ const AdminTaskAssignPage = () => {
 
   return (
     <div className="task-assignment">
+      {showPopup && (
+        <div className="popup">
+          <p>Task Assigned Successfully</p>
+        </div>
+      )}
       <h2>Task Assignment</h2>
       <div className="task-form">
         <input

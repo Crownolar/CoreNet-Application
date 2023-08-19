@@ -17,6 +17,7 @@ import AdminDashHome from "./Component2/AdminDashboard/AdminDashRight/AdminDashH
 import UserPage from "./Component2/UserDashboard/UserPage";
 import UserSignOut from "./Authentication/SignOut/UserSignOut"
 import UserProfile from "./Component2/Pages/Profile/UserProfile"
+import AdminForgotPassword from "./Authentication/LoginPage/AdminForgotPassword/AdminForgotPassword";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         {/* <Route path="/userprofile" element={<UserProfile />} /> */}
         {/* <Route path="/adminallwriterdesc" element={<AdminAllWriterDesc />} /> */}
         <Route path="/userlogin" element={<UserLogin />} />
+        <Route path="/adminforgotpassword" element={<AdminForgotPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/usersignout" element={<UserSignOut />} />

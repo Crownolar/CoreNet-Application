@@ -17,14 +17,19 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
+  const formDatasignin = useSelector((state) => state.stores.formDatasignin);
   // const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormDataSignin({[name]: value}))
   };
+
+  
 
   
   const SignIn = (e) => {
@@ -38,6 +43,10 @@ const Login = () => {
       .then(function(res){
         console.log(res);
         setLoading(false)
+        dispatch(updateFormDataSignin({
+          Email: "",
+          Password: "",
+        }))
         console.log(res.data.data);
         res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
           Nav("/adminpage/admindashhome");
@@ -45,14 +54,22 @@ const Login = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false);
         if (error.response) {
           console.error("Response Data:", error.response.data);
+          setError(error.response.data.message);
         }
       });
   };
 
   return (
     <div className="AdminLoginPage">
+      {showPopup && (
+        <div className="popup">
+          
+          <p>Task Assigned Successfully</p>
+        </div>
+      )}
        {/* {verifyAlert && <div className='AdminwelcomeMssg'>
                     <p>Please check your Email a verification link has been sent to you</p>
                     </div>} */}
@@ -99,8 +116,12 @@ const Login = () => {
                 <input className="checks" type="checkbox" onClick={()=> Nav("/userlogin")}/>
                 <span>Access for Writer</span>
               </div>
+              {error && <p className="error-message">{error}</p>}
               <div className="EText1">
                 <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
+              </div>
+              <div className="forgotpassword">
+                <p onClick={() => Nav("/adminforgotpassword")}>Forgot Password?</p>
               </div>
               <div className="EText1">
                 <p>

@@ -1,30 +1,34 @@
 import { configureStore } from "@reduxjs/toolkit";
+// import { setupListeners } from '@reduxjs/toolkit/query'
 import { persistReducer, PERSIST } from "redux-persist";
 import signupReducer from "../ActionState/ActionState";
 import  storage  from "redux-persist/lib/storage";
 
 
 const persistconfig = {
-  key: "root",
-  storage,
-};
+    key: "root",
+    storage,
+  };
 
 const persistedReducer = persistReducer(persistconfig, signupReducer);
 
-export const store = configureStore({
+ const store = configureStore({
   // reducer: {
   //   signup: signupReducer,
   // },
-  reducer: { persistedReducer },
+  reducer: {stores: persistedReducer },
+  // reducer: { persistedReducer },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [PERSIST],
+        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });
+// setupListeners(store.dispatch)
 
-// export default store;
+export default store;
 
 // import { configureStore } from "@reduxjs/toolkit";
 // import { persistReducer, PERSIST } from "redux-persist";

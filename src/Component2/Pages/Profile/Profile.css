@@ -124,14 +124,21 @@
 .Pass{
     width: 48%;
     height: 90%; 
+    /* background-color: pink; */
+    padding-top: 4%;
+    cursor: pointer;
 }
 .Password{
-    width: 100%;
-    height: 100%;
-    border: 1px solid #0455B4;
+    /* width: 100%;
+    height: 100%; */
     display: flex;
     align-items: center;
     padding-left: 10px;
+}
+.Pass:hover{
+    border-bottom: 1px solid #0455B4;
+    color: #0455B4;
+    transition: 1.5s;
 }
 .Comp{
     width: 48%;

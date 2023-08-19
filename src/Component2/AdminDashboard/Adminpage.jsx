@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // import { userData } from "../../Redux/ActionState/ActionState";
 
 const Adminpage = () => {
-  const User = useSelector((state) => state.persistedReducer.user)
+  const User = useSelector((state) => state.stores.user)
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate()
 

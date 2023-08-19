@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const [showWelcome, setShowWelcome] = useState(true);
-  const User = useSelector((state) => state.persistedReducer.user);
+  const User = useSelector((state) => state.stores.user);
   const Duser = User;
   const url = `https://corenet-api.onrender.com/api/resend-verification-email`;
   const Nav = useNavigate()

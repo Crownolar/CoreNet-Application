@@ -9,7 +9,7 @@ const Profile = () => {
     const [writersDescriptions, setWritersDescriptions] = useState({});
     const { id } = useParams();
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.persistedReducer.user);
+    const user = useSelector((state) => state.stores.user);
     const EditorID = user.editorId;
     const URL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${id}`;
   

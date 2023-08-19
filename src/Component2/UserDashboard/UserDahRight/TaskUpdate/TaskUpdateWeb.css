@@ -140,5 +140,32 @@ h1 {
   
   .completed {
     color: #e74c3c;
-  }
-  
+}
+
+.status{
+    width: 40%;
+    height: 50%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+}
+.greenbar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: green;
+}
+.bluebar{
+    background-color: #0455B4;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.pinkbar{
+    background-color: pink;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

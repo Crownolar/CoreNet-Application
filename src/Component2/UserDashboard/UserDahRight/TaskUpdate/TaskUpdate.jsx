@@ -76,61 +76,91 @@ import { ThemeContext } from "../../../../Authentication/ContextApi/Contextapi";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useTimer } from "../../../../Authentication/ContextApi/TimeContext/TimeContext";
-// import { ThemeContext } from './YourThemeContextFile'; // Import your ThemeContext
 
 function Task() {
-  const [isStarted, setIsStarted] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [description, setDescription] = useState("");
-  const Writer = useSelector((state) => state.persistedReducer.writer);
+  const [taskinfo, setTaskInfo] = useState();
+  const [taskupdate, setTaskUpdate] = useState();
+  // const Writer = useSelector((state) => state.persistedReducer.writer);
+  // /:writerId/update-task/:taskId
 
   const themeContext = useContext(ThemeContext);
   const { startTimer, stopTimer, timerRemaining } = useTimer();
 
   const handleStartClick = () => {
-    setIsStarted(true);
-    startTimer(timerRemaining);
+    setIsActive(true);
+    startTimer(taskinfo?.taskTimeout / 1000);
   };
 
   const handleCompleteClick = () => {
-    if (isStarted && !isCompleted) {
+    if (isActive && !isCompleted) {
       setDescription("Task has been completed!");
       setIsCompleted(true);
-      themeContext.stopTimer();
-    } else if (!isStarted) {
+      stopTimer();
+      localStorage.removeItem("timerRemaining");
+      localStorage.removeItem("startTime");
+    } else if (!isActive) {
       setDescription("Task has not been started yet.");
     } else {
       setDescription("Task is already completed.");
     }
   };
 
-  const TaskId = useSelector((state) => state.persistedReducer.taskId);
-  const writer = useSelector((state) => state.persistedReducer.formDataWriter);
-  console.log(writer);
-  console.log(TaskId);
-  const [taskinfo, setTaskInfo] = useState();
+  // const handleCompleteClick = () => {
+  //   if (isActive && !isCompleted) {
+  //     setDescription("Task has been completed!");
+  //     setIsCompleted(true);
+  //     themeContext.stopTimer();
+  //   } else if (!isActive) {
+  //     setDescription("Task has not been started yet.");
+  //   } else {
+  //     setDescription("Task is already completed.");
+  //   }
+  // };
+
+  const TaskId = useSelector((state) => state.stores.taskId);
+  const TaskID = TaskId._id;
+  const Writer = useSelector((state) => state.stores.formDataWriter);
+  const WriterId = Writer.id;
+  // console.log(Writer);
+  // console.log(TaskId);
   // const { id } = useParams()
-  const url = `https://corenet-api.onrender.com/api/get-one-task/${TaskId?._id}`;
-  const URL = `https://corenet-api.onrender.com/api/${writer?.id}/accept-task/${TaskId?._id}`;
-  console.log(url);
+  const url = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
+  const URL = `https://corenet-api.onrender.com/api/${WriterId}/accept-task/${TaskId?._id}`;
+  const Url = `https://corenet-api.onrender.com/api/${WriterId}/update-task/${TaskId?._id}`;
+  // console.log(url);
+  // console.log(Url);
+
+  const UpdateTask = () => {
+    axios
+      .put(Url)
+      .then((res) => {
+        console.log(res);
+        setTaskUpdate(res.data.data);
+        handleCompleteClick();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const acceptTask = () => {
     axios
-    .post(URL)
-    .then((res) => {
-      console.log(res);
-      // handleStartClick(timerRemaining);
-      startTimer(timerRemaining);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
+      .post(URL)
+      .then((res) => {
+        console.log(res);
+        handleStartClick();
+        // startTimer(timerRemaining);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const getOneTask = () => {
-    axios
-    .get(url)
-    .then((res) => {
+    axios.get(url).then((res) => {
       console.log(res);
       setTaskInfo(res.data.data);
     });
@@ -141,32 +171,53 @@ function Task() {
   }, []);
 
   return (
-    <div className="task">
-      <h2>{taskinfo.Title}</h2>
-      <p
-        className={`description ${
-          isCompleted ? "completed" : isStarted ? "started" : ""
-        }`}
-      >
-        {description}
-      </p>
-      <h4>Description: {taskinfo.Description}</h4>
-      <button className="start-btn" onClick={acceptTask}>
-        {/* {isStarted ? "Resume Task" : "Start Task"} */}
-        Start Task
-      </button>
-      <button
-        className="complete-btn"
-        onClick={handleCompleteClick}
-        disabled={!isStarted || isCompleted}
-      >
-        Complete Task
-      </button>
-      <p>
-        Time remaining: {Math.floor(timerRemaining / 3600)}:
-        {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
-      </p>
-      <p>Time aloocated: {taskinfo.taskTimeout}ms</p>
+    <div className="mainn">
+      <div className="task">
+        <h2>{taskinfo?.Title}</h2>
+        {/* <h2>Title</h2> */}
+        <p
+          className={`description ${
+            isCompleted ? "completed" : isActive ? "started" : ""
+          }`}
+        >
+          {description}
+        </p>
+        <h4>Description: {taskinfo?.Description}</h4>
+        <button className="start-btn" onClick={acceptTask}>
+          {/* {isStarted ? "Resume Task" : "Start Task"} */}
+          Start Task
+        </button>
+        <button
+          className="complete-btn"
+          onClick={UpdateTask}
+          disabled={!isActive || isCompleted}
+        >
+          Complete Task
+        </button>
+        <p>
+          Time remaining: {Math.floor(timerRemaining / 3600)}:
+          {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
+        </p>
+        <p>Time allocated: {taskinfo?.taskTimeout / taskinfo?.taskTimeout}hr</p>
+      </div>
+      <div className="status">
+        <div>
+          {taskinfo?.isActive === true
+            ? "Active" && (<div className="bluebar"></div>)
+            : taskinfo?.isComplete === true
+            ? "Completed"
+            : taskinfo?.isActive === true && taskinfo.isComplete === true
+            ? "Achieved"
+            : null}
+        </div>
+        {taskupdate?.isActive === true && taskupdate.isComplete === true ? (
+          "Done"
+        ) : taskupdate?.isComplete == true ? (
+          <div className="bluebar"></div>
+        ) : taskupdate?.isActive === true && taskupdate?.isComplete === true ? (
+          <div className="pinkbar"></div>
+        ) : null}
+      </div>
     </div>
   );
 }

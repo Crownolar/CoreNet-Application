@@ -137,6 +137,16 @@
     color: #0455B4;
     cursor: pointer;
   }
+  .PopUp{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  .PopUp .AdminwelcomeMssg{
+    width: 60%;
+    height: 80%;
+    background-color: white;
+  }
 /* 
 @keyframes heartBeat {
   0% {

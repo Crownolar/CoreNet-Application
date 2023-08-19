@@ -9,7 +9,7 @@ import axios from "axios";
 
 const AdminTaskOveview = () => {
 
-  const TaskId = useSelector((state) => state.persistedReducer.taskId);
+  const TaskId = useSelector((state) => state.stores.taskId);
   console.log(TaskId);
   const [taskinfo, setTaskInfo] = useState([]);
   // const { id } = useParams()

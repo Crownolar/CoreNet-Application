@@ -9,7 +9,7 @@ const VerifyPage = () => {
   const [isVerified, setIsVerified] = useState(1);
   console.log(token);
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.persistedReducer.formDatasignin);
+  const formDatasignin = useSelector((state) => state.stores.formDatasignin);
   const Email = formDatasignin.Email
 
   useEffect(() => {

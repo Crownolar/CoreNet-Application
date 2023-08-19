@@ -10,7 +10,7 @@ const AdminAllWriterDesc = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const Nav = useNavigate()
-  const user = useSelector((state) => state.persistedReducer.user);
+  const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId;
   const URL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${id}`;
   const url = `https://corenet-api.onrender.com/api/delete-writer/${id}`;
@@ -40,9 +40,9 @@ const AdminAllWriterDesc = () => {
 
   return (
     <div className="writerdsc">
-      <div className="user-card">
+      <div className="user-card1">
         {/* <div className="avatar"></div> */}
-        <div className="user-info">
+        <div className="user-info1">
           <h1>{writersDescriptions.UserName}</h1>
           <p>{writersDescriptions.FullName}</p>
           <p>{writersDescriptions.Email}</p>

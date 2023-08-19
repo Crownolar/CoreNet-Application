@@ -9,7 +9,7 @@ import Loader from "../../../../Loader/Loader";
 const AdminTaskAssign = () => {
   const [writer, setWriter] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
-  const user = useSelector((state) => state.persistedReducer.user);
+  const user = useSelector((state) => state.stores.user);
   const navigate = useNavigate();
   const EditorID = user.editorId;
   const { id } = useParams();

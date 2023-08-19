@@ -12,7 +12,7 @@ import { updateformDataWriter } from "../../Redux/ActionState/ActionState";
 
 const UserLogin = () => {
     const [showPassword, setShowPassword] = useState(false);
-  const user = useSelector((state) => state.persistedReducer.user);
+  const user = useSelector((state) => state.stores.user);
   console.log(user)
     const Nav = useNavigate();
     const dispatch = useDispatch()
