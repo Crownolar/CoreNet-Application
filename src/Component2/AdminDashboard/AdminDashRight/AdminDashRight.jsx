@@ -21,7 +21,7 @@ import AdminAllWriterDesc from "./AdminAllWriter/AdminAllWriterDesc/AdminAllWrit
 import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTaskAssignPage";
 import { TbHomeCheck } from "react-icons/tb";
 import AdminDashHome from "./AdminDashHome/AdminDashHome";
-import AdminChangePassword from "../../Pages/Profile/AdminChangePAssword/AdminChangePassword";
+import AdminChangePassword from "../../Pages/Profile/AdminChange/AdminChangePassword";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
