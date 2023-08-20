@@ -73,29 +73,27 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
       .post(url, formDataWriter)
       .then((res) => {
         console.log(res);
+        dispatch(updateWriter(res.data.data));
         setLoading(false);
         setShowPopup(true);
         setTimeout(() => {
           setShowPopup(false);
           Nav("/adminpage/adminallwriter");
-          login_alert();
         }, 10000);
-        dispatch(updateWriter(res.data.data));
-        dispatch(
-          updateformDataWriter({
-            FullName: "",
-            UserName: "",
-            Email: "",
-            Password: "",
-          })
-        );
+        // dispatch(
+        //   updateformDataWriter({
+        //     FullName: "",
+        //     UserName: "",
+        //     Email: "",
+        //     Password: "",
+        //   })
+        // );
       })
       .catch((error) => {
         console.error("Error:", error);
         setShowPopupError(true);
         setTimeout(() => {
           setShowPopupError(false);
-          Nav("/userlogin");
         }, 10000);
         setLoading(false);
         if (error.response) {
