@@ -18,7 +18,7 @@ import UserPage from "./Component2/UserDashboard/UserPage";
 import UserSignOut from "./Authentication/SignOut/UserSignOut"
 import UserProfile from "./Component2/Pages/Profile/UserProfile"
 import AdminForgotPassword from "./Authentication/LoginPage/AdminForgotPassword/AdminForgotPassword";
-import AdminResetPassword from "./Authentication/LoginPage/AdminResetPAssword/AdminResetPassword";
+import AdminResetPassword from "./Authentication/LoginPage/AdminResetPassword/AdminResetPassword";
 
 const App = () => {
   return (

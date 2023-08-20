@@ -77,11 +77,10 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
         setShowPopup(true);
         setTimeout(() => {
           setShowPopup(false);
-          Nav("/userlogin");
+          Nav("/adminpage/adminallwriter");
           login_alert();
         }, 10000);
         dispatch(updateWriter(res.data.data));
-        Nav("/adminpage/adminallwriter");
         dispatch(
           updateformDataWriter({
             FullName: "",
