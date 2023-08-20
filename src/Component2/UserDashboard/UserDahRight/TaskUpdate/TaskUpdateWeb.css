@@ -169,3 +169,27 @@ h1 {
     height: 30px;
     border-radius: 50%;
 }
+/* TaskUpdateWeb.css */
+.no-task-popup {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(122, 120, 120, 0.8);
+    color: #0455B4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .no-task-popup p {
+    margin: 0;
+    font-size: 18px;
+  }
+  .time-elapsed {
+    color: red;
+  }
+  
+  /* Other existing styles */
+  

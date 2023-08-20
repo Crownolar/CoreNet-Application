@@ -117,13 +117,14 @@ const SignUp = () => {
           CompanyName: "",
         }));
         dispatch(userData(res.data?.data));
-        setShowVerifyAlert(true);
+        // setShowVerifyAlert(true);
+        setPopUp(true);
         setTimeout(() => {
           setPopUp(false);
-          setShowVerifyAlert(false);
+          // setShowVerifyAlert(false);
         }, 10000);
         Nav("/login");
-        login_alert();
+        // login_alert();
       })
       .catch((error) => {
         console.error("Error:", error);

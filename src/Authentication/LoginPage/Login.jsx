@@ -35,6 +35,17 @@ const Login = () => {
   const SignIn = (e) => {
     e.preventDefault();
     setLoading(true)
+
+    // const errors = {}
+
+    // if (!formData.FirstName) {
+    //   errors.FirstName = "First Name is required";
+    // }
+
+    // if (!formData.Surname) {
+    //   errors.Surname = "Surname is required";
+    // }
+
     const url = "https://corenet-api.onrender.com/api/login";
     console.log(url);
 
@@ -67,7 +78,7 @@ const Login = () => {
       {showPopup && (
         <div className="popup">
           
-          <p>Task Assigned Successfully</p>
+          <p>Login Successful</p>
         </div>
       )}
        {/* {verifyAlert && <div className='AdminwelcomeMssg'>

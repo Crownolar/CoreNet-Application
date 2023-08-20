@@ -54,7 +54,7 @@ const AdminForgotPassword = () => {
       </div>
       <div className="forgot-password-container">
         <h2>Forgot Your Password?</h2>
-        <p>No worries! Enter your email below to reset it.</p>
+        <p>No worries! Enter your email below to receive a reset code.</p>
         <div className="input-container">
           <input
             type="email"
@@ -62,7 +62,7 @@ const AdminForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-          <button onClick={forgotPassword}>Reset Password</button>
+          <button onClick={forgotPassword}>Send Reset Code</button>
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
   const user = useSelector((state) => state.stores.user);
   const [validationErrors, setValidationErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopuperror, setShowPopupError] = useState(false);
 
   // const EditorId = user.editorId
 
@@ -31,7 +32,7 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
   };
 
   const SignUp = (e) => {
-    e.persist()
+    // e.persist();
     e.preventDefault();
     setLoading(true);
 
@@ -68,31 +69,35 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
       return;
     }
 
-// dispatch(
-//           updateformDataWriter({
-//             FullName: "",
-//             UserName: "",
-//             Email: "",
-//             Password: "",
-//           })
-        // );
-        // setShowPopup(true);
-        // setTimeout(() => {
-        //   setShowPopup(false);
-        //   Nav("/userlogin");
-        //   login_alert();
-        // }, 3000);
     axios
       .post(url, formDataWriter)
       .then((res) => {
         console.log(res);
         setLoading(false);
+        setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+          Nav("/userlogin");
+          login_alert();
+        }, 10000);
         dispatch(updateWriter(res.data.data));
-        Nav("/userlogin");
-        login_alert();        
+        Nav("/adminpage/adminallwriter");
+        dispatch(
+          updateformDataWriter({
+            FullName: "",
+            UserName: "",
+            Email: "",
+            Password: "",
+          })
+        );
       })
       .catch((error) => {
         console.error("Error:", error);
+        setShowPopupError(true);
+        setTimeout(() => {
+          setShowPopupError(false);
+          Nav("/userlogin");
+        }, 10000);
         setLoading(false);
         if (error.response) {
           console.error("Response Data:", error.response.data);
@@ -107,6 +112,11 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
       {showPopup && (
         <div className="popup">
           <p>Writer Successfully Created</p>
+        </div>
+      )}
+      {showPopuperror && (
+        <div className="popup">
+          <p>Something went wrong!</p>
         </div>
       )}
       <form>
@@ -151,18 +161,12 @@ const AdminDashCreateWriterNextContent = ({ editorID }) => {
           onChange={handleChange}
         />
         {showPassword ? (
-                  <FiEyeOff
-                    onClick={() => setShowPassword(false)}
-                    className="Show"
-                  />
-                ) : (
-                  <FiEye
-                    onClick={() => setShowPassword(true)}
-                    className="Show"
-                  />
-                )}
+          <FiEyeOff onClick={() => setShowPassword(false)} className="Show" />
+        ) : (
+          <FiEye onClick={() => setShowPassword(true)} className="Show" />
+        )}
         <button type="submit" onClick={SignUp}>
-          {loading ? <Loader /> : "Sign Up"}
+          {loading ? <Loader /> : "Create Writer"}
         </button>
       </form>
     </div>

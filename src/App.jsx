@@ -18,6 +18,7 @@ import UserPage from "./Component2/UserDashboard/UserPage";
 import UserSignOut from "./Authentication/SignOut/UserSignOut"
 import UserProfile from "./Component2/Pages/Profile/UserProfile"
 import AdminForgotPassword from "./Authentication/LoginPage/AdminForgotPassword/AdminForgotPassword";
+import AdminResetPassword from "./Authentication/LoginPage/AdminResetPAssword/AdminResetPassword";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         {/* <Route path="/adminallwriterdesc" element={<AdminAllWriterDesc />} /> */}
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/adminforgotpassword" element={<AdminForgotPassword />} />
+        <Route path="/adminresetpassword" element={<AdminResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/usersignout" element={<UserSignOut />} />

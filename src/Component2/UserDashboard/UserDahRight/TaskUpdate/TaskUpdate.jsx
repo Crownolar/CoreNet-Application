@@ -81,8 +81,9 @@ function Task() {
   const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [description, setDescription] = useState("");
-  const [taskinfo, setTaskInfo] = useState();
+  const [taskinfo, setTaskInfo] = useState(null);
   const [taskupdate, setTaskUpdate] = useState();
+  const [timeElapsed, setTimeElapsed] = useState(false);
   // const Writer = useSelector((state) => state.persistedReducer.writer);
   // /:writerId/update-task/:taskId
 
@@ -122,6 +123,7 @@ function Task() {
 
   const TaskId = useSelector((state) => state.stores.taskId);
   const TaskID = TaskId._id;
+  console.log(TaskID);
   const Writer = useSelector((state) => state.stores.formDataWriter);
   const WriterId = Writer.id;
   // console.log(Writer);
@@ -170,40 +172,75 @@ function Task() {
     getOneTask();
   }, []);
 
+  useEffect(() => {
+    // Check if the time has elapsed
+    if (timerRemaining <= 0 && isActive && !isCompleted) {
+      setTimeElapsed(true);
+      setDescription('Task time has elapsed.');
+      setIsCompleted(true);
+      stopTimer();
+      localStorage.removeItem('timerRemaining');
+      localStorage.removeItem('startTime');
+    }
+  }, [timerRemaining, isActive, isCompleted]);
+
   return (
-    <div className="mainn">
-      <div className="task">
-        <h2>{taskinfo?.Title}</h2>
-        {/* <h2>Title</h2> */}
+    <div className="mainnz">
+      {/* {taskinfo === null ? (
+        // Display a pop-up or message when taskinfo is null
+        <div className="no-task-popup">
+          <p>No task has been assigned yet.</p>
+        </div>
+      ) : ( */}
+        <div className="task">
+          <h2>{taskinfo?.Title}</h2>
+          {/* <h2>Title</h2> */}
+          {/* <p
+            className={`description ${
+              isCompleted ? "completed" : isActive ? "started" : ""
+            }`}
+          >
+            {description}
+          </p> */}
+          
         <p
           className={`description ${
-            isCompleted ? "completed" : isActive ? "started" : ""
+            timeElapsed
+              ? 'time-elapsed'
+              : isCompleted
+              ? 'completed'
+              : isActive
+              ? 'started'
+              : ''
           }`}
         >
           {description}
         </p>
-        <h4>Description: {taskinfo?.Description}</h4>
-        <button className="start-btn" onClick={acceptTask}>
-          {/* {isStarted ? "Resume Task" : "Start Task"} */}
-          Start Task
-        </button>
-        <button
-          className="complete-btn"
-          onClick={UpdateTask}
-          disabled={!isActive || isCompleted}
-        >
-          Complete Task
-        </button>
-        <p>
-          Time remaining: {Math.floor(timerRemaining / 3600)}:
-          {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
-        </p>
-        <p>Time allocated: {taskinfo?.taskTimeout / taskinfo?.taskTimeout}hr</p>
-      </div>
+          <h4>Description: {taskinfo?.Description}</h4>
+          <button className="start-btn" onClick={acceptTask}>
+            {/* {isStarted ? "Resume Task" : "Start Task"} */}
+            Start Task
+          </button>
+          <button
+            className="complete-btn"
+            onClick={UpdateTask}
+            disabled={!isActive || isCompleted}
+          >
+            Complete Task
+          </button>
+          <p>
+            Time remaining: {Math.floor(timerRemaining / 3600)}:
+            {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
+          </p>
+          <p>
+            Time allocated: {taskinfo?.taskTimeout / taskinfo?.taskTimeout}hr
+          </p>
+        </div>
+      {/* )}  */}
       <div className="status">
         <div>
           {taskinfo?.isActive === true
-            ? "Active" && (<div className="bluebar"></div>)
+            ? "Active" && <div className="bluebar"></div>
             : taskinfo?.isComplete === true
             ? "Completed"
             : taskinfo?.isActive === true && taskinfo.isComplete === true

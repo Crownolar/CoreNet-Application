@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 const AdminChangePassword = () => {
   const [existingpassword, setExistingPassword] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [msg, setMsg] = useState(null);
   const [newpassword, setNewPassword] = useState("");
   console.log(existingpassword, newpassword);
   const Editor = useSelector((state) => state.stores.user);
@@ -13,13 +15,24 @@ const AdminChangePassword = () => {
   console.log(editorToken);
 //   const { token } = useParams();
   const url = `https://corenet-api.onrender.com/api/change-password/${editorToken}`;
-  console.log(url);
+//   console.log(url);
 
   const changePassword = () => {
+
+    const data = {
+    existingPassword: existingpassword,
+    newPassword: newpassword
+  };
     axios
-    .post(url)
+    .post(url, data)
     .then(function (res) {
-      console.log(res);
+        console.log(res);
+        // console.log(res.data.message);
+      setMsg(res.data.message)
+      setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 5000);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -31,6 +44,11 @@ const AdminChangePassword = () => {
 
   return (
     <div className="adminpasswordchange">
+        {showPopup && (
+        <div className="popup">
+          <p>{msg}</p>
+        </div>
+      )}
       <div className="change-password-container">
         <h2>Change Your Password</h2>
         <div className="input-container">

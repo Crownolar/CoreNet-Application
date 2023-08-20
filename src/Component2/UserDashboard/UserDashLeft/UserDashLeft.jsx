@@ -45,7 +45,7 @@ const [activeTab, setActiveTab] = useState("");
                     console.log("activeTab");
                   }}>
                   <div className='newTaskIcon'> <FcAcceptDatabase className='newTaskIconContent' /></div>
-                  <div className='newTaskText'> Accept Task</div>
+                  <div className='newTaskText'> All Task</div>
                 </div>
 
                 <div className='contentSpace'></div>

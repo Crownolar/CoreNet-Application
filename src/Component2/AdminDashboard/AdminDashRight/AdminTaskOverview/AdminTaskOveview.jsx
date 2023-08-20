@@ -8,14 +8,18 @@ import axios from "axios";
 
 
 const AdminTaskOveview = () => {
-
   const TaskId = useSelector((state) => state.stores.taskId);
-  console.log(TaskId);
+  const TaskID = TaskId._id;
+  console.log(TaskID);
+  const Writer = useSelector((state) => state.stores.formDataWriter);
+  const WriterId = Writer.id;
   const [taskinfo, setTaskInfo] = useState([]);
-  // const { id } = useParams()
-  const url = `https://corenet-api.onrender.com/api/tasks/${TaskId}`;
+  const [taskinfo1, setTaskInfo1] = useState(null);
+  // const { id } = useParams()get-all-tasks/:writerId
+  const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
+  const URL = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
 
-  const getOneTask = () => {
+  const getAllTask = () => {
     axios
     .get(url)
     .then((res) => {
@@ -25,12 +29,56 @@ const AdminTaskOveview = () => {
   };
 
   useEffect(() => {
+    getAllTask();
+  }, []);
+
+
+  const getOneTask = () => {
+    axios.get(URL).then((res) => {
+      console.log(res);
+      setTaskInfo1(res.data.data);
+    });
+  };
+
+  useEffect(() => {
     getOneTask();
   }, []);
 
   return (
     <div className="Admintaskoverview">
-       <div className="task-list">
+       
+      <div className="Admintaskassigner">
+        <div className="Admintaskassignerwrap">
+          <div className="Admintaskassigntext">
+            <p>{taskinfo?.title}</p>
+            <span>{taskinfo?.Description}</span>
+          </div>
+          <div className="AdmintaskoverviewStatus">
+            <div className="Admintaskoverviewcolor1">I</div>
+            <div className="Admintaskoverviewcolor2">P</div>
+            <div className="Admintaskoverviewcolor3">C</div>
+          </div>
+        </div>  
+      </div>
+      <div className="Taskss">
+      <div className="task">
+          <h2>{taskinfo1?.Title}</h2>
+          <h4>Description: {taskinfo1?.Description}</h4>
+        </div>
+        <div className="AdmintaskoverviewStatus">
+            <div className="Admintaskoverviewcolor1">I</div>
+            <div className="Admintaskoverviewcolor2">P</div>
+            <div className="Admintaskoverviewcolor3">C</div>
+          </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdminTaskOveview;
+
+
+{/* <div className="task-list">
         {taskinfo.map((task, index) => (
           <div className="task-card" key={index}>
             <h3>{task.Title}</h3>
@@ -52,38 +100,7 @@ const AdminTaskOveview = () => {
               <button onClick={() => setTimerActive(!timerActive)}>
                 Toggle Timer
               </button>
-            </div> */}
+            </div> 
           </div>
         ))}
-      </div>
-      <div className="Admintaskassigner">
-        <div className="Admintaskassignerwrap">
-          <div className="Admintaskassigntext">
-            <p>Deliver an article about The CurveAfrica</p>
-            <span>Tijani Ezekiel</span>
-          </div>
-          <div className="AdmintaskoverviewStatus">
-            <div className="Admintaskoverviewcolor1">I</div>
-            <div className="Admintaskoverviewcolor2">P</div>
-            <div className="Admintaskoverviewcolor3">C</div>
-          </div>
-        </div>  
-      </div>
-      <div className="Admintaskassigner">
-        <div className="Admintaskassignerwrap">
-          <div className="Admintaskassigntext">
-            <p>Deliver an article about The CurveAfrica</p>
-            <span>Tijani Ezekiel</span>
-          </div>
-          <div className="AdmintaskoverviewStatus">
-            <div className="Admintaskoverviewcolor1">I</div>
-            <div className="Admintaskoverviewcolor2">P</div>
-            <div className="Admintaskoverviewcolor3">C</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default AdminTaskOveview;
+      </div> */}

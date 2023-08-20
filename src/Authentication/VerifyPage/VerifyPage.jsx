@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 const VerifyPage = () => {
   const { token } = useParams();
+  const [showPopup, setShowPopup] = useState(false);
+  const [showPopuperror, setShowPopupError] = useState(false);
   const [isVerified, setIsVerified] = useState(1);
   console.log(token);
   const Nav = useNavigate();
@@ -36,10 +38,17 @@ const VerifyPage = () => {
     .post(url, {Email})
     .then(function(res) {
       console.log(res)
+      setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 10000);
     })
     .catch((error) => {
       console.error("Error:", error);
-      setLoading(false)
+      setShowPopupError(true);
+        setTimeout(() => {
+          setShowPopupError(false);
+        }, 10000);
       if (error.response) {
         console.error("Response Data:", error.response.data);
       }
@@ -48,6 +57,16 @@ const VerifyPage = () => {
 
   return (
     <div className="veifypage">
+      {showPopup && (
+        <div className="popup">
+          <p>Email Sent</p>
+        </div>
+      )}
+      {showPopuperror && (
+        <div className="popup">
+          <p>Email Not Sent</p>
+        </div>
+      )}
       <div className="verifypagewrap">
         <div className="verificationpageaction">
           {isVerified === 1 ? (

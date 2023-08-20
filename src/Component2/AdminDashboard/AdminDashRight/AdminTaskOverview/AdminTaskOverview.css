@@ -85,3 +85,42 @@
     font-weight: 700;
     color: white;
 }
+.Taskss{
+    width: 100%;
+    height: 40%;
+    background-color: rebeccapurple;
+    display: flex;
+}
+.task {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .start-btn,
+  .complete-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+  }
+  
+  .description {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .started {
+    color: #27ae60;
+  }
+  
+  .completed {
+    color: #e74c3c;
+}

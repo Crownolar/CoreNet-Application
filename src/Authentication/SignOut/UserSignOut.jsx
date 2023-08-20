@@ -11,7 +11,8 @@ const SignOut = () => {
   const [loading, setLoading] = useState(false)
   const Nav = useNavigate()
   const user = useSelector((state) => state.stores.writer)
-  console.log(user);
+  const Writer = user._id
+  console.log(Writer);
   const dispatch = useDispatch()
     const SignOut = () => {
       setLoading(true)
@@ -20,7 +21,7 @@ const SignOut = () => {
       //   setLoading(false);
       //   return;
       // }
-      const url = `https://corenet-api.onrender.com/api/sign-out/${user?._id}`
+      const url = `https://corenet-api.onrender.com/api/sign-out/${Writer}`
       console.log(url)
         axios
           .post(url)
@@ -32,6 +33,7 @@ const SignOut = () => {
             // console.log(editorId)
           })
           .catch((error) => {
+            setLoading(false)
             console.error("Error occurred during sign out", error);
           });
       }
