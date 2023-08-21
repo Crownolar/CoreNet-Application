@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../AdminTaskOverview/AdminTaskOverview.css";
-import "../AdminTaskOverview/AdminTaskOverviewMedia.css"
-import { Progress, Space } from 'antd';
+import "../AdminTaskOverview/AdminTaskOverviewMedia.css";
+import { Progress, Space } from "antd";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
 
 const AdminTaskOveview = () => {
   const TaskId = useSelector((state) => state.stores.taskId);
@@ -20,9 +19,7 @@ const AdminTaskOveview = () => {
   const URL = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
 
   const getAllTask = () => {
-    axios
-    .get(url)
-    .then((res) => {
+    axios.get(url).then((res) => {
       console.log(res);
       setTaskInfo(res.data.data);
     });
@@ -31,7 +28,6 @@ const AdminTaskOveview = () => {
   useEffect(() => {
     getAllTask();
   }, []);
-
 
   const getOneTask = () => {
     axios.get(URL).then((res) => {
@@ -42,34 +38,50 @@ const AdminTaskOveview = () => {
 
   useEffect(() => {
     getOneTask();
+    console.log(taskinfo1?.isPending);
   }, []);
 
   return (
     <div className="Admintaskoverview">
-       
-      <div className="Admintaskassigner">
-        <div className="Admintaskassignerwrap">
-          <div className="Admintaskassigntext">
-            <p>{taskinfo?.title}</p>
-            <span>{taskinfo?.Description}</span>
-          </div>
-          <div className="AdmintaskoverviewStatus">
-            <div className="Admintaskoverviewcolor1">I</div>
-            <div className="Admintaskoverviewcolor2">P</div>
-            <div className="Admintaskoverviewcolor3">C</div>
-          </div>
-        </div>  
-      </div>
       <div className="Taskss">
-      <div className="task">
-          <h2>{taskinfo1?.Title}</h2>
-          <h4>Description: {taskinfo1?.Description}</h4>
-        </div>
-        <div className="AdmintaskoverviewStatus">
-            <div className="Admintaskoverviewcolor1">I</div>
-            <div className="Admintaskoverviewcolor2">P</div>
-            <div className="Admintaskoverviewcolor3">C</div>
+        <div className="Taskss1">
+          <div className="task">
+            <h2>{taskinfo1?.Title}</h2>
+            <h3>Description: {taskinfo1?.Description}</h3>
+            <h4>Time Allocated: {taskinfo1?.taskTimeout}</h4>
           </div>
+         
+          
+        <div className="AdmintaskoverviewStatus">
+          <h2>Task Status</h2>
+          <div className="AdmintaskoverviewStatusWrap">
+          {taskinfo1?.isPending === true && taskinfo1?.isComplete === false &&  (
+              <div className="colorWrap">
+                <div className="Admintaskoverviewcolor1">P</div>
+              <h4>Pending</h4>
+              </div>
+            )}
+          {taskinfo1?.isActive === true && taskinfo1?.isComplete === false && (
+              <div className="colorWrap">
+              <div className="Admintaskoverviewcolor2">A</div>
+            <h4>Active</h4>
+            </div>
+            )}
+          {taskinfo1?.isComplete === true && taskinfo1?.isActive === true && (
+              <div className="colorWrap">
+              <div className="Admintaskoverviewcolor3">C</div>
+            <h4>Completed</h4>
+            </div>
+            )}
+          {taskinfo1?.isComplete === true && taskinfo1?.isPending === true && (
+              <div className="colorWrap">
+              <div className="Admintaskoverviewcolor3">C</div>
+            <h4>Completed</h4>
+            </div>
+            )}
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   );
@@ -77,8 +89,8 @@ const AdminTaskOveview = () => {
 
 export default AdminTaskOveview;
 
-
-{/* <div className="task-list">
+{
+  /* <div className="task-list">
         {taskinfo.map((task, index) => (
           <div className="task-card" key={index}>
             <h3>{task.Title}</h3>
@@ -94,13 +106,16 @@ export default AdminTaskOveview;
                   </div>
                 )}
               </div>
-            )} */}
+            )} */
+}
 
-            {/* <div className="AdmintaskoverviewStatus">
+{
+  /* <div className="AdmintaskoverviewStatus">
               <button onClick={() => setTimerActive(!timerActive)}>
                 Toggle Timer
               </button>
             </div> 
           </div>
         ))}
-      </div> */}
+      </div> */
+}
