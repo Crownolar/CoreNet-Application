@@ -88,9 +88,10 @@
         height: 90vh;
         /* background-color: pink; */
         padding-top: 20px;
+        padding-left: 10%;
     }
     .task{
-        width: 385px;
+        width: 300px;
         height: 300px;
         display: flex;
         flex-direction: column;
