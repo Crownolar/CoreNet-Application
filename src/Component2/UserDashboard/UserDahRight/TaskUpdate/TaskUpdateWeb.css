@@ -1,113 +1,3 @@
-/* .TaskUpadate{
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-}
-.TaskUpadateWrap{
-    width: 80%;
-    height: 100%;
-    background-color: white;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-.TaskUpdatecontentHold {
-    width: 100%;
-    height: 40%;
-    border-radius: 8px;
-    border: 2px solid #0455B4;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-.taskDetails {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.secondSpace {
-    width: 100%;
-    height: 5%;
-}
-
-.contentHoldAlign {
-    width: 85%;
-    height: 100%;
-}
-
-.title {
-    font-size: large;
-    font-family: 'poppins, sans-serif';
-}
-
-.name {
-    font-size: large;
-    font-family: 'poppins, sans-serif';
-}
-
-.status {
-    font-size: large;
-    font-family: 'poppins, sans-serif';
-}
-
-.taskDetaiklsDown {
-    width: 100%;
-    height: 10%;
-    color: #0455B4;
-}
-
-.taskSpace {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.StatusContent {
-    width: 87%;
-    height: 100%;
-    border-bottom: black;
-}
-
-.taskUpdateHolder {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.circle {
-    width: 15%;
-    height: 80%;
-    background-color: red;
-    border-radius: 5px;
-}
-
-.circle1 {
-    width: 15%;
-    height: 80%;
-    background-color: orange;
-    border-radius: 5px;
-}
-
-.circle2 {
-    width: 15%;
-    height: 80%;
-    background-color: green;
-    border-radius: 5px;
-}
-
-h1 {
-    font-family: 'poppins, sans-serif';
-    font-weight: 300;
-} */
-
-/* Task.css */
 .task {
     background-color: white;
     border-radius: 8px;
@@ -191,5 +81,34 @@ h1 {
     color: red;
   }
   
-  /* Other existing styles */
+  
+  @media screen and (max-width: 426px) {
+    .mainnz{
+        width: 100%;
+        height: 90vh;
+        /* background-color: pink; */
+        padding-top: 20px;
+    }
+    .task{
+        width: 385px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .start-btn,
+  .complete-btn {
+    background-color: #0455B4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+  }
+  .time{
+    gap: 20px;
+  }
+  }
   

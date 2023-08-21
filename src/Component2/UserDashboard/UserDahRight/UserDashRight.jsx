@@ -5,13 +5,15 @@ import UserTaskDetail from "../UserDahRight/UserTaskDetails/UserTaskDetail";
 import TaskUpdate from "../UserDahRight/TaskUpdate/TaskUpdate";
 import AcceptTask from "../UserDahRight/AcceptTask/AcceptTask";
 import { useState } from "react";
-import { PiUserCircleThin } from "react-icons/pi";
+import { PiSignOut, PiUserCircleThin } from "react-icons/pi";
 import { GoHome } from "react-icons/go";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu, RxUpdate } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import UserProfile from "../../Pages/Profile/UserProfile"
 import UserDashHome from "./UserDashHome/UserDashHome"
+import { FcAcceptDatabase } from "react-icons/fc";
+import { CgDetailsMore } from "react-icons/cg";
 
 const UserDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -43,7 +45,7 @@ const UserDashRight = () => {
       <div className="main2_MobileView">
         <div className="leftBarHolder_MobileView">
           <div className="leftHolderAlign_MobileView">
-            <div className="topSpace_MobileView"></div>
+            <div className="topSpace"></div>
             <div className="contentHolder">
               <div className="iconHolder">
                 <div className="icon">
@@ -73,9 +75,9 @@ const UserDashRight = () => {
                   onClick={() => Navigate("/userpage/accepttask")}
                 >
                   <div className="newTaskIcon">
-                    <GoHome className="newTaskIconContent" />
+                    <FcAcceptDatabase className="newTaskIconContent" />
                   </div>
-                  <div className="newTaskText"> Accept Task</div>
+                  <div className="newTaskText"> All Task</div>
                 </div>
 
                 <div className="contentSpace"></div>
@@ -86,7 +88,7 @@ const UserDashRight = () => {
                   onClick={() => Navigate("/userpage/taskupdate")}
                 >
                   <div className="newTaskIcon">
-                    <GoHome className="newTaskIconContent" />
+                    <RxUpdate className="newTaskIconContent" />
                   </div>
                   <div className="newTaskText"> Task Update</div>
                 </div>
@@ -99,7 +101,7 @@ const UserDashRight = () => {
                   onClick={() => Navigate("/userpage/usertaskdetail")}
                 >
                   <div className="newTaskIcon">
-                    <GoHome className="newTaskIconContent" />
+                    <CgDetailsMore className="newTaskIconContent" />
                   </div>
                   <div className="newTaskText"> Task Detail</div>
                 </div>
@@ -111,6 +113,7 @@ const UserDashRight = () => {
               <div className="topSpace"></div>
               <div className="iconHolder"></div>
               <div className="user" onClick={() => Navigate("../usersignout")}>
+              <PiSignOut className="signouut" />
                 Sign Out
               </div>
             </div>

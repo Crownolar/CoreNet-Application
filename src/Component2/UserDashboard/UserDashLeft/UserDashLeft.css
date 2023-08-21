@@ -136,7 +136,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: large;
+    /* font-size: large; */
     font-family: 'poppins, sans-serif';
     cursor: pointer;
     color: white;
@@ -228,3 +228,9 @@
     width: 80%;
     height: 100%;
 }
+
+/* @media screen and (max-width: 426px) {
+    .leftBarHolder{
+        background-color: red;
+    }
+} */

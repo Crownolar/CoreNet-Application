@@ -228,11 +228,11 @@ function Task() {
           >
             Complete Task
           </button>
-          <p>
+          <p className="time">
             Time remaining: {Math.floor(timerRemaining / 3600)}:
             {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
           </p>
-          <p>
+          <p className="time">
             Time allocated: {taskinfo?.taskTimeout / taskinfo?.taskTimeout}hr
           </p>
         </div>

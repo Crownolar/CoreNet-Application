@@ -26,21 +26,9 @@
 }
 
 @media screen and (max-width: 426px){
-    .main{
+    .leftHolder{
         /* display: none; */
-        /* position: absolute; */
-        /* right: 0; */
-        background-color: pink;
-        left: 0;
-    }
-    .main2{
-        display: none;
-    }
-    .leftBarHolder{
-        display: none;
-    }
-    .leftHolderAlign{
-        display: none;
+        background-color: #10b404;
     }
     .UserUserIcon{
         display: flex;
@@ -51,7 +39,7 @@
     .main_MobileView{
         width: 100%;
         height: 100vh;
-        background-color: red;
+        /* background-color: red; */
     }
     .main_MobileView2{
         width: 100%;
@@ -80,14 +68,47 @@
         animation-duration: 3s;
         /* background-color: #0455B4; */
     }
-    .topSpace_MobileView{
-        height: 12%;
+    .newTask{
+        width: 100%;
+        height: 25%;
+        /* background-color: gray; */
+        padding-left: 26%;
+    }
+    .content{
+        width: 100%;
+        height: 70%;
+        /* background-color: #0455B4; */
+        gap: 13px;
+    }
+    .contentSpace{
+        width: 100%;
+        height: 3%;
     }
     .newTask:hover{
         background-color: white;
         border-radius: 5px;
         cursor: pointer;
-        color: #10b404;
+        color: #0455B4;
         /* color: #0455B4; */
+      }
+      .newTask .newTaskIcon .newTaskIconContent{
+        font-size: 2px;
+        /* background-color: red; */
+      }
+      .user{
+        width: 100%;
+        height: 20%;
+        /* background-color: antiquewhite; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        font-size: 20px;
+        font-family: 'poppins, sans-serif';
+        padding: 10px;
+        margin-top: 35%;
+      }
+      .user .signouut{
+        font-size: 30px;
       }
 }
