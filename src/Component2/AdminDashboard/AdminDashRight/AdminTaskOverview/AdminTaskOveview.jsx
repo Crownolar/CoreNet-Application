@@ -8,15 +8,27 @@ import axios from "axios";
 
 const AdminTaskOveview = () => {
   const TaskId = useSelector((state) => state.stores.taskId);
+  const [writersDescriptions, setWritersDescriptions] = useState({});
   const TaskID = TaskId._id;
   console.log(TaskID);
   const Writer = useSelector((state) => state.stores.formDataWriter);
+  console.log(Writer);
+  const user = useSelector((state) => state.stores.user);
+  const EditorID = user.editorId; 
   const WriterId = Writer.id;
   const [taskinfo, setTaskInfo] = useState([]);
   const [taskinfo1, setTaskInfo1] = useState(null);
   // const { id } = useParams()get-all-tasks/:writerId
   const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
   const URL = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
+  const urL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${WriterId}`;
+
+  const getDescription = () => {
+    axios.get(urL).then((res) => {
+      console.log(res);
+      setWritersDescriptions(res.data.data);
+    });
+  };
 
   const getAllTask = () => {
     axios.get(url).then((res) => {
@@ -27,6 +39,10 @@ const AdminTaskOveview = () => {
 
   useEffect(() => {
     getAllTask();
+  }, []);
+
+  useEffect(() => {
+    getDescription();
   }, []);
 
   const getOneTask = () => {
@@ -46,41 +62,47 @@ const AdminTaskOveview = () => {
       <div className="Taskss">
         <div className="Taskss1">
           <div className="task">
-            <h2>{taskinfo1?.Title}</h2>
-            <h3>Description: {taskinfo1?.Description}</h3>
-            <h4>Time Allocated: {taskinfo1?.taskTimeout}</h4>
+            <div className="UserName1">
+              <h2>{writersDescriptions.FullName}</h2>
+            </div>
+            <h3>Title: {taskinfo1?.Title}</h3>
+            <h4>Description: {taskinfo1?.Description}</h4>
+            <h5>Time Allocated: {taskinfo1?.taskTimeout}</h5>
           </div>
-         
-          
-        <div className="AdmintaskoverviewStatus">
-          <h2>Task Status</h2>
-          <div className="AdmintaskoverviewStatusWrap">
-          {taskinfo1?.isPending === true && taskinfo1?.isComplete === false &&  (
-              <div className="colorWrap">
-                <div className="Admintaskoverviewcolor1">P</div>
-              <h4>Pending</h4>
-              </div>
-            )}
-          {taskinfo1?.isActive === true && taskinfo1?.isComplete === false && (
-              <div className="colorWrap">
-              <div className="Admintaskoverviewcolor2">A</div>
-            <h4>Active</h4>
+
+          <div className="AdmintaskoverviewStatus">
+            <h2>Task Status</h2>
+            <div className="AdmintaskoverviewStatusWrap">
+              {taskinfo1?.isPending === true &&
+                taskinfo1?.isComplete === false && (
+                  <div className="colorWrap">
+                    <div className="Admintaskoverviewcolor1">P</div>
+                    <h4>Pending</h4>
+                  </div>
+                )}
+              {taskinfo1?.isActive === true &&
+                taskinfo1?.isComplete === false && (
+                  <div className="colorWrap">
+                    <div className="Admintaskoverviewcolor2">A</div>
+                    <h4>Active</h4>
+                  </div>
+                )}
+              {taskinfo1?.isComplete === true &&
+                taskinfo1?.isActive === true && (
+                  <div className="colorWrap">
+                    <div className="Admintaskoverviewcolor3">C</div>
+                    <h4>Completed</h4>
+                  </div>
+                )}
+              {taskinfo1?.isComplete === true &&
+                taskinfo1?.isPending === true && (
+                  <div className="colorWrap">
+                    <div className="Admintaskoverviewcolor3">C</div>
+                    <h4>Completed</h4>
+                  </div>
+                )}
             </div>
-            )}
-          {taskinfo1?.isComplete === true && taskinfo1?.isActive === true && (
-              <div className="colorWrap">
-              <div className="Admintaskoverviewcolor3">C</div>
-            <h4>Completed</h4>
-            </div>
-            )}
-          {taskinfo1?.isComplete === true && taskinfo1?.isPending === true && (
-              <div className="colorWrap">
-              <div className="Admintaskoverviewcolor3">C</div>
-            <h4>Completed</h4>
-            </div>
-            )}
           </div>
-        </div>
         </div>
       </div>
     </div>
