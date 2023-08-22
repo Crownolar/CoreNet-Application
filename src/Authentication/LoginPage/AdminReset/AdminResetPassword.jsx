@@ -9,6 +9,7 @@ const AdminResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   console.log(newPassword)
   const [showPopup, setShowPopup] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const Editor = useSelector((state) => state.stores.user);
@@ -27,6 +28,7 @@ const AdminResetPassword = () => {
     .post(URL, Password)
     .then((res) => {
         console.log(res);
+        setSuccess(res.data.message)
         setLoading(false)
         setShowPopup(true);
         setTimeout(() => {
@@ -51,7 +53,7 @@ const AdminResetPassword = () => {
     <div className="Mainns">
         {showPopup && (
         <div className="popup">
-          <p>Password Reset Successfully</p>
+          <p>{success}</p>
         </div>
       )}
         {error && (

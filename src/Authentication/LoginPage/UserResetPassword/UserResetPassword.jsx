@@ -32,7 +32,7 @@ const UserResetPassword = () => {
           setShowPopup(false);
         }, 3000);
         setShowPopup(false);
-        Nav("./Login")
+        Nav("../userlogin")
     })
     .catch((error) => {
         console.error("Error:", error);
