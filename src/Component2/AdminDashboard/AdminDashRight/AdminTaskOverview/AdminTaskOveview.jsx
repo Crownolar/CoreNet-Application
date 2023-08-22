@@ -13,6 +13,8 @@ const AdminTaskOveview = () => {
   console.log(TaskID);
   const Writer = useSelector((state) => state.stores.formDataWriter);
   console.log(Writer);
+  const user1 = useSelector((state) => state.stores.formData);
+  console.log(user1)
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId; 
   const WriterId = Writer.id;
