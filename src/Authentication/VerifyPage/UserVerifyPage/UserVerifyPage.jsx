@@ -88,7 +88,7 @@ const UserVerifyPage = () => {
         </div>
         <div className="verificationcontinue">
           {isVerified === 2 ? (
-            <button onClick={() => Nav("../login")}>Sign in</button>
+            <button onClick={() => Nav("../userlogin")}>Sign in</button>
           ) : (
             <p>
               Didn't receive an Email?{" "}

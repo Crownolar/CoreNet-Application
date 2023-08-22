@@ -65,7 +65,7 @@ const AdminTaskOveview = () => {
         <div className="Taskss1">
           <div className="task">
             <div className="UserName1">
-              <h3>{writersDescriptions.FullName}</h3>
+              <h2>{writersDescriptions.FullName}</h2>
             </div>
             <h3>Title: {taskinfo1?.Title}</h3>
             <h4>Description: {taskinfo1?.Description}</h4>

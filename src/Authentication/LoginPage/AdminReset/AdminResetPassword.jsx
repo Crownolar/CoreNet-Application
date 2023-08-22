@@ -7,23 +7,24 @@ import Loader from '../../../Loader/Loader';
 
 const AdminResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
+  console.log(newPassword)
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  // const Editor = useSelector((state) => state.stores.user);
-  // const editorToken = Editor.token
-  // console.log(editorToken);
-  const { token } = useParams()
+  const Editor = useSelector((state) => state.stores.user);
+  const editorToken = Editor.token
+  console.log(editorToken);
+  // const { token } = useParams()
   const Nav = useNavigate()
 
 
-  const URL = `https://corenet-api.onrender.com/api/reset-password/${token}`;
-    const NewPassword = { newPassword }
+  const URL = `https://corenet-api.onrender.com/api/reset-password/${editorToken}`;
+    const Password = { newPassword }
 
   const handleResetPassword = () => {
     setLoading(true)
     axios
-    .post(URL, {NewPassword})
+    .post(URL, Password)
     .then((res) => {
         console.log(res);
         setLoading(false)
@@ -31,11 +32,12 @@ const AdminResetPassword = () => {
         setTimeout(() => {
           setShowPopup(false);
         }, 3000);
-        Nav("./Login")
+        Nav("../Login")
     })
     .catch((error) => {
         console.error("Error:", error);
         setLoading(false)
+        Nav("../Login")
         if (error.response) {
           console.error("Response Data:", error.response.data);
           setError(error.response.data.message)
