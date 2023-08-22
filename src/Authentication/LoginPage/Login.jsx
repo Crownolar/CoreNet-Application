@@ -18,11 +18,11 @@ const Login = () => {
   const dispatch = useDispatch()
   const Nav = useNavigate();
   const formDatasignin = useSelector((state) => state.stores.formDatasignin);
-  // const{verifyAlert} = useContext(ThemeContext)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [showPopuperror, setShowPopupError] = useState(false);
+  const Email = formDatasignin.Email
   
 
   const handleChange = (e) => {
@@ -36,17 +36,6 @@ const Login = () => {
   const SignIn = (e) => {
     e.preventDefault();
     setLoading(true)
-
-    // const errors = {}
-
-    // if (!formData.FirstName) {
-    //   errors.FirstName = "First Name is required";
-    // }
-
-    // if (!formData.Surname) {
-    //   errors.Surname = "Surname is required";
-    // }
-
     const url = "https://corenet-api.onrender.com/api/login";
     console.log(url);
 
@@ -75,9 +64,9 @@ const Login = () => {
   };
 
   const Resend = () => {
-    const url = `https://corenet-api.onrender.com/api/resend-email`
+    const url = `https://corenet-api.onrender.com/api/resend-verification-email`
     axios
-    .post(url, {Email})
+    .post(url, Email)
     .then(function(res) {
       console.log(res)
       setShowPopup(true);
