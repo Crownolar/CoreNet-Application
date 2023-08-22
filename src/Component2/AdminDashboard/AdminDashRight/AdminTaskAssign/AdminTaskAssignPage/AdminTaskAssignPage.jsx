@@ -23,11 +23,8 @@ const AdminTaskAssignPage = () => {
   const dispatch = useDispatch()
   const EditorID = user.editorId;
   const { id } = useParams();
+  console.log(id);
   const { startTimer, timerRemaining } = useTimer();
-  // const Active = status.isActive;
-  // const Complete = status.isComplete;
-  // const Pending = status.isPending;
-  // const TaskTimeOut = status.taskTimeout;
 
   const addTask = () => {
     if (Title && Description && hour && minute) {

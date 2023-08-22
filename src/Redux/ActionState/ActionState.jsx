@@ -10,6 +10,12 @@ const initialState = {
     Password: "",
     CompanyName: "",
   },
+  // writerInfo: {
+  //   FullName: "",
+  //   UserName: "",
+  //   Email: "",
+  //   Password: "",
+  // },
   formDataWriter: {
     FullName: "",
     UserName: "",
@@ -22,7 +28,7 @@ const initialState = {
   },
   error: null,
   user: {},
-  writer: [],
+  writer: {},
   writerlist: [],
   writerid: [{}],
   taskId: {}
@@ -50,6 +56,12 @@ const signupSlice = createSlice({
         ...payload,
       };
     },
+    // updateWriterInfo: (state, { payload }) => {
+    //   state.writerInfo = {
+    //     ...state.writerInfo,
+    //     ...payload,
+    //   };
+    // },
     signUpSuccess: (state) => {
       state.error = null;
     },
@@ -95,6 +107,7 @@ const signupSlice = createSlice({
 export const {
   updateFormData,
   updateformDataWriter,
+  // updateWriterInfo,
   signUpSuccess,
   signUpFailure,
   clearUser,

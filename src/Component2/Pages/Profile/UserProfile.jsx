@@ -3,15 +3,15 @@ import "./Profile.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 const Profile = () => {
     const [writersDescriptions, setWritersDescriptions] = useState({});
-    const { id } = useParams();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.stores.user);
+    const writer = useSelector((state) => state.stores.formDataWriter);
+    const WriterID = writer.id
     const EditorID = user.editorId;
-    const URL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${id}`;
+    const URL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${WriterID}`;
   
     const getDescription = () => {
       axios.get(URL).then((res) => {

@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 
 const Header = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [activeNavItem, setActiveNavItem] = useState("/");
+    const [activeNavItem, setActiveNavItem] = useState("");
     const Nav = useNavigate()
     const user = useSelector((state) => state.stores.user);
     const writer = useSelector((state) => state.stores.writer);
@@ -78,7 +78,6 @@ const Header = () => {
                         <li onClick={() => Nav("./")} className={activeNavItem === "/" ? "active" : ""}>Home</li>
                         <li onClick={() => Nav('/contactus')} className={activeNavItem === '/contactus' ? "active" : ""}>Contact us</li>
                         <li onClick={() => Nav('/about')} className={activeNavItem === '/about' ? "active" : ""}>About</li>
-                        <li onClick={handleNavItemClick}>Dashboard</li>
                         <li onClick={() => Nav('./Login')} className='usericons'> <FaRegCircleUser  className='users'/> User</li>
                     </ul>
                 </div>

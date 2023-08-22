@@ -15,6 +15,7 @@ const UserLogin = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [error, setError] = useState(null);
   const [errors, setErrors] = useState(null);
+  const [showPopuperror, setShowPopupError] = useState(false);
 
   const user = useSelector((state) => state.stores.user);
   console.log(user);
@@ -56,6 +57,10 @@ const UserLogin = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 10000);
         dispatch(updateformDataWriter(res.data.data));
         if (user) {
           Nav("/userpage/userdashhome");
@@ -65,11 +70,9 @@ const UserLogin = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
-        setShowPopup(true);
+        setShowPopupError(true);
         setTimeout(() => {
-          setShowPopup(false);
-          Nav("/userlogin");
-          login_alert();
+          setShowPopupError(false);
         }, 10000);
         if (error.response) {
           console.error("Response Data:", error.response.data);
@@ -78,9 +81,32 @@ const UserLogin = () => {
       });
   };
 
+  const Resend = () => {
+    const url = `https://corenet-api.onrender.com/api/resend-email`
+    axios
+    .post(url, {Email})
+    .then(function(res) {
+      console.log(res)
+      setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 10000);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setShowPopupError(true);
+        setTimeout(() => {
+          setShowPopupError(false);
+        }, 10000);
+      if (error.response) {
+        console.error("Response Data:", error.response.data);
+      }
+    });
+  }
+
   return (
     <div className="AdminLoginPage">
-      {verifyAlert && (
+      {showPopup && (
         <div className="AdminwelcomeMssg">
           <div>
             <p>
@@ -89,7 +115,7 @@ const UserLogin = () => {
           </div>
         </div>
       )}
-      {showPopup && (
+      {showPopuperror && (
         <div className="popup">
           <p>Login Unsuccessful</p>
         </div>
@@ -103,6 +129,10 @@ const UserLogin = () => {
             <div className="signText">
               {/* <h1>Sign In</h1> */}
               <h2>Get Started with coreNet</h2>
+              <p>
+              Didn't receive an Email?{" "}
+              <span style={{color: "#0455B4"}} onClick={Resend}>Resend verification Email</span>{" "}
+            </p>
             </div>
             <div className="input">
               <div className="EText">
@@ -147,19 +177,11 @@ const UserLogin = () => {
                 <span>Access for Editor</span>
               </div>
               {/* {error && <p className="error-message">{error}</p>} */}
-              <div className="EText1">
-                <button onClick={SignIn}>Sign In</button>
+              <div className="forgotpassword">
+                <p onClick={() => Nav("/userforgotpassword")}>Forgot Password?</p>
               </div>
               <div className="EText1">
-                <p>
-                  Don't have an account yet?{" "}
-                  <span
-                    style={{ cursor: "pointer", color: "#0455B4" }}
-                    onClick={() => Nav("/signup")}
-                  >
-                    Sign Up
-                  </span>
-                </p>
+                <button onClick={SignIn}>Sign In</button>
               </div>
             </div>
           </div>

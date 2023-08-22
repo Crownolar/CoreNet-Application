@@ -124,9 +124,10 @@ function Task() {
   const TaskId = useSelector((state) => state.stores.taskId);
   const TaskID = TaskId._id;
   console.log(TaskID);
-  const Writer = useSelector((state) => state.stores.formDataWriter);
-  const WriterId = Writer.id;
-  // console.log(Writer);
+  const Writer = useSelector((state) => state.stores.formDataWriter) || {};
+  const WriterId = Writer?.id;
+  console.log(WriterId);
+  console.log(Writer);
   // console.log(TaskId);
   // const { id } = useParams()
   const url = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
@@ -165,6 +166,9 @@ function Task() {
     axios.get(url).then((res) => {
       console.log(res);
       setTaskInfo(res.data.data);
+    })
+    .catch((error) => {
+      console.error(error);
     });
   };
 

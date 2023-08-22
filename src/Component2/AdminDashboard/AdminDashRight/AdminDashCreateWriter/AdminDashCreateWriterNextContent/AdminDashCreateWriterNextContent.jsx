@@ -277,7 +277,7 @@ export default function AdminCreateWriter({ editorID }) {
         )}
           <input
             placeholder="Password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="Password"
             value={formDataWriter.Password}
             onChange={handleChange}

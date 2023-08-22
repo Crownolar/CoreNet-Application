@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import "./VerifyPage.css";
+import "./UserVerifyPage.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const VerifyPage = () => {
+const UserVerifyPage = () => {
   const { token } = useParams();
   const [showPopup, setShowPopup] = useState(false);
   const [showPopuperror, setShowPopupError] = useState(false);
   const [isVerified, setIsVerified] = useState(1);
   console.log(token);
   const Nav = useNavigate();
-  const formDatasignin = useSelector((state) => state.stores.formDatasignin);
-  const Email = formDatasignin.Email
+  const formDataWriter = useSelector((state) => state.stores.formDataWriter);
+  const Email = formDataWriter.Email
 
   useEffect(() => {
     const verifyUser = () => {
       axios
-        .get(`https://corenet-api.onrender.com/api/verify-email/${token}`)
+        .get(`https://corenet-api.onrender.com/api/verify-emailadd/${token}`)
         .then((res) => {
           console.log(res);
           setIsVerified(2);
@@ -33,7 +33,7 @@ const VerifyPage = () => {
   }, []);
 
   const Resend = () => {
-    const url = `https://corenet-api.onrender.com/api/resend-verification-email`
+    const url = `https://corenet-api.onrender.com/api/resend-email`
     axios
     .post(url, {Email})
     .then(function(res) {
@@ -80,7 +80,7 @@ const VerifyPage = () => {
                   Your account has been successfully verified.
                 </p>
               </>
-              <p>Click ok to continue your registration</p>
+              <p>Click ok to continue</p>
             </>
           ) : (
             "Verification Failed"
@@ -88,7 +88,7 @@ const VerifyPage = () => {
         </div>
         <div className="verificationcontinue">
           {isVerified === 2 ? (
-            <button onClick={() => Nav("../login")}>Ok</button>
+            <button onClick={() => Nav("../login")}>Sign in</button>
           ) : (
             <p>
               Didn't receive an Email?{" "}
@@ -101,7 +101,7 @@ const VerifyPage = () => {
   );
 };
 
-export default VerifyPage;
+export default UserVerifyPage;
 
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDg2ZWYxNmY0ZjQ2MzJhNjk2NWU3MyIsIlVzZXJOYW1lIjoiU3RhcmsiLCJFbWFpbCI6Im9yaWFkZXl1c3VmMzRAZ21haWwuY29tIiwiaWF0IjoxNjkyNjcwNTMxLCJleHAiOjE2OTI3NTY5MzF9.sMdPyEOVyMdBQiO5xo37uYDf5eZrijc1EGQHPhCxCHk
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTI0MGMyNmVkMDY1YmI1ZDk3NjAxMyIsIlVzZXJOYW1lIjoiSG9ybGEiLCJFbWFpbCI6ImNyb3duaG9ybGEwN0BnbWFpbC5jb20iLCJpYXQiOjE2OTI2NzAzNjksImV4cCI6MTY5Mjc1Njc2OX0._Kz1DRjcPutgc8bl14O2tCSILyQbOubC5JQEoQ8Y3O0

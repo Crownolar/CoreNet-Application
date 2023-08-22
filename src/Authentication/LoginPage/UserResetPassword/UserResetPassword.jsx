@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import './AdminResetPassword.css';
+import './UserResetPassword.css';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../../Loader/Loader';
 
-const AdminResetPassword = () => {
+const UserResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  // const Editor = useSelector((state) => state.stores.user);
-  // const editorToken = Editor.token
-  // console.log(editorToken);
+  // const Writer = useSelector((state) => state.stores.formDataWriter);
+  // const writerToken = Writer.token
+  // console.log(writerToken);
   const { token } = useParams()
   const Nav = useNavigate()
 
 
-  const URL = `https://corenet-api.onrender.com/api/reset-password/${token}`;
+  const URL = `https://corenet-api.onrender.com/api/reset-pass/${token}`;
     const NewPassword = { newPassword }
 
   const handleResetPassword = () => {
@@ -31,6 +31,7 @@ const AdminResetPassword = () => {
         setTimeout(() => {
           setShowPopup(false);
         }, 3000);
+        setShowPopup(false);
         Nav("./Login")
     })
     .catch((error) => {
@@ -74,4 +75,4 @@ const AdminResetPassword = () => {
   );
 };
 
-export default AdminResetPassword;
+export default UserResetPassword;

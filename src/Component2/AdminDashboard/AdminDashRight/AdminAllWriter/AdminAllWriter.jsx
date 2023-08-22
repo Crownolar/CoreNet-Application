@@ -20,7 +20,11 @@ const AdminAllWriter = () => {
       console.log(res);
       setWriter(res.data.data);
       setLoading(false); // API call completed, hide loading
+    })
+    .catch((error) => {
+      console.error(error);
     });
+    
   };
 
   const navigateToWriterDesc = (_id) => {

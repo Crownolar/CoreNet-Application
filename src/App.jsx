@@ -22,6 +22,9 @@ import AdminResetPassword from "./Authentication/LoginPage/AdminReset/AdminReset
 // import AdminResetPassword from "./Authentication/LoginPage/AdminResetPAssword/AdminResetPassword";
 // import AdminResetPassword from "./Authentication/LoginPage/AdminResetPAssword/AdminResetPassword"
 import AdminForgotPassword from "./Authentication/LoginPage/AdminForgotPassword/AdminForgotPassword"
+import UserResetPassword from "./Authentication/LoginPage/UserResetPassword/UserResetPassword";
+import UserVerifyPage from "./Authentication/VerifyPage/UserVerifyPage/UserVerifyPage";
+import UserForgotPassword from "./Authentication/LoginPage/UserForgotPassword/UserForgotPassword";
 
 const App = () => {
   return (
@@ -39,11 +42,14 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/adminforgotpassword" element={<AdminForgotPassword />} />
-        <Route path="/adminresetpassword" element={<AdminResetPassword />} />
+        <Route path="/userforgotpassword" element={<UserForgotPassword />} />
+        <Route path="/adminresetpassword/:token" element={<AdminResetPassword />} />
+        <Route path="/userresetpassword/:token" element={<UserResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/usersignout" element={<UserSignOut />} />
         <Route path="/verifypage/:token" element={<VerifyPage />} />
+        <Route path="/userverifypage/:token" element={<UserVerifyPage />} />
       </Routes>
     </HashRouter>
   );

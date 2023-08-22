@@ -1,14 +1,62 @@
-import React from 'react'
-import './Contact Us.css'
+import React from "react";
+import "./Contact Us.css";
+import { MdOutgoingMail } from "react-icons/md";
+import { BsLinkedin, BsTelephoneFill } from "react-icons/bs";
 
 const ContactUs = () => {
   return (
-    <div className="main">
-      <div className="mainwrap">
-      <h1>Coming soon</h1>
-      </div>
-    </div>
-  )
-}
+    <div class="contact-page">
+      <div class="bg-image"></div>
 
-export default ContactUs
+      <div class="content-wrap">
+        <h1>Contact Us</h1>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <i class="fas fa-envelope">
+              <MdOutgoingMail />
+            </i>
+            <p>email@example.com</p>
+          </div>
+
+          <div class="contact-card">
+            <i class="fas fa-phone">
+              {" "}
+              <BsTelephoneFill />
+            </i>
+            <p>123-456-7890</p>
+          </div>
+
+          <div class="contact-card">
+            <i class="fas fa-globe">
+              <BsLinkedin />
+            </i>
+            <p>www.example.com</p>
+          </div>
+        </div>
+      </div>
+
+      <section className="team">
+        <div className="members">
+          <div className="member">
+            <h2> Reach us </h2>
+            <p>
+              Continuous Improvement: We're dedicated to refining and expanding
+              our platform to meet your evolving needs. Your feedback drives our
+              innovation. Customer Support: Our support team is at your service
+              whenever you need assistance. We're here to ensure your experience
+              is seamless. Cost-Efficiency: We offer competitive pricing plans
+              that cater to businesses of all sizes. Enjoy premium features
+              without breaking the bank. Proven Results: Countless organizations
+              have experienced transformative results using our web application.
+              Join the ranks of satisfied customers who have boosted their
+              productivity and achieved their goals.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default ContactUs;

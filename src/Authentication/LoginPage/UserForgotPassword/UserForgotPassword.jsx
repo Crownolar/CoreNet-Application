@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import "./AdminForgotPassword.css"; // Import your CSS file
+import "./UserForgotPassword.css"; // Import your CSS file
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const AdminForgotPassword = () => {
-  const [Email, setEmail] = useState('');
+const UserForgotPassword = () => {
+  const [Email, setEmail] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   console.log(Email);
-  const Editor = useSelector((state) => state.stores.user);
-  console.log(Editor)
-  const editorToken = Editor.token
-  console.log(editorToken);
+  const Writer = useSelector((state) => state.stores.formDataWriter);
+  console.log(Writer)
+  const writerToken = Writer.token
+  console.log(writerToken);
 
   const data = { Email };
-  // const {token} = useParams()
+  // const {token} = useParams()forgot-pass/:token
 
   const forgotPassword = () => {
-    const URL = `https://corenet-api.onrender.com/api/forgot-password/${editorToken}`;
+    const URL = `https://corenet-api.onrender.com/api/forgot-pass/${writerToken}`;
     console.log(URL);
 
     axios
@@ -44,7 +44,7 @@ const AdminForgotPassword = () => {
     <div className="mainn">
         {showPopup && (
         <div className="popup">
-          <p>Writer Successfully Created</p>
+          <p>Check your Email to reset your password</p>
         </div>
       )}
       <div className="corenet">
@@ -70,4 +70,4 @@ const AdminForgotPassword = () => {
   );
 };
 
-export default AdminForgotPassword;
+export default UserForgotPassword;

@@ -22,6 +22,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopuperror, setShowPopupError] = useState(false);
   
 
   const handleChange = (e) => {
@@ -54,12 +55,12 @@ const Login = () => {
       .then(function(res){
         console.log(res);
         setLoading(false)
+        console.log(res.data.data);
+        res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
         dispatch(updateFormDataSignin({
           Email: "",
           Password: "",
         }))
-        console.log(res.data.data);
-        res.data.data.email === formDatasignin.email ? dispatch(userData(res.data.data)): null
           Nav("/adminpage/admindashhome");
 
       })
@@ -72,6 +73,29 @@ const Login = () => {
         }
       });
   };
+
+  const Resend = () => {
+    const url = `https://corenet-api.onrender.com/api/resend-email`
+    axios
+    .post(url, {Email})
+    .then(function(res) {
+      console.log(res)
+      setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 10000);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setShowPopupError(true);
+        setTimeout(() => {
+          setShowPopupError(false);
+        }, 10000);
+      if (error.response) {
+        console.error("Response Data:", error.response.data);
+      }
+    });
+  }
 
   return (
     <div className="AdminLoginPage">
@@ -92,6 +116,10 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
+              <p>
+              Didn't receive an Email?{" "}
+              <span style={{color: "#0455B4"}} onClick={Resend}>Resend verification Email</span>{" "}
+            </p>
             </div>
             <div className="input">
               <div className="EText">
@@ -128,11 +156,11 @@ const Login = () => {
                 <span>Access for Writer</span>
               </div>
               {error && <p className="error-message">{error}</p>}
-              <div className="EText1">
-                <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
-              </div>
               <div className="forgotpassword">
                 <p onClick={() => Nav("/adminforgotpassword")}>Forgot Password?</p>
+              </div>
+              <div className="EText1">
+                <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
               </div>
               <div className="EText1">
                 <p>

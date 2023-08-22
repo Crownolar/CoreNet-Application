@@ -12,9 +12,9 @@ const AdminTaskOveview = () => {
   const TaskID = TaskId._id;
   console.log(TaskID);
   const Writer = useSelector((state) => state.stores.formDataWriter);
+  // const WriterInfo = useSelector((state) => state.stores.writerInfo);
+  // console.log(WriterInfo)
   console.log(Writer);
-  const user1 = useSelector((state) => state.stores.formData);
-  console.log(user1)
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId; 
   const WriterId = Writer.id;
@@ -65,7 +65,7 @@ const AdminTaskOveview = () => {
         <div className="Taskss1">
           <div className="task">
             <div className="UserName1">
-              <h2>{writersDescriptions.FullName}</h2>
+              <h3>{writersDescriptions.FullName}</h3>
             </div>
             <h3>Title: {taskinfo1?.Title}</h3>
             <h4>Description: {taskinfo1?.Description}</h4>
