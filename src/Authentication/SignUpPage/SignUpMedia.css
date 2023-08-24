@@ -155,7 +155,9 @@
     }
     .SignUpInputWrap1{
         width: 100%;
-        height: 20%;
+        height: 25%;
+        display: flex;
+        justify-content: space-between;
         /* gap: 20px; */
     }
     .SignUpInputWrap3{
@@ -174,6 +176,13 @@
         font-size: 14px;
         margin-top: 5px;
       }
+      .SignUpInputWrap1 button{
+        width: 30%;
+        height: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #0455B4;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1284px){

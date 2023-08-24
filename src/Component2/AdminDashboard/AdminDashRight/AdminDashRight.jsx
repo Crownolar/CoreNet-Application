@@ -22,6 +22,7 @@ import AdminTaskAssignPage from "./AdminTaskAssign/AdminTaskAssignPage/AdminTask
 import { TbHomeCheck } from "react-icons/tb";
 import AdminDashHome from "./AdminDashHome/AdminDashHome";
 import AdminChangePassword from "../../Pages/Profile/AdminChange/AdminChangePassword";
+import AdminTaskOverviewDesc from "./AdminTaskOverview/AdminTaskOverviewDesc/AdminTaskOverviewDesc";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -154,7 +155,8 @@ const AdminDashRight = () => {
 
         <Routes>
           <Route path="/admindashhome" element={<AdminDashHome />} />
-          <Route path="/admintaskoverview" element={<AdminTaskOveview />} />
+          <Route path="/admintaskoverview/*" element={<AdminTaskOveview />} />
+          <Route path="/admintaskoverviewdesc/:id" element={<AdminTaskOverviewDesc />} />
           <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
           <Route
             path="/admincreatewriter/*"

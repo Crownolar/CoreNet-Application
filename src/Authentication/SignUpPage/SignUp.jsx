@@ -14,7 +14,6 @@ import "animate.css";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showVerifyAlert, setShowVerifyAlert] = useState(false);
   const [popup, setPopUp] = useState(false);
   const dispatch = useDispatch();
   const Nav = useNavigate();
@@ -22,11 +21,25 @@ const SignUp = () => {
   const user = useSelector((state) => state.stores.user);
   // const Message = userData.res?.data?.data
   // console.log(Message);
-  const { login_alert } = useContext(ThemeContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const [validationErrors, setValidationErrors] = useState({});
   const [passwordError, setPasswordError] = useState("");
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const errors = { ...validationErrors };
+  
+    if (value.trim() === "") {
+      errors[name] = "This field cannot be left empty";
+    } else {
+      errors[name] = "";
+    }
+  
+    setValidationErrors(errors);
+  };
+  
 
   const isPasswordValid = (password) => {
     const minLength = 8;
@@ -52,28 +65,27 @@ const SignUp = () => {
 
     const errors = {};
 
-    if (!formData.FirstName) {
+    if (!formData.FirstName.trim()) {
       errors.FirstName = "First Name is required";
     }
-
-    if (!formData.Surname) {
+  
+    if (!formData.Surname.trim()) {
       errors.Surname = "Surname is required";
     }
-
-    if (!formData.UserName) {
+  
+    if (!formData.UserName.trim()) {
       errors.UserName = "Username is required";
     }
-
+  
     if (!formData.Email) {
       errors.Email = "Email is required";
     } else if (!isValidEmail(formData.Email)) {
-      // Implement your email validation function
       errors.Email = "Invalid email address";
     }
+
     if (!formData.Password) {
       errors.Password = "Password is required";
-    }
-    if (!isPasswordValid(formData.Password)) {
+    } else if (!isPasswordValid(formData.Password)) {
       errors.Password =
         "Password should be at least 8 characters long and contain a special character";
       setPasswordError(
@@ -83,13 +95,15 @@ const SignUp = () => {
       setPasswordError("");
     }
 
+    setValidationErrors(errors);
+
     if (Object.keys(errors).length > 0) {
       setLoading(false);
       setValidationErrors(errors);
       return;
     }
 
-    if (!formData.CompanyName) {
+    if (!formData.CompanyName.trim()) {
       errors.CompanyName = "Company name is required";
     }
 
@@ -106,7 +120,7 @@ const SignUp = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
-        setPopUp(true);
+        setSuccess(res.data.data.message)
         setLoading(false);
         dispatch(updateFormData({
           FirstName: "",
@@ -117,14 +131,7 @@ const SignUp = () => {
           CompanyName: "",
         }));
         dispatch(userData(res.data?.data));
-        // setShowVerifyAlert(true);
-        setPopUp(true);
-        setTimeout(() => {
-          setPopUp(false);
-          // setShowVerifyAlert(false);
-        }, 10000);
         Nav("/login");
-        // login_alert();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -138,7 +145,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className={`SignUpPage ${showVerifyAlert ? "blur" : ""}`}>
+    <div className={"SignUpPage"}>
       <div className="SignUpWrap">
         <div className="SignUpimage">
           <img src="/SignImg.png" alt="" />
@@ -156,6 +163,7 @@ const SignUp = () => {
                   name="FirstName"
                   value={formData.FirstName}
                   onChange={handleChange}
+                  // onBlur={handleBlur}
                 />
                 {validationErrors.FirstName && (
                   <p className="error-message">{validationErrors.FirstName}</p>
@@ -168,6 +176,7 @@ const SignUp = () => {
                   name="Surname"
                   value={formData.Surname}
                   onChange={handleChange}
+                  // onBlur={handleBlur}
                 />
                 {validationErrors.Surname && (
                   <p className="error-message">{validationErrors.Surname}</p>
@@ -180,6 +189,7 @@ const SignUp = () => {
                   name="UserName"
                   value={formData.UserName}
                   onChange={handleChange}
+                  // onBlur={handleBlur}
                 />
                 {validationErrors.UserName && (
                   <p className="error-message">{validationErrors.UserName}</p>
@@ -230,6 +240,7 @@ const SignUp = () => {
                   name="CompanyName"
                   value={formData.CompanyName}
                   onChange={handleChange}
+                  // onBlur={handleBlur}
                 />
                 {validationErrors.CompanyName && (
                   <p className="error-message">
@@ -238,6 +249,9 @@ const SignUp = () => {
                 )}
               </div>
               <div className="SignUpInputWrap1">
+                <button onClick={() => Nav("../")}>
+                  Back
+                </button>
                 <button onClick={SignUp}>
                   {loading ? <Loader /> : "Sign Up"}
                 </button>
@@ -253,17 +267,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      {popup && (
-        <div className="PopUp">
-          {showVerifyAlert && (
-            <div className="AdminwelcomeMssg">
-              <p>
-                Please check your Email a verification link has been sent to you
-              </p>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 };

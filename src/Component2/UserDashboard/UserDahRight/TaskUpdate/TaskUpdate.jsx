@@ -124,7 +124,7 @@ function Task() {
   const TaskId = useSelector((state) => state.stores.taskId);
   const TaskID = TaskId._id;
   console.log(TaskID);
-  const Writer = useSelector((state) => state.stores.formDataWriter) || {};
+  const Writer = useSelector((state) => state.stores.formDataWriter);
   const WriterId = Writer?.id;
   console.log(WriterId);
   console.log(Writer);

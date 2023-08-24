@@ -1,4 +1,4 @@
-.writerdsc{
+/* .writerdsc{
     width: 100%;
     height: 45vh;
     background-color: aliceblue;
@@ -65,27 +65,89 @@
     .writerdsc{
         width: 100%;
         height: 50vh;
-        /* background-color: yellow; */
     }
     .user-card1{
         width: 80%;
         height: 80%;
-        /* background-color: pink; */
     }
 }
 @media screen and (max-width: 768px) {
     .writerdsc{
         width: 100%;
         height: 50vh;
-        /* background-color: yellow; */
     }
     .user-card1{
         width: 80%;
         height: 80%;
-        /* background-color: pink; */
     }
     .user-card .btn{
         width: 170px;
         height: 40px;
+        background-color: red;
     }
-}
+} */
+
+/* AdminAllWriterDesc.css */
+
+/* Common styles */
+.writerdsc {
+    padding: 20px;
+  }
+  
+  .user-card1 {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .user-info1 {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .user-info1 h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .user-info1 p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .user-card1 .btn {
+    width: 20%;
+    /* height: 20%; */
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 15px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 767px) {
+    .user-card1 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .user-info1 {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

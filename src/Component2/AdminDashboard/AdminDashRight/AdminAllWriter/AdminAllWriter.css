@@ -1,22 +1,17 @@
-.AdminAllWriter{
+/* .AdminAllWriter{
     width: 100%;
     height: 90vh;
     display: flex;
     flex-direction: column;
-    /* background-color: blue; */
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 .AdminAllWriterWrapper{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* background: blueviolet; */
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* justify-content: space-between; */
     overflow-y: scroll;
     gap: 10px;
     padding-top: 10px;
@@ -28,8 +23,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    /* background-color: pink; */
     gap: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -39,7 +32,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     line-height: 30px;
     border: 2px solid #0455B4;
 }
@@ -56,7 +48,6 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* background-color: green; */
     border: 1px solid #0455B4;
     display: flex;
     align-items: center;
@@ -67,8 +58,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     text-align: left;
     text-decoration: none;
 }
@@ -83,3 +72,104 @@
         gap: 30px;
     }
 }
+
+@media screen and (max-width: 768px){
+    .AdminAllWriter{
+        width: 100%;
+        height: 90vh;
+    }
+    .AdminAllWriterWrapper{
+        width: 100%;
+        height: 100%;
+    }
+    .AdminAllWriterWrap{
+        width:96%;
+        height: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .AdminAllWriterList{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+    }
+    .AdminAllWriterInfo{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        color: black;
+        justify-content: center;
+    }
+} */
+
+/* AdminAllWriter.css */
+
+/* Common styles */
+.AdminAllWriter {
+    padding: 20px;
+  }
+  
+  .AdminAllWriterWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .AdminAllWriterWrap {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .AdminAllWriterList {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .AdminAllWriterIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  
+  .AdminAllWriterInfo {
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+  
+  .AdminAllWriterInfo h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .AdminAllWriterInfo p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 767px) {
+    .AdminAllWriterList {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .AdminAllWriterIcon {
+      margin-bottom: 10px;
+    }
+  }
+  

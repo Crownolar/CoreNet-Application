@@ -101,7 +101,6 @@ const Profile = () => {
             <div className="ProfileFooter">
               <div className="Del"> 
                 <button
-                  style={{ backgroundColor: "red", color: "white" }}
                   onClick={() => deleteAdmin()}
                 >
                   Delete Account

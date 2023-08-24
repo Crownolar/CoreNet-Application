@@ -87,7 +87,6 @@ const Header = () => {
                     {/* <img src="./realbluelogo.png" alt=""  /> */}
                 </div>
                 <div className="CTA" onClick={() => Nav("./")}>
-                    {/* <button onClick={() => Nav('./Login')}>Get Started</button> */}
                     <img src="./realbluelogo.png" alt=""  />
                 </div>
 

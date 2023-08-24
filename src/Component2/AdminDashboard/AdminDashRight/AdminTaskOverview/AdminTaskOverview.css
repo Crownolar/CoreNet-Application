@@ -1,129 +1,123 @@
-.Admintaskoverview{
-    width: 100%;
-    height: 90vh;
-    /* background-color: black; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+.AllTask1 {
+  /* background-color: red; */
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.AdmintaskoverviewStatus{
-    /* width: 50%;
-    height: 100%;
-    background-color: rgb(135, 66, 66);
-    display: flex;
-    flex-direction: column; */
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    /* width: 300px; */
-    width: 40%;
-    height: 10vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    /* margin: 10px; */
+
+.task-card1 {
+  width: 95%;
+  height: 97%;
+  /* background-color: pink; */
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: center; */
 }
-.AdmintaskoverviewStatusWrap{
-    width: 100%;
-    height: 100%;
-    /* background-color: yellow; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+.holders {
+  height: 100%;
 }
-.AdmintaskoverviewStatus h2{
-    width: 100%;
-    height: 30%;
-    /* background-color: blue; */
-    /* margin-bottom: 30%; */
+
+.card-wrap1 {
+
+  padding: 10px;
+   border: 1px solid #efefef;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: 
+  none;
+  /* align-items: center; */
 }
-.AdmintaskoverviewStatus .Admintaskoverviewcolor1{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #fdd835;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    font-weight: 700;
-    color: white;
-    /* margin-bottom: 70%; */
+
+.task-title1 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
 }
+
+.task-description1 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.task-timeout1 {
+  font-style: italic;
+  color: #888;
+}
+
+.task-status1 {
+   display: inline-block;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+  /* background-color: rgb(255, 108, 108); */
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusstate1 {
+  /* width: 10%; */
+  /* height: 80%; */
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .colorWrap1 {
+  width: 30%;
+  height: 100%;
+
+} */
+
+.Admintaskoverviewcolor111 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
 .Admintaskoverviewcolor1 h4{
-    color: #fdd835;
+  color: #fdd835;
 }
-.AdmintaskoverviewStatus .Admintaskoverviewcolor2{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #4caf50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
+.Admintaskoverviewcolor211{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
 }
-.AdmintaskoverviewStatus .Admintaskoverviewcolor3{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #2196f3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-}
-.colorWrap{
-    width: 100%;
-    height: 100%;
-    /* background-color: pink; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-.Taskss{
-    width: 100%;
-    height: 60%;
-    background-color: rebeccapurple;
-    display: flex;
-}   
-.Taskss1{
-    width: 100%;
-    height: 100%;
-    background-color: #0455B4;
-    display: flex;
-    padding: 10px;
-}
-.task {
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    /* width: 300px; */
-    width: 30%;
-    /* height: 30vh; */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* margin-top: 60px; */
-  }
-  .UserName1{
-    width: 100%;
-    /* height: 50vh; */
-    border: 1px solid #0455B4;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    justify-content: center;
-    padding-top: 20px;
+.Admintaskoverviewcolor311{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
 }

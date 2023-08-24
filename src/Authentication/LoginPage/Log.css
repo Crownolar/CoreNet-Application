@@ -71,6 +71,10 @@
     .EText1 button{
         width: 100%;
     }
+    .forgotpassword{
+        width: 80%;
+        height: 10%;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1284px){
@@ -136,6 +140,10 @@
     }
     .EText1 button{
         width: 100%;
+    }
+    .forgotpassword{
+        width: 80%;
+        height: 10%;
     }
 }
 
@@ -227,6 +235,8 @@
     .EText1{
         width: 100%;
         /* background-color: black; */
+        /* padding-top: 20px; */
+        /* margin-top: 20px; */
     }
     .EText1 button{
         width: 100%;
@@ -247,5 +257,10 @@
     font-size: 18px;
     color: white;
     text-align: center;
+    }
+    .forgotpassword{
+        width: 100%;
+        height: 10%;
+        /* margin: 20px; */
     }
 }

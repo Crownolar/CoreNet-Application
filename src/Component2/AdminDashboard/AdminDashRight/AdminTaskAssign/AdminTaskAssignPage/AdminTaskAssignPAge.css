@@ -16,7 +16,7 @@
     margin-bottom: 10px;
   }
   
-  button {
+  .task-form button {
     background-color: #3498db;
     color: white;
     border: none;
@@ -30,7 +30,7 @@
     flex-direction: column;
   }
   
-  .task-card {
+  .task-list .task-card {
     background-color: #f5f5f5;
     border-radius: 8px;
     padding: 10px;
@@ -38,27 +38,36 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  h2 {
+  .task-list h2 {
     text-align: center;
   }
   
-  .task-card h3 {
+  .task-list .task-card h3 {
     margin: 0;
   }
   
-  .task-card p {
+  .task-list  .task-card p {
     margin: 5px 0;
     font-size: 14px;
     color: #666;
   }
-  .AdmintaskoverviewStatus{
+  .task-list .AdmintaskoverviewStatus{
     width: 39%;
     height: 100%;
+    background-color: none;
     /* background-color: black; */
     display: flex;
     align-items: center;
     justify-content: center ;
     gap: 10px;
+}
+.AdmintaskoverviewStatus button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  padding-top: 10px;
 }
 .Admintaskoverviewcolor1{
     width: 50px;

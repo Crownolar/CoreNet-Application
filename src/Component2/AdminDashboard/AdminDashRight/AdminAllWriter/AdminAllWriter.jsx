@@ -19,7 +19,7 @@ const AdminAllWriter = () => {
     axios.get(url).then((res) => {
       console.log(res);
       setWriter(res.data.data);
-      setLoading(false); // API call completed, hide loading
+      setLoading(false);
     })
     .catch((error) => {
       console.error(error);

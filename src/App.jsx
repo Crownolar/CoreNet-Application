@@ -25,6 +25,7 @@ import AdminForgotPassword from "./Authentication/LoginPage/AdminForgotPassword/
 import UserResetPassword from "./Authentication/LoginPage/UserResetPassword/UserResetPassword";
 import UserVerifyPage from "./Authentication/VerifyPage/UserVerifyPage/UserVerifyPage";
 import UserForgotPassword from "./Authentication/LoginPage/UserForgotPassword/UserForgotPassword";
+import AdminResendEmailVerification from "./Authentication/LoginPage/AdminResendEmailVerification/AdminResendEmailVerification"
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/adminforgotpassword" element={<AdminForgotPassword />} />
+        <Route path="/adminresendemailverification" element={<AdminResendEmailVerification />} />
         <Route path="/userforgotpassword" element={<UserForgotPassword />} />
         <Route path="/adminresetpassword/:token" element={<AdminResetPassword />} />
         <Route path="/userresetpassword/:token" element={<UserResetPassword />} />

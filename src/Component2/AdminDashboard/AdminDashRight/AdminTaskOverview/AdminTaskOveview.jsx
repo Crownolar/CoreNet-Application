@@ -2,40 +2,41 @@ import React, { useEffect, useState } from "react";
 import "../AdminTaskOverview/AdminTaskOverview.css";
 import "../AdminTaskOverview/AdminTaskOverviewMedia.css";
 import { Progress, Space } from "antd";
-import { useParams } from "react-router-dom";
+import { Link, useParams, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Loader from "../../../../Loader/Loader";
 
 const AdminTaskOveview = () => {
   const TaskId = useSelector((state) => state.stores.taskId);
-  const [writersDescriptions, setWritersDescriptions] = useState({});
+  // const [writersDescriptions, setWritersDescriptions] = useState({});
   const TaskID = TaskId._id;
   console.log(TaskID);
-  const Writer = useSelector((state) => state.stores.formDataWriter);
+  // const Editor = useSelector((state) => state.stores.user);
   // const WriterInfo = useSelector((state) => state.stores.writerInfo);
   // console.log(WriterInfo)
-  console.log(Writer);
+  // console.log(Editor);
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId; 
-  const WriterId = Writer.id;
+  // const EditorId = Editor.id;
   const [taskinfo, setTaskInfo] = useState([]);
-  const [taskinfo1, setTaskInfo1] = useState(null);
-  // const { id } = useParams()get-all-tasks/:writerId
-  const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
-  const URL = `https://corenet-api.onrender.com/api/get-one-task/${TaskID}`;
-  const urL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${WriterId}`;
-
-  const getDescription = () => {
-    axios.get(urL).then((res) => {
-      console.log(res);
-      setWritersDescriptions(res.data.data);
-    });
-  };
+  const [loading, setLoading] = useState([false]);
+  const url = `https://corenet-api.onrender.com/api/all-tasks/${EditorID}`;
 
   const getAllTask = () => {
+    setLoading(true)
     axios.get(url).then((res) => {
       console.log(res);
+      setLoading(false)
       setTaskInfo(res.data.data);
+      console.log(res.data.data)
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setLoading(false)
+      if (error.response) {
+        console.error("Response Data:", error.response.data);
+      }
     });
   };
 
@@ -43,75 +44,110 @@ const AdminTaskOveview = () => {
     getAllTask();
   }, []);
 
-  useEffect(() => {
-    getDescription();
-  }, []);
+  // useEffect(() => {
+  //   getDescription();
+  // }, []);
 
-  const getOneTask = () => {
-    axios.get(URL).then((res) => {
-      console.log(res);
-      setTaskInfo1(res.data.data);
-    });
-  };
+  // const getOneTask = () => {
+  //   axios.get(URL).then((res) => {
+  //     console.log(res);
+  //     setTaskInfo1(res.data.data);
+  //   });
+  // };
 
-  useEffect(() => {
-    getOneTask();
-    console.log(taskinfo1?.isPending);
-  }, []);
+  // useEffect(() => {
+  //   getOneTask();
+  //   console.log(taskinfo1?.isPending);
+  // }, []);
 
   return (
-    <div className="Admintaskoverview">
-      <div className="Taskss">
-        <div className="Taskss1">
-          <div className="task">
-            <div className="UserName1">
-              <h2>{writersDescriptions.FullName}</h2>
-            </div>
-            <h3>Title: {taskinfo1?.Title}</h3>
-            <h4>Description: {taskinfo1?.Description}</h4>
-            <h5>Time Allocated: {taskinfo1?.taskTimeout}</h5>
-          </div>
+    <div className="AllTask1">
+        {loading ? <Loader /> : (<div className="task-card1">
+          {
+            taskinfo?.map((e) => (
+              <NavLink className="card-wrap1" to={`/adminpage/admintaskoverviewdesc/${e.id}`} key={e.id} >
+           <div className="holders">
+             <h3 className="task-title1">{e.Title}</h3>
+            <p className="task-description1">{e.Description}</p>
+            <p className="task-timeout1">Timeout: {e.taskTimeout} </p>
+           </div>
 
-          <div className="AdmintaskoverviewStatus">
-            <h2>Task Status</h2>
-            <div className="AdmintaskoverviewStatusWrap">
-              {taskinfo1?.isPending === true &&
-                taskinfo1?.isComplete === false && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor1">P</div>
+            <div className="task-status1">
+            Status:
+              <div className="statusstate1">
+                {e.isPending === true && e.isComplete === false && (
+                  <div className="colorWrap1">
+                    <div className="Admintaskoverviewcolor111">P</div>
                     <h4>Pending</h4>
                   </div>
                 )}
-              {taskinfo1?.isActive === true &&
-                taskinfo1?.isComplete === false && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor2">A</div>
+                {e.isActive === true && e.isComplete === false && (
+                  <div className="colorWrap1">
+                    <div className="Admintaskoverviewcolor211">A</div>
                     <h4>Active</h4>
                   </div>
                 )}
-              {taskinfo1?.isComplete === true &&
-                taskinfo1?.isActive === true && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor3">C</div>
+                {e.isComplete === true && e.isActive === true && (
+                  <div className="colorWrap1">
+                    <div className="Admintaskoverviewcolor311">C</div>
                     <h4>Completed</h4>
                   </div>
                 )}
-              {taskinfo1?.isComplete === true &&
-                taskinfo1?.isPending === true && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor3">C</div>
+                {e.isComplete === true && e.isPending === true && (
+                  <div className="colorWrap1">
+                    <div className="Admintaskoverviewcolor311">C</div>
                     <h4>Completed</h4>
                   </div>
                 )}
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+              </NavLink>
+            ))
+          }
+
+      </div>)}
+      {/* </div> */}
     </div>
   );
 };
 
 export default AdminTaskOveview;
+{/* {taskinfo?.map((e) => ( */}
+  {/* <NavLink to={`/adminpage/admintaskoverviewdesc/${e.id}`} className="card-wrap1">
+    <h3 className="task-title1">{e.Title}</h3>
+    <p className="task-description1">{e.Description}</p>
+    <p className="task-timeout1">Timeout: {e.taskTimeout} </p>
+    <div className="task-status1">
+      Status:
+      <div className="statusstate1">
+        {e.isPending === true && e.isComplete === false && (
+          <div className="colorWrap1">
+            <div className="Admintaskoverviewcolor111">P</div>
+            <h4>Pending</h4>
+          </div>
+        )}
+        {e.isActive === true && e.isComplete === false && (
+          <div className="colorWrap1">
+            <div className="Admintaskoverviewcolor211">A</div>
+            <h4>Active</h4>
+          </div>
+        )}
+        {e.isComplete === true && e.isActive === true && (
+          <div className="colorWrap1">
+            <div className="Admintaskoverviewcolor311">C</div>
+            <h4>Completed</h4>
+          </div>
+        )}
+        {e.isComplete === true && e.isPending === true && (
+          <div className="colorWrap1">
+            <div className="Admintaskoverviewcolor311">C</div>
+            <h4>Completed</h4>
+          </div>
+        )}
+      </div>
+    </div>
+  </NavLink> */}
+{/* ))} */}
 
 {
   /* <div className="task-list">
@@ -143,3 +179,84 @@ export default AdminTaskOveview;
         ))}
       </div> */
 }
+
+// import { useSelector } from "react-redux";
+// import "../AdminTaskOverview/AdminTaskOverview.css";
+// import "../AdminTaskOverview/AdminTaskOverviewMedia.css";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+
+// const AcceptTask = () => {
+//   const Writer = useSelector((state) => state.stores.formDataWriter);
+//   const WriterId = Writer.id;
+//   console.log(WriterId)
+//   const [taskinfo, setTaskInfo] = useState([]);
+//   // const { id } = useParams()get-all-tasks/:writerId
+//   const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
+
+//   const getAllTask = () => {
+//     axios
+//       .get(url)
+//       .then((res) => {
+//         console.log(res);
+//         setTaskInfo(res.data.data);
+//         console.log(res.data.data);
+//       })
+//       .catch((error) => {
+//         console.error("Error:", error);
+//         if (error.response) {
+//           console.error("Response Data:", error.response.data);
+//         }
+//       });
+//   };
+
+//   useEffect(() => {
+//     getAllTask();
+//   }, []);
+
+//   return (
+//     <div className="AllTask">
+//       <div className="task-card">
+//         {taskinfo?.map((e) => (
+//           <div className="task-card-wrap">
+//             <h3 className="task-title">{e.Title}</h3>
+//             <p className="task-description">{e.Description}</p>
+//             <p className="task-timeout">Timeout: {e.taskTimeout} </p>
+//             <div className="task-status">
+//               Status:
+//               <div className="statusstate">
+//                 {e.isPending === true && e.isComplete === false && (
+//                   <div className="colorWrap">
+//                     <div className="Admintaskoverviewcolor11">P</div>
+//                     <h4>Pending</h4>
+//                   </div>
+//                 )}
+//                 {e.isActive === true && e.isComplete === false && (
+//                   <div className="colorWrap">
+//                     <div className="Admintaskoverviewcolor21">A</div>
+//                     <h4>Active</h4>
+//                   </div>
+//                 )}
+//                 {e.isComplete === true && e.isActive === true && (
+//                   <div className="colorWrap">
+//                     <div className="Admintaskoverviewcolor31">C</div>
+//                     <h4>Completed</h4>
+//                   </div>
+//                 )}
+//                 {e.isComplete === true && e.isPending === true && (
+//                   <div className="colorWrap">
+//                     <div className="Admintaskoverviewcolor31">C</div>
+//                     <h4>Completed</h4>
+//                   </div>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AcceptTask;
+

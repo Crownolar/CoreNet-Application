@@ -9,16 +9,18 @@ import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
 import { useDispatch, useSelector } from "react-redux";
 import { updateformDataWriter } from "../../Redux/ActionState/ActionState";
+import Loader from "../../Loader/Loader";
 
 const UserLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [errors, setErrors] = useState(null);
   const [showPopuperror, setShowPopupError] = useState(false);
 
   const user = useSelector((state) => state.stores.user);
-  console.log(user);
+  // console.log(user);
   const Nav = useNavigate();
   const dispatch = useDispatch();
   const { verifyAlert } = useContext(ThemeContext);
@@ -34,6 +36,7 @@ const UserLogin = () => {
 
   const SignIn = (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const errors = {};
 
@@ -57,11 +60,13 @@ const UserLogin = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        setLoading(false);
         setShowPopup(true);
         setTimeout(() => {
           setShowPopup(false);
         }, 10000);
         dispatch(updateformDataWriter(res.data.data));
+        console.log(res.data.data)
         if (user) {
           Nav("/userpage/userdashhome");
         } else {
@@ -70,6 +75,7 @@ const UserLogin = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false)
         setShowPopupError(true);
         setTimeout(() => {
           setShowPopupError(false);
@@ -181,7 +187,7 @@ const UserLogin = () => {
                 <p onClick={() => Nav("/userforgotpassword")}>Forgot Password?</p>
               </div>
               <div className="EText1">
-                <button onClick={SignIn}>Sign In</button>
+                <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
               </div>
             </div>
           </div>

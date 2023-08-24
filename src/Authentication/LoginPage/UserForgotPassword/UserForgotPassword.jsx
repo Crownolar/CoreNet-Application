@@ -3,10 +3,13 @@ import "./UserForgotPassword.css"; // Import your CSS file
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from "../../../Loader/Loader";
 
 const UserForgotPassword = () => {
   const [Email, setEmail] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   console.log(Email);
   const Writer = useSelector((state) => state.stores.formDataWriter);
   console.log(Writer)
@@ -17,6 +20,7 @@ const UserForgotPassword = () => {
   // const {token} = useParams()forgot-pass/:token
 
   const forgotPassword = () => {
+    setLoading(true)
     const URL = `https://corenet-api.onrender.com/api/forgot-pass/${writerToken}`;
     console.log(URL);
 
@@ -24,6 +28,7 @@ const UserForgotPassword = () => {
       .post(URL, data)
       .then((res) => {
         console.log(res);
+        setLoading(false)
         setShowPopup(true);
         setTimeout(() => {
           setShowPopup(false);
@@ -32,8 +37,10 @@ const UserForgotPassword = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false)
         if (error.response) {
           console.error("Response Data:", error.response.data);
+          setError(error.response.data.message);
           // setError(error.response.data.message);
         }
       });
@@ -45,6 +52,11 @@ const UserForgotPassword = () => {
         {showPopup && (
         <div className="popup">
           <p>Check your Email to reset your password</p>
+        </div>
+      )}
+        {showPopup && (
+        <div className="popup">
+          <p>{error}</p>
         </div>
       )}
       <div className="corenet">
@@ -63,7 +75,7 @@ const UserForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-          <button onClick={forgotPassword}>Send Reset Code</button>
+          <button onClick={forgotPassword}>{loading ? <Loader /> : "Send Reset Code"}</button>
         </div>
       </div>
     </div>
