@@ -40,7 +40,7 @@ const Login = () => {
       .post(url, formDatasignin)
       .then(function (res) {
         console.log(res);
-        dispatch(userData(res.data.data))
+        dispatch(userData(res.data.data));
         setLoading(false);
         console.log(res.data.data);
         res.data.data.email === formDatasignin.email
@@ -83,14 +83,14 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
-              <p>
-                Click here to resend email verification
+              <p style={{color: "black"}}>
+                Didn't receive an Email?{" "}
                 <span
                   style={{ color: "#0455B4" }}
                   onClick={() => Nav("/adminresendemailverification")}
                 >
-                  Tap here to enter your email
-                </span>
+                  Resend verification Email
+                </span>{" "}
               </p>
             </div>
             <div className="input">
@@ -145,9 +145,7 @@ const Login = () => {
                 </p>
               </div>
               <div className="EText1">
-              <button onClick={() => Nav("../")}>
-                  Back
-                </button>
+                <button onClick={() => Nav("../")}>Back</button>
                 <button onClick={SignIn}>
                   {loading ? <Loader /> : "Sign In"}
                 </button>

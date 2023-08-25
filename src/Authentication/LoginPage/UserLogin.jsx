@@ -187,7 +187,12 @@ const UserLogin = () => {
                 <p onClick={() => Nav("/userforgotpassword")}>Forgot Password?</p>
               </div>
               <div className="EText1">
-                <button onClick={SignIn}>{loading ? <Loader /> : "Sign In"}</button>
+              <button onClick={() => Nav("../")}>
+                  Back
+                </button>
+                <button onClick={SignIn}>
+                  {loading ? <Loader /> : "Sign In"}
+                </button>
               </div>
             </div>
           </div>

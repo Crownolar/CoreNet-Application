@@ -162,6 +162,8 @@ function Task() {
       });
   };
 
+  // console.log(UpdateTask)
+
   const getOneTask = () => {
     axios.get(url).then((res) => {
       console.log(res);
