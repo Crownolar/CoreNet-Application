@@ -7,6 +7,10 @@
     flex-direction: column;
     gap: 20px;
   }
+
+  .content-wrap h1{
+    color: white;
+  }
   
   .contact-page {
     height: 100vh;
@@ -15,7 +19,7 @@
   
   .contact-card {
     /* background: #b06666; */
-    background: #c6c2c2;
+    background: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;

@@ -89,14 +89,19 @@ header{
     display: none;
 }
 
-.centerNav ul li.active {
+ ul li.active {
     color: blue;
     font-weight: bold; 
     transition: color 0.2s;
 }
-.centerNav ul li.active:hover {
+ ul li.active:hover {
     color: #0455B4; 
 }
+
+/* .active {
+    font-weight: bold;
+    color: blue;
+  } */
 
 /* * {
     margin: 0%;

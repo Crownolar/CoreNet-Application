@@ -39,7 +39,7 @@ const SignOut = () => {
     <div className="signout">
         <div className="signoutWrap">
             <div className='signupdecision'>
-                <h3>Are you sure you want to logout?</h3>
+                <h3>Are you sure you want to Signout?</h3>
             </div>
             <div className='signupOption'>
                 <button className='signOptionCancel' onClick={() => Nav("../adminpage/admindashhome")}>Cancel</button>

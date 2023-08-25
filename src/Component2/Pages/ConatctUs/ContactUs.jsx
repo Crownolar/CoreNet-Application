@@ -2,6 +2,7 @@ import React from "react";
 import "./Contact Us.css";
 import { MdOutgoingMail } from "react-icons/md";
 import { BsLinkedin, BsTelephoneFill } from "react-icons/bs";
+import Footer from "../../../Component/Footer/Footer"
 
 const ContactUs = () => {
   return (
@@ -55,6 +56,9 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

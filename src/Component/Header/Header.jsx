@@ -11,12 +11,18 @@ import { useSelector } from 'react-redux'
 const Header = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [activeNavItem, setActiveNavItem] = useState("");
+    const [activenav, setActiveNav] = useState("");
+    const [contact, SetContact] = useState("");
     const Nav = useNavigate()
     const user = useSelector((state) => state.stores.formData);
     const writer = useSelector((state) => state.stores.formDataWriter);
     console.log(user);
   const handleNavItem = (navItem) => {
     setActiveNavItem(navItem);
+    setSidebarOpen(false);
+  };
+  const handleClick = (path) => {
+    setActiveNavItem(path);
     setSidebarOpen(false);
   };
 
@@ -48,6 +54,21 @@ const Header = () => {
     setSidebarOpen(false);
 };
 
+// const payment =()=>{
+//   const refVal = "colin"+ Math.random() * 1000;
+//   window.Korapay.initialize({
+//     key: "pk_test_uDyCxZ9PRtSKFn4a5CrA1EQ4gAbybQBmU7vaubzT",
+//     reference: `${refVal}`,
+//     amount: totals, 
+//     currency: "NGN",
+//     customer: {
+//       name: user.name,
+//       email: user.email
+//     },
+//     notification_url: "https://example.com/webhook"
+//   });
+// }
+
 // const handleNavItemClick = () => {
 //   if (Object.keys(user).length !== 0) {
 //       Nav('/adminpage/admindashhome');
@@ -65,7 +86,14 @@ const Header = () => {
   },[Nav])
   
 
-
+//onClick={() => {
+//   setActiveTab("admintaskoverview");
+//   Nav("/adminpage/admintaskoverview");
+//   console.log("activeTab");
+// }}
+// className={`Admintask ${
+//   activeTab === "admintaskoverview" ? "active" : ""
+// }`}
 
   return (
     <div>
@@ -77,9 +105,9 @@ const Header = () => {
 
                 <div className="centerNav">
                     <ul>
-                        <li onClick={() => Nav("./")} className={activeNavItem === "/" ? "active" : ""}>Home</li>
-                        <li onClick={() => Nav('/contactus')} className={activeNavItem === '/contactus' ? "active" : ""}>Contact us</li>
-                        <li onClick={() => Nav('/about')} className={activeNavItem === '/about' ? "active" : ""}>About</li>
+                        <li onClick={() => { setActiveNav("./"); Nav("./"); console.log("activenav")}} className={`activeNavItem ${activenav === "./" ? "active" : ""}`}>Home</li>
+                        <li onClick={() => { setActiveNav("./"); Nav("./contactus"); console.log("activenav")}} className={`activeNavItem ${activenav === "./contactus" ? "active" : ""}`}>Contact us</li>
+                        <li onClick={() => { setActiveNav("./"); Nav("./about"); console.log("activenav")}} className={`activeNavItem ${activenav === "./about" ? "active" : ""}`}>About</li>
                         <li onClick={() => Nav("./login")} className='usericons'> <FaRegCircleUser  className='users'/> User</li>
                     </ul>
                 </div>
@@ -110,7 +138,7 @@ const Header = () => {
 
               <div className="centerNav1">
                     <ul>
-                        <div onClick={handleNavItemClick}>Home</div>
+                        <div onClick={() => Navigate("/")}>Home</div>
                         <div onClick={() => Navigate('/contactus')}>Contact Us</div>
                         <div onClick={() => Navigate('/about')}>About</div>
                         <div>Price</div>

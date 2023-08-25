@@ -15,13 +15,19 @@ const AdminTaskOveview = () => {
   // const Editor = useSelector((state) => state.stores.user);
   // const WriterInfo = useSelector((state) => state.stores.writerInfo);
   // console.log(WriterInfo)
-  // console.log(Editor);
+  // console.log(Editor); :id/create-editor-comment/:editorId
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId; 
   // const EditorId = Editor.id;
+  const [comment, setComment] = useState('');
   const [taskinfo, setTaskInfo] = useState([]);
   const [loading, setLoading] = useState([false]);
   const url = `https://corenet-api.onrender.com/api/all-tasks/${EditorID}`;
+  const URL = `https://corenet-api.onrender.com/api/${TaskID}/create-editor-comment/${EditorID}`;
+
+  const editorComment = () => {
+    axios.post()
+  }
 
   const getAllTask = () => {
     setLoading(true)
@@ -56,6 +62,9 @@ const AdminTaskOveview = () => {
              <h3 className="task-title1">{e.Title}</h3>
             <p className="task-description1">{e.Description}</p>
             <p className="task-timeout1">Timeout: {e.taskTimeout} </p>
+            <div className="commentBox">
+              <input type="text" onChange={(e) => setComment(e.target.value)} />
+            </div>
            </div>
 
             <div className="task-status1">

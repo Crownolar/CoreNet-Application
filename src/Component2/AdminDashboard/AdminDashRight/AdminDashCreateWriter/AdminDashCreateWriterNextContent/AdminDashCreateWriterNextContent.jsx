@@ -229,9 +229,7 @@ export default function AdminCreateWriter({ editorID }) {
 
   return (
     <div>
-      {validationErrors && (
-          <p className="error-message">{validationErrors}</p>
-        )}
+      
       <div className="signup-form-container">
         <h2>Create New Writer</h2>
         {showPopup && (
@@ -241,7 +239,7 @@ export default function AdminCreateWriter({ editorID }) {
       )}
       {showPopuperror && (
         <div className="popup">
-          <p>Something went wrong!</p>
+          <p>{validationErrors}</p>
         </div>
       )}
         <form>
@@ -253,9 +251,6 @@ export default function AdminCreateWriter({ editorID }) {
             value={formDataWriter.FullName}
             onChange={handleChange}
           />
-          {/* {validationErrors.Password && (
-          <p className="error-message">{validationErrors.Password}</p>
-        )} */}
           <input
             placeholder="Username"
             type="text"
@@ -263,9 +258,6 @@ export default function AdminCreateWriter({ editorID }) {
             value={formDataWriter.UserName}
             onChange={handleChange}
           />
-          {/* {validationErrors.Password && (
-          <p className="error-message">{validationErrors.Password}</p>
-        )} */}
           <input
             placeholder="Email"
             type="email"
@@ -273,9 +265,6 @@ export default function AdminCreateWriter({ editorID }) {
             value={formDataWriter.Email}
             onChange={handleChange}
           />
-          {/* {validationErrors.Password && (
-          <p className="error-message">{validationErrors.Password}</p>
-        )} */}
           <input
             placeholder="Password"
             type={showPassword ? "text" : "password"}
@@ -288,7 +277,6 @@ export default function AdminCreateWriter({ editorID }) {
         ) : (
           <FiEye onClick={() => setShowPassword(true)} className="Show" />
         )}
-        
           <button type="submit" onClick={CreateWriter}>
             {loading ? <Loader /> : "Create Writer"}
           </button>
