@@ -101,13 +101,13 @@
 .SignUpInputWrap1{
     width: 100%;
     /* background-color: aliceblue; */
-    height: 20%;
+    height: 9%;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 170px;
 }
 .SignUpInputWrap1 button{
-    width: 100%;
+    width: 35%;
     height: 100%;
     background-color: #0455B4;
     border-radius: 5px;

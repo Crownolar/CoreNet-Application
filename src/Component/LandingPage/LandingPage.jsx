@@ -203,7 +203,7 @@ const landingPage = () => {
           </div>
 
           <p className="aboutText">
-            Welcome to CoreNet, Explore, Manage, and Conquer your network like
+          Embark on a Journey of Exploration, Management, and Network Mastery!
           </p>
         </div>
       </div>
@@ -332,39 +332,40 @@ const landingPage = () => {
             </div>
           </div>
         </div>
-
-        <div className="testimonial-section-top-text">
-          <h2>Available plans</h2>
-        </div>
       </section>
 
       <section className="pricing-section">
-        <div className="pricing-card">
-          <h3>Basic</h3>
-          <p>One Admin, and two workers</p>
-          <p>Free</p>
-          <button>Select Plan</button>
+        <div className="testimonial-section-top-text">
+          <h2>Available plans</h2>
         </div>
-        <div className="pricing-card">
-          <h3>Pro</h3>
-          <p>Three Admins, and Thirty workers</p>
-          <p>$49/month</p>
-          <button>Select Plan</button>
-        </div>
-        <div className="pricing-card">
-          <h3>Premium</h3>
-          <p>Unlimited Admins, and workers</p>
-          <p>$99/month</p>
-          <button>Select Plan</button>
+        <div className="Price-Card">
+          <div className="pricing-card">
+            <h3>Basic</h3>
+            <p>One Admin, and two workers</p>
+            <p>Free</p>
+            <button>Select Plan</button>
+          </div>
+          <div className="pricing-card">
+            <h3>Pro</h3>
+            <p>Three Admins, and Thirty workers</p>
+            <p>$49/month</p>
+            <button>Select Plan</button>
+          </div>
+          <div className="pricing-card">
+            <h3>Premium</h3>
+            <p>Unlimited Admins, and workers</p>
+            <p>$99/month</p>
+            <button>Select Plan</button>
+          </div>
         </div>
       </section>
 
       <section className="developers-section">
-        <div>
+        <div className="Secttext">
           <h1 className="developers-section-text">Meet Our Developers</h1>
         </div>
         <div className="developer">
-          <img src="Ezekiel.jpg" alt="Developer 1" />
+          <img src="Tijani.jpg" alt="Developer 1" />
           <h3>Tijani Ezekiel A.</h3>
           <p>Front-end Developer</p>
         </div>
@@ -375,13 +376,13 @@ const landingPage = () => {
         </div>
         <div className="developer">
           <img src="Amaka.jpg" alt="Developer 3" />
-          <h3>Amaka Of Lagos</h3>
+          <h3>Amaka</h3>
           <p>Back-end Developer</p>
         </div>
 
         <div className="developer">
           <img
-            src="https://cdn-flmgd.nitrocdn.com/XZjibAnlxWEQstNFLKwZdjfoLntqIVdV/assets/images/optimized/rev-9d43515/distinguishedjusticeadvocates.com/wp-content/themes/DJA-child/images/head.png"
+            src="Michael.jpg"
             alt="Developer 1"
           />
           <h3>Micheal</h3>
@@ -420,7 +421,6 @@ const landingPage = () => {
               <div className="imageAlign">
                 <img src="./realbluelogo.png" alt="" />
               </div>
-              <div></div>
             </div>
 
             <div className="footerAlign">
@@ -453,11 +453,10 @@ const landingPage = () => {
               </ul>
             </div>
           </div>
-        <div className="footerEnd">
-          <Footer />
+          <div className="footerEnd">
+            <Footer />
+          </div>
         </div>
-        </div>
-
       </div>
     </>
   );

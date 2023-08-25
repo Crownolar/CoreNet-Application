@@ -8,6 +8,7 @@ import { clearWriter } from "../../../../../Redux/ActionState/ActionState";
 const AdminAllWriterDesc = () => {
   const [writersDescriptions, setWritersDescriptions] = useState({});
   const { id } = useParams();
+  console.log(id)
   const dispatch = useDispatch();
   const Nav = useNavigate()
   const user = useSelector((state) => state.stores.user);

@@ -23,6 +23,7 @@ import { TbHomeCheck } from "react-icons/tb";
 import AdminDashHome from "./AdminDashHome/AdminDashHome";
 import AdminChangePassword from "../../Pages/Profile/AdminChange/AdminChangePassword";
 import AdminTaskOverviewDesc from "./AdminTaskOverview/AdminTaskOverviewDesc/AdminTaskOverviewDesc";
+import Authenticate from "../../../Authentication/Authenticate";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -154,17 +155,17 @@ const AdminDashRight = () => {
         
 
         <Routes>
-          <Route path="/admindashhome" element={<AdminDashHome />} />
-          <Route path="/admintaskoverview/*" element={<AdminTaskOveview />} />
-          <Route path="/admintaskoverviewdesc/:id" element={<AdminTaskOverviewDesc />} />
-          <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
+          <Route element={<Authenticate />}>
           <Route
             path="/admincreatewriter/*"
             element={<AdminDashCreateWriter />}
           />
+          <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
+          <Route path="/admintaskoverview/*" element={<AdminTaskOveview />} />
           <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
-          <Route path="/adminchangepassword" element={<AdminChangePassword />} />
+          <Route path="/admintaskoverviewdesc/:id" element={<AdminTaskOverviewDesc />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/adminchangepassword" element={<AdminChangePassword />} />
           <Route
             path="/adminallwriterdesc/:id"
             element={<AdminAllWriterDesc />}
@@ -173,6 +174,8 @@ const AdminDashRight = () => {
             path="/admintaskassignpage/:id"
             element={<AdminTaskAssignPage />}
           />
+          </Route>
+          <Route path="/admindashhome" element={<AdminDashHome />} />
         </Routes>
       </div>
     </div>

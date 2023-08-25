@@ -12,7 +12,7 @@ const AdminTaskOverviewDesc = () => {
     const Writer = useSelector((state) => state.stores.formDataWriter);
     // const WriterInfo = useSelector((state) => state.stores.writerInfo);
     // console.log(WriterInfo)
-    // console.log(Writer);
+    console.log(Writer);
     const user = useSelector((state) => state.stores.user);
     const EditorID = user.editorId; 
     const WriterId = Writer.id;

@@ -8,7 +8,7 @@ import Loader from "../../../../Loader/Loader";
 
 const AdminAllWriter = () => {
   const [writer, setWriter] = useState([]);
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true);
   const nav = useNavigate();
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId;
@@ -16,15 +16,17 @@ const AdminAllWriter = () => {
   const url = `https://corenet-api.onrender.com/api/get-all-writers/${EditorID}`;
 
   const getAllWriters = () => {
-    axios.get(url).then((res) => {
-      console.log(res);
-      setWriter(res.data.data);
-      setLoading(false);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    
+    axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        setWriter(res.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false); // Update loading state in case of error
+      });
   };
 
   const navigateToWriterDesc = (_id) => {
@@ -38,8 +40,12 @@ const AdminAllWriter = () => {
   return (
     <div className="AdminAllWriter">
       <div className="AdminAllWriterWrapper">
-        {loading ? ( // Show loading state
-          <div className="loading-spinner"> <Loader /> Loading...</div>
+        {loading ? (
+          <div className="loading-spinner">
+            <Loader /> Loading...
+          </div>
+        ) : writer.length === 0 ? (
+          <div className="no-writer-message">No Writer has been created yet.</div>
         ) : (
           writer?.map((e) => (
             <Link

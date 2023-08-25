@@ -13,6 +13,8 @@
     height: 100%;
     /* background-color: gray; */
     display: flex;
+    /* align-items: center; */
+    justify-content: center;
     /* flex-direction: column; */
     /* border: 1px solid green; */
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -133,11 +135,13 @@
     /* flex-direction: column; */
     justify-content: center;
     position: relative;
-    /* background-color: red; */
+    padding-left: 5%;
+    /* padding-right: 34%; */
+    /* background-color: rgb(201, 184, 184); */
 }
 
 .SignInInputPassword input{
-    width: 80%;
+    width: 70%;
     height: 100%;
     outline: none;
     padding-left: 5px;
@@ -154,7 +158,7 @@
     color: #0455B4;
     cursor: pointer;
     position: absolute;
-    right: 70px;
+    right: 110px;
     top: 8px;
 }
 
@@ -162,14 +166,15 @@
     width: 100%;
     /* height: 5%; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     /* background-color: red; */
+    padding-left: 20%;
 }
 
 .EText input{
-    width: 80%;
+    width: 82%;
     height: 100%;
     outline: none;
     padding-left: 5px;
@@ -184,10 +189,11 @@
 .ETextCheckbox{
     width: 80%;
     height: 10%;
-    /* background-color: gray; */
+    /* background-color: green; */
     display: flex;
     align-items: center;
      padding-top: 10px;
+     padding-left: 60px;
     gap: 10px;
 }
 
@@ -203,23 +209,34 @@
 }
 
 .EText1{
-    width: 100%;
+    width: 75%;
     height: 20%;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    gap: 100px;
     /* background-color: red; */
+    padding-left: 50px;
 }
 
 .EText1 button{
-    width: 80%;
+    width: 25%;
     height: 50px;
     background-color: #0455B4;
     border: none;
     border-radius: 7px;
     color: white;
     cursor: pointer;
+}
+
+.EText4{
+    width: 75%;
+    padding-left: 50px;
+}
+
+.forgotpassword{
+    padding-left: 70px;
 }
 
 .AdminwelcomeMssg {

@@ -12,8 +12,8 @@ const Header = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [activeNavItem, setActiveNavItem] = useState("");
     const Nav = useNavigate()
-    const user = useSelector((state) => state.stores.user);
-    const writer = useSelector((state) => state.stores.writer);
+    const user = useSelector((state) => state.stores.formData);
+    const writer = useSelector((state) => state.stores.formDataWriter);
     console.log(user);
   const handleNavItem = (navItem) => {
     setActiveNavItem(navItem);
@@ -22,14 +22,16 @@ const Header = () => {
 
   const handleUserClick = () => {
     if (user) {
-        Nav('/signout');
+      Nav('/signout');
     } else if (writer) {
-        Nav('/usersignout');
-    } else {
-        Nav('/login');
+      Nav('/usersignout');
+    } else if(!user){
+      Nav('/login');
+    } else if(!writer){
+      Nav("/userlogin")
     }
     setSidebarOpen(false);
-};
+  };
 
   const Navigate = (path) => {
     Nav(path);
@@ -78,7 +80,7 @@ const Header = () => {
                         <li onClick={() => Nav("./")} className={activeNavItem === "/" ? "active" : ""}>Home</li>
                         <li onClick={() => Nav('/contactus')} className={activeNavItem === '/contactus' ? "active" : ""}>Contact us</li>
                         <li onClick={() => Nav('/about')} className={activeNavItem === '/about' ? "active" : ""}>About</li>
-                        <li onClick={() => Nav('./Login')} className='usericons'> <FaRegCircleUser  className='users'/> User</li>
+                        <li onClick={() => Nav("./login")} className='usericons'> <FaRegCircleUser  className='users'/> User</li>
                     </ul>
                 </div>
 

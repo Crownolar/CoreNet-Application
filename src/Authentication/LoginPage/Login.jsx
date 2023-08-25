@@ -24,7 +24,7 @@ const Login = () => {
   const [showPopuperror, setShowPopupError] = useState(false);
   const Email = formDatasignin.Email;
 
-  const { login_alert, verifyAlert } = useContext(ThemeContext);
+  const { verifyAlert } = useContext(ThemeContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormDataSignin({ [name]: value }));
@@ -40,6 +40,7 @@ const Login = () => {
       .post(url, formDatasignin)
       .then(function (res) {
         console.log(res);
+        dispatch(userData(res.data.data))
         setLoading(false);
         console.log(res.data.data);
         res.data.data.email === formDatasignin.email
@@ -67,17 +68,8 @@ const Login = () => {
       });
   };
 
-  useEffect(() => {
-    login_alert()
-  },[showPopup])
-
   return (
     <div className="AdminLoginPage">
-      {showPopup && (
-        <div className="popup">
-          <p>Login Successful</p>
-        </div>
-      )}
       {verifyAlert && (
         <div className="popup">
           <p>Check your Email for verification</p>
@@ -153,13 +145,16 @@ const Login = () => {
                 </p>
               </div>
               <div className="EText1">
+              <button onClick={() => Nav("../")}>
+                  Back
+                </button>
                 <button onClick={SignIn}>
                   {loading ? <Loader /> : "Sign In"}
                 </button>
               </div>
-              <div className="EText1">
+              <div className="EText4">
                 <p>
-                  Don't have an account yet?{" "}
+                  Don't have an account yet?
                   <span
                     style={{ cursor: "pointer", color: "#0455B4" }}
                     onClick={() => Nav("/signup")}

@@ -168,10 +168,11 @@
         height: 20%;
         /* background-color: pink; */
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 15%;
     }
     .signText p span{
         color: rgb(66, 93, 167);
+        /* padding-top: 10px; */
     }
     .input{
         width: 100%;
@@ -190,6 +191,7 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        /* background-color: rebeccapurple; */
     }
     .SignInInputPassword input{
         width: 100%;
@@ -207,18 +209,19 @@
     }
     .EText{
         width: 100%;
-        height: 15%;
+        height: 19%;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
         /* background-color: #53d95e; */
+        padding-right: 16%;
     }
     .EText input{
-    width: 100%;
+    width: 82vw;
     height: 100%;
     outline: none;
-    padding-left: 5px;
+    padding-left: 8px;
     border-radius: 0;
     /* border-bottom: 1px solid #e91616; */
     /* background-color: red; */
@@ -227,25 +230,47 @@
         width: 100%;
         height: 20%;
         /* background-color: yellow; */
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        /* padding-right: 50%; */
+        padding-left: 20px;
     }
     .ETextCheckbox input{
-        width: 5%;
+        width: 3%;
         height: 50%;
+        /* background-color: pink; */
+        /* margin-right: 20%; */
     }
     .EText1{
         width: 100%;
         /* background-color: black; */
+        padding-left: 15px;
         /* padding-top: 20px; */
-        /* margin-top: 20px; */
+        margin-top: 20px;
     }
     .EText1 button{
-        width: 100%;
-        height: 50px;
+        width: 90%;
+        height: 30px;
         background-color: #0455B4;
         border: none;
         border-radius: 7px;
         color: white;
         cursor: pointer;
+    }
+    .forgotpassword{
+        width: 100%;
+        padding-left: 20px;
+        /* background-color: black; */
+    }
+    .EText4{
+        width: 100%;
+        padding-left: 20px;
+        /* background-color: yellow; */
+        gap: 10px;
+    }
+    .EText4{
+        gap: 20px;
     }
     .AdminwelcomeMssg{
     width: 100%;

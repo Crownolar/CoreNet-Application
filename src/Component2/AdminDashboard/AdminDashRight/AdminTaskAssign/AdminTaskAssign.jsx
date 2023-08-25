@@ -27,6 +27,7 @@ const AdminTaskAssign = () => {
         if (error.response) {
           console.error("Response Data:", error.response.data);
         }
+        setLoading(false); // Error occurred, hide loading
       });
   };
 
@@ -43,8 +44,10 @@ const AdminTaskAssign = () => {
       <div className="AdminTaskAssignWrap">
         <div className="AdminTaskAssignInput">
           <div className="AdminTaskAssignSelect">
-            {loading ? ( // Show loading state
+            {loading ? (
               <div className="loading-spinner"> <Loader /> Loading...</div>
+            ) : writer.length === 0 ? (
+              <div className="no-writer-message">No Writer available for task assignment.</div>
             ) : (
               writer.map((e) => (
                 <Link

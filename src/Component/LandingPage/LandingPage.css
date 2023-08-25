@@ -1,585 +1,3 @@
-/* .main{
-    width: 100%;
-    height: 100vh;
-    background-color: white;
-     display: flex;
-    flex-direction: column;
-}
-
-.mainWrap{
-  width: 100%;
-  height: max-content;
-}
-
-.topPictureHolder {
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  background-image: url(/headerpicture.jpg);
-  background-size: cover;
-  justify-content: center;
-}
-
-.layerColor {
-  width: 100%;
-  height: 100%;
-  background-color: #0456b494;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'poppins, sans-serif';
-  color: white;
-  flex-direction: column;
-  font-size: smaller;
-  align-items: center;
-  padding-top: 20px;
-}
-
-.aboutText {
-  font-size: 22px;
-  text-align: center;
-  height: 20%;
-  width: 75%;
-}
-
-.aboutUs {
-  font-size: 30px;  
-}
-
-.ourMainFocus {
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.mainFocusAlign {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.line {
-width: 70px;
-height: 3px;
-}
-
-.insideAlign {
-width: 100%;
-height: 80%;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-}
-
-.contactUsHolder2 {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  flex-direction: row-reverse;
-
-}
-
-.leftContent {
-width: 47%;
-height: 100%;
-display: flex;
-align-items: center;
-}
-
-.paragraphText {
-  height: 90%;
-  font-family: 'poppins, sans-serif';
-  font-size: 20px;
-  font-weight: 100;
-  margin: 15px;
-  text-align: justify;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  line-height: 30px;
-  gap: 40px;
-  }
-
-.rightContent {
-width: 47%;
-height: 100%;
-}
-
-.rightContent img {
-width: 100%;
-height: 100%;
-}
-
-.uniqueFactors {
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  }
-  
-  .uniqueFactorsWrap{
-    width: 100%;
-    height: 100%
-  }
-  
-  .uniqueFactorsAlign {
-  width: 100%;
-  height: 90%;
-  background-color: #f0efef55;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  }
-  
-  .uniqueCompany {
-  color: #0455B4;
-  }
-  
-  .uniquebox {
-  width: 95%;
-  height: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0efef55 ;
-  }
-  
-  .circle {
-  width: 15%;
-  background-color: white;
-  border-radius: 10%;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-  
-  .circleIcon {
-  width: 80%;
-  height: 80%;
-  color:#0455B4;
-  }
-  
-  .uniqueContent {
-  width: 22%;
-  height: 60%;
-  background-color: white;
-  border-radius: 3px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  }
-  
-  .uniqueContentSeprate {
-  width: 22%;
-  height: 60%;
-  background-color: white;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
-  .mainFocus {
-    width: 100%;
-    height: 90vh;
-    }
-    
-    .spacing {
-        width: 100%;
-        height: 10vh;
-        background-color: #f0efef55;
-    }
-    
-    .topBox {
-        width: 100%;
-        height: 55%;
-        background-color: #0455B4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-size: x-large;
-        color: white;
-    }
-    .topBox button{
-      border: 2px solid white;
-    }
-    
-    
-    .downBox {
-        width: 100%;
-        height: 45%;
-        border: 0.1px solid rgba(19, 19, 19, 0.703);
-        background-color: #f0efef55;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .footer {
-        width: 100%;
-        height: 5%;
-        border: 0.1px solid rgba(19, 19, 19, 0.703);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'poppins, sans-serif';
-        background-color: #f0efef55;
-    }
-    
-    .downBttn {
-        width: 13%;
-        height: 25%;
-        border-radius: 5px;
-        border: none;
-        margin-top: 30px;
-        font-size: x-large;
-        font-family: 'poppins, sans-serif';
-    }
-    
-    .downBoxAlign {
-        width: 90%;
-        height: 85%;
-        background-color: rgba(154, 154, 154, 0.082);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .footerImage {
-        width: 23%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .imageAlign {
-        width: 100%;
-        height: 70%;
-    }
-    
-    .imageAlign img {
-        width: 90%;
-        height: 100%;
-    }
-    
-    .footerAlign {
-        width: 23%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: x-large;
-        cursor: pointer;
-    }
-    .footerAlign .footerText li:hover{
-      color: #0455B4;
-    }
-    
-    .footerText {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        list-style-type: none;
-        font-family: 'poppins, sans-serif';
-        font-size: large;
-    }
-.welcome-message1 {
-    width: 50%;
-    height: 50%;
-    background-color: #0455B4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: backInDown;
-    animation-duration: 3s;
-    z-index: 20;
-  }
-  
-  .welcome-message1 h3 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .welcome-message1 p {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #ffffff;
-  }
-
-  
-
-
-
-@media screen and (max-width: 426px) {
-  .main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-  }
-  .mainWrap{
-    width: 100%;
-    height: max-content;
-  }
-  .topPictureHolder {
-    width: 100%;
-    height: 50vh;
-    background-image: url(/headerpicture.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    object-fit:contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .layerColor {
-  width: 100%;
-  height: 100%;
-  background-color: #0456b494;
-  display: flex;
-  font-family: 'poppins, sans-serif';
-  color: rgb(253, 253, 253);
-  flex-direction: column;
-  font-size: small;
-  align-items: center;
-  }
-  .aboutUs{
-    font-size: 20px;
-  }
-  .aboutText {
-  font-size: 22px;
-  text-align: center;
-  height: 20%;
-  width: 75%;
-  font-size: small;
-  }
-  .ourMainFocus {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-  .mainFocusAlign {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-.insideAlign {
-  width: 100%;
-  height: 80%;
-  background-color: gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  }
-  .contactUsHolder2 {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    flex-direction: column-reverse;
-  }
-  .leftContent {
-    width: 100%;
-    height: 47%;
-    display: flex;
-    align-items: center;
-    }
-    .paragraphText {
-      height: 100%;
-      font-size: 15px;
-      margin: 0;
-      text-align: center;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      padding: 0px;
-      line-height: 20px;
-      gap: 10px;
-      }
-    .rightContent {
-      width: 100%;
-      height: 47%;
-      }
-      .rightContent img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      .uniqueFactors {
-        width: 100%;
-        height: 60vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
-        }
-        .uniqueFactorsWrap{
-          width: 100%;
-          height: 100%;
-        }
-        .uniquebox {
-          width: 95%;
-          height: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-        .uniqueContent{
-          width: 48%;
-          height: 45%;
-          background-color: white;
-          border-radius: 3px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-        .uniqueContentSeprate {
-          width: 48%;
-          height: 45%;
-          background-color: white;
-          border-radius: 3px;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          flex-direction: column;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-          }
-  .mainFocus {
-    width: 100%;
-    height: 90vh;
-    }
-    .topBox{
-      width: 100%;
-      height: 60%;
-      background-color: #0455B4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: whte;
-      font-size: 18px;
-      text-align: center;
-      padding-top: 10px;
-    }
-    .topBox .downBttn{
-      width: 120px;
-      height: 50px;
-      background-color: #0455B4;
-      border: 2px solid white;
-    }
-    .downBox{
-      width: 100%;
-      height: 70%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .downBoxAlign{
-      width: 95%;
-      height: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-    .footerImage{
-      width: 100%;
-      height: 60%;
-    }
-    .imageAlign{
-      width: 90%;
-      height: 90%;
-    }
-    .imageAlign img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .footerAlign{
-      width: 100%;
-      height: 23%;
-    }
-    .footerAlign .footerText{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      font-size: 15px;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-    .welcome-message1 {
-        width: 80%;
-        height: 50%;
-        background-color: #0455B4;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        animation: backInDown;
-        animation-duration: 3s;
-        text-align: center;
-      }
-      
-      .welcome-message1 h3 {
-        margin: 0;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-      }
-      
-      .welcome-message1 p {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #ffffff;
-      }
-
-
-}
-
-@media screen and (max-width: 768px) {
-
-} */
-
 .main {
   width: 100%;
   height: 100vh;
@@ -933,6 +351,32 @@ height: 100%;
   flex-direction: column;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+.Price-Card{
+  /* background-color: blue; */
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.pricing-section{
+  /* background-color: red; */
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding-bottom: 40%; */
+  /* margin-top: 30%; */
+}
+.pricing-card{
+  /* background-color: pink; */
+  width: 30%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .mainFocus {
   width: 100%;
@@ -1213,11 +657,27 @@ height: 100%;
 
   .uniqueFactors {
     width: 100%;
-    height: 60vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    /* background-color: #007bff; */
+  }
+
+  .uniqueFactors h1{
+    /* background-color: yellow; */
+    margin-bottom: 5%;
+  }
+
+  .uniqueFactorsAlign {
+    width: 100%;
+    height: 90%;
+    /* background-color: #45292955; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
   }
 
   .uniqueFactorsWrap {
@@ -1231,12 +691,13 @@ height: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    /* background-color: yellow; */
   }
 
   .uniqueContent {
-    width: 48%;
-    height: 45%;
-    background-color: white;
+    width: 80%;
+    height: 30%;
+    /* background-color: rgb(221, 125, 125); */
     border-radius: 3px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     display: flex;
@@ -1245,20 +706,87 @@ height: 100%;
   }
 
   .uniqueContentSeprate {
-    width: 48%;
-    height: 45%;
-    background-color: white;
+    width: 80%;
+    height: 30%;
+    /* background-color: rgb(215, 122, 122); */
     border-radius: 3px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-bottom: 20%;
+  }
+
+  .testimonial-section-top-text{
+    width: 100%;
+    height: 30vh;
+    margin-top: 10%;
+    /* background-color: rgb(121, 103, 103); */
+    padding-top: 30%;
+    /* z-index: 1000; */
+  }
+
+  .testimonial-section{
+    /* background-color: orange; */
+    width: 100%;
+    padding: 0;
+    margin-top: 10%;  
+    /* padding-bottom: 30%; */
+  }
+  .pricing-section{
+    /* background-color: red; */
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    /* padding-bottom: 40%; */
+    /* margin-top: 30%; */
+  }
+  .testimonial-section-top-text{
+    /* background-color: orangered; */
+    margin-top: 20%;
+  }
+  .Price-Card{
+    /* background-color: blue; */
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .pricing-card{
+    /* background-color: aqua; */
+    width: 90%;
+  }
+  .pricing-card button{
+    /* background-color: red; */
+    width: 80%;
+    /* height: 60px; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .Secttext{
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Secttext h1 {
+    width: 100%;
+    /* background-color: #007bff; */
+  }
+  .developer{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
   }
 
   .mainFocus {
     width: 100%;
     height: 90vh;
+    /* background-color: red; */
   }
 
   .topBox {
@@ -1270,14 +798,16 @@ height: 100%;
     justify-content: center;
     flex-direction: column;
     color: whte;
-    font-size: 18px;
+    font-size: 12px;
     text-align: center;
     padding-top: 10px;
   }
 
   .topBox .downBttn {
-    width: 120px;
-    height: 50px;
+    width: 40%;
+    height: 40%;
+    /* padding: 20px 10px; */
+    /* background-color: #6da4e4; */
     background-color: #0455B4;
     border: 2px solid white;
   }
@@ -1288,6 +818,7 @@ height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: black; */
   }
 
   .downBoxAlign {
@@ -1296,16 +827,19 @@ height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    /* background-color: green; */
   }
 
   .footerImage {
     width: 100%;
     height: 60%;
+    /* background-color: orange; */
   }
 
   .imageAlign {
-    width: 90%;
-    height: 90%;
+    width: 50%;
+    height: 70%;
+    /* background-color: aliceblue; */
   }
 
   .imageAlign img {
@@ -1316,7 +850,8 @@ height: 100%;
 
   .footerAlign {
     width: 100%;
-    height: 23%;
+    height: 60vh;
+    /* background-color: yellow; */
   }
 
   .footerAlign .footerText {
@@ -1329,6 +864,7 @@ height: 100%;
     font-size: 15px;
     text-align: center;
     flex-wrap: wrap;
+    /* background-color: red; */
   }
 
   .welcome-message1 {

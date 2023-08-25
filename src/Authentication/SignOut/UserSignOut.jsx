@@ -10,8 +10,8 @@ import { useState } from "react"
 const SignOut = () => {
   const [loading, setLoading] = useState(false)
   const Nav = useNavigate()
-  const user = useSelector((state) => state.stores.writer)
-  const Writer = user._id
+  const user = useSelector((state) => state.stores.formDataWriter)
+  const Writer = user.id
   console.log(Writer);
   const dispatch = useDispatch()
     const SignOut = () => {

@@ -39,7 +39,9 @@ const SignUp = () => {
   
     setValidationErrors(errors);
   };
-  
+
+  const {login_alert} = useContext(ThemeContext)
+   
 
   const isPasswordValid = (password) => {
     const minLength = 8;
@@ -120,6 +122,7 @@ const SignUp = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        login_alert()
         setSuccess(res.data.data.message)
         setLoading(false);
         dispatch(updateFormData({

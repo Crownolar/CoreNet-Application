@@ -1,8 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+  const User = useSelector((state) => state.stores.user);
+  console.log(User);
+  const Writer = useSelector((state) => state.stores.writer);
+  console.log(Writer);
   const [verifyAlert, setverifyAlert] = useState(false);
 
   const login_alert = () => {
@@ -53,6 +58,8 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
+        Writer,
+        User,
         user,
         setUser,
         verifyAlert,

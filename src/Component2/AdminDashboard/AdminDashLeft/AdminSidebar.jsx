@@ -9,10 +9,21 @@ import { PiSignOut } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import "./AdminSidebar.css";
 import { TbHomeCheck } from "react-icons/tb";
+import { useSelector } from "react-redux";
 
 const AdminSidebar = () => {
   const Nav = useNavigate();
   const [activeTab, setActiveTab] = useState("");
+  const user = useSelector((state) => state.stores.user)
+
+  const handleSignOut = () => {
+    // If user is logged in, navigate to sign out, else navigate to login
+    if (user) {
+      Nav("../signout");
+    } else {
+      Nav("/login");
+    }
+  };
 
   //   const handlecloseMobile = () => {
   //     setMobile(false)
@@ -84,7 +95,7 @@ const AdminSidebar = () => {
               <p>All writers</p>
             </div>
           </div>
-          <div onClick={() => Nav("../signout")} className="AdminSignOutDiv">
+          <div onClick={handleSignOut} className="AdminSignOutDiv">
             <PiSignOut />
             <p>Sign Out</p>
           </div>

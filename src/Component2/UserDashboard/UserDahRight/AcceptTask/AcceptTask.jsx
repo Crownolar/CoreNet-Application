@@ -2,24 +2,29 @@ import { useSelector } from "react-redux";
 import "./AcceptTask.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "../../../../Loader/Loader";
 
 const AcceptTask = () => {
   const Writer = useSelector((state) => state.stores.formDataWriter);
   const WriterId = Writer.id;
   const [taskinfo, setTaskInfo] = useState([]);
+  const [loading, setLoading] = useState(false)
   // const { id } = useParams()get-all-tasks/:writerId
   const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
 
   const getAllTask = () => {
+    setLoading(true)
     axios
       .get(url)
       .then((res) => {
         console.log(res);
+        setLoading(false)
         setTaskInfo(res.data.data);
         console.log(res.data.data);
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false)
         if (error.response) {
           console.error("Response Data:", error.response.data);
         }
@@ -50,7 +55,9 @@ const AcceptTask = () => {
     //   </div>
     // </div>
     <div className="AllTask">
-      <div className="task-card">
+      {loading ? <Loader /> : taskinfo.length === 0 ? ( // Show "No Writer" message
+              <div className="no-writer-message">No Task available.</div>
+            ) : <div className="task-card">
         {taskinfo?.map((e) => (
           <div className="task-card-wrap">
             <h3 className="task-title">{e.Title}</h3>
@@ -87,7 +94,7 @@ const AcceptTask = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };

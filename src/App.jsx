@@ -26,6 +26,7 @@ import UserResetPassword from "./Authentication/LoginPage/UserResetPassword/User
 import UserVerifyPage from "./Authentication/VerifyPage/UserVerifyPage/UserVerifyPage";
 import UserForgotPassword from "./Authentication/LoginPage/UserForgotPassword/UserForgotPassword";
 import AdminResendEmailVerification from "./Authentication/LoginPage/AdminResendEmailVerification/AdminResendEmailVerification"
+import Authenticate from "./Authentication/Authenticate";
 
 const App = () => {
   return (
@@ -36,19 +37,21 @@ const App = () => {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
         </Route>
-        <Route path="/admindashhome" element={<AdminDashHome />} />
-        <Route path="/adminpage/*" element={<Adminpage />} />
-        <Route path="/userpage/*" element={<UserPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/adminforgotpassword" element={<AdminForgotPassword />} />
         <Route path="/adminresendemailverification" element={<AdminResendEmailVerification />} />
-        <Route path="/userforgotpassword" element={<UserForgotPassword />} />
         <Route path="/adminresetpassword/:token" element={<AdminResetPassword />} />
+        <Route element={<Authenticate />}>
+        <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route path="/signout" element={<SignOut />} />
+        <Route path="/adminpage/*" element={<Adminpage />} />
+        <Route path="/admindashhome" element={<AdminDashHome />} />
+        <Route path="/userpage/*" element={<UserPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/userlogin" element={<UserLogin />} />
+        <Route path="/userforgotpassword" element={<UserForgotPassword />} />
         <Route path="/userresetpassword/:token" element={<UserResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signout" element={<SignOut />} />
         <Route path="/usersignout" element={<UserSignOut />} />
         <Route path="/verifypage/:token" element={<VerifyPage />} />
         <Route path="/userverifypage/:token" element={<UserVerifyPage />} />

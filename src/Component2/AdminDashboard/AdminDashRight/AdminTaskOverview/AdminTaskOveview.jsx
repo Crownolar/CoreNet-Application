@@ -44,28 +44,14 @@ const AdminTaskOveview = () => {
     getAllTask();
   }, []);
 
-  // useEffect(() => {
-  //   getDescription();
-  // }, []);
-
-  // const getOneTask = () => {
-  //   axios.get(URL).then((res) => {
-  //     console.log(res);
-  //     setTaskInfo1(res.data.data);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   getOneTask();
-  //   console.log(taskinfo1?.isPending);
-  // }, []);
-
   return (
     <div className="AllTask1">
-        {loading ? <Loader /> : (<div className="task-card1">
+        {loading ? <Loader /> : taskinfo.length === 0 ? ( // Show "No Writer" message
+              <div className="no-writer-message">No Task available.</div>
+            ) : (<div className="task-card1">
           {
             taskinfo?.map((e) => (
-              <NavLink className="card-wrap1" to={`/adminpage/admintaskoverviewdesc/${e.id}`} key={e.id} >
+              <div className="card-wrap1" key={e.id} >
            <div className="holders">
              <h3 className="task-title1">{e.Title}</h3>
             <p className="task-description1">{e.Description}</p>
@@ -101,7 +87,7 @@ const AdminTaskOveview = () => {
                 )}
               </div>
             </div>
-              </NavLink>
+              </div>
             ))
           }
 
