@@ -5,8 +5,10 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const User = useSelector((state) => state.stores.user);
+  const USER = User.UserName
   console.log(User);
-  const Writer = useSelector((state) => state.stores.writer);
+  console.log(USER);
+  const Writer = useSelector((state) => state.stores.formDataWriter);
   console.log(Writer);
   const [verifyAlert, setverifyAlert] = useState(false);
 
@@ -58,6 +60,7 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
+        USER,
         Writer,
         User,
         user,

@@ -174,8 +174,8 @@ const AdminDashRight = () => {
             path="/admintaskassignpage/:id"
             element={<AdminTaskAssignPage />}
           />
-          </Route>
           <Route path="/admindashhome" element={<AdminDashHome />} />
+          </Route>
         </Routes>
       </div>
     </div>

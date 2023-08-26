@@ -2,11 +2,13 @@
     .AdminLoginPage{
         width: 100%;
         height: 100vh;
+        /* background-color: rgb(154, 243, 242); */
     }
     .SignWrap{
         width: 100%;
         height: 100%;
         display: flex;
+        /* background-color: pink; */
         /* flex-direction: column; */
         /* justify-content: center; */
         /* align-items: center; */
@@ -17,23 +19,31 @@
     .SignIn{
         width: 100%;
         height: 100%;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        background-color: blue; */
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+        /* background-color: rgb(177, 177, 245);  */
         padding: 30px;
         /* margin-top: 20px; */
     }
     .signText{
-        width: 100%;
-        height: 10%;
+        width: 90%;
+        height: 20%;
         /* background-color: pink; */
         color: #0455B4;
         margin-bottom: 40px;
     }
     .input{
-        width: 100%;
+        width: 90%;
+        /* height: 80%; */
+        /* background-color: orange; */
+        /* gap: 5px; */
     }
-    .input input{
+    .EText{
+        padding-left: 5%;
+    }
+    .input .EText input{
         width: 100%;
+        /* background-color: aliceblue; */
+        /* margin-right: 0; */
     }
     .SignInInputPassword{
         width: 100%;
@@ -59,6 +69,7 @@
         width: 100%;
         height: 15%;
         /* background-color: yellow; */
+        padding-left: 4%;
     }
     .ETextCheckbox input{
         width: 5%;
@@ -67,13 +78,21 @@
     .EText1{
         width: 100%;
         /* background-color: red; */
+        padding-left: 5%;
     }
     .EText1 button{
+        width: 20%;
+    }
+    .EText4{
+        /* background-color: #0455B4; */
         width: 100%;
+        padding-left: 5%;
     }
     .forgotpassword{
-        width: 80%;
+        width: 100%;
         height: 10%;
+        /* background-color: green; */
+        padding-left: 6%;
     }
 }
 
@@ -86,9 +105,7 @@
         width: 100%;
         height: 100%;
         display: flex;
-        /* flex-direction: column; */
-        /* justify-content: center; */
-        /* align-items: center; */
+        background-color: rgb(253, 247, 253);
     }
     .SignWrap .imag{
         display: none;
@@ -96,28 +113,41 @@
     .SignIn{
         width: 100%;
         height: 100%;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        background-color: blue; */
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+        /* background-color: rgb(201, 201, 246);  */
         padding: 30px;
     }
-    .signText{
+    .EText{
+        width: 80%;
+        height: 15%;
+        /* background-color: lawngreen; */
+        padding-left: 5%;
+    }
+    .EText input {
         width: 100%;
+        font-size: 25px;
+    }
+    .signText{
+        width: 80%;
         height: 10%;
         /* background-color: pink; */
         color: #0455B4;
+        font-size: 25px;
+        margin-bottom: 20px;
     }
     .SignInInputPassword{
-        width: 100%;
+        width: 80%;
         height: 15%;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        /* background-color: #c9d953; */
+        /* background-color: #eef3c9; */
         position: relative;
     }
     .SignInInputPassword input{
         width: 100%;
+        font-size: 25px;
     }
     .SignInInputPassword .Show{
         font-size: 30px;
@@ -128,22 +158,40 @@
     }
     .ETextCheckbox{
         width: 80%;
-        height: 20%;
+        height: 15%;
         /* background-color: yellow; */
+    }
+    .ETextCheckbox span{
+        font-size: 25px;
     }
     .ETextCheckbox input{
         width: 5%;
         height: 50%;
+        font-size: 10px;
     }
     .EText1{
-        width: 100%;
+        width: 80%;
+        /* background-color: green; */
+        padding-left: 5%;
     }
     .EText1 button{
-        width: 100%;
+        width: 20%;
+        height: 80%;
+        font-size: 25px;
+    }
+    .EText4{
+        /* background-color: gray; */
+        width: 80%;
+        height: 8%;
+        font-size: 25px;
+        padding-left: 5%;
+        gap: 10px;
     }
     .forgotpassword{
         width: 80%;
         height: 10%;
+        /* background-color: pink; */
+        font-size: 25px;
     }
 }
 

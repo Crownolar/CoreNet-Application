@@ -109,7 +109,7 @@
     .SignUpPage{
         width: 100%;
         height: 100vh;
-        /* background-color: aliceblue; */
+        /* background-color: rgb(168, 212, 250); */
     }
     .SignUpWrap{
         width: 100%;
@@ -155,9 +155,10 @@
     }
     .SignUpInputWrap1{
         width: 100%;
-        height: 25%;
+        height: 30%;
         display: flex;
         justify-content: space-between;
+        /* background-color: gray; */
         /* gap: 20px; */
     }
     .SignUpInputWrap3{
@@ -177,8 +178,8 @@
         margin-top: 5px;
       }
       .SignUpInputWrap1 button{
-        width: 30%;
-        height: 100%;
+        width: 20%;
+        height: 10vh;
         border-radius: 5px;
         padding: 10px;
         background-color: #0455B4;
@@ -206,6 +207,7 @@
         width: 90%;
         height: 90%;
         /* background-color: antiquewhite; */
+        font-size: 25px;
     }
     .SignUpWrap2{
         width: 98%;
@@ -214,18 +216,37 @@
     .SignUpInput{
         width: 100%;
         height: 100%;
+        /* background-color: rebeccapurple; */
     }
-    /* .SignUpInputWrap{
-        width: 100%;
-        height: 60%;
-        background-color: yellow;
-    } */
+    .SignUpInputWrap .Show{
+        /* background-color: red; */
+        /* margin-top: 4px; */
+        font-size: 30px;
+    }
     .SignUpInputWrap input{
         width: 100%;
         height: 70%;
+        font-size: 25px;
     }
     .SignUpInputWrap1{
-        gap: 20px;
+        width: 100%;
+        /* gap: 20px; */
+        /* background-color: yellow; */
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        /* padding-right: 0; */
+    }
+    .SignUpInputWrap1 button{
+        width: 20%;
+        font-size: 25px;
+    }
+    .SignUpInputWrap3{
+        width: 100%;
+        height: 10%;
+        /* background-color: green; */
+        font-size: 25px;
+        /* padding-right: 70%; */
     }
     .error-message {
         color: red;

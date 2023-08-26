@@ -27,6 +27,7 @@ import UserVerifyPage from "./Authentication/VerifyPage/UserVerifyPage/UserVerif
 import UserForgotPassword from "./Authentication/LoginPage/UserForgotPassword/UserForgotPassword";
 import AdminResendEmailVerification from "./Authentication/LoginPage/AdminResendEmailVerification/AdminResendEmailVerification"
 import Authenticate from "./Authentication/Authenticate";
+import Authenticate2 from "./Authentication/Authenticate2";
 
 const App = () => {
   return (
@@ -42,11 +43,13 @@ const App = () => {
         <Route path="/adminresetpassword/:token" element={<AdminResetPassword />} />
         <Route element={<Authenticate />}>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admindashhome" element={<AdminDashHome />} />
+        <Route path="/adminpage/*" element={<Adminpage />} />
+        </Route>
+        <Route element={<Authenticate2 />}>
+        <Route path="/userpage/*" element={<UserPage />} />
         </Route>
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/adminpage/*" element={<Adminpage />} />
-        <Route path="/admindashhome" element={<AdminDashHome />} />
-        <Route path="/userpage/*" element={<UserPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/userforgotpassword" element={<UserForgotPassword />} />

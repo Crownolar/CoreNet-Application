@@ -3,16 +3,15 @@ import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ThemeContext } from "./ContextApi/Contextapi";
 
-const Authenticate = () => {
+const Authenticate2 = () => {
   const location = useLocation();
-const {USER, Writer} = useContext(ThemeContext)
-  console.log("Authenticate", USER);
+const {Writer} = useContext(ThemeContext)
   console.log("Authenticate", Writer);
 
-    if (USER) {
+    if (Writer) {
     return <Outlet />;
   } else {
     return <Navigate to="../login" state={{ from: location }} replace />;
   }
 }
-export default Authenticate;
+export default Authenticate2;

@@ -107,3 +107,18 @@ padding-left: 10px;
     background-color: blanchedalmond;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1284px){
+   .AdminSignOutDiv{
+  /*  width: 100%;
+    height: 10%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 38%;
+    padding-left: 5%;
+    gap: 10px; */
+    background-color: red;
+  }
+}
