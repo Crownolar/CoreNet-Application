@@ -95,8 +95,7 @@
   }
   
   .user-card1 {
-    /* background-color: #f0f0f0; */
-    background-color: #ef3a3a;
+    background-color: #f0f0f0;
     border-radius: 8px;
     padding: 20px;
     display: flex;
@@ -104,7 +103,6 @@
     /* align-items: center; */
     justify-content: space-between;
     text-align: left;
-    overflow-y: scroll;
   }
   
   .user-info1 {
