@@ -90,6 +90,10 @@ padding-left: 10px;
     background-color: white;
     color: #0455B4;
   }
+  .AdminSignOutDiv{
+    /* background-color: pink; */
+    color: white;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -104,12 +108,14 @@ padding-left: 10px;
     cursor: pointer;
   }
   .AdminSignOutDiv{
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
+    color: white;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1284px){
    .AdminSignOutDiv{
+    color: white;
   /*  width: 100%;
     height: 10%;
     cursor: pointer;
