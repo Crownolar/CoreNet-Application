@@ -192,8 +192,12 @@
 import Footer from "../Footer/Footer";
 import "./LandingPage.css";
 import { TiArrowRepeatOutline } from "react-icons/ti";
+import {useNavigate} from "react-router-dom"
 
 const landingPage = () => {
+  const Nav = useNavigate()
+
+  
   return (
     <>
       <div className="topPictureHolder">
@@ -203,7 +207,7 @@ const landingPage = () => {
           </div>
 
           <p className="aboutText">
-          Embark on a Journey of Exploration, Management, and Network Mastery!
+            Embark on a Journey of Exploration, Management, and Network Mastery!
           </p>
         </div>
       </div>
@@ -212,8 +216,91 @@ const landingPage = () => {
 
       <div className="ourMainFocus">
         <div className="mainFocusAlign">
-          <div className="insideAlign">
-            <div className="contactUsHolder2">
+          <div className="Section-holder">
+            <section className="card-section">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6 col-lg-3">
+                    <div className="card">
+                      <img
+                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        alt=""
+                        className="card-img"
+                      />
+                      <div className="card-body">
+                        <h3 className="card-title">
+                          Streamlined Article Allocation
+                        </h3>
+                        <p className="card-description">
+                          CoreNet streamlines article assignments to reporters,
+                          providing clear deadlines and responsibilities for
+                          enhanced clarity and accountability.
+                        </p>
+                        <div className="card-button" onClick={() => Nav("./about")}>
+                          Learn More
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6 col-lg-3">
+                    <div className="card">
+                      <img
+                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        alt=""
+                        className="card-img"
+                      />
+                      <div className="card-body">
+                        <h3 className="card-title">Enhanced Accountability</h3>
+                        <p className="card-description">
+                          CoreNet emphasizes accountability by requiring
+                          reporters to promptly accept assignments and adhere to
+                          specified deadlines; missed submissions result in
+                          automatic reassignment to other reporters by the
+                          editor.
+                        </p>
+                        <div className="card-button" onClick={() => Nav("./about")}>
+                          Learn More
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6 col-lg-3">
+                    <div className="card">
+                      <img
+                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        alt=""
+                        className="card-img"
+                      />
+                      <div className="card-body">
+                        <h3 className="card-title">Data-Driven Insights</h3>
+                        <p className="card-description">
+                          CoreNet's data analytics yield insights into news
+                          production efficiency, allowing editors to monitor
+                          submission times, pinpoint bottlenecks, and enhance
+                          resource allocation for improved productivity.
+                        </p>
+                        <div className="card-button" onClick={() => Nav("./about")}>
+                          Learn More
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          {/* <div className="insideAlign"> */}
+          {/* <div className="contactUsHolder2">
               <div className="leftContent">
                 <div className="paragraphText">
                   <h1 className="MultipleTaskHead">
@@ -240,14 +327,14 @@ const landingPage = () => {
                   alt="ILLUSTRATION"
                 />
               </div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
 
       <div className="spacing"></div>
 
-      <div className="uniqueFactors">
+      {/* <div className="uniqueFactors">
         <div className="uniqueFactorsAlign">
           <div>
             <h1 className="uniqueCompany">Company Unique Factor</h1>
@@ -279,13 +366,13 @@ const landingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className='spacing'></div> */}
-      <div className="testimonial-section-top-text">
+      <section className="testimonial-section">
+      <div className="testimonial-section-top-text1">
         <h2>Testimonials</h2>
       </div>
-      <section className="testimonial-section">
         <div className="testimonial-section-wrap">
           <div className="testimonial">
             <div className="testimonial-content">
@@ -381,10 +468,7 @@ const landingPage = () => {
         </div>
 
         <div className="developer">
-          <img
-            src="Michael.jpg"
-            alt="Developer 1"
-          />
+          <img src="Michael.jpg" alt="Developer 1" />
           <h3>Micheal</h3>
           <p>Backend Developer</p>
         </div>

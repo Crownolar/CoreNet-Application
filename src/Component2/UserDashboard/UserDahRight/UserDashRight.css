@@ -26,10 +26,106 @@
 }
 
 @media screen and (max-width: 426px){
-    .leftHolder{
-        /* display: none; */
-        background-color: #10b404;
+    .UserUserIcon{
+        display: flex;
     }
+    .UserNotificationIcon{
+        display: none;
+    }
+    .main_MobileView{
+        width: 100%;
+        height: 100vh;
+    }
+    .main_MobileView2{
+        width: 100%;
+        height: 100vh;
+    }
+    .leftBarHolder_MobileView{
+    display: block; 
+    position: fixed;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 100%;
+    background-color: #0455B4;
+    z-index: 1000;
+    overflow-y: auto;
+    animation: fadeInRight 2.5s;
+    position: relative;
+    }
+    .AdminSideBarCloseIcon{
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        font-size: 40px;
+        /* color: #0455B4; */
+        animation: fadeOutRight;
+        animation-duration: 3s;
+        color: white;
+        /* background-color: #1d232a; */
+    }
+    .newTask{
+        width: 100%;
+        height: 25%;
+        padding-left: 26%;
+        /* background-color: green; */
+    }
+    .content{
+        width: 100%;
+        height: 80%;
+        gap: 13px;
+        margin-top: 12%;
+        /* background-color: black; */
+        padding-right: 10%;
+    }
+    .contentSpace{
+        width: 100%;
+        height: 3%;
+    }
+    .newTask:hover{
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #0455B4;
+      }
+      .newTask .newTaskIcon .newTaskIconContent{
+        font-size: 2px;
+      }
+      .user{
+        width: 90%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        font-size: 20px;
+        /* font-family: 'poppins, sans-serif'; */
+        /* padding-top: 70%; */
+        /* background-color: red; */
+        position: absolute;
+        bottom: 0;
+      }
+      .user .signouut{
+        font-size: 30px;
+      }
+      .iconHolder{
+        padding-left: 0;
+        /* background-color: red; */
+      }
+      /* .logoimage{
+        background-color: rgb(216, 58, 84);
+        width: 30vw;
+        height: 80%;
+        padding-top: 10%;
+      }
+      .logoimage img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      } */
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
     .UserUserIcon{
         display: flex;
     }
@@ -47,16 +143,17 @@
         /* background-color: blue; */
     }
     .leftBarHolder_MobileView{
-        display: block; /* Display the mobile sidebar */
+    display: block; /* Display the mobile sidebar */
     position: fixed;
     top: 0;
     left: 20%;
     width: 80%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background-color: #0455B4;
     z-index: 1000;
     overflow-y: auto;
-    animation: fadeInRight 2.5s;
+    animation: fadeInRight 2s;
     }
     .AdminSideBarCloseIcon{
         position: absolute;
@@ -65,11 +162,12 @@
         font-size: 40px;
         color: #0455B4;
         animation: fadeOutRight;
-        animation-duration: 3s;
+        animation-duration: 2s;
         /* background-color: #0455B4; */
+        color: white;
     }
     .newTask{
-        width: 100%;
+        width: 80%;
         height: 25%;
         /* background-color: gray; */
         padding-left: 26%;
@@ -77,12 +175,14 @@
     .content{
         width: 100%;
         height: 70%;
-        /* background-color: #0455B4; */
+        /* background-color: #acd0f9; */
         gap: 13px;
+        /* margin-top: 5%; */
     }
     .contentSpace{
         width: 100%;
         height: 3%;
+        /* background-color: red; */
     }
     .newTask:hover{
         background-color: white;
@@ -92,7 +192,7 @@
         /* color: #0455B4; */
       }
       .newTask .newTaskIcon .newTaskIconContent{
-        font-size: 2px;
+        font-size: 1px;
         /* background-color: red; */
       }
       .user{
@@ -104,11 +204,25 @@
         justify-content: center;
         gap: 25px;
         font-size: 20px;
-        font-family: 'poppins, sans-serif';
+        /* font-family: 'poppins, sans-serif'; */
         padding: 10px;
-        margin-top: 35%;
+        margin-top: 13%;
       }
       .user .signouut{
         font-size: 30px;
       }
+      .iconHolder{
+        padding-right: 20%;
+        /* background-color: red; */
+      }
+      /* .logoimage{
+        width: 50%;
+        height: 50%;
+        margin-right: 40%;
+      }
+      .logoimage img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      } */
 }

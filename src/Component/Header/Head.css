@@ -221,13 +221,14 @@
     right: 0;
     width: 75%;
     height: 100vh;
-    background-color: whitesmoke;
+    background-color: #0455B4;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
     z-index: 20;
+    color: white;
     }
 
     .close{
@@ -250,7 +251,7 @@
     .useR{
         width: 100%;
         height: 25%;
-        color: #0455B4;
+        color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -266,12 +267,12 @@
     .closeicon{
         width: 50px;
         height: 50px;
-        color: #0455B4;
+        color: white;
     }
 
     .aUser{
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
     }
 
     .centerNav1{
@@ -292,7 +293,7 @@
     .centerNav1 ul div {
         width: 60%;
         height: 15%;
-        background-color: #0455B4;
+        /* background-color: #0455B4; */
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -300,6 +301,29 @@
         border-radius: 3px;
         color: white;
     }
+    .div{
+        width: 100%;
+        height: 20%;
+        /* background-color: pink; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .optUser{
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+    .Dash1{
+        width: 100%;
+        height: 10%;
+        /* background-color: red; */
+        gap: 10px;
+        font-size: 20px;
+        /* display: flex; */
+    }
+
 }
 
 /* @media screen and (max-width: 426px) {

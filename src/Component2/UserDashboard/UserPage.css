@@ -34,7 +34,22 @@
     width: 100%;
     height: 100%;
 }
-    .leftHolder{
-        display: none;
-    }
+.leftHolder{
+    display: none;
 }
+}
+@media screen and (max-width: 768px) {
+.UserDashBoardLeftRight {
+    width: 100%;
+    height: 100vh;
+    /* background-color: goldenrod; */
+}
+.RightHolder{
+    width: 100%;
+    height: 100%;
+}
+.leftHolder{
+    display: none;
+}
+}
+

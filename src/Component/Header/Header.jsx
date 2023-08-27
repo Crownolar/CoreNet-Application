@@ -6,6 +6,12 @@ import "./Head.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { IoIosContact } from "react-icons/io";
+import { FcAbout } from "react-icons/fc";
+import { RiPriceTag3Line } from "react-icons/ri";
+import { AiOutlineClose, AiOutlineHome } from "react-icons/ai";
+import "animate.css";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,13 +19,14 @@ const Header = () => {
   const [activenav, setActiveNav] = useState("");
   const [show, setShow] = useState(false);
   const Nav = useNavigate();
-  const user1 = useSelector((state) => state.stores.formData);
   const user = useSelector((state) => state.stores.user);
-  const User = user.UserName
+  const User = user.UserName;
   console.log(user);
   console.log(User);
   const writer = useSelector((state) => state.stores.formDataWriter);
-  console.log(user1);
+  const WriterId = writer.id
+  console.log(WriterId)
+  console.log(writer);
   const handleNavItem = (navItem) => {
     setActiveNavItem(navItem);
     setSidebarOpen(false);
@@ -143,6 +150,11 @@ const Header = () => {
               >
                 About
               </li>
+              <li className={`activeNavItem ${
+                  activenav === "" ? "active" : ""
+                }`}>
+                    Price
+              </li>
               <li className="usericons">
                 {User ? (
                   <div className="optUser" onMouseOver={() => setShow(!show)}>
@@ -200,8 +212,17 @@ const Header = () => {
           </div>
 
           <div className="CTA1">
-            <button onClick={() => Nav("./Login")}>Get Started</button>
-            {/* <img src="./realbluelogo.png" alt=""  /> */}
+            {User ? (
+              <div
+                className="Dash"
+                onClick={() => Nav("../adminpage/admindashhome")}
+              >
+                <MdOutlineSpaceDashboard className="Dashboard" />
+                Dashboard
+              </div>
+            ) : (
+              <button onClick={() => Nav("./Login")}>Get Started</button>
+            )}
           </div>
           <div className="CTA" onClick={() => Nav("./")}>
             <img src="./realbluelogo.png" alt="" />
@@ -217,23 +238,54 @@ const Header = () => {
         {sidebarOpen && (
           <div className="sidebarDiv">
             <div className="close">
-              <IoCloseCircleOutline
+              <AiOutlineClose
                 className="closeicon"
                 onClick={() => setSidebarOpen(false)}
               />
             </div>
             <div className="contents">
-              <div onClick={() => Nav("./Login")} className="useR">
-                <FaRegCircleUser className="aUser" />
-                <p>Sign In</p>
-              </div>
+              {User ? (
+                <div className="div">
+                  <div className="optUser" onMouseOver={() => setShow(!show)}>
+                  {User?.charAt(0)}
+                </div>
+                <p onClick={() => Nav("./signout")}>Sign Out</p>
+                </div>
+              ) : (
+                <div onClick={() => Nav("./Login")} className="useR">
+                  <FaRegCircleUser className="aUser" />
+                  <p>Sign In</p>
+                </div>
+              )}
 
               <div className="centerNav1">
-                <ul>
-                  <div onClick={() => Navigate("/")}>Home</div>
-                  <div onClick={() => Navigate("/contactus")}>Contact Us</div>
-                  <div onClick={() => Navigate("/about")}>About</div>
-                  <div>Price</div>
+                <ul className="sidebarsss">
+                  {User ? (
+                    <div
+                      className="Dash1"
+                      onClick={() => Nav("../adminpage/admindashhome")}
+                    >
+                      <MdOutlineSpaceDashboard className="Dashboard1" />
+                      Dashboard
+                    </div>
+                  ) : (
+                    <div className="Dash1" onClick={() => Navigate("/")}>
+                      <AiOutlineHome />
+                      Home
+                      </div>
+                  )}
+
+                  <div className="Dash1" onClick={() => Navigate("/contactus")}>
+                    <IoIosContact />
+                    Contact Us</div>
+                  <div className="Dash1" onClick={() => Navigate("/about")}>
+                    <FcAbout />
+                    About
+                    </div>
+                  <div className="Dash1">
+                    <RiPriceTag3Line />
+                    Price
+                    </div>
                 </ul>
               </div>
             </div>
