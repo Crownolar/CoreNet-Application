@@ -263,10 +263,10 @@
         flex-direction: column;
         justify-content: center;
         /* background-color: #53d95e; */
-        padding-right: 16%;
+        /* padding-right: 16%; */
     }
     .EText input{
-    width: 82vw;
+    width: 200vw;
     height: 100%;
     outline: none;
     padding-left: 8px;
