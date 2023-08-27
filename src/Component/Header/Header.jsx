@@ -16,7 +16,7 @@ import "animate.css";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("");
-  const [activenav, setActiveNav] = useState("");
+  const [activenav, setActiveNav] = useState("./");
   const [show, setShow] = useState(false);
   const Nav = useNavigate();
   const user = useSelector((state) => state.stores.user);
@@ -128,7 +128,7 @@ const Header = () => {
               </li>
               <li
                 onClick={() => {
-                  setActiveNav("./");
+                  setActiveNav("./contactus");
                   Nav("./contactus");
                   console.log("activenav");
                 }}
@@ -140,7 +140,7 @@ const Header = () => {
               </li>
               <li
                 onClick={() => {
-                  setActiveNav("./");
+                  setActiveNav("./about");
                   Nav("./about");
                   console.log("activenav");
                 }}

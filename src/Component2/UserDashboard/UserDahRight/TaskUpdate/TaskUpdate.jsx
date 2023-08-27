@@ -79,6 +79,7 @@ import { useTimer } from "../../../../Authentication/ContextApi/TimeContext/Time
 
 function Task() {
   const [isActive, setIsActive] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [description, setDescription] = useState("");
   const [taskinfo, setTaskInfo] = useState(null);
@@ -104,8 +105,9 @@ function Task() {
       localStorage.removeItem("startTime");
     } else if (!isActive) {
       setDescription("Task has not been started yet.");
-    } else {
+    } else if(isPending) {
       setDescription("Task is already completed.");
+      setIsPending(true)
     }
   };
 

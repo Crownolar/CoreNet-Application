@@ -51,7 +51,7 @@ const AdminTaskAssignPage = () => {
         }, 5000);
           dispatch(updateTaskId(res.data.data))
           setStatus(res.data.data);
-          setActiveTaskIndex(tasks.length); // Set the index of the newly added task
+          setActiveTaskIndex(tasks.length);
           // setRemainingTime(taskTimeout * 60 * 60);
           // startTimer(taskTimeout * 60 * 60);
           // if (timerActive) {

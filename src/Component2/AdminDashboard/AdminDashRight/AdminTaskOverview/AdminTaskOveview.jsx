@@ -9,25 +9,13 @@ import Loader from "../../../../Loader/Loader";
 
 const AdminTaskOveview = () => {
   const TaskId = useSelector((state) => state.stores.taskId);
-  // const [writersDescriptions, setWritersDescriptions] = useState({});
   const TaskID = TaskId._id;
   console.log(TaskID);
-  // const Editor = useSelector((state) => state.stores.user);
-  // const WriterInfo = useSelector((state) => state.stores.writerInfo);
-  // console.log(WriterInfo)
-  // console.log(Editor); :id/create-editor-comment/:editorId
   const user = useSelector((state) => state.stores.user);
   const EditorID = user.editorId; 
-  // const EditorId = Editor.id;
-  const [comment, setComment] = useState('');
   const [taskinfo, setTaskInfo] = useState([]);
   const [loading, setLoading] = useState([false]);
   const url = `https://corenet-api.onrender.com/api/all-tasks/${EditorID}`;
-  const URL = `https://corenet-api.onrender.com/api/${TaskID}/create-editor-comment/${EditorID}`;
-
-  const editorComment = () => {
-    axios.post()
-  }
 
   const getAllTask = () => {
     setLoading(true)
@@ -52,19 +40,16 @@ const AdminTaskOveview = () => {
 
   return (
     <div className="AllTask1">
-        {loading ? <Loader /> : taskinfo.length === 0 ? ( // Show "No Writer" message
+        {loading ? <Loader /> : taskinfo.length === 0 ? (
               <div className="no-writer-message">No Task available.</div>
             ) : (<div className="task-card1">
           {
             taskinfo?.map((e) => (
-              <div className="card-wrap1" key={e.id} >
+              <Link to={`/adminpage/admintaskoverviewdesc/${e._id}`} className="card-wrap1" key={e._id} >
            <div className="holders">
              <h3 className="task-title1">{e.Title}</h3>
             <p className="task-description1">{e.Description}</p>
             <p className="task-timeout1">Timeout: {e.taskTimeout} </p>
-            <div className="commentBox">
-              <input type="text" onChange={(e) => setComment(e.target.value)} />
-            </div>
            </div>
 
             <div className="task-status1">
@@ -95,8 +80,13 @@ const AdminTaskOveview = () => {
                   </div>
                 )}
               </div>
+            {/* <div className="commentBox">
+              <span>Comment</span>
+              <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
+              <button onClick={editorComment}>send</button>
+            </div> */}
             </div>
-              </div>
+              </Link>
             ))
           }
 

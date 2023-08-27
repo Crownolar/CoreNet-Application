@@ -76,6 +76,10 @@ const signupSlice = createSlice({
       const clearAll = {};
       state.writer = clearAll;
     },
+    clearTask: (state) => {
+      const clearAll = {};
+      state.writer = clearAll;
+    },
     AllWriters: (state, { payload }) => {
       state.writer = payload;
       console.log("allwriters", payload);
@@ -95,6 +99,7 @@ const signupSlice = createSlice({
 export const {
   updateFormData,
   updateformDataWriter,
+  clearTask,
   // updateWriterInfo,
   signUpSuccess,
   signUpFailure,

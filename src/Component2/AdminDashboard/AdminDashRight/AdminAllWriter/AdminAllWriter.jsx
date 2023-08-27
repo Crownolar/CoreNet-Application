@@ -25,7 +25,7 @@ const AdminAllWriter = () => {
       })
       .catch((error) => {
         console.error(error);
-        setLoading(false); // Update loading state in case of error
+        setLoading(false);
       });
   };
 
