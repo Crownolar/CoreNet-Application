@@ -24,7 +24,7 @@ const Login = () => {
   const [showPopuperror, setShowPopupError] = useState(false);
   const Email = formDatasignin.Email;
 
-  const { verifyAlert } = useContext(ThemeContext);
+  const { verifyAlert, verifiedUser } = useContext(ThemeContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormDataSignin({ [name]: value }));

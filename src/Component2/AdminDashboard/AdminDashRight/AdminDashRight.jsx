@@ -24,6 +24,7 @@ import AdminDashHome from "./AdminDashHome/AdminDashHome";
 import AdminChangePassword from "../../Pages/Profile/AdminChange/AdminChangePassword";
 import AdminTaskOverviewDesc from "./AdminTaskOverview/AdminTaskOverviewDesc/AdminTaskOverviewDesc";
 import Authenticate from "../../../Authentication/Authenticate";
+import AdminAuth from "../../../Authentication/AdminAuth";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -152,30 +153,37 @@ const AdminDashRight = () => {
           </div>
         )} */}
 
-        
-
         <Routes>
-          <Route element={<Authenticate />}>
-          <Route
-            path="/admincreatewriter/*"
-            element={<AdminDashCreateWriter />}
-          />
-          <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
-          <Route path="/admintaskoverview/*" element={<AdminTaskOveview />} />
-          <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
-          <Route path="/admintaskoverviewdesc/:id" element={<AdminTaskOverviewDesc />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/adminchangepassword" element={<AdminChangePassword />} />
-          <Route
-            path="/adminallwriterdesc/:id"
-            element={<AdminAllWriterDesc />}
-          />
-          <Route
-            path="/admintaskassignpage/:id"
-            element={<AdminTaskAssignPage />}
-          />
-          <Route path="/admindashhome" element={<AdminDashHome />} />
-          </Route>
+            <Route element={<Authenticate />}>
+              <Route
+                path="/admincreatewriter/*"
+                element={<AdminDashCreateWriter />}
+              />
+              <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
+              <Route
+                path="/admintaskoverview/*"
+                element={<AdminTaskOveview />}
+              />
+              <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
+              <Route
+                path="/admintaskoverviewdesc/:id"
+                element={<AdminTaskOverviewDesc />}
+              />
+              <Route path="/profile" element={<Profile />} />
+              <Route
+                path="/adminchangepassword"
+                element={<AdminChangePassword />}
+              />
+              <Route
+                path="/adminallwriterdesc/:id"
+                element={<AdminAllWriterDesc />}
+              />
+              <Route
+                path="/admintaskassignpage/:id"
+                element={<AdminTaskAssignPage />}
+              />
+              <Route path="/admindashhome" element={<AdminDashHome />} />
+            </Route>
         </Routes>
       </div>
     </div>

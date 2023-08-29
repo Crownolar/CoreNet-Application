@@ -5,11 +5,13 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const User = useSelector((state) => state.stores.user);
+  const UserSign = useSelector((state) => state.stores.userSignUp);
   const USER = User.UserName
+  const verifiedUser = UserSign.isVerified
+  console.log(verifiedUser)
   console.log(User);
   console.log(USER);
   const Writer = useSelector((state) => state.stores.formDataWriter);
-  console.log(Writer);
   const [verifyAlert, setverifyAlert] = useState(false);
 
   const login_alert = () => {
@@ -60,6 +62,7 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
+        verifiedUser,
         USER,
         Writer,
         User,

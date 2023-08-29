@@ -7,9 +7,13 @@
 }
 
 .task-card {
-    width: 97%;
-    height: 95%;
-    overflow-y: scroll;
+    width: 95%;
+  height: 97%;
+  /* background-color: pink; */
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   }
 
   .task-card-wrap{
@@ -19,13 +23,15 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
+    text-decoration: none;
     /* display: flex; */
   }
   
   .task-title {
     font-size: 1.2rem;
     margin-bottom: 5px;
-  }
+  color: black;
+}
   
   .task-description {
     margin-bottom: 10px;

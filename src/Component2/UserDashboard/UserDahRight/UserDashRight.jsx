@@ -15,6 +15,7 @@ import UserDashHome from "./UserDashHome/UserDashHome"
 import { FcAcceptDatabase } from "react-icons/fc";
 import { CgDetailsMore } from "react-icons/cg";
 import Authenticate2 from "../../../Authentication/Authenticate2";
+import AllTaskDesc from "./AcceptTask/AllTaskDesc/AllTaskDesc";
 
 const UserDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -155,7 +156,8 @@ const UserDashRight = () => {
             <Route element={<Authenticate2 />}>
             <Route path="/usertaskdetail" element={<UserTaskDetail />} />
             <Route path="/userdashhome" element={<UserDashHome />} />
-            <Route path="/accepttask" element={<AcceptTask />} />
+            <Route path="/accepttask/" element={<AcceptTask />} />
+            <Route path="/alltaskdesc/:id" element={<AllTaskDesc />} />
             <Route path="/taskupdate" element={<TaskUpdate />} />
             <Route path="/userprofile" element={<UserProfile />} />
             </Route>

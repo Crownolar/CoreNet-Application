@@ -4,9 +4,11 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../../Loader/Loader';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const UserResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -61,12 +63,17 @@ const UserResetPassword = () => {
         <div className="admin-reset-container">
       <h2>Reset Password</h2>
       <input
-        type="password"
+        type={showPassword ? "text" : "password"}
         className="admin-reset-input"
         placeholder="Enter new password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
       />
+      {showPassword ? (
+          <FiEyeOff onClick={() => setShowPassword(false)} className="Show2" />
+        ) : (
+          <FiEye onClick={() => setShowPassword(true)} className="Show2" />
+        )}
       <button className="admin-reset-btn" onClick={handleResetPassword}>
         {loading ? <Loader /> : "Reset Password"}
       </button>

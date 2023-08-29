@@ -7,7 +7,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import "../SignUpPage/SignUpMedia.css";
 import axios from "axios";
 import { ThemeContext } from "../ContextApi/Contextapi";
-import { updateFormData } from "../../Redux/ActionState/ActionState";
+import { updateFormData, updateUserSignUp } from "../../Redux/ActionState/ActionState";
 import { userData } from "../../Redux/ActionState/ActionState";
 import Loader from "../../Loader/Loader";
 import "animate.css";
@@ -122,6 +122,7 @@ const SignUp = () => {
       .post(url, formData)
       .then((res) => {
         console.log(res);
+        dispatch(updateUserSignUp(res.data.data));
         login_alert()
         setSuccess(res.data.data.message)
         setLoading(false);
@@ -133,7 +134,6 @@ const SignUp = () => {
           Password: "",
           CompanyName: "",
         }));
-        dispatch(userData(res.data?.data));
         Nav("/login");
       })
       .catch((error) => {
@@ -252,10 +252,10 @@ const SignUp = () => {
                 )}
               </div>
               <div className="SignUpInputWrap1">
-                <button onClick={() => Nav("../")}>
+                <button className="BTN" onClick={() => Nav("../")}>
                   Back
                 </button>
-                <button onClick={SignUp}>
+                <button className="BTN" onClick={SignUp}>
                   {loading ? <Loader /> : "Sign Up"}
                 </button>
               </div>

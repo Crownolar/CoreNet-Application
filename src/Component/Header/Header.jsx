@@ -175,9 +175,9 @@ const Header = () => {
                     <li
                       onClick={() => Nav("../signout")}
                       style={{
-                        fontSize: "15px",
+                        fontSize: "18px",
                         marginTop: "35%",
-                        fontWeight: "600",
+                        fontWeight: "500",
                       }}
                     >
                       Sign Out
@@ -186,9 +186,9 @@ const Header = () => {
                     <li>
                       <div
                         style={{
-                          fontSize: "15px",
+                          fontSize: "18px",
                           marginTop: "15%",
-                          fontWeight: "600",
+                          fontWeight: "500",
                           color: "black",
                         }}
                       >
@@ -196,9 +196,9 @@ const Header = () => {
                       </div>
                       <div
                         style={{
-                          fontSize: "15px",
-                          marginTop: "10%",
-                          fontWeight: "600",
+                          fontSize: "18px",
+                          marginTop: "15%",
+                          fontWeight: "500",
                           color: "black",
                         }}
                       >

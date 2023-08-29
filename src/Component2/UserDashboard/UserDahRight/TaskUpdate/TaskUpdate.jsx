@@ -92,6 +92,7 @@ function Task() {
   const { startTimer, stopTimer, timerRemaining } = useTimer();
 
   const handleStartClick = () => {
+    if (!isCompleted && !isPending)
     setIsActive(true);
     startTimer(taskinfo?.taskTimeout / 1000);
   };
@@ -103,6 +104,7 @@ function Task() {
       stopTimer();
       localStorage.removeItem("timerRemaining");
       localStorage.removeItem("startTime");
+      localStorage.setItem("taskCompleted", "true");
     } else if (!isActive) {
       setDescription("Task has not been started yet.");
     } else if(isPending) {
@@ -110,18 +112,6 @@ function Task() {
       setIsPending(true)
     }
   };
-
-  // const handleCompleteClick = () => {
-  //   if (isActive && !isCompleted) {
-  //     setDescription("Task has been completed!");
-  //     setIsCompleted(true);
-  //     themeContext.stopTimer();
-  //   } else if (!isActive) {
-  //     setDescription("Task has not been started yet.");
-  //   } else {
-  //     setDescription("Task is already completed.");
-  //   }
-  // };
 
   const TaskId = useSelector((state) => state.stores.taskId);
   const TaskID = TaskId._id;
@@ -151,12 +141,17 @@ function Task() {
       });
   };
 
+  useEffect(() => {
+    handleCompleteClick();
+  }, []);
+
   const acceptTask = () => {
     axios
       .post(URL)
       .then((res) => {
         console.log(res);
         handleStartClick();
+        localStorage.setItem("taskCompleted", "false");
         // startTimer(timerRemaining);
       })
       .catch((error) => {
@@ -169,7 +164,9 @@ function Task() {
   const getOneTask = () => {
     axios.get(url).then((res) => {
       console.log(res);
+      localStorage.setItem("taskCompleted", "false");
       setTaskInfo(res.data.data);
+      console.log(res.data.data)
     })
     .catch((error) => {
       console.error(error);
@@ -179,6 +176,8 @@ function Task() {
   useEffect(() => {
     getOneTask();
   }, []);
+
+  const buttonText = localStorage.getItem("taskCompleted") === "true" ? "Task Completed" : "Start Task";
 
   useEffect(() => {
     // Check if the time has elapsed
@@ -200,7 +199,7 @@ function Task() {
           <p>No task has been assigned yet.</p>
         </div>
       ) : ( */}
-        <div className="task">
+        <div className="task1">
           <h2>{taskinfo?.Title}</h2>
           {/* <h2>Title</h2> */}
           {/* <p
@@ -225,14 +224,14 @@ function Task() {
           {description}
         </p>
           <h4>Description: {taskinfo?.Description}</h4>
-          <button className="start-btn" onClick={acceptTask}>
+          <button disabled={isActive || isCompleted || isPending || localStorage.getItem("taskCompleted") === "true"} className="start-btn" onClick={acceptTask}>
             {/* {isStarted ? "Resume Task" : "Start Task"} */}
-            Start Task
+            {buttonText}
           </button>
           <button
             className="complete-btn"
             onClick={UpdateTask}
-            disabled={!isActive || isCompleted}
+            disabled={taskinfo?.isActive || taskinfo?.isComplete}
           >
             Complete Task
           </button>
@@ -241,7 +240,7 @@ function Task() {
             {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
           </p>
           <p className="time">
-            Time allocated: {taskinfo?.taskTimeout / taskinfo?.taskTimeout}hr
+          Time allocated: {taskinfo ? `${taskinfo.taskTimeout / 3600000}hr` : ""}
           </p>
         </div>
       {/* )}  */}
@@ -260,6 +259,8 @@ function Task() {
         ) : taskupdate?.isComplete == true ? (
           <div className="bluebar"></div>
         ) : taskupdate?.isActive === true && taskupdate?.isComplete === true ? (
+          <div className="pinkbar"></div>
+        ) : taskupdate?.isPending === true ? (
           <div className="pinkbar"></div>
         ) : null}
       </div>

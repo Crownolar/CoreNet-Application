@@ -31,7 +31,7 @@ const landingPage = () => {
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
                       <img
-                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        src="Team1.jpg"
                         alt=""
                         className="card-img"
                       />
@@ -61,7 +61,7 @@ const landingPage = () => {
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
                       <img
-                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        src="Team2.jpg"
                         alt=""
                         className="card-img"
                       />
@@ -91,7 +91,7 @@ const landingPage = () => {
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
                       <img
-                        src="https://media.istockphoto.com/id/643285752/photo/weve-done-it-again.jpg?s=612x612&w=0&k=20&c=ck3RUNZUSwuXkYV7otvB2vuWzAl2v2GEfgkDRIw8cyk="
+                        src="Team3.jpg"
                         alt=""
                         className="card-img"
                       />
@@ -288,7 +288,7 @@ const landingPage = () => {
 
         <section id="contact" className="contact-section">
           <footer className="footer">
-            <p>&copy; 2023 Morrison Legal Advocacy</p>
+            <p>&copy; 2023 CoreNet</p>
           </footer>
         </section>
       </div>

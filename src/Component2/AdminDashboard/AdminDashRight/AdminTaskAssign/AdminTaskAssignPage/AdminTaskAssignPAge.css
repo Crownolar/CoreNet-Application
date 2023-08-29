@@ -17,10 +17,10 @@
   }
   
   .task-form button {
-    background-color: #3498db;
+    background-color: #0455B4;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 12px 16px;
     cursor: pointer;
     padding-top: 10px;
   }
@@ -62,7 +62,7 @@
     gap: 10px;
 }
 .AdmintaskoverviewStatus button {
-  background-color: #3498db;
+  background-color: #0455B4;
   color: white;
   border: none;
   padding: 8px 16px;

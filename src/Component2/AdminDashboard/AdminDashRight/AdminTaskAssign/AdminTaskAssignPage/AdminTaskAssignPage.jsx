@@ -152,12 +152,6 @@ const AdminTaskAssignPage = () => {
                 )}
               </div>
             )}
-
-            <div className="AdmintaskoverviewStatus">
-              <button onClick={() => setTimerActive(!timerActive)}>
-                Toggle Timer
-              </button>
-            </div>
           </div>
         ))}
       </div>

@@ -3,6 +3,7 @@ import "./AcceptTask.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../../../../Loader/Loader";
+import { Link } from "react-router-dom";
 
 const AcceptTask = () => {
   const Writer = useSelector((state) => state.stores.formDataWriter);
@@ -59,7 +60,7 @@ const AcceptTask = () => {
               <div className="no-writer-message">No Task available.</div>
             ) : <div className="task-card">
         {taskinfo?.map((e) => (
-          <div className="task-card-wrap">
+          <Link to={`/userpage/alltaskdesc/${e._id}`} className="task-card-wrap" key={e._id}>
             <h3 className="task-title">{e.Title}</h3>
             <p className="task-description">{e.Description}</p>
             <p className="task-timeout">Timeout: {e.taskTimeout} </p>
@@ -92,7 +93,7 @@ const AcceptTask = () => {
                 )}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>}
     </div>

@@ -25,7 +25,8 @@ const initialState = {
   writer: {},
   writerlist: [],
   writerid: [{}],
-  taskId: {}
+  taskId: {},
+  userSignUp: {},
 };
 
 const signupSlice = createSlice({
@@ -59,6 +60,9 @@ const signupSlice = createSlice({
     userData: (state, { payload }) => {
       state.user = payload;
     },
+    updateUserSignUp: (state, { payload }) => {
+      state.userSignUp = payload;
+    },
     updateWriter: (state, { payload }) => {
       state.writer = payload;
     },
@@ -78,7 +82,7 @@ const signupSlice = createSlice({
     },
     clearTask: (state) => {
       const clearAll = {};
-      state.writer = clearAll;
+      state.taskId = clearAll;
     },
     AllWriters: (state, { payload }) => {
       state.writer = payload;
@@ -100,7 +104,7 @@ export const {
   updateFormData,
   updateformDataWriter,
   clearTask,
-  // updateWriterInfo,
+  updateUserSignUp,
   signUpSuccess,
   signUpFailure,
   clearUser,
