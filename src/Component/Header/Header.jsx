@@ -150,11 +150,11 @@ const Header = () => {
               >
                 About
               </li>
-              <li className={`activeNavItem ${
+              {/* <li className={`activeNavItem ${
                   activenav === "" ? "active" : ""
                 }`}>
                     Price
-              </li>
+              </li> */}
               <li className="usericons">
                 {User ? (
                   <div className="optUser" onMouseOver={() => setShow(!show)}>
@@ -282,10 +282,10 @@ const Header = () => {
                     <FcAbout />
                     About
                     </div>
-                  <div className="Dash1">
+                  {/* <div className="Dash1">
                     <RiPriceTag3Line />
                     Price
-                    </div>
+                    </div> */}
                 </ul>
               </div>
             </div>

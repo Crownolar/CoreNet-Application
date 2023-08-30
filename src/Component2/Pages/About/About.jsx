@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./About.css";
+import Footer from "../../../Component/Footer/Footer";
 
 const About = () => {
   useEffect(() => {
@@ -75,10 +76,13 @@ const About = () => {
               management, enabling them to assign, monitor, and optimize tasks
               with ease. CoreNet was born out of the belief that technology
               should work for you, not against you. We're here to simplify your
-              workload, so you can focus on what matters most – achieving your
+              workload, so you can focus on what matters most, -- achieving your
               goals.
             </p>
           </div>
+        </div>
+        <div className="abtfooter">
+          <Footer />
         </div>
       </section>
     </div>

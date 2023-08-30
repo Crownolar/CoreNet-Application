@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Contact Us.css";
 import { MdOutgoingMail } from "react-icons/md";
 import { BsLinkedin, BsTelephoneFill } from "react-icons/bs";
 import Footer from "../../../Component/Footer/Footer"
 
 const ContactUs = () => {
+  useEffect(() => {
+    document.title = "Contact";
+  }, []);
+
   return (
     <div class="contact-page">
       <div class="bg-image"></div>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "../Footer/Footer";
 import "./LandingPage.css";
 import { TiArrowRepeatOutline } from "react-icons/ti";
@@ -5,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 const landingPage = () => {
   const Nav = useNavigate();
+  useEffect(() => {
+    document.title = "Contact";
+  }, []);
 
   return (
     <>
@@ -30,11 +34,7 @@ const landingPage = () => {
                 <div className="row">
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
-                      <img
-                        src="Team1.jpg"
-                        alt=""
-                        className="card-img"
-                      />
+                      <img src="Team1.jpg" alt="" className="card-img" />
                       <div className="card-body">
                         <h3 className="card-title">
                           Streamlined Article Allocation
@@ -60,11 +60,7 @@ const landingPage = () => {
                 <div className="row">
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
-                      <img
-                        src="Team2.jpg"
-                        alt=""
-                        className="card-img"
-                      />
+                      <img src="Team2.jpg" alt="" className="card-img" />
                       <div className="card-body">
                         <h3 className="card-title">Enhanced Accountability</h3>
                         <p className="card-description">
@@ -90,11 +86,7 @@ const landingPage = () => {
                 <div className="row">
                   <div className="col-md-6 col-lg-3">
                     <div className="card">
-                      <img
-                        src="Team3.jpg"
-                        alt=""
-                        className="card-img"
-                      />
+                      <img src="Team3.jpg" alt="" className="card-img" />
                       <div className="card-body">
                         <h3 className="card-title">Data-Driven Insights</h3>
                         <p className="card-description">
@@ -209,33 +201,33 @@ const landingPage = () => {
         </div>
         <div className="developer">
           <img src="Yusuf.jpg" alt="Developer 2" />
-          <h3>Oriade Yusuf</h3>
+          <h3>Oriade Yusuf </h3>
           <p>Front-end Developer</p>
         </div>
         <div className="developer">
           <img src="Amaka.jpg" alt="Developer 3" />
-          <h3>Amaka</h3>
+          <h3>Ekeh Amaka</h3>
           <p>Back-end Developer</p>
         </div>
 
         <div className="developer">
           <img src="Michael.jpg" alt="Developer 1" />
-          <h3>Micheal</h3>
+          <h3>Okpoko Micheal</h3>
           <p>Backend Developer</p>
         </div>
         <div className="developer">
           <img src="Ray.jpg" alt="Developer 1" />
-          <h3>Raymond</h3>
+          <h3>Aguye Raymond</h3>
           <p>Backend Developer</p>
         </div>
         <div className="developer">
           <img src="Sammy.jpg" alt="Developer 2" />
-          <h3>Sammy Dek</h3>
+          <h3>Ideke Samuel</h3>
           <p>Front-end Developer</p>
         </div>
         <div className="developer">
           <img src="Dan.jpg" alt="Developer 3" />
-          <h3>Daniel</h3>
+          <h3>Anaeto Daniel</h3>
           <p>Front-end Developer</p>
         </div>
       </section>
@@ -253,35 +245,43 @@ const landingPage = () => {
 
         <section id="services">
           <div className="service">
-            <h2>Crafting Words into Art</h2>
+            <h2>Application Task Updates Status</h2>
             <p>
-              The article emphasizes the power of words in literature as tools
-              for crafting captivating stories that resonate with readers. The
-              platform provided serves as a creative space for individuals to
-              unleash their inner wordsmiths and transform language into art.
+              This section provides a visual representation of the status
+              updates for tasks in the application. The colors indicate the
+              current status:
+            </p>
+            <ul className="status-list">
+              <li>
+                <span className="status-orange"></span> Pending
+              </li>
+              <li>
+                <span className="status-green"></span> Active
+              </li>
+              <li>
+                <span className="status-blue"></span> Complete
+              </li>
+            </ul>
+          </div>
+
+          <div className="service">
+            <h2>Seamless Experience: Intuitive User Interface</h2>
+            <p>
+              The article emphasizes the application's user-friendly design for
+              writers and editors, ensuring easy navigation and access to
+              features. The intuitive interface enhances collaboration and task
+              focus, enhancing the creative experience.
             </p>
           </div>
 
           <div className="service">
-            <h2>The Art of Editing: Refining Prose</h2>
+            <h2>Mastering Time: The Writer's Timer</h2>
             <p>
-              The article underscores the significance of editors in refining
-              writing, transforming raw prose into polished pieces. The platform
-              invites both writers and editors to join a community focused on
-              dissecting sentences and enhancing paragraphs, collaboratively
-              delving into the art of refining prose.
-            </p>
-          </div>
-
-          <div className="service">
-            <h2>Nurturing Your Writing Talent</h2>
-            <p>
-              The article highlights the importance of support and guidance in
-              nurturing writing talent and fostering creativity. The platform
-              offers a space for writers at all levels to share their work,
-              receive feedback, and connect with fellow writers, collectively
-              working towards nurturing talent and achieving literary
-              excellence.
+              The article underscores time management's significance for writers
+              using the application, showcasing the integrated timer feature's
+              role in maintaining task awareness and enhancing productivity.
+              This feature enables writers to concentrate on their creative work
+              while efficiently managing their allocated time.
             </p>
           </div>
         </section>

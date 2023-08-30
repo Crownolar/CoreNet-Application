@@ -7,12 +7,12 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const Profile = () => {
   const Editor = useSelector((state) => state.stores.user);
-  const Nav = useNavigate()
+  const Nav = useNavigate();
   const EditorId = Editor.editorId;
   const [EditorInfo, setEditorInfo] = useState({});
-  const {token} = useParams()
+  const { token } = useParams();
   const url = `https://corenet-api.onrender.com/api/delete-editor/${EditorId}`;
-  const URL = `https://corenet-api.onrender.com/api/change-password/${token}`;
+  //update-editor/:id"
 
   const getOneEditor = () => {
     const url = `https://corenet-api.onrender.com/api/get-one-editor/${EditorId}`;
@@ -21,20 +21,6 @@ const Profile = () => {
       setEditorInfo(res.data.data);
     });
   };
-
-  const changePassword = () => {
-    axios
-    .post(URL)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      if (error.response) {
-        console.error("Response Data:", error.response.data);
-      }
-    });
-  }
 
   const deleteAdmin = () => {
     axios.delete(url).then((res) => {
@@ -50,8 +36,7 @@ const Profile = () => {
     <div className="Profilepage">
       <div className="ProfilepageWrap">
         <div className="profileview">
-          <div className="backArrow">
-          </div>
+          <div className="backArrow"></div>
           <div className="ProfileName"></div>
           <h4>
             {EditorInfo.Surname} {EditorInfo.FirstName}
@@ -89,7 +74,9 @@ const Profile = () => {
             </div>
             <div className="PassComp">
               <div className="Pass">
-                <h4 onClick={() => Nav("/adminpage/adminchangepassword")}>Change Password</h4>
+                <h4 onClick={() => Nav("/adminpage/adminchangepassword")}>
+                  Change Password
+                </h4>
               </div>
               <div className="Comp">
                 <h4>Company Name</h4>
@@ -99,10 +86,14 @@ const Profile = () => {
               </div>
             </div>
             <div className="ProfileFooter">
-              <div className="Del"> 
+              <div className="Del">
                 <button
-                  onClick={() => deleteAdmin()}
+                  className="Pbtn"
+                  onClick={() => Nav("/adminpage/admineditpage")}
                 >
+                  Edit
+                </button>
+                <button className="Pbtn" onClick={() => deleteAdmin()}>
                   Delete Account
                 </button>
               </div>

@@ -9,6 +9,7 @@
 .testimonial-section {
   padding: 40px 0;
   margin-top: 10%;
+  /* background-color: pink; */
 }
 
 .testimonial-section-wrap {
@@ -326,7 +327,7 @@
 }
 
 .footer-Top {
-  background-color: #007BFF;
+  background-color: #0455B4;
   padding: 100px 0;
   color: white;
   display: flex;
@@ -342,21 +343,29 @@
   display: inline-block;
   padding: 15px 40px;
   background-color: #0455B4;
+  border: 2px solid white;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .cta-button:hover {
-  background-color: #003D99;
+  background-color: #0455B4;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#services{
+  display: flex;
 }
 
 .service {
   width: 97%; 
   margin: 20px;
   padding: 20px;
+  /* background-color: #26f617; */
   background-color: #f4f4f4;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -387,13 +396,49 @@
 }
 
 .footer {
-  background-color: #007BFF;
+  background-color: #0455B4;
   color: white;
   padding: 20px 0;
 }
 
 .footer p {
   margin: 0;
+}
+
+status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* Apply styles to each status item */
+.status-list li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  list-style-type: none;
+  display: flex;
+}
+
+/* Apply styles to the status indicators */
+.status-orange, .status-green, .status-blue {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.status-orange {
+  background-color: orange; /* Change to desired color */
+}
+
+.status-green {
+  background-color: green; /* Change to desired color */
+}
+
+.status-blue {
+  background-color: blue; /* Change to desired color */
 }
 
 
@@ -409,6 +454,12 @@
 
   .cta-button {
     font-size: 14px; 
+  }
+
+  #services{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -746,38 +797,6 @@
     flex-wrap: wrap;
     /* background-color: red; */
   }
-
-  .welcome-message1 {
-    width: 80%;
-    height: 50%;
-    background-color: #0455B4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: backInDown;
-    animation-duration: 3s;
-    text-align: center;
-  }
-
-  .welcome-message1 h3 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-  }
-
-  .welcome-message1 p {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #ffffff;
-  }
-
-
-
-
 }
 
 

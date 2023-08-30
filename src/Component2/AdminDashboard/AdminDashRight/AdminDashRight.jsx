@@ -25,6 +25,7 @@ import AdminChangePassword from "../../Pages/Profile/AdminChange/AdminChangePass
 import AdminTaskOverviewDesc from "./AdminTaskOverview/AdminTaskOverviewDesc/AdminTaskOverviewDesc";
 import Authenticate from "../../../Authentication/Authenticate";
 import AdminAuth from "../../../Authentication/AdminAuth";
+import AdminEditPage from "../../Pages/Profile/AdminEditPage/AdminEditPage";
 
 const AdminDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
@@ -169,7 +170,8 @@ const AdminDashRight = () => {
                 path="/admintaskoverviewdesc/:id"
                 element={<AdminTaskOverviewDesc />}
               />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/*" element={<Profile />} />
+              <Route path="/admineditpage" element={<AdminEditPage />} />
               <Route
                 path="/adminchangepassword"
                 element={<AdminChangePassword />}
