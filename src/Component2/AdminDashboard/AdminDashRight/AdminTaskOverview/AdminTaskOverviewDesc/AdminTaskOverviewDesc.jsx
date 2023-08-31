@@ -117,7 +117,7 @@ const AdminTaskOverviewDesc = () => {
   const getOneTask = () => {
     axios.get(URL).then((res) => {
       console.log(res);
-      console.log(res.data.data?.comment?.[0]._id);
+      // console.log(res.data.data?.comment?.[0]._id);
       setTaskInfo1(res.data.data);
       setComments(res.data.data?.comment || []);
     });
