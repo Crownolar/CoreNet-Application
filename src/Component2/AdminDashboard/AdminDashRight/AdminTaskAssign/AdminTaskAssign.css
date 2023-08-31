@@ -34,6 +34,11 @@
     overflow-y: auto;
     gap: 20px;
 }
+
+.AdminTaskAssignSelect::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
 /* UserCard.css */
 .user-card {
     width: 40%;

@@ -18,6 +18,11 @@
   /* align-items: center; */
 }
 
+.task-card1::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
 .holders {
   height: 100%;
 }

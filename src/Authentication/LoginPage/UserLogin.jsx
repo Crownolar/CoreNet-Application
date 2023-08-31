@@ -84,6 +84,9 @@ const UserLogin = () => {
           console.error("Response Data:", error.response.data);
           setError(error.response.data.message);
         }
+        if (error.response && error.response.data.failed) {
+          setErrors(error.response.data.failed);
+        }
       });
   };
 
@@ -170,13 +173,11 @@ const UserLogin = () => {
                   />
                 )}
               </div>
-              {errors && (
-                <div className="error-message">
-                  {Object.keys(errors).map((key) => (
-                    <p key={key}>{errors[key]}</p>
-                  ))}
-                </div>
-              )}
+              {error && errors ? (
+                  <p className="error-message">{errors}</p>
+                ) : (
+                  error && <p className="error-message">{error}</p>
+                )}
               {/* {errors && <p className="error-message">{errors}</p>} */}
               <div className="ETextCheckbox">
                 <input type="checkbox" onClick={() => Nav("/login")} />

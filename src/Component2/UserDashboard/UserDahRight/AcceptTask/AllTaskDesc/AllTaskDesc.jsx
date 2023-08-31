@@ -12,6 +12,8 @@ const AllTaskDesc = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
+  const [commentdetails, setCommentDetails] = useState([]);
   const Nav = useNavigate()
   const dispatch = useDispatch()
   const TaskID = TaskId._id;
@@ -23,6 +25,10 @@ const AllTaskDesc = () => {
     const WriterId = Writer.id;
     const [taskinfo, setTaskInfo] = useState([]);
     const [taskinfo1, setTaskInfo1] = useState(null);
+    const CommentId = useSelector((state) => state.stores.commentid);
+    console.log(CommentId);
+    const commentID = CommentId._id;
+    console.log(commentID);
     const { id } = useParams()
     console.log(id)
     // const url = `https://corenet-api.onrender.com/api/get-all-tasks/${WriterId}`;
@@ -52,30 +58,58 @@ const AllTaskDesc = () => {
     })
     }
 
+    const replyComment = (commentId) => {
+      setLoading(true);
+      const replyData = { text: reply, commentId: commentId };
+      const replyurl = `https://corenet-api.onrender.com/api/${commentID}/reply-comment/${WriterId}`;
+      axios
+        .post(replyurl, replyData)
+        .then((res) => {
+          console.log(res);
+          const updatedComments = comments.map((cmt) => {
+            if (cmt.id === commentId) {
+              const newReply = { id: res.data.replyId, text: reply };
+              return { ...cmt, replies: [...cmt.replies, newReply] };
+            }
+            return cmt;
+          });
+          setComments(updatedComments);
+          setReply("");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setLoading(false);
+          if (error.response) {
+            console.error("Response Data:", error.response.data);
+          }
+        });
+    };
 
-    const data = { comment }
+
+  //   const data = { comment }
   
-  const writerComment = () => {
-    setLoading(true)
-    const URL = `https://corenet-api.onrender.com/api/${TaskID}/create-editor-comment/${EditorID}`;
-    axios
-    .post(URL, data)
-    .then((res) => {
-      console.log(res)
-      setLoading(false)
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      setLoading(false)
-      if (error.response) {
-        console.error("Response Data:", error.response.data);
-      }
-    });
-  }
+  // const writerComment = () => {
+  //   setLoading(true)
+  //   const URL = `https://corenet-api.onrender.com/api/${TaskID}/create-editor-comment/${WriterId}`;
+  //   axios
+  //   .post(URL, data)
+  //   .then((res) => {
+  //     console.log(res)
+  //     setLoading(false)
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error:", error);
+  //     setLoading(false)
+  //     if (error.response) {
+  //       console.error("Response Data:", error.response.data);
+  //     }
+  //   });
+  // }
 
     const getOneTask = () => {
         axios.get(URL).then((res) => {
           console.log(res);
+          console.log(res.data.data)
           setTaskInfo1(res.data.data);
         });
       };
@@ -141,68 +175,38 @@ const AllTaskDesc = () => {
                   </div>
                 )}
             </div>
-          </div></div>
-      <div className="comment-section">
-        <textarea
-          className="comment-input"
-          placeholder="Add a comment..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <button className="add-comment-button" onClick={writerComment}>Add Comment</button>
+          </div>
+          </div>
+            <h3>comment: {taskinfo1?.comment?.[0].comment}</h3>
+      <div className="comments">
+        {comments.map((comment) => (
+          <div className="comment" key={comment.id}>
+            <p className="comment-text">{comment.text}</p>
+            <div className="reply-section">
+              <textarea
+                className="reply-input"
+                placeholder="Reply..."
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+              />
+              <button className="reply-button" onClick={() => replyComment(comment.id)}>
+                Reply
+              </button>
+            </div>
+            
+            <div className="replies">
+              {comment?.replies?.map(reply => (
+                <p className="reply-text" key={reply.id}>{reply.text}</p>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
+
+
       <br />
       <button onClick={deleteTask} className="delete-button">{loading ? <Loader /> : "Delete"}</button>
     </div>
-
-        {/* <div className="Taskss">
-        <div className="Taskss1">
-          <div className="task">
-            <div className="taskwrap">
-            <div className="UserName1">
-              <h2>{writersDescriptions.FullName}</h2>
-            </div>
-            <h3>Title: {taskinfo1?.Title}</h3>
-            <h4>Description: {taskinfo1?.Description}</h4>
-            <h5>Time Allocated: {taskinfo1?.taskTimeout}</h5>
-            </div>
-          <div className="AdmintaskoverviewStatus">
-            <h2>Task Status</h2>
-            <div className="AdmintaskoverviewStatusWrap">
-              {taskinfo1?.isPending === true &&
-                taskinfo1?.isComplete === false && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor1">P</div>
-                    <h4>Pending</h4>
-                  </div>
-                )}
-              {taskinfo1?.isActive === true &&
-                taskinfo1?.isComplete === false && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor2">A</div>
-                    <h4>Active</h4>
-                  </div>
-                )}
-              {taskinfo1?.isComplete === true &&
-                taskinfo1?.isActive === true && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor3">C</div>
-                    <h4>Completed</h4>
-                  </div>
-                )}
-              {taskinfo1?.isComplete === true &&
-                taskinfo1?.isPending === true && (
-                  <div className="colorWrap">
-                    <div className="Admintaskoverviewcolor3">C</div>
-                    <h4>Completed</h4>
-                  </div>
-                )}
-            </div>
-          </div>
-          </div>
-
-        </div>
-        </div> */}
     </div>
   )
 }

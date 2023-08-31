@@ -76,6 +76,7 @@ import { ThemeContext } from "../../../../Authentication/ContextApi/Contextapi";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useTimer } from "../../../../Authentication/ContextApi/TimeContext/TimeContext";
+import Loader from "../../../../Loader/Loader";
 
 function Task() {
   const [isActive, setIsActive] = useState(false);
@@ -85,6 +86,7 @@ function Task() {
   const [taskinfo, setTaskInfo] = useState(null);
   const [taskupdate, setTaskUpdate] = useState();
   const [timeElapsed, setTimeElapsed] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const Writer = useSelector((state) => state.persistedReducer.writer);
   // /:writerId/update-task/:taskId
 
@@ -92,8 +94,7 @@ function Task() {
   const { startTimer, stopTimer, timerRemaining } = useTimer();
 
   const handleStartClick = () => {
-    if (!isCompleted && !isPending)
-    setIsActive(true);
+    if (!isCompleted && !isPending) setIsActive(true);
     startTimer(taskinfo?.taskTimeout / 1000);
   };
 
@@ -107,9 +108,9 @@ function Task() {
       localStorage.setItem("taskCompleted", "true");
     } else if (!isActive) {
       setDescription("Task has not been started yet.");
-    } else if(isPending) {
+    } else if (isPending) {
       setDescription("Task is already completed.");
-      setIsPending(true)
+      setIsPending(true);
     }
   };
 
@@ -129,15 +130,18 @@ function Task() {
   // console.log(Url);
 
   const UpdateTask = () => {
+    setLoading(true);
     axios
       .put(Url)
       .then((res) => {
         console.log(res);
         setTaskUpdate(res.data.data);
         handleCompleteClick();
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
+        setLoading(false);
       });
   };
 
@@ -146,48 +150,56 @@ function Task() {
   }, []);
 
   const acceptTask = () => {
+    setLoading(true);
     axios
       .post(URL)
       .then((res) => {
         console.log(res);
         handleStartClick();
+        setLoading(false);
         localStorage.setItem("taskCompleted", "false");
         // startTimer(timerRemaining);
       })
       .catch((error) => {
         console.error(error);
+        setLoading(false);
       });
   };
 
   // console.log(UpdateTask)
 
   const getOneTask = () => {
-    axios.get(url).then((res) => {
-      console.log(res);
-      localStorage.setItem("taskCompleted", "false");
-      setTaskInfo(res.data.data);
-      console.log(res.data.data)
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("taskCompleted", "false");
+        setTaskInfo(res.data.data);
+        console.log(res.data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
     getOneTask();
   }, []);
 
-  const buttonText = localStorage.getItem("taskCompleted") === "true" ? "Task Completed" : "Start Task";
+  const buttonText =
+    localStorage.getItem("taskCompleted") === "true"
+      ? "Task Completed"
+      : "Start Task";
 
   useEffect(() => {
     // Check if the time has elapsed
     if (timerRemaining <= 0 && isActive && !isCompleted) {
       setTimeElapsed(true);
-      setDescription('Task time has elapsed.');
+      setDescription("Task time has elapsed.");
       setIsCompleted(true);
       stopTimer();
-      localStorage.removeItem('timerRemaining');
-      localStorage.removeItem('startTime');
+      localStorage.removeItem("timerRemaining");
+      localStorage.removeItem("startTime");
     }
   }, [timerRemaining, isActive, isCompleted]);
 
@@ -199,50 +211,60 @@ function Task() {
           <p>No task has been assigned yet.</p>
         </div>
       ) : ( */}
-        <div className="task1">
-          <h2>{taskinfo?.Title}</h2>
-          {/* <h2>Title</h2> */}
-          {/* <p
+      <div className="task1">
+        <h2>{taskinfo?.Title}</h2>
+        {/* <h2>Title</h2> */}
+        {/* <p
             className={`description ${
               isCompleted ? "completed" : isActive ? "started" : ""
             }`}
           >
             {description}
           </p> */}
-          
+
         <p
           className={`description ${
             timeElapsed
-              ? 'time-elapsed'
+              ? "time-elapsed"
               : isCompleted
-              ? 'completed'
+              ? "completed"
               : isActive
-              ? 'started'
-              : ''
+              ? "started"
+              : ""
           }`}
         >
           {description}
         </p>
-          <h4>Description: {taskinfo?.Description}</h4>
-          <button disabled={isActive || isCompleted || isPending || localStorage.getItem("taskCompleted") === "true"} className="start-btn" onClick={acceptTask}>
-            {/* {isStarted ? "Resume Task" : "Start Task"} */}
-            {buttonText}
-          </button>
-          <button
-            className="complete-btn"
-            onClick={UpdateTask}
-            disabled={taskinfo?.isActive || taskinfo?.isComplete}
-          >
-            Complete Task
-          </button>
-          <p className="time">
-            Time remaining: {Math.floor(timerRemaining / 3600)}:
-            {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
-          </p>
-          <p className="time">
-          Time allocated: {taskinfo ? `${taskinfo.taskTimeout / 3600000}hr` : ""}
-          </p>
-        </div>
+        <h4>Description: {taskinfo?.Description}</h4>
+        <button
+          disabled={
+            isActive ||
+            isCompleted ||
+            isPending ||
+            localStorage.getItem("taskCompleted") === "true"
+          }
+          className="start-btn"
+          onClick={acceptTask}
+        >
+          {/* {isStarted ? "Resume Task" : "Start Task"} */}
+          {buttonText}
+        </button>
+        <button
+          className="complete-btn"
+          onClick={UpdateTask}
+          disabled={taskinfo?.isActive || taskinfo?.isComplete}
+        >
+          {loading ? <Loader /> : "Complete Task"}
+        </button>
+        <p className="time">
+          Time remaining: {Math.floor(timerRemaining / 3600)}:
+          {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
+        </p>
+        <p className="time">
+          Time allocated:{" "}
+          {taskinfo ? `${taskinfo.taskTimeout / 3600000}hr` : ""}
+        </p>
+      </div>
       {/* )}  */}
       <div className="status">
         <div>

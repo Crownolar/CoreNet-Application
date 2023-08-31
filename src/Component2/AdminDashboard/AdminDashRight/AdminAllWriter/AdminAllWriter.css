@@ -1,115 +1,3 @@
-/* .AdminAllWriter{
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-}
-.AdminAllWriterWrapper{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow-y: scroll;
-    gap: 10px;
-    padding-top: 10px;
-
-}
-.AdminAllWriterWrap{
-    width: 80%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    cursor: pointer;
-    text-decoration: none;
-}
-.AdminAllWriterList{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    line-height: 30px;
-    border: 2px solid #0455B4;
-}
-.AdminAllWriterStatus{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.AdminAllWriterIcon{
-    font-size: 30px;
-    color: #0455B4;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid #0455B4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.AdminAllWriterInfo{
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    text-decoration: none;
-}
-
-@media screen and (max-width: 426px) {
-    .AdminAllWriter{
-        width: 100%;
-        height: 90vh;
-        background-color: aliceblue;
-    }
-    .AdminAllWriterWrap{
-        gap: 30px;
-    }
-}
-
-@media screen and (max-width: 768px){
-    .AdminAllWriter{
-        width: 100%;
-        height: 90vh;
-    }
-    .AdminAllWriterWrapper{
-        width: 100%;
-        height: 100%;
-    }
-    .AdminAllWriterWrap{
-        width:96%;
-        height: 15%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-        cursor: pointer;
-        text-decoration: none;
-    }
-    .AdminAllWriterList{
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        display: flex;
-    }
-    .AdminAllWriterInfo{
-        width: 80%;
-        height: 100%;
-        display: flex;
-        color: black;
-        justify-content: center;
-    }
-} */
-
-/* AdminAllWriter.css */
-
-/* Common styles */
 .AdminAllWriter {
   width: 100%;
   height: 90vh;
@@ -118,13 +6,18 @@
   }
   
   .AdminAllWriterWrapper {
-    width: 95%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
     /* background-color: pink; */
     overflow-y: scroll;
+  }
+
+  .AdminAllWriterWrapper::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
   }
   
   .AdminAllWriterWrap {

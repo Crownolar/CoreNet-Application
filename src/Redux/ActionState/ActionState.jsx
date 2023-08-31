@@ -27,6 +27,7 @@ const initialState = {
   writerid: [{}],
   taskId: {},
   userSignUp: {},
+  commentid: {},
 };
 
 const signupSlice = createSlice({
@@ -97,6 +98,9 @@ const signupSlice = createSlice({
     updateTaskId: (state, {payload}) => {
       state.taskId = payload
     },
+    updateCommentId: (state, {payload}) => {
+      state.commentid = payload
+    },
   },
 });
 
@@ -117,5 +121,6 @@ export const {
   updateWriterList,
   updateWriterId,
   updateTaskId,
+  updateCommentId,
 } = signupSlice.actions;
 export default signupSlice.reducer;

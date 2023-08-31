@@ -17,7 +17,6 @@ const AdminSidebar = () => {
   const user = useSelector((state) => state.stores.user)
 
   const handleSignOut = () => {
-    // If user is logged in, navigate to sign out, else navigate to login
     if (user) {
       Nav("../signout");
     } else {

@@ -32,15 +32,24 @@ const AdminDashRight = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate();
   const User = useSelector((state) => state.stores.user);
+  const Uname = User.UserName;
+  const [selectedSection, setSelectedSection] = useState("Welcome to CoreNet");
+  const [show, setShow] = useState(false);
 
   const handlecloseMobile = () => {
     setOpenSideBar(false);
   };
 
-  const Navigate = (path) => {
+  const Navigate = (path, sectionTitle) => {
     navigate(path);
+    setSelectedSection(sectionTitle);
     handlecloseMobile();
   };
+
+  // const Navigate = (path) => {
+  //   navigate(path);
+  //   handlecloseMobile();
+  // };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -80,28 +89,36 @@ const AdminDashRight = () => {
         <div className="AdminsidebarNav">
           <div className="AdminsidebarNav_Wrap">
             <div
-              onClick={() => Navigate("/adminpage/admintaskoverview")}
+              onClick={() =>
+                Navigate("/adminpage/admintaskoverview", "Task Overview")
+              }
               className="Admintask"
             >
               <BiTask />
               <p> Task Overview</p>
             </div>
             <div
-              onClick={() => Navigate("/adminpage/admintaskassign")}
+              onClick={() =>
+                Navigate("/adminpage/admintaskassign", "Task Assignment")
+              }
               className="Admintask"
             >
               <GoTasklist />
               <p>Task Assignment</p>
             </div>
             <div
-              onClick={() => Navigate("/adminpage/admincreatewriter")}
+              onClick={() =>
+                Navigate("/adminpage/admincreatewriter", "Create Writer")
+              }
               className="Admintask"
             >
               <MdAddTask />
               <p> Create writer</p>
             </div>
             <div
-              onClick={() => Navigate("/adminpage/adminallwriter")}
+              onClick={() =>
+                Navigate("/adminpage/adminallwriter", "All Writer")
+              }
               className="Admintask"
             >
               <BsListTask />
@@ -124,14 +141,28 @@ const AdminDashRight = () => {
     <div className="AdminDashRightMain">
       <div className="AdminDashRightHeader">
         <div className="AdminDashRightHeader_Wrap">
-          <h3
-            onClick={() => Navigate("/adminpage/profile")}
-            style={{ cursor: "pointer" }}
-          >
-            {User.UserName}
-          </h3>
-          {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null}
-          <p className="AdminNotificationIcon">Notify</p>
+          <div className="optUser1" onClick={() => setShow(!show)}>
+            {Uname?.charAt(0)}
+          </div>
+          {/* {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null} */}
+          {selectedSection !== "Welcome to CoreNet"
+            ? selectedSection
+            : "Welcome To CoreNet"}
+            <h3 style={{ cursor: "pointer" }}>{User.UserName}</h3>
+          {show ? (
+            <div className="userprofile">
+              <ul className="userbox">
+                {User ? (
+                  <li
+                    // onClick={() => Navigate("/adminpage/profile", "Profile")}
+                    onClick={() => Navigate("/adminpage/profile")}
+                  >
+                    Profile
+                  </li>
+                ) : null}
+              </ul>
+            </div>
+          ) : null}
           <div className="AdminUserIcon">
             {openSiderBar ? (
               // <RxHamburgerMenu onClick={() => setOpenSideBar(!openSiderBar)} />
@@ -155,37 +186,34 @@ const AdminDashRight = () => {
         )} */}
 
         <Routes>
-            <Route element={<Authenticate />}>
-              <Route
-                path="/admincreatewriter/*"
-                element={<AdminDashCreateWriter />}
-              />
-              <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
-              <Route
-                path="/admintaskoverview/*"
-                element={<AdminTaskOveview />}
-              />
-              <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
-              <Route
-                path="/admintaskoverviewdesc/:id"
-                element={<AdminTaskOverviewDesc />}
-              />
-              <Route path="/profile/*" element={<Profile />} />
-              <Route path="/admineditpage" element={<AdminEditPage />} />
-              <Route
-                path="/adminchangepassword"
-                element={<AdminChangePassword />}
-              />
-              <Route
-                path="/adminallwriterdesc/:id"
-                element={<AdminAllWriterDesc />}
-              />
-              <Route
-                path="/admintaskassignpage/:id"
-                element={<AdminTaskAssignPage />}
-              />
-              <Route path="/admindashhome" element={<AdminDashHome />} />
-            </Route>
+          <Route element={<Authenticate />}>
+            <Route
+              path="/admincreatewriter/*"
+              element={<AdminDashCreateWriter />}
+            />
+            <Route path="/admintaskassign/*" element={<AdminTaskAssign />} />
+            <Route path="/admintaskoverview/*" element={<AdminTaskOveview />} />
+            <Route path="/adminallwriter/*" element={<AdminAllWriter />} />
+            <Route
+              path="/admintaskoverviewdesc/:id"
+              element={<AdminTaskOverviewDesc />}
+            />
+            <Route path="/profile/*" element={<Profile />} />
+            <Route path="/admineditpage" element={<AdminEditPage />} />
+            <Route
+              path="/adminchangepassword"
+              element={<AdminChangePassword />}
+            />
+            <Route
+              path="/adminallwriterdesc/:id"
+              element={<AdminAllWriterDesc />}
+            />
+            <Route
+              path="/admintaskassignpage/:id"
+              element={<AdminTaskAssignPage />}
+            />
+            <Route path="/admindashhome" element={<AdminDashHome />} />
+          </Route>
         </Routes>
       </div>
     </div>
