@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../../../../Loader/Loader";
 import "./AdminDashCreateWriterNextContent.css";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import Swal from 'sweetalert2'
 
 export default function AdminCreateWriter({ editorID }) {
   const [formDataWriter, setFormDataWriter] = useState({
