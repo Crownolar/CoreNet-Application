@@ -131,6 +131,10 @@
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
+
+  .task-component h3, .task-component p{
+    color: #333;
+  }
   
   .task-component .time-allocated,
   .task-status {
@@ -175,7 +179,7 @@
 .comments {
   margin-top: 20px;
 }
-
+  
 .comment {
   border: 1px solid #ccc;
   padding: 10px;

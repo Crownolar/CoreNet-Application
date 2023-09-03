@@ -8,8 +8,9 @@ const About = () => {
   }, []);
 
   return (
-    <div className="about-page">
-      <section className="hero">
+    // <div className="about-page">
+      <div className="about-page">
+      {/* <section className="hero">
         <div className="content">
           <h1>Our Story</h1>
           <p>
@@ -65,7 +66,81 @@ const About = () => {
             away.
           </p>
         </div>
-      </section>
+      </section> */}
+      <div className="about-page1">
+        <section className="hero">
+            <div className="content">
+                <h1>Our Story</h1>
+                <p>
+                    At CoreNet, we're dedicated to revolutionizing the way businesses
+                    manage their tasks and streamline their operations. Our mission is
+                    simple but powerful: to empower administrators and teams with the
+                    tools they need to assign tasks seamlessly, track progress
+                    effortlessly, and ensure every project's success.
+                </p>
+                <p>
+                    In today's fast-paced business landscape, effective task management
+                    is the cornerstone of success. At CoreNet, we understand the
+                    challenges faced by administrators and team leaders when it comes to
+                    managing tasks and ensuring timely submissions. That's why we've
+                    developed a cutting-edge web application designed to simplify the
+                    task assignment process and boost productivity.
+                </p>
+                <h1>Key Features</h1>
+                <ul>
+                    <li>
+                        <h3>1. Task Assignment Made Easy</h3>
+                        <p>
+                            Gone are the days of email chains and confusing spreadsheets.
+                            CoreNet provides a simple yet robust task assignment system.
+                            Administrators can easily create tasks, assign them to specific
+                            team members, and provide all the necessary details.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>2. Deadline Tracking</h3>
+                        <p>
+                            Meeting deadlines is crucial for project success. With CoreNet, you
+                            can set submission deadlines for each task, and our platform ensures
+                            that time starts counting as soon as the task is accepted. No more
+                            missed deadlines!
+                        </p>
+                    </li>
+                </ul>
+                <h1>Why Choose CoreNet?</h1>
+                <ul>
+                    <li>
+                        <h3>Simplicity</h3>
+                        <p>
+                            Our intuitive interface requires no training, ensuring a smooth
+                            onboarding process for your team.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Reliability</h3>
+                        <p>
+                            CoreNet is built to handle your workload, no matter how large or
+                            small. We guarantee 99.9% uptime so you can always count on us.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Security</h3>
+                        <p>
+                            Your data is precious, and we treat it as such. CoreNet employs
+                            state-of-the-art security measures to protect your information.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Support</h3>
+                        <p>
+                            Our dedicated support team is always here to assist you. Have a
+                            question or need assistance? We're just a message away.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 
       <section className="team">
         <div className="members">
@@ -82,9 +157,9 @@ const About = () => {
           </div>
         </div>
         <div className="abtfooter">
-          <Footer />
         </div>
       </section>
+          <Footer />
     </div>
   );
 };

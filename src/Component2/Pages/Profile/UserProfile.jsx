@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "./Profile.css";
+import "./UserProfile.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
     const [writersDescriptions, setWritersDescriptions] = useState({});
+    const  Nav  = useNavigate()
     const dispatch = useDispatch();
     const user = useSelector((state) => state.stores.user);
     const writer = useSelector((state) => state.stores.formDataWriter);
     const WriterID = writer.id
+    const WriterID1 = writer.token
+    console.log(WriterID1);
     const EditorID = user.editorId;
+    console.log(EditorID)
     const URL = `https://corenet-api.onrender.com/api/${EditorID}/get-a-writer/${WriterID}`;
-  
+
+  // /api/change-pass/:token
     const getDescription = () => {
       axios.get(URL).then((res) => {
         console.log(res);
@@ -60,21 +66,11 @@ const Profile = () => {
               </div>
             </div>
             <div className="PassComp">
-              <div className="Pass">
+              <div className="Pass" onClick={() => Nav("/userpage/userchangepassword")}>
                 <h4>Password</h4>
                 <div className="Password">
                   <p></p>
                 </div>
-              </div>
-            </div>
-            <div className="ProfileFooter">
-              <div className="Del"> 
-                <button
-                  style={{ backgroundColor: "red", color: "white" }}
-                  onClick={() => deleteAdmin()}
-                >
-                  Delete Account
-                </button>
               </div>
             </div>
           </div>

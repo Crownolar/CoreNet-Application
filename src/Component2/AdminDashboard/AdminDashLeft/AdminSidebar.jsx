@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 const AdminSidebar = () => {
   const Nav = useNavigate();
   const [activeTab, setActiveTab] = useState("");
-  const user = useSelector((state) => state.stores.user)
+  const user = useSelector((state) => state.stores.user);
 
   const handleSignOut = () => {
     if (user) {
@@ -47,12 +47,13 @@ const AdminSidebar = () => {
                 Nav("/adminpage/admintaskoverview");
                 console.log("activeTab");
               }}
-              className={`Admintask ${
+              className={`Admintaskside ${
                 activeTab === "admintaskoverview" ? "active" : ""
               }`}
             >
               <BiTask />
-              <p> Task Overview</p>
+
+              <span> Task Overview</span>
             </div>
             <div
               onClick={() => {
@@ -60,12 +61,13 @@ const AdminSidebar = () => {
                 Nav("/adminpage/admintaskassign");
                 console.log("activeTab");
               }}
-              className={`Admintask ${
+              className={`Admintaskside ${
                 activeTab === "admintaskassign" ? "active" : ""
               }`}
             >
               <GoTasklist />
-              <p>Task Assignment</p>
+
+              <span>Task Assignment</span>
             </div>
             <div
               onClick={() => {
@@ -73,12 +75,13 @@ const AdminSidebar = () => {
                 Nav("/adminpage/admincreatewriter");
                 console.log("activeTab");
               }}
-              className={`Admintask ${
+              className={`Admintaskside ${
                 activeTab === "admincreatewriter" ? "active" : ""
               }`}
             >
               <MdAddTask />
-              <p> Create writer</p>
+
+              <span> Create writer</span>
             </div>
             <div
               onClick={() => {
@@ -86,17 +89,18 @@ const AdminSidebar = () => {
                 Nav("/adminpage/adminallwriter");
                 console.log("activeTab");
               }}
-              className={`Admintask ${
+              className={`Admintaskside ${
                 activeTab === "adminallwriter" ? "active" : ""
               }`}
             >
               <BsListTask />
-              <p>All writers</p>
+
+              <span>All writers</span>
             </div>
           </div>
           <div onClick={handleSignOut} className="AdminSignOutDiv">
             <PiSignOut />
-            <p>Sign Out</p>
+            <span>Sign Out</span>
           </div>
         </div>
       </div>

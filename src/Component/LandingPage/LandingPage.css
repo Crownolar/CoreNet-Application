@@ -46,6 +46,7 @@
 .testimonial-content p {
   font-size: 18px;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .testimonial-content cite {
@@ -103,6 +104,7 @@
 .developer h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .developer p {
@@ -132,16 +134,19 @@
   text-align: center;
   max-width: 300px;
   margin: 0 auto 20px;
+  color: #333;
 }
 
 .pricing-card h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .pricing-card p {
   font-size: 18px;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .pricing-card button {
@@ -320,6 +325,16 @@
   align-items: center;
 }
 
+.pricing-card button{
+  background-color: #0455B4;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+}
+
 
 .App {
   text-align: center;
@@ -381,6 +396,10 @@
 .service h2 {
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.service p{
+  color: #333;
 }
 
 .contact-section {
@@ -460,6 +479,7 @@ status-list {
     /* background-color: yellow; */
     display: flex;
     flex-direction: column;
+    color: #333;
   }
 }
 
@@ -649,12 +669,12 @@ status-list {
     margin-bottom: 20%;
   }
 
-  .testimonial-section-top-text{
+  .testimonial-section-top-text1{
     width: 100%;
     /* height: 30vh; */
     margin-top: 60%;
     /* background-color: rgb(67, 169, 111); */
-    /* padding-top: 30%; */
+    padding-top: 30%;
     /* z-index: 1000; */
   }
 
@@ -695,8 +715,8 @@ status-list {
     /* background-color: red; */
     width: 80%;
     /* height: 60px; */
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
   }
   .Secttext{
     /* background-color: orange; */
@@ -706,7 +726,12 @@ status-list {
   }
   .Secttext h1 {
     width: 100%;
+    color: black;
     /* background-color: #007bff; */
+  }
+  .cta-button {
+    /* background-color: darkblue;  */
+    margin-bottom: 20px;
   }
   .developer{
     /* background-color: red; */

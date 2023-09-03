@@ -87,6 +87,10 @@ function Task() {
   const [taskupdate, setTaskUpdate] = useState();
   const [timeElapsed, setTimeElapsed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(false);
+  const [startButtonClicked, setStartButtonClicked] = useState(false);
+
+  
   // const Writer = useSelector((state) => state.persistedReducer.writer);
   // /:writerId/update-task/:taskId
 
@@ -130,18 +134,18 @@ function Task() {
   // console.log(Url);
 
   const UpdateTask = () => {
-    setLoading(true);
+    setLoading1(true);
     axios
       .put(Url)
       .then((res) => {
         console.log(res);
         setTaskUpdate(res.data.data);
         handleCompleteClick();
-        setLoading(false);
+        setLoading1(false);
       })
       .catch((error) => {
         console.error(error);
-        setLoading(false);
+        setLoading1(false);
       });
   };
 
@@ -158,6 +162,7 @@ function Task() {
         handleStartClick();
         setLoading(false);
         localStorage.setItem("taskCompleted", "false");
+        setStartButtonClicked(true);
         // startTimer(timerRemaining);
       })
       .catch((error) => {
@@ -205,23 +210,8 @@ function Task() {
 
   return (
     <div className="mainnz">
-      {/* {taskinfo === null ? (
-        // Display a pop-up or message when taskinfo is null
-        <div className="no-task-popup">
-          <p>No task has been assigned yet.</p>
-        </div>
-      ) : ( */}
       <div className="task1">
         <h2>{taskinfo?.Title}</h2>
-        {/* <h2>Title</h2> */}
-        {/* <p
-            className={`description ${
-              isCompleted ? "completed" : isActive ? "started" : ""
-            }`}
-          >
-            {description}
-          </p> */}
-
         <p
           className={`description ${
             timeElapsed
@@ -238,35 +228,47 @@ function Task() {
         <h4>Description: {taskinfo?.Description}</h4>
         <button
           disabled={
-            isActive ||
-            isCompleted ||
-            isPending ||
-            localStorage.getItem("taskCompleted") === "true"
+            taskinfo?.isActive === true ||
+            taskinfo?.isComplete === true ||
+            taskupdate?.isComplete == true ||
+            taskupdate?.isPending === true ||
+            taskinfo?.isPending === true ||
+            localStorage.getItem("taskCompleted") === "true" ||
+            timeElapsed ||
+            startButtonClicked
           }
           className="start-btn"
           onClick={acceptTask}
         >
-          {/* {isStarted ? "Resume Task" : "Start Task"} */}
-          {buttonText}
+          {/* {buttonText} */}
+          {loading ? "Loading..." : buttonText}
         </button>
         <button
           className="complete-btn"
           onClick={UpdateTask}
-          disabled={taskinfo?.isActive || taskinfo?.isComplete}
+          disabled={
+            taskinfo?.isActive === true ||
+            taskinfo?.isComplete === true ||
+            taskupdate?.isComplete === true ||
+            taskupdate?.isPending === true ||
+            taskinfo?.isPending === true || 
+            timeElapsed
+          }
         >
-          {loading ? <Loader /> : "Complete Task"}
+          {loading1 ? "Loading..." : "Complete Task"}
+          {/* {taskupdate?.isComplete === true || taskinfo?.isComplete === true ? "Task Completed" : null} */}
         </button>
         <p className="time">
           Time remaining: {Math.floor(timerRemaining / 3600)}:
           {Math.floor((timerRemaining % 3600) / 60)}:{timerRemaining % 60}
         </p>
-        <p className="time">
-          Time allocated:{" "}
-          {taskinfo ? `${taskinfo.taskTimeout / 3600000}hr` : ""}
-        </p>
+        <span className="time">
+          Time allocated:
+          {taskinfo ? `(${(taskinfo.taskTimeout / 3600000).toFixed(2)}) hours` : ""}
+        </span>
       </div>
       {/* )}  */}
-      <div className="status">
+      {/* <div className="status">
         <div>
           {taskinfo?.isActive === true
             ? "Active" && <div className="bluebar"></div>
@@ -285,7 +287,7 @@ function Task() {
         ) : taskupdate?.isPending === true ? (
           <div className="pinkbar"></div>
         ) : null}
-      </div>
+      </div> */}
     </div>
   );
 }

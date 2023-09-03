@@ -16,21 +16,31 @@ import { FcAcceptDatabase } from "react-icons/fc";
 import { CgDetailsMore } from "react-icons/cg";
 import Authenticate2 from "../../../Authentication/Authenticate2";
 import AllTaskDesc from "./AcceptTask/AllTaskDesc/AllTaskDesc";
+import UserChangePassword from "../../Pages/Profile/UserChangePassword/UserChangePassword";
 
 const UserDashRight = () => {
   const [openSiderBar, setOpenSideBar] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate();
   const User = useSelector((state) => state.stores.formDataWriter);
+  const Uname = User.UserName;
+  const [selectedSection, setSelectedSection] = useState("Welcome to CoreNet");
+  const [show, setShow] = useState(false);
 
   const handlecloseMobile = () => {
     setOpenSideBar(false);
   };
 
-  const Navigate = (path) => {
+  const Navigate = (path, sectionTitle) => {
     navigate(path);
+    setSelectedSection(sectionTitle);
     handlecloseMobile();
   };
+
+  // const Navigate = (path) => {
+  //   navigate(path);
+  //   handlecloseMobile();
+  // };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,7 +84,7 @@ const UserDashRight = () => {
               <div className="content">
                 <div
                   className="newTask"
-                  onClick={() => Navigate("/userpage/accepttask")}
+                  onClick={() => Navigate("/userpage/accepttask", "All Task")}
                 >
                   <div className="newTaskIcon">
                     <FcAcceptDatabase className="newTaskIconContent" />
@@ -87,7 +97,7 @@ const UserDashRight = () => {
 
                 <div
                   className="newTask"
-                  onClick={() => Navigate("/userpage/taskupdate")}
+                  onClick={() => Navigate("/userpage/taskupdate", "Task Update")}
                 >
                   <div className="newTaskIcon">
                     <RxUpdate className="newTaskIconContent" />
@@ -100,7 +110,7 @@ const UserDashRight = () => {
 
                 <div
                   className="newTask"
-                  onClick={() => Navigate("/userpage/usertaskdetail")}
+                  onClick={() => Navigate("/userpage/usertaskdetail", "Task Detail")}
                 >
                   <div className="newTaskIcon">
                     <CgDetailsMore className="newTaskIconContent" />
@@ -130,14 +140,28 @@ const UserDashRight = () => {
       <div className="userDashBoardHolder">
         <div className="UserDashRightHeader">
           <div className="UserDashRightHeader_Wrap">
-            <h3
-              onClick={() => Navigate("/userpage/userprofile")}
-              style={{ cursor: "pointer" }}
-            >
-              {User.UserName}
-            </h3>
-            {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null}
-            <p className="UserNotificationIcon">Notify</p>
+          <div className="optUser11" onClick={() => setShow(!show)}>
+            {Uname?.charAt(0)}
+          </div>
+          {/* {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null} */}
+          {selectedSection !== "Welcome to CoreNet"
+            ? selectedSection
+            : "Welcome To CoreNet"}
+            <h3 style={{ cursor: "pointer" }}>{User.UserName}</h3>
+          {show ? (
+            <div className="userprofile11">
+              <ul className="userbox11">
+                {User ? (
+                  <li
+                    // onClick={() => Navigate("/adminpage/profile", "Profile")}
+                    onClick={() => Navigate("/userpage/Userprofile", "Profile")}
+                  >
+                    Profile
+                  </li>
+                ) : null}
+              </ul>
+            </div>
+          ) : null}
             <div className="UserUserIcon">
               {openSiderBar ? (
                 ""
@@ -155,6 +179,7 @@ const UserDashRight = () => {
           <Routes>
             <Route element={<Authenticate2 />}>
             <Route path="/usertaskdetail" element={<UserTaskDetail />} />
+            <Route path="/userchangepassword" element={<UserChangePassword />} />
             <Route path="/userdashhome" element={<UserDashHome />} />
             <Route path="/accepttask/" element={<AcceptTask />} />
             <Route path="/alltaskdesc/:id" element={<AllTaskDesc />} />

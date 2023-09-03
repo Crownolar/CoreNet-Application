@@ -239,7 +239,7 @@ const landingPage = () => {
           <h1>See Your team Assignment Progress In One Place</h1>
           <p>Your One-Stop Solution for Writing and Editing</p>
           <div className="cta-button" onClick={() => Nav("../login")}>
-            login
+            sign in
           </div>
         </header>
 

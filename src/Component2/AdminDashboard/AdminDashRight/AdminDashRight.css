@@ -20,6 +20,10 @@
     align-items: center;
     justify-content: space-between;
     /* background-color: pink; */
+    align-self: center;
+}
+.AdminDashRightHeader_Wrap h3{
+  margin-bottom: 15px;
 }
 /* HomeDashboard.css */
 
@@ -143,6 +147,7 @@
     height: 15%;
     /* background-color: black; */
     color: white;
+    gap: 10px;
 }
 .Admintask:hover{
     background-color: #0455B4;
@@ -152,6 +157,51 @@
     width: 100%;
     height: 10%;
     color: #0455B4;
+}
+.optUser1{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  color: #0455B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  /* margin-left: 0px; */
+}
+.userprofile{
+  width: 22%;
+  height: 15%;
+  background: white;
+  position: absolute;
+  top: 10%;
+  left: 1.5%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 320ms ease-in ;
+  padding: 10px;
+}
+
+.userbox{
+  font-size: 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.userbox li{
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5%;
+  color: #0455B4;
+  cursor: pointer;
 }
 }
 
@@ -239,5 +289,50 @@
     align-items: center;
     cursor: pointer;
     color: white;
+  }
+  .optUser1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    color: #0455B4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    /* margin-left: 0px; */
+  }
+  .userprofile{
+    width: 18%;
+    height: 15%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all 320ms ease-in ;
+    padding: 10px;
+  }
+  
+  .userbox{
+    font-size: 15px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .userbox li{
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5%;
+    color: #0455B4;
+    cursor: pointer;
   }
 }

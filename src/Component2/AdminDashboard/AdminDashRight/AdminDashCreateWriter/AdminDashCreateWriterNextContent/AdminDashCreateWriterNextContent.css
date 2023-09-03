@@ -1,7 +1,7 @@
 .signup-form-container {
     /* max-width: 400px; */
     width: 60vw;
-    height: 70vh;
+    height: 80vh;
     border: 2px solid  #0455B4;
     display: flex;
     flex-direction: column;
@@ -9,9 +9,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 20px;
-    /* border: 1px solid #ccc; */
     border-radius: 5px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   }
   
   h2 {
@@ -20,7 +18,7 @@
     color: #0455B4;
   }
   
-  form {
+  .FORM {
     width: 80%;
     height: 90%;
     /* background-color: pink; */
@@ -32,7 +30,7 @@
     position: relative;
   }
   
-  input {
+  .FORM input {
     width: 100%;
     height: 15%;
     padding: 10px;
@@ -40,11 +38,12 @@
     border: 1px solid #0455B4;
     border-radius: 3px;
     border-top: none;
-      border-left: none;
-      border-right: none;
+    border-left: none;
+    border-right: none;
     outline: none;
+    background-color: transparent;
   }
-  form .Show{
+  .FORM .Show{
     position: absolute;
     top: 70%;
     left: 95%;
@@ -61,7 +60,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+   button:hover {
     background-color: #0056b3;
   }
   /* Add this CSS to your component's stylesheet or a separate CSS file */

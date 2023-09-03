@@ -72,7 +72,7 @@ const Login = () => {
     <div className="AdminLoginPage">
       {verifyAlert && (
         <div className="popup">
-          <p>Check your Email for verification</p>
+          <p style={{color: "black"}}>Check your Email for verification</p>
         </div>
       )}
       <div className="SignWrap">
@@ -83,14 +83,13 @@ const Login = () => {
           <div className="SignInWrap">
             <div className="signText">
               <h3>Get Started with coreNet</h3>
-              <p style={{color: "black"}}>
+              <p>
                 Didn't receive an Email?{" "}
                 <span
-                  style={{ color: "#0455B4" }}
                   onClick={() => Nav("/adminresendemailverification")}
                 >
                   Resend verification Email
-                </span>{" "}
+                </span>
               </p>
             </div>
             <div className="input">
@@ -154,7 +153,6 @@ const Login = () => {
                 <p>
                   Don't have an account yet?
                   <span
-                    style={{ cursor: "pointer", color: "#0455B4" }}
                     onClick={() => Nav("/signup")}
                   >
                     Sign Up

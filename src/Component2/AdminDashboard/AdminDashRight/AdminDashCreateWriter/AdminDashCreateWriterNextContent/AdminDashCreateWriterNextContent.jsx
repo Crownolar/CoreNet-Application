@@ -69,7 +69,7 @@ export default function AdminCreateWriter({ editorID }) {
           <p>{validationErrors}</p>
         </div>
       )}
-        <form>
+        <form className="FORM">
         
           <input
             placeholder="Full Name"

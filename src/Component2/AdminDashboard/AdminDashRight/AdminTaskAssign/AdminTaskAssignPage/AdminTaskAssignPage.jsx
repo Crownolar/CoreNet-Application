@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AdminTaskAssignPAge.css";
 // import "../AdminTaskAssignPage/AdminTaskAssignPage.css"
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTaskId } from "../../../../../Redux/ActionState/ActionState";
 import { useTimer } from "../../../../../Authentication/ContextApi/TimeContext/TimeContext";
@@ -23,6 +23,7 @@ const AdminTaskAssignPage = () => {
   const dispatch = useDispatch()
   const EditorID = user.editorId;
   const { id } = useParams();
+  const Nav = useNavigate()
   console.log(id);
   const { startTimer, timerRemaining } = useTimer();
 
@@ -52,11 +53,6 @@ const AdminTaskAssignPage = () => {
           dispatch(updateTaskId(res.data.data))
           setStatus(res.data.data);
           setActiveTaskIndex(tasks.length);
-          // setRemainingTime(taskTimeout * 60 * 60);
-          // startTimer(taskTimeout * 60 * 60);
-          // if (timerActive) {
-          //   setTimerRemaining(taskTimeout);
-          // }
         })
         .catch((error) => {
           console.error("Error assigning task:", error);
@@ -137,7 +133,7 @@ const AdminTaskAssignPage = () => {
       </div>
       <div className="task-list">
         {tasks.map((task, index) => (
-          <div className="task-card" key={index}>
+          <div className="task-card12" key={index}>
             <h3>{task.Title}</h3>
             <p>{task.Description}</p>
             <p>Timeout: {task.taskTimeout}</p>

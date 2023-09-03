@@ -17,11 +17,13 @@ const ContactUs = () => {
         <h1>Contact Us</h1>
 
         <div class="contact-cards">
-          <div class="contact-card">
+          <div class="contact-card1">
             <i class="fas fa-envelope">
               <MdOutgoingMail />
             </i>
-            <p>email@example.com</p>
+            <a href="mailto:CoreNetapplication@gmail.com" style={{textDecoration: "none", color: "#333"}}>
+                CoreNetapplication@gmail.com
+              </a>
           </div>
 
           <div class="contact-card">
@@ -29,7 +31,7 @@ const ContactUs = () => {
               {" "}
               <BsTelephoneFill />
             </i>
-            <p>123-456-7890</p>
+            <p>09082373084</p>
           </div>
 
           <div class="contact-card">

@@ -138,7 +138,7 @@ const UserLogin = () => {
             <div className="signText">
               {/* <h1>Sign In</h1> */}
               <h2>Get Started with coreNet</h2>
-              <p>
+              <p style={{color: "black"}}>
               Didn't receive an Email?{" "}
               <span style={{color: "#0455B4"}} onClick={Resend}>Resend verification Email</span>{" "}
             </p>

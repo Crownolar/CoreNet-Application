@@ -1,7 +1,7 @@
 .AdminLoginPage{
     width: 100%;
     height: 99.2vh;
-    /* background-color: rgb(254, 9, 50) ; */
+    background-color: white ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,6 +70,23 @@
     justify-content: center;
     gap: 10px;    
     color: #0455B4;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.signText h3{
+    color: #0455B4;
+}
+
+.signText p{
+    color: black;
+}
+.signText span{
+    color: #0455B4;
+}
+.signText span:hover{
+    color: #0455B4;
+    text-decoration: underline;
 }
 
 .input{
@@ -80,7 +97,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .forgotpassword{
@@ -89,6 +106,18 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: #0455B4;
+    /* background-color: red; */
+    padding-left: 70px;
+    padding-top: 20px;
+}
+
+.forgotpassword p:hover{
+    color: #0455B4;
+    text-decoration: underline;
+}
+
+.forgotpassword p{
     color: #0455B4;
 }
 
@@ -145,16 +174,17 @@
     height: 100%;
     outline: none;
     padding-left: 5px;
-    border-radius: 0;
+    border-radius: 3px;
+    border-bottom: 1px solid #0455B4;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     background-color: transparent;
 }
 
 .SignInInputPassword .Show{
-    font-size: 27px;
+    font-size: 22px;
     color: #0455B4;
     cursor: pointer;
     position: absolute;
@@ -178,11 +208,11 @@
     height: 100%;
     outline: none;
     padding-left: 5px;
-    border-radius: 0;
+    border-radius: 3px;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #0455B4;
     background-color: transparent;
 }
 
@@ -200,12 +230,6 @@
 .ETextCheckbox input{
     width: 5%;
     height: 50%;
-}
-
-.ETextCheckbox span{
-    /* border: 1px solid #0455B4; */
-    /* font-size: 20px; */
-    margin-bottom: 7px;
 }
 
 .EText1{
@@ -235,9 +259,17 @@
     padding-left: 50px;
 }
 
-.forgotpassword{
-    padding-left: 70px;
+.EText4 p{
+    color: black;
 }
+.EText4 span{
+    color: #0455B4;
+    cursor: pointer;
+}
+.EText4 span:hover{
+    text-decoration: underline;
+}
+
 
 .AdminwelcomeMssg {
     width: 100%;

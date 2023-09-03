@@ -7,7 +7,11 @@
     text-align: center;
     margin: 20px;
   }
-  
+
+  .task1 p{
+    color: black;
+  }
+
   .start-btn,
   .complete-btn {
     background-color: #3498db;
@@ -17,6 +21,16 @@
     padding: 8px 16px;
     margin: 4px;
     cursor: pointer;
+  }
+
+  .start-btn:disabled,
+  .complete-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .task-timer {
+    flex: 0.2;
   }
   
   .description {
@@ -35,7 +49,6 @@
 .status{
     width: 40%;
     height: 50%;
-    /* background-color: blue; */
     display: flex;
     align-items: center;
     gap: 30px;
@@ -59,7 +72,6 @@
     height: 30px;
     border-radius: 50%;
 }
-/* TaskUpdateWeb.css */
 .no-task-popup {
     position: absolute;
     top: 50%;
@@ -86,7 +98,6 @@
     .mainnz{
         width: 100%;
         height: 90vh;
-        /* background-color: pink; */
         padding-top: 20px;
         padding-left: 10%;
     }
@@ -117,7 +128,6 @@
     .mainnz{
       width: 100%;
       height: 100%;
-      /* background-color: yellow; */
       padding-right: 30%;
     }
     .task{
@@ -127,7 +137,79 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      /* background-color: aqua; */
   }
   }
   
+
+   /* .task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .task-details {
+    flex: 1;
+  }
+  
+  .task-actions {
+    flex: 0.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .start-btn,
+  .complete-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0455b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .start-btn:disabled,
+  .complete-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .task-timer {
+    flex: 0.2;
+  }
+  
+  .time-remaining,
+  .time-allocated {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .task-status {
+    flex: 0.1;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .bluebar {
+    width: 100%;
+    height: 3px;
+    background-color: #0455b4;
+    margin-top: 5px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .started {
+    color: #00a000;
+  }
+   */

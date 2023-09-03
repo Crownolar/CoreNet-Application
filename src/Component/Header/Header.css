@@ -36,6 +36,8 @@ header{
 .centerNav{
     width: 40%;
     height: 80%;
+    /* background-color: red; */
+    padding-top: 20px;  
 }
 
 .centerNav ul{
@@ -108,6 +110,7 @@ header{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    /* font-size: 20px; */
 }
 
 .LogSign{

@@ -26,27 +26,38 @@
   }
   
   .task-list {
+    width: 100%;
+    height: 40vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    /* border: 1px solid #0455B4; */
+  }
+
+  .task-list::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
   }
   
-  .task-list .task-card {
+  .task-list .task-card12 {
     background-color: #f5f5f5;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: none;
   }
   
-  .task-list h2 {
+  .task-list .task-card12 h2 {
     text-align: center;
   }
   
-  .task-list .task-card h3 {
+  .task-list .task-card12 h3 {
     margin: 0;
+    color: black;
   }
   
-  .task-list  .task-card p {
+  .task-list  .task-card12 p {
     margin: 5px 0;
     font-size: 14px;
     color: #666;
@@ -79,6 +90,32 @@ select {
   font-size: 14px;
   width: 60px;
 }
+
+.task-card h3{
+  color: black;
+}
+
+.description {
+  font-size: 16px;
+  color: #333;
+  /* Add your default styles here */
+}
+
+.started {
+  color: #00a000; /* Green color for started tasks */
+  /* Add any additional styles for started tasks here */
+}
+
+.completed {
+  color: #0455b4; /* Blue color for completed tasks */
+  /* Add any additional styles for completed tasks here */
+}
+
+.time-elapsed {
+  color: #ff0000; /* Red color for time-elapsed tasks */
+  /* Add any additional styles for time-elapsed tasks here */
+}
+
 
 
 .popup {

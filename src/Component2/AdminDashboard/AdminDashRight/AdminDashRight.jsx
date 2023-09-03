@@ -95,7 +95,7 @@ const AdminDashRight = () => {
               className="Admintask"
             >
               <BiTask />
-              <p> Task Overview</p>
+              <span> Task Overview</span>
             </div>
             <div
               onClick={() =>
@@ -104,7 +104,7 @@ const AdminDashRight = () => {
               className="Admintask"
             >
               <GoTasklist />
-              <p>Task Assignment</p>
+              <span>Task Assignment</span>
             </div>
             <div
               onClick={() =>
@@ -113,7 +113,7 @@ const AdminDashRight = () => {
               className="Admintask"
             >
               <MdAddTask />
-              <p> Create writer</p>
+              <span> Create writer</span>
             </div>
             <div
               onClick={() =>
@@ -122,7 +122,7 @@ const AdminDashRight = () => {
               className="Admintask"
             >
               <BsListTask />
-              <p>All writers</p>
+              <span>All writers</span>
             </div>
           </div>
           <div
@@ -130,7 +130,7 @@ const AdminDashRight = () => {
             onClick={() => Navigate("../signout")}
           >
             <PiSignOut />
-            <p>Sign Out</p>
+            <span>Sign Out</span>
           </div>
         </div>
       </div>
@@ -144,10 +144,9 @@ const AdminDashRight = () => {
           <div className="optUser1" onClick={() => setShow(!show)}>
             {Uname?.charAt(0)}
           </div>
-          {/* {User && User.UserName ? <h4>Welcome To CoreNet</h4> : null} */}
           {selectedSection !== "Welcome to CoreNet"
             ? selectedSection
-            : "Welcome To CoreNet"}
+            : ""}
             <h3 style={{ cursor: "pointer" }}>{User.UserName}</h3>
           {show ? (
             <div className="userprofile">

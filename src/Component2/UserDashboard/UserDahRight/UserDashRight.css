@@ -21,8 +21,59 @@
     align-items: center;
     justify-content: space-between;
 }
+.UserDashRightHeader_Wrap h3{
+  margin-bottom: 15px;
+}
 .UserUserIcon{
     display: none;
+}
+
+.optUser11{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  color: #0455B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  /* margin-left: 0px; */
+}
+
+.userprofile11{
+  width: 7%;
+  height: 15%;
+  background: white;
+  position: absolute;
+  color: #0455B4;
+  top: 10%;
+  left: 20.5%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 320ms ease-in ;
+  padding: 10px;
+}
+
+.userbox11{
+  font-size: 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.userbox11 li{
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5%;
+  color: #0455B4;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 426px){
@@ -70,7 +121,7 @@
         padding-left: 26%;
         /* background-color: green; */
     }
-    .content{
+    .contentHolder .content{
         width: 100%;
         height: 80%;
         gap: 13px;
@@ -173,7 +224,7 @@
         /* background-color: gray; */
         padding-left: 26%;
     }
-    .content{
+    .contentHolder .content{
         width: 100%;
         height: 70%;
         background-color: #0455B4;
@@ -216,6 +267,12 @@
         padding-right: 20%;
         /* background-color: red; */
       }
+      
+      .UserDashRightHeader_Wrap h3{
+        display: none;
+      }
+      
+      
       /* .logoimage{
         width: 50%;
         height: 50%;

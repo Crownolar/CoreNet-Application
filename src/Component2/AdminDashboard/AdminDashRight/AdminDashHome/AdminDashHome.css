@@ -13,6 +13,7 @@
   .DashboardHeader h1 {
     font-size: 24px;
     margin-bottom: 5px;
+    color: black;
   }
   
   .DashboardHeader p {
@@ -34,6 +35,10 @@
     margin-bottom: 20px;
     flex-basis: calc(50% - 10px);
   }
+
+  .TaskAssignment p, .WriterManagement p {
+    color: #333;
+  }
   
   .TaskAssignment img,
   .WriterManagement img {
@@ -50,20 +55,25 @@
       height: 90vh;
       /* background-color: #5ff2ef; */
       /* padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+      border-radius: 8px; */
+      box-shadow:none; 
     }
     .DashboardContent{
-      /* background-color: gray; */
+      /* background-color: rgb(251, 90, 90); */
       width: 100%;
-      height: 80%;
+      height: 100%;
       display: flex;
       flex-wrap: wrap;
     }
-    .TaskAssignment, .WriterManagement{
-      /* background-color: rgb(7, 77, 77); */
+    .TaskAssignment{
       width: 100%;
       height: 100%;
+      /* flex-basis: calc(80% - 70px) */
+    }
+    .WriterManagement{
+      width: 100%;
+      height: 100%;
+      /* flex-basis: calc(80% - 70px) */
     }
     .TaskAssignment h2,
     .WriterManagement h2{

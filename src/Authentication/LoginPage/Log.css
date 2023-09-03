@@ -216,7 +216,7 @@
         height: 20%;
         /* background-color: pink; */
         text-align: center;
-        margin-bottom: 15%;
+        margin-bottom: 10%;
     }
     .signText p span{
         color: rgb(66, 93, 167);
@@ -306,11 +306,6 @@
         color: white;
         cursor: pointer;
     }
-    .forgotpassword{
-        width: 100%;
-        padding-left: 20px;
-        /* background-color: black; */
-    }
     .EText4{
         width: 100%;
         padding-left: 20px;
@@ -334,6 +329,12 @@
     .forgotpassword{
         width: 100%;
         height: 10%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #0455B4;
         /* margin: 20px; */
+        padding-top: 20px;
+        /* background-color: orange; */
     }
 }
