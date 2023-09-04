@@ -1,11 +1,29 @@
+.mainnz{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .task1 {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.305);
+  text-align: center;
+  border-radius: 8px;
+  gap: 20px;
+
+    /* background-color: white;
+    
+    
     padding: 20px;
     width: 300px;
-    text-align: center;
-    margin: 20px;
+    
+    margin: 20px; */
   }
 
   .task1 p{
@@ -14,11 +32,13 @@
 
   .start-btn,
   .complete-btn {
+    width: 30%;
+    height: 12%;
     background-color: #3498db;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 8px 16px;
+    /* padding: 8px 16px; */
     margin: 4px;
     cursor: pointer;
   }
@@ -98,8 +118,6 @@
     .mainnz{
         width: 100%;
         height: 90vh;
-        padding-top: 20px;
-        padding-left: 10%;
     }
     .task{
         width: 300px;
@@ -111,11 +129,13 @@
     }
     .start-btn,
   .complete-btn {
+    width: 50%;
+    height: 12%;
     background-color: #0455B4;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 12px 16px;
+    /* padding: 12px 16px; */
     margin: 4px;
     cursor: pointer;
   }

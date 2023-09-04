@@ -95,7 +95,7 @@
     /* background-color: #0455B4; */
     background-color: white;
     animation: fadeInRight;
-    animation-duration: 3s;
+    animation-duration: 5s;
     /* color: #0455B4; */
     
 }
@@ -172,7 +172,7 @@
   /* margin-left: 0px; */
 }
 .userprofile{
-  width: 22%;
+  width: 30%;
   height: 15%;
   background: white;
   position: absolute;
@@ -222,7 +222,7 @@
     background-color: #0455B4;
     z-index: 1000;
     overflow-y: auto;
-    animation: fadeInRight 3s;
+    animation: fadeInRight 2.3s;
 
     /* width: 80%;
     display: flex;
@@ -304,7 +304,7 @@
     /* margin-left: 0px; */
   }
   .userprofile{
-    width: 18%;
+    width: 22%;
     height: 15%;
     background: white;
     position: absolute;

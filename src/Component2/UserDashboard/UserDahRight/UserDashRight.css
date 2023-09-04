@@ -101,7 +101,7 @@
     background-color: #0455B4;
     z-index: 1000;
     overflow-y: auto;
-    animation: fadeInRight 2.5s;
+    animation: fadeInRight 2.3s;
     position: relative;
     }
     .AdminSideBarCloseIcon{

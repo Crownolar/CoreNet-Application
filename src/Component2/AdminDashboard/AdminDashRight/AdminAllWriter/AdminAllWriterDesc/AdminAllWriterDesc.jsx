@@ -48,7 +48,7 @@ const AdminAllWriterDesc = () => {
           <p>{writersDescriptions.FullName}</p>
           <p>{writersDescriptions.Email}</p>
         </div>
-        <button className="btn" onClick={deleteWriter}>Delete</button>
+        <button className="btns" onClick={deleteWriter}>Delete</button>
       </div>
     </div>
   );

@@ -86,10 +86,12 @@
 }
 
 .developers-section-text {
-  width: 23%;
+  width: 50%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  color: black;
+  padding-left: 40px;
 }
 
 .developer img {

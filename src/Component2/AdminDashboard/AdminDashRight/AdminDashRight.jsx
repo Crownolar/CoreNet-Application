@@ -64,10 +64,6 @@ const AdminDashRight = () => {
   const MobileDropDown = openSiderBar && (
     <div
       className="Adminsidebar_MobileView"
-      style={{
-        animation: openSiderBar ? null : "fadeInRight",
-        animationDuration: openSiderBar ? null : "0.01s",
-      }}
     >
       <div className="AdminSideWrap">
         <div className="Adminsidebarlogo">

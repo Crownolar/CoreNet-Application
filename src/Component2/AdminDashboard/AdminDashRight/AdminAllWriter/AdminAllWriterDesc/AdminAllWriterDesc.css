@@ -30,19 +30,19 @@
     color: #666;
   }
   
-  .user-card1 .btn {
-    width: 20%;
-    /* height: 20%; */
+  .user-card1 .btns {
+    width: 15%;
+    height: 7vh;
     background-color: #dc3545;
     color: white;
     border: none;
-    padding: 15px 16px;
+    /* padding: 15px 16px; */
     border-radius: 4px;
     cursor: pointer;
   }
   
   /* Mobile styles */
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .user-card1 {
       flex-direction: column;
       align-items: flex-start;
@@ -53,9 +53,17 @@
       margin-top: 20px;
     }
   
-    .btn {
+    .user-card1 .btns {
       margin-top: 20px;
-      width: 100%;
+      /* width: 100%; */
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 426px){
+    .user-card1 .btns {
+      width: 20vw;
+      height: 8vh;
       text-align: center;
     }
   }

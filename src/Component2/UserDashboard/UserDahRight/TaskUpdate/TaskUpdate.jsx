@@ -112,9 +112,12 @@ function Task() {
       localStorage.setItem("taskCompleted", "true");
     } else if (!isActive) {
       setDescription("Task has not been started yet.");
-    } else if (isPending) {
+    } 
+    else if (isPending) {
       setDescription("Task is already completed.");
       setIsPending(true);
+    } else if(!isActive || !isCompleted || !isPending){
+      setDescription("No Task has been assigned yet")
     }
   };
 
@@ -256,7 +259,6 @@ function Task() {
           }
         >
           {loading1 ? "Loading..." : "Complete Task"}
-          {/* {taskupdate?.isComplete === true || taskinfo?.isComplete === true ? "Task Completed" : null} */}
         </button>
         <p className="time">
           Time remaining: {Math.floor(timerRemaining / 3600)}:
@@ -267,27 +269,6 @@ function Task() {
           {taskinfo ? `(${(taskinfo.taskTimeout / 3600000).toFixed(2)}) hours` : ""}
         </span>
       </div>
-      {/* )}  */}
-      {/* <div className="status">
-        <div>
-          {taskinfo?.isActive === true
-            ? "Active" && <div className="bluebar"></div>
-            : taskinfo?.isComplete === true
-            ? "Completed"
-            : taskinfo?.isActive === true && taskinfo.isComplete === true
-            ? "Achieved"
-            : null}
-        </div>
-        {taskupdate?.isActive === true && taskupdate.isComplete === true ? (
-          "Done"
-        ) : taskupdate?.isComplete == true ? (
-          <div className="bluebar"></div>
-        ) : taskupdate?.isActive === true && taskupdate?.isComplete === true ? (
-          <div className="pinkbar"></div>
-        ) : taskupdate?.isPending === true ? (
-          <div className="pinkbar"></div>
-        ) : null}
-      </div> */}
     </div>
   );
 }

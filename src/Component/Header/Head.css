@@ -287,7 +287,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-around;
+        /* background-color: red; */
+        margin-bottom: 30%;
     }
     
     .centerNav1 ul div {
@@ -311,8 +313,8 @@
         justify-content: center;
     }
     .optUsers{
-        width: 80px;
-        height: 95px;
+        width: 60px;
+        height: 60px;
         font-size: 30px;
         border-radius: 50%;
         background: #000;
