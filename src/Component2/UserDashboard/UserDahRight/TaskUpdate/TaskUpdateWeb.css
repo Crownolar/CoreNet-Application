@@ -144,11 +144,10 @@
   }
   }
 
-  @media screen and (max-width: 362px) {
+  /* @media screen and (max-width: 362px) {
     .mainnz{
       width: 100%;
       height: 100%;
-      padding-right: 30%;
     }
     .task{
       width: 70vw;
@@ -158,7 +157,7 @@
       align-items: center;
       justify-content: center;
   }
-  }
+  } */
   
 
    /* .task-container {
