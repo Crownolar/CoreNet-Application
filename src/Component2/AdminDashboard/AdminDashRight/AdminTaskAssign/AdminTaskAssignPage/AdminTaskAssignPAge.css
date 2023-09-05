@@ -14,7 +14,15 @@
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+    transition: border-color 0.9s ease-in-out; 
   }
+
+.task-form input:focus,
+.task-form textarea:focus {
+  border: 2px solid #0455B4;
+  outline: none; 
+}
+
   
   .task-form button {
     background-color: #0455B4;
