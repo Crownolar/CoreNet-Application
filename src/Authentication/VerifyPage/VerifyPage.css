@@ -26,6 +26,12 @@
     justify-content: center;
     gap: 30px;
 }
+.verificationpageaction h3{
+  color: black;
+}
+.verificationpageaction p{
+  color: black;
+}
 .verificationcontinue{
     width: 100%;
     height: 30%;
@@ -34,6 +40,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.verificationcontinue p{
+  color: black;
 }
 .verificationcontinue button{
     width: 80px;
@@ -58,6 +67,10 @@
     z-index: 1000;
     animation: fadeInOut 3s ease-in-out;
   }
+
+  .popup p{
+    color: black;
+  }
   
   @keyframes fadeInOut {
     0% {
@@ -80,4 +93,36 @@
     color:#0455B4;
   }
 
-  
+  @media screen and (max-width: 426px) {
+    .verifypagewrap{
+      width: 90%;
+    height: 50%;
+    background-color: rgb(36, 104, 163);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .verificationpageaction{
+      text-align: center;
+    }
+    .verificationcontinue{
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .verifypagewrap{
+      width: 90%;
+    height: 50%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .verificationpageaction{
+      text-align: center;
+    }
+  }

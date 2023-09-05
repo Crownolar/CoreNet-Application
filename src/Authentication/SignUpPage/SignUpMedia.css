@@ -113,12 +113,11 @@
         color: #0455B4;
         cursor: pointer;
     }
-    .error-message {
-        color: red;
-        font-size: 10px;
-        margin-top: 5px;
-        z-index: -1;
-      }
+     .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 768px) {

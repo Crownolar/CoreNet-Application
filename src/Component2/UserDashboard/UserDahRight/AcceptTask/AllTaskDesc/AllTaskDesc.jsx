@@ -177,7 +177,7 @@ const AllTaskDesc = () => {
             </div>
           </div>
           </div>
-            <h3>comment: {taskinfo1?.comment?.[0].comment}</h3>
+            {/* <h3>comment: {taskinfo1?.comment?.[0].comment}</h3>
       <div className="comments">
         {comments.map((comment) => (
           <div className="comment" key={comment.id}>
@@ -201,7 +201,7 @@ const AllTaskDesc = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
 
       <br />

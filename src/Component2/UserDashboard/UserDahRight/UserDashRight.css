@@ -43,13 +43,13 @@
 }
 
 .userprofile11{
-  width: 22%;
+  width: 10%;
   height: 15%;
   background: white;
   position: absolute;
   color: #0455B4;
   top: 10%;
-  left: 0.5%;
+  left: 18.5%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 320ms ease-in ;
   padding: 10px;
@@ -270,6 +270,19 @@
       
       .UserDashRightHeader_Wrap h3{
         display: none;
+      }
+
+      .userprofile11{
+        width: 20%;
+        height: 15%;
+        background: white;
+        position: absolute;
+        color: #0455B4;
+        top: 10%;
+        left: 0.5%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: all 320ms ease-in ;
+        padding: 10px;
       }
       
       

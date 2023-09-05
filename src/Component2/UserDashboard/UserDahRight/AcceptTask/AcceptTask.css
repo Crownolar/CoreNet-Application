@@ -16,6 +16,11 @@
   justify-content: space-between;
   }
 
+  .task-card::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
   .task-card-wrap{
     border: 1px solid #e0e0e0;
     padding: 10px;

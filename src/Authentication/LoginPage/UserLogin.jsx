@@ -138,10 +138,10 @@ const UserLogin = () => {
             <div className="signText">
               {/* <h1>Sign In</h1> */}
               <h2>Get Started with coreNet</h2>
-              <p style={{color: "black"}}>
+              {/* <p style={{color: "black"}}>
               Didn't receive an Email?{" "}
               <span style={{color: "#0455B4"}} onClick={Resend}>Resend verification Email</span>{" "}
-            </p>
+            </p> */}
             </div>
             <div className="input">
               <div className="EText">
@@ -188,10 +188,10 @@ const UserLogin = () => {
                 <p onClick={() => Nav("/userforgotpassword")}>Forgot Password?</p>
               </div>
               <div className="EText1">
-              <button onClick={() => Nav("../")}>
+              <button className="Lbtn1" onClick={() => Nav("../")}>
                   Back
                 </button>
-                <button onClick={SignIn}>
+                <button className="Lbtn" onClick={SignIn}>
                   {loading ? <Loader /> : "Sign In"}
                 </button>
               </div>

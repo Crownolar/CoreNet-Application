@@ -91,7 +91,7 @@ const VerifyPage = () => {
             <button onClick={() => Nav("../login")}>Ok</button>
           ) : (
             <p>
-              Didn't receive an Email?{" "}
+              Email verification failed?
               <span style={{color: "#0455B4"}} onClick={Resend}>Resend verification Email</span>{" "}
             </p>
           )}
