@@ -98,7 +98,9 @@ function Task() {
   const { startTimer, stopTimer, timerRemaining } = useTimer();
 
   const handleStartClick = () => {
-    if (!isCompleted && !isPending) setIsActive(true);
+    if (!isCompleted && !isPending);
+    setDescription("Task is in progress.");
+     setIsActive(true);
     startTimer(taskinfo?.taskTimeout / 1000);
   };
 

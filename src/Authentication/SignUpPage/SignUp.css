@@ -114,7 +114,16 @@
     justify-content: space-between;
     /* gap: 270px; */
 }
-.SignUpInputWrap1 button{
+.SignUpInputWrap1 .BTN{
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid #0455B4;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #0455B4;
+}
+.SignUpInputWrap1 .BTN1{
     width: 25%;
     height: 100%;
     background-color: #0455B4;

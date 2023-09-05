@@ -108,7 +108,7 @@ const UserDashRight = () => {
                 <div className="contentSpace"></div>
                 <div className="contentSpace"></div>
 
-                <div
+                {/* <div
                   className="newTask"
                   onClick={() => Navigate("/userpage/usertaskdetail", "Task Detail")}
                 >
@@ -116,7 +116,7 @@ const UserDashRight = () => {
                     <CgDetailsMore className="newTaskIconContent" />
                   </div>
                   <div className="newTaskText"> Task Detail</div>
-                </div>
+                </div> */}
               </div>
 
               <div className="topSpace"></div>

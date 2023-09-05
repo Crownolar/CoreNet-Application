@@ -19,6 +19,7 @@
   }
   .dashboard-header p{
     margin-bottom: 10px;
+    color: black;
   }
   .dashboard-header h2{
    color: black;
@@ -36,7 +37,7 @@
   .task-management,
   .profile-update {
     width: calc(50% - 20px);
-    height: 50%;
+    height: 90%;
     padding: 20px;
     /* background-color: rgb(159, 236, 18); */
     background-color: white;
@@ -60,7 +61,7 @@
   .task-management img,
   .profile-update img {
     width: 100%;
-    height: auto;
+    height: 40%;
     margin-top: 10px;
     border-radius: 5px;
   }
@@ -97,7 +98,7 @@
     }
     .task-management img{
       width: 100%;
-      height: 80%;
+      height: 60%;
       object-fit: cover;
       /* background-color: red; */
       margin-bottom: 60%;

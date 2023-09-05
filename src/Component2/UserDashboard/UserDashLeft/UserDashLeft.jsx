@@ -67,7 +67,7 @@ const [activeTab, setActiveTab] = useState("");
                 <div className='contentSpace'></div>
                 <div className='contentSpace'></div>
 
-                <div 
+                {/* <div 
                   className={`newTask ${
                     activeTab === "usertaskdetail" ? "active" : ""
                   }`}
@@ -78,7 +78,7 @@ const [activeTab, setActiveTab] = useState("");
                   }}>
                   <div className='newTaskIcon'> <CgDetailsMore className='newTaskIconContent' /></div>
                   <div className='newTaskText'> Task Detail</div>
-                </div>
+                </div> */}
 
 
 

@@ -244,7 +244,17 @@
     padding-left: 50px;
 }
 
-.EText1 button{
+.EText1 .Lbtn1{
+    width: 25%;
+    height: 50px;
+    background-color: white;
+    border: 2px solid #0455B4;
+    /* border: none; */
+    border-radius: 7px;
+    color: #0455B4;
+    cursor: pointer;
+}
+.EText1 .Lbtn{
     width: 25%;
     height: 50px;
     background-color: #0455B4;

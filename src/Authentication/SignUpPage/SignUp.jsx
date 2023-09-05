@@ -255,7 +255,7 @@ const SignUp = () => {
                 <button className="BTN" onClick={() => Nav("../")}>
                   Back
                 </button>
-                <button className="BTN" onClick={SignUp}>
+                <button className="BTN1" onClick={SignUp}>
                   {loading ? <Loader /> : "Sign Up"}
                 </button>
               </div>

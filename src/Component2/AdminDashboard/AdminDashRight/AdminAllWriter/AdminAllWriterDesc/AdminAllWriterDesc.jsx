@@ -7,6 +7,7 @@ import { clearWriter } from "../../../../../Redux/ActionState/ActionState";
 
 const AdminAllWriterDesc = () => {
   const [writersDescriptions, setWritersDescriptions] = useState({});
+  const [showPopup, setShowPopup] = useState(false);
   const { id } = useParams();
   console.log(id)
   const dispatch = useDispatch();
@@ -22,6 +23,10 @@ const AdminAllWriterDesc = () => {
     .delete(url)
     .then((res) => {
       console.log(res);
+      setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 5000);
       dispatch(clearWriter(res.data.data))
       Nav("/adminpage/adminallwriter")
     });
@@ -41,6 +46,11 @@ const AdminAllWriterDesc = () => {
 
   return (
     <div className="writerdsc">
+      {showPopup && (
+        <div className="popup">
+          <p>Writer Deleted Succssfully</p>
+        </div>
+      )}
       <div className="user-card1">
         {/* <div className="avatar"></div> */}
         <div className="user-info1">

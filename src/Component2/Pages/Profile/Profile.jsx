@@ -88,7 +88,7 @@ const Profile = () => {
             <div className="ProfileFooter">
               <div className="Del">
                 <button
-                  className="Pbtn"
+                  className="Pbtn1"
                   onClick={() => Nav("/adminpage/admineditpage")}
                 >
                   Edit

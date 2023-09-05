@@ -232,6 +232,16 @@
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
+  .FirName p,
+  .SrName p,
+  .User p,
+  .Email p,
+  .Pass p,
+  .Comp p {
+    color: #333;
+    font-size: 18px;
+  }
   
   .ProfileFooter {
     display: flex;

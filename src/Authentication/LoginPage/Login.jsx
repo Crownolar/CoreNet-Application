@@ -144,8 +144,8 @@ const Login = () => {
                 </p>
               </div>
               <div className="EText1">
-                <button onClick={() => Nav("../")}>Back</button>
-                <button onClick={SignIn}>
+                <button className="Lbtn1" onClick={() => Nav("../")}>Back</button>
+                <button className="Lbtn" onClick={SignIn}>
                   {loading ? <Loader /> : "Sign In"}
                 </button>
               </div>
